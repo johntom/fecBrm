@@ -1,0 +1,146 @@
+<template>
+	<require from="./docs.css"></require>
+	<!-- <section class="customer-orders au-animate"> -->
+	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
+		<h2>
+			<i class="fa fa-folder-open"></i> Addresses for ${currentItem.NAME}
+			<a slot="buttons-slot" class="btn btn-success" click.delegate="addAddress()">
+				<i class="fa fa-plus"></i> Add Address
+			</a>
+		</h2>
+
+
+		<table class="table-condensed table">
+			<thead class="table-header-blue" data-sort="items.bind: currentItem.addresses; cols: ['NAME','ADDRESS','ADDRESS2','CITY']">
+				<tr>
+					<th class="header">NAME </th>
+					<th class="header">ADDRESS </th>
+					<th class="header">ADDRESS2 </th>
+					<th class="header">CITY </th>
+					<th class="header">STATE </th>
+					<th class="header">ZIP </th>
+					<th class="header">PHONE </th>
+					<th class="header">FAX </th>
+					<th class="header">INS TYPE </th>
+					<th class="header">SRV RATE </th>
+					<th class="header">MLAGE RATE </th>
+					<th class="header">CLRCL_RATE </th>
+					<th class="header">PHOTO_RATE </th>
+					<th class="header">FILE_CREATE_CHG </th>
+					<th class="header">DEF_FEE </th>
+          	<th class="header">DIARY_DAYS </th>
+					<th class="header">ACCT_REP-- </th>
+					<th class="header">Cmd </th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+
+
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr repeat.for="address of currentItem.addresses" with.bind="address">
+					<!-- <tr repeat.for="address of currentItem.addresses"> -->
+
+					<td width="200px">
+						<span show.bind="!address.edit">${NAME}</span>
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="NAME">
+					</td>
+					<td width="200px">
+						<span show.bind="!address.edit">${ADDRESS}</span>
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="ADDRESS">
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${ADDRESS2}</span>
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="ADDRESS2">
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${CITY}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="CITY">						</td>
+					</td>
+					<td width="95px">
+						<span show.bind="!address.edit">${STATE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="PHONE">						</td>
+					</td>
+					<td width="95px">
+						<span show.bind="!address.edit">${ZIP}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="ZIP">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${PHONE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="PHONE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${FAX}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="FAX">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${INSURANCE_TYPE}</span>
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="INSURANCE_TYPE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${SERVICE_RATE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="SERVICE_RATE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${MILEAGE_RATE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="MILEAGE_RATE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${CLERICAL_RATE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="CLERICAL_RATE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${PHOTO_RATE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="PHOTO_RATE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${FILE_CREATE_CHARGE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="FILE_CREATE_CHARGE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${DEFAULT_FEE}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="DEFAULT_FEE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!address.edit">${DIARY_DAYS}</span>
+
+						<input show.bind="address.edit" class="form-control input-sm" disabled.bind="!address.edit" type="text" value.bind="DIARY_DAYS">						</td>
+					</td>
+
+					<td width="125px">
+						<span show.bind="!address.edit">${ADJUSTER_NAME}</span>
+						<select show.bind="address.edit" id="adj" class="form-control input-sm" value.two-way="ACCOUNT_REP_ID" change.delegate="selectChanged(address, ACCOUNT_REP_ID)"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.adjusterActiveList" model.bind="opt.ADJUSTER_ID">
+                ${opt.ADJUSTER_NAME} 
+              </option> 
+            </select>
+					</td>
+
+
+					<td width="225px">
+						<button class="btn btn-primary" click.delegate="address.edit=!address.edit">${ !address.edit ? 'Update' : 'Done' }</button>
+						<button class="btn btn-danger" click.delegate="remove(address,$index)">Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</section>
+</template>

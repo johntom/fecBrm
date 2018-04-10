@@ -1,0 +1,18 @@
+<template>
+  <require from="./data-filter.css"></require>
+  <div class="data-filter">
+    <label class="filter-label" for="inputFilter"
+      show.bind="filterLabel">
+        ${filterLabel}
+    </label>  
+    <div class="filter-input input-group">
+      <input name="inputFilter" class="form-control" 
+        value.bind="filter & debounce:800">  
+      <span class="input-group-btn">  
+        <button class="btn btn-default" 
+          click.delegate="clearFilter(filter)">X  
+        </button>  
+      </span>  
+    </div>  
+  </div>
+</template>

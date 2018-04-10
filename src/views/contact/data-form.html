@@ -1,0 +1,64 @@
+<template>
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading}
+		</div>
+		<div class="flex-row-1 ignore">
+			<div class="flex-column-1 data-form">
+				<form>
+					<div class="form-group">
+						<label for="lastName">Last Name</label>
+						<input type="text" id="lastName" class="form-control" value.bind="currentItem.artist.lastName">
+					</div>
+					<div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" id="firstName" class="form-control" value.bind="currentItem.artist.firstName">
+					</div>
+					<div class="form-group">
+						<label for="Title">Title</label>
+						<input type="text" id="Title" class="form-control" value.bind="currentItem.Title">
+					</div>
+					<div class="form-group">
+						<label for="InvYear">Inv. Year</label>
+						<input type="text" id="InvYear" class="form-control" value.bind="currentItem.InvYear">
+					</div>
+					<div class="form-group">
+						<label for="MediumSupport">Medium Support</label>
+						<input type="text" id="MediumSupport" class="form-control" value.bind="currentItem.MediumSupport">
+					</div>
+					<div class="form-group">
+						<label for="MediumText">Medium Text</label>
+						<input type="text" id="MediumText" class="form-control" value.bind="currentItem.MediumText">
+					</div>
+					<div class="form-group">
+						<label for="CurrentLocation">Current Location</label>
+						<input type="text" id="CurrentLocation" class="form-control" value.bind="currentItem.CurrentLocation">
+					</div>
+					<div class="form-group">
+						<label for="Bin">Bin</label>
+						<input type="text" id="Bin" class="form-control" value.bind="currentItem.Bin">
+					</div>
+					<div class="form-group">
+						<label for="Owner">Owner</label>
+						<input type="text" id="Owner" class="form-control" value.bind="currentItem.Owner">
+					</div>
+					<div class="form-group">
+						<label for="MRGLocation">M R G Location</label>
+						<input type="text" id="MRGLocation" class="form-control" value.bind="currentItem.MRGLocation">
+					</div>
+					<div class="form-group">
+						<label for="UnframedHeight">Unframed Height</label>
+						<input type="number" id="UnframedHeight" class="form-control" value.bind="currentItem.UnframedHeight">
+					</div>
+					<div class="form-group">
+						<label for="UnframedWidth">Unframed Width</label>
+						<input type="number" id="UnframedWidth" class="form-control" value.bind="currentItem.UnframedWidth">
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="flex-row-none section-footer">
+			${footer}
+		</div>
+	</section>
+</template>

@@ -1,0 +1,230 @@
+<!-- <require from="./set-attribute"></require>
+	<require from="./typeahead"></require>
+ -->
+<template>
+
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading} Add
+		</div>
+
+		<div class="flex-column-1 overflow-y-auto">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-2">
+
+					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
+						<div class="flex-row-6">
+							<div class="flex-column-1">
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1 ">
+										<label for="LEGAL_NAME">INSURANCE_COMPANY_ID</label> ${appService.currentInsco.INSURANCE_COMPANY_ID}
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="coname">Company Name</label>
+										<input type="text" id="coname" class="form-control input-sm" value.bind="appService.currentInsco.NAME">
+									</div>
+									<!-- <div class="form-group flex-column-1 margin-left-10">
+										<label for="DIARY_DAYS">DIARY_DAYS</label>
+										<input type="text" id="DIARY_DAYS" class="form-control input-sm" value.bind="appService.currentInsco.DIARY_DAYS">
+									</div> -->
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="COMPANY_MEMO">COMPANY_MEMO</label>
+										<input type="text" id="COMPANY_MEMO" class="form-control input-sm" value.bind="appService.currentInsco.COMPANY_MEMO">
+									</div>
+								</div>
+
+								
+
+
+
+
+
+								<div id="bottom-left" class="flex-row-4">
+									<div id="data-form-ext" class="flex-column-1">
+										<div id="data-form-one-to-many-tabs" class="flex-row-none">
+											<div repeat.for="tab of appService.dataFormOneToManyTabs2" class="tab tab-top ${tab.isSelected ? 'tab-selected' : ''}">
+												<div class="tab-box" click.delegate="selectOneToManyTab(tab)">
+													<span>${tab.name}</span>
+												</div>
+											</div>
+										</div>
+
+										<div id="data-form-one-to-many-tab-content overflow-y-hidden" class="data-form flex-row-1" style="background: darkgray;">
+
+											<compose view-model.bind="currentOneToManyTab.viewModel"></compose>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="flex-column-none section-footer">
+			<!-- ${footer} -->
+
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveinsco()">
+                  Save Insurance co
+          </button>
+        </span>
+		</div>
+	</section>
+</template>
+
+<!-- 
+								<div class="flex-row-none">
+
+									<div class="form-group flex-column-1">
+										<label for="NAME_FIRST">Ins Carrier Adjuster</label>
+										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="appService.currentInsco.INSURANCE_CONTACT_ID"
+										 change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
+                       ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
+                      </option> 
+                    </select>
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+
+
+										<label for="NAME">Ins Carrier Address</label>
+										<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="appService.currentInsco.INSURANCE_ADDRESS_ID"
+										 change.delegate="selectChangedIAddr(currentnewItem.INSURANCE_COMPANY_ID)"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of inscoAddresses" model.bind="opt.INSURANCE_COMPANY_ID">
+                        ${opt.ADDRESS}   ${opt.CITY} ${opt.STATE}
+                      </option> 
+                    </select>
+									</div>
+
+
+									<div class="form-group flex-column-1  margin-left-10">
+
+										<label for="NAME_LAST">Last Name</label>
+										<input type="text" id="NAME_LAST" class="form-control input-sm" value.bind="appService.currentInsco.inscontact.NAME_LAST">
+									</div>
+
+								</div>
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1">
+										<label for="lossdescription">Loss DESCRIPTION</label>
+										<textarea name="lossdescription" value.bind="appService.currentInsco.DESCRIPTION" class="form-control input-sm"></textarea>
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="ASSIGNMENT_TYPE">ASSIGNMENT TYPE </label>
+										<input type="text" id="ASSIGNMENT_TYPE" class="form-control input-sm" value.bind="appService.currentInsco.insco.ASSIGNMENT_TYPE">
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="STATUS">Status</label>
+										<select id="STATUS" class="form-control input-sm" value.bind="appService.currentInsco.STATUS"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.statusList" model.bind="opt.value">
+                        ${opt.name} 
+                      </option> 
+                    </select>
+									</div>
+								</div>
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1">
+										<label for="REPORTED">REPORTED</label>
+										<input type="date" id="REPORTED" class="form-control input-sm" value.bind="appService.currentInsco.REPORTED">
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="CLOSED">CLOSED</label>
+										<input type="date" id="CLOSED" class="form-control input-sm" value.bind="appService.currentInsco.CLOSED">
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="EDITED">EDITED</label>
+										<input type="date" id="EDITED" class="form-control input-sm" value.bind="appService.currentInsco.EDITED">
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="RECEIVED">RECEIVED</label>
+										<input type="date" id="RECEIVED" class="form-control input-sm" value.bind="appService.currentInsco.RECEIVED">
+									</div>
+
+								</div>
+							</div>
+						</div>-->
+
+
+<!-- <div id="middle" class="flex-row-none height-10">
+				</div>
+				<div id="bottom" class="flex-row-1">
+				</div> -->
+
+<!-- <div class="form-group flex-column-1 margin-left-10">
+										<label for="firstName">Ins Carrier Adjuster</label>
+										<select id="STATUS" class="form-control input-sm" value.bind="appService.currentClaim.INSURANCE_CONTACT_ID"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.InsurancecompanycontactList" model.bind="opt.INSURANCE_ADJUSTER_ID">
+                        ${opt.name} 
+                      </option> 
+                    </select>
+            
+            
+            			</div> -->
+<!-- <div class="flex-row-none"> -->
+
+
+<!-- <div class="form-group flex-column-1">
+										<label for="adjuster">Adjuster~</label>
+									
+                     <input value.bind="adjuster.ADJUSTER_NAME" 
+                     typeahead="items.bind:appService.adjusterList" type="text" name="adjuster"
+										 class="form-control input-sm" ref="selectAdjusterElement" />
+									</div> -->
+
+<!-- adjusters        typeahead="items.bind:appService.adjusterList" type="text" name="adjuster" -->
+<!-- input.delegate="appService.currentClaim.ADJUSTER_ID = findAdjusterListOption($event.target.value)"> -->
+
+<!-- <div class="form-group flex-column-1  margin-left-10">
+										<label for="state2">Adjuster A</label>
+										<input id="adjuster2" type="text" list.bind="adjusterList & setAttribute" value.bind="appService.currentClaim.ADJUSTER_ID">
+										<datalist id="adjusterList">
+											<option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">${opt.ADJUSTER_NAME}</option>
+										</datalist>
+										${selectedVal.id}
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+
+										<label for="id">Adjuster B</label>
+										<input id="id" type="text" list.bind="id & setAttribute">
+										<datalist id.bind="id">
+											<option repeat.for="opt of appService.adjusterList">${opt.ADJUSTER_NAME}</option>
+										</datalist>
+										${selectedValue.id}
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="testdl">testdl</label>
+										<input id="testdl" type="text" list="myDatalist" input.delegate="selectedValue = findOption($event.target.value)" />
+										<datalist id="myDatalist">
+											<option repeat.for="option of options">${option.name}</option>
+										</datalist>
+										${selectedValue.id}
+									</div>-->
+<!-- </div> -->
+
+
+<!-- <div class="form-group flex-column-1 ">
+
+										<label for="firstName">Ins ADDRESS</label>
+										<input type="text" id="firstName" class="form-control input-sm" value.bind="appService.currentClaim.insco.ADDRESS">
+									</div>
+								 -->
+<!-- <div class="form-group flex-column-1  margin-left-10 ">
+										<label for="state">INSURANCE_COMPANY_ID</label>
+										<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="appService.currentClaim.INSURANCE_COMPANY_ID"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.InsurancecompanyList" model.bind="opt.INSURANCE_COMPANY_ID">
+                        ${opt.NAME} 
+                      </option> 
+                    </select>
+									</div> -->

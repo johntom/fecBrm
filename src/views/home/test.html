@@ -1,0 +1,254 @@
+<template>
+  <section class="au-animate">
+    <div class="section-header flex-row-none">
+      ${heading}
+    </div>
+  <div class="section-content flex-row-1">
+    Main content here..mas.v101
+           <img class="logo" src="http://www.michaelrosenfeldart.com/bundles/exhibitedefault/images/MRG_logo-white.png">
+    
+  </div>  
+  <!-- <a href="#" id="username" data-type="text" data-pk="1" data-url="/post" data-title="Enter username">superuser</a> -->
+ 
+<!--  -->
+<div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Position:</label>
+        <select class="form-control" value.bind="position">
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+            </select>
+      </div>
+
+      <div class="form-group">
+        <label>Trigger:</label>
+        <select class="form-control" value.bind="trigger">
+                <option value="mouseover">Mouseover</option>
+                <option value="focus">Focus</option>
+                <option value="click">Click</option>
+                <option value="outsideClick">Outside click</option>
+                <option value="none">None</option>
+            </select>
+      </div>
+
+      <div class="form-group">
+        <label>Text:</label>
+        <input type="text" class="form-control" value.bind="text" />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <!-- <button class="btn btn-default" aubs-tooltip="text.bind: text;
+                                                    position.bind: position;
+                                                    trigger.bind: trigger">
+            Dynamic Tooltip
+        </button> -->
+      <!-- <p>I'm a paragraph with a <strong aubs-tooltip="text:Custom Class; class: tooltip, custom-tooltip">Tooltip</strong>
+              with custom class</p>
+               -->
+      <button class="btn btn-default au-target tether-target 
+        tether-enabled tether-element-attached-bottom tether-element-attached-center tether-target-attached-top tether-target-attached-center tether-abutted tether-abutted-top"
+        aubs-tooltip="text.bind: text;
+        position.bind: position;
+        trigger.bind: trigger" au-target-id="79">Dynamic Tooltip</button>
+
+      <p>I'm a paragraph with a <strong aubs-tooltip="text:Custom Class; class: tooltip, custom-tooltip" class="au-target tether-target tether-enabled tether-abutted tether-abutted-top tether-element-attached-bottom tether-element-attached-center tether-target-attached-top tether-target-attached-center"
+          au-target-id="80">Tooltip</strong> with custom class</p>
+    </div>
+
+
+  </div>
+  <div class="row">
+    <a class="btn btn-default" aubs-btn-checkbox="state.bind: collapsed">Toggle Collapse</a>
+
+    <hr>
+    <p aubs-collapse="collapsed.bind: collapsed">
+      Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
+      Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+      Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip
+      quis cardigan american apparel, butcher voluptate nisi qui.
+    </p>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Position:</label>
+        <select class="form-control" value.bind="position">
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+            </select>
+      </div>
+
+      <div class="form-group">
+        <label>Trigger:</label>
+        <select class="form-control" value.bind="trigger">
+                <option value="mouseover">Mouseover</option>
+                <option value="focus">Focus</option>
+                <option value="click">Click</option>
+                <option value="outsideClick">Outside click</option>
+                <option value="none">None</option>
+            </select>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <button class="btn btn-default" aubs-popover="title:My Title <i class='fa fa-heart'></i>;
+                                                    body:<a href='#/popover'>Awesome</a> <strong>Content</strong>;
+                                                    position.bind: position;
+                                                    trigger.bind: trigger;
+                                                    on-toggle.call:toggled(open)">
+            Basic Popover
+        </button>
+
+      <br/> <br/>
+
+      <button class="btn btn-primary" aubs-popover="custom-popover.bind: customPopover;
+                                                    position.bind: position;
+                                                    trigger.bind: trigger;
+                                                    is-open.bind:isOpen;">
+            Custom Popover
+        </button>
+
+      <div ref="customPopover">
+        <h3 class="popover-title">
+          Enter Password <i class="fa fa-lock"></i>
+        </h3>
+
+        <div class="popover-content">
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+
+          <button class="btn btn-default" click.delegate="isOpen = false"> Unlock</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p>
+    <a class="btn btn-default" aubs-btn-checkbox="state.bind: closeOthers">Close Others</a>
+    <a class="btn btn-default" aubs-btn-checkbox="state.bind: firstTabState">Toggle First</a>
+    <a class="btn btn-default" aubs-btn-checkbox="state.bind: secondDisabled">Disable Second</a>
+  </p>
+
+  <aubs-accordion close-others.bind="closeOthers">
+    <aubs-accordion-group title="Collapsible Group Item #1" is-open.bind="firstTabState">
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+      non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+      aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+      beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+      craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable
+      VHS.
+    </aubs-accordion-group>
+
+    <aubs-accordion-group title="Collapsible Group Item #2" disabled.bind="secondDisabled">
+      You can disable the panel header preventing the item to be manually toggled.
+    </aubs-accordion-group>
+
+    <aubs-accordion-group title="Markup Title <i class='fa fa-heart'></i>">
+      You can use html markup in the Acoordion group title.
+    </aubs-accordion-group>
+
+    <aubs-accordion-group title="With Panel Class" panel-class="panel-danger">
+      You can specify the class for the panel in the accordion group.
+    </aubs-accordion-group>
+
+    <aubs-accordion-group>
+      <template replace-part="header">
+        <h4 class="panel-title">
+          <a click.delegate="toggle()">
+                    Replaceable Header <i class="fa fa-star"></i>
+                </a>
+
+          <div class="pull-right">
+            <button class="btn btn-danger btn-xs" click.delegate="deleteItem()">
+                        <i class="fa fa-trash"></i>
+                    </button>
+          </div>
+        </h4>
+      </template>
+      You can replace the Accordion Group Header.
+    </aubs-accordion-group>
+  </aubs-accordion>
+
+  <div class="btn-group">
+    <a class="btn btn-default" aubs-btn-radio="model.bind: autoClose; value: always" click.delegate="setup()">Always</a>
+    <a class="btn btn-default" aubs-btn-radio="model.bind: autoClose; value: outside">Outside</a>
+    <a class="btn btn-default" aubs-btn-radio="model.bind: autoClose; value: disabled">Disabled</a>
+  </div>
+
+  <br/><br/>
+
+  <div class="btn-group dropdown" aubs-dropdown="auto-close.bind: autoClose; on-toggle.call: toggled(state)">
+    <button class="btn btn-primary dropdown-toggle" aubs-dropdown-toggle>
+        Dropdown trigger
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left">
+      <li><a class="dropdown-item" href="javascript:void(0)">First Action</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)">Second Action</a></li>
+      <li><a class="dropdown-item" href="javascript:void(0)">Third Action</a></li>
+      <li class="divider"></li>
+      <li><a class="dropdown-item" href="javascript:void(0)">Separated Action</a></li>
+    </ul>
+  </div>
+  <h4>Simplest Typeahead</h4>
+  <div class="row">
+    <div class="col-xs-6">
+      <aubs-typeahead ref='dow' data.bind="daysOfTheWeek" value.bind="dayOfTheWeek" placeholder="Days of the week"></aubs-typeahead>
+    </div>
+    <div class="col-xs-6">
+      <label>Selected Day:  </label> ${dayOfTheWeek}
+    </div>
+  </div>
+
+  <h4>With Objects</h4>
+  <div class="row">
+    <div class="col-xs-6">
+      <aubs-typeahead data.bind="monthsOfTheYear" value.bind="monthOfTheYear" placeholder="Months of the year" open-on-focus.bind="true"
+        on-select.call="monthSelected(item)"></aubs-typeahead>
+    </div>
+    <div class="col-xs-6">
+      <label>Selected Month:  </label> ${monthOfTheYear.name} - ${monthOfTheYear.short} - ${monthOfTheYear.number}
+    </div>
+  </div>
+
+  <h4>Allow Custom Entry</h4>
+  <div class="row">
+    <div class="col-xs-6">
+      <aubs-typeahead data.bind="fruits" value.bind="fruit" custom-entry.bind="true" placeholder="Enter your fruit" open-on-focus.bind="true"
+        debounce.bind="0"></aubs-typeahead>
+    </div>
+    <div class="col-xs-6">
+      <label>Selected Fruit:  </label> ${fruit}
+    </div>
+  </div>
+
+  <h4>Async Data</h4>
+  <div class="row">
+    <div class="col-xs-6">
+      <aubs-typeahead ref='dow' data.call="getStates(filter, 100)" value.bind="name" debounce.bind="350" placeholder="States" open-on-focus.bind="true"
+        key="name" results-limit.bind="10" select-single-result.bind="true">
+      </aubs-typeahead>
+      <br/>
+      <button class="btn btn-default" click.delegate="name = null" disabled.bind="!name">Clear State</button>
+    </div>
+    <div class="col-xs-6">
+      <label>Selected State:  </label> ${name.value}
+    </div>
+  </div>
+<!--  -->
+
+
+  </section>
+</template>

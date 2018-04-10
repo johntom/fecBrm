@@ -1,0 +1,71 @@
+<template>
+	<require from="./docs.css"></require>
+	<!-- <section class="customer-orders au-animate"> -->
+	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
+		<h2>
+			<i class="fa fa-folder-open"></i> Diary for ${currentItem.claimant.FIRST_NAME} ${currentItem.claimant.LAST_NAME}
+<a slot="buttons-slot" class="btn btn-success" click.delegate="addDiary()">
+				<i class="fa fa-plus"></i> Add Diary
+			</a>
+		</h2>
+
+	
+			<table class="table-condensed table">
+				<thead class="table-header-blue" data-sort="items.bind: currentItem.diaries; cols: ['ENTERED','REMIND','CANCELED','NOTES']">
+					<tr>
+						<th class="header">ENTERED
+						</th>
+						<th class="header">DIARY(REMIND)
+						</th>
+						<th class="header">CANCELED
+						</th>
+						<th class="header">NOTES
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td></td>
+
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr repeat.for="diary of currentItem.diaries" with.bind="diary">
+						<!-- <td width="220px"><input type="date" id="ENTERED" class="form-control  input-sm" value.bind="ENTERED"></td>
+						<td width="220px"><input type="date" id="REMIND" class="form-control  input-sm" value.bind="REMIND"></td>
+						<td width="220px"><input type="date" id="CANCELED" class="form-control  input-sm" value.bind="CANCELED"></td>
+						<td width="220px"><input type="text" id="Notes" class="form-control  input-sm" value.bind="Notes"></td> -->
+
+	<td width="125px">
+						<span show.bind="!diary.edit">${ENTERED}</span>
+						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="date" value.bind="ENTERED">
+					</td>
+          <td width="125px">
+						<span show.bind="!diary.edit">${REMIND}</span>
+						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="date" value.bind="REMIND">
+					</td>
+          <td width="125px">
+						<span show.bind="!diary.edit">${CANCELED}</span>
+						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="date" value.bind="CANCELED">
+					</td>
+					<td width="325px">
+						<span show.bind="!diary.edit">${Notes}</span>
+
+						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="text" value.bind="Notes">						</td>
+
+					<td width="225px">
+					<button class="btn btn-primary" click.delegate="diary.edit=!diary.edit">${ !diary.edit ? 'Update' : 'Done' }</button>
+					<button class="btn btn-danger" click.delegate="remove(diary,$index)">Delete</button> 
+       
+					</td>
+
+
+
+					</tr>
+				</tbody>
+			</table>
+
+
+	</section>
+</template>

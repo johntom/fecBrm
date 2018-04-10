@@ -1,0 +1,56 @@
+<template>
+		<section class="full-height flex-column-1 overflow-y-auto ignore">
+		Docs...
+		<!--  -->
+
+		<h2>Docs (${doc.length} of ${currentItem.docs.length})</h2>
+
+		<listview selected-view="item1">
+			<a slot="buttons-slot" class="btn btn-primary" href="#/customers/new">
+								<i class="fa fa-plus"></i> Add Doc
+							</a>
+			<listview-item header="List View" name="item2" icon-class="th-list">
+				<div class="my-table">
+					<div class="my-table-header border-bottom-1 margin-bottom-10" data-sort="currentItem.bind: origItems; cols: ['lastName|firstName','state|city', 'orders']">
+						<div class="header header-name-area">
+							FILE_NAME
+						</div>
+						<div class="header header-location-area">
+							FILE_EXT
+						</div>
+
+						<div class="header-action-area"></div>
+					</div>
+					<div class="my-table-body">
+						<div class="my-table-body-items filter-item ${$index % 2 == 0 ? '' : 'my-table-body-item-stripped'}" data-tag="${item.name}"
+						 data-tags="${item.tags.join(' ')}" repeat.for="doc of currentItem.docs">
+							<!-- http://adjusters.markadjustment.com/docs/03-14994/sabato.est.pdf -->
+
+							<div class="name-area">
+								<a target="_blank" href="http://adjusters.markadjustment.com/docs/${doc.CLAIM_NO}/${doc.FILE_NAME}">
+													<span>${doc.FILE_NAME}  ${doc.FILE_EXT} </span>
+												</a>
+                <button class="btn btn-danger" click.delegate="remove(doc)">
+                  Delete
+                </button>
+							</div>
+							<div class="location-area">
+
+							</div>
+
+							<!-- <div class="action-area">
+								<button class="btn btn-danger" click.delegate="remove(item)">
+                  Delete
+                </button>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</listview-item>
+			<data-pager slot="pager-slot" page-size="8" items.bind="origItems"></data-pager>
+		</listview>
+
+
+		<!--  -->
+	</section>
+</template>

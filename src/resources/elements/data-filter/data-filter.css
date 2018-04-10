@@ -1,0 +1,17 @@
+.data-filter {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 
+    "filter-label filter-input";
+  align-items: center;
+}
+.data-filter .filter-label {
+  position: relative;
+  grid-area: filter-label;
+  margin-right: 10px;
+}
+.data-filter .filter-input {
+  position: relative;
+  grid-area: filter-input;
+}

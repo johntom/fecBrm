@@ -1,0 +1,86 @@
+<template>
+	<require from="./docs.css"></require>
+	<!-- <section class="customer-orders au-animate"> -->
+	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
+		<h2>
+			<i class="fa fa-folder-open"></i> Contacts for ${currentItem.NAME}
+			<a slot="buttons-slot" class="btn btn-success" click.delegate="addContact()">
+				<i class="fa fa-plus"></i> Add Contact
+			</a>
+		</h2>
+
+
+		<table class="table-condensed table">
+			<thead class="table-header-blue" data-sort="items.bind: currentItem.diaries; cols: ['ENTERED','REMIND','CANCELED','NOTES']">
+				<tr>
+					<th class="header">INS CONT ID </th>
+					<th class="header">Last </th>
+					<th class="header">First </th>
+					<th class="header">Prefix </th>
+					<th class="header">Wrk Phone </th>
+					<th class="header">Fax </th>
+					<th class="header">Cell</th>
+					<th class="header">Email </th>
+					<th class="header">Cmd </th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr repeat.for="contact of currentItem.contacts" with.bind="contact">
+
+					<td width="125px">
+						<span show.bind="!contact.edit">${INSURANCE_CONTACT_ID}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="INSURANCE_CONTACT_ID">
+					</td>
+
+					<td width="125px">
+						<span show.bind="!contact.edit">${NAME_LAST}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="NAME_LAST">
+					</td>
+					<td width="125px">
+						<span show.bind="!contact.edit">${NAME_FIRST}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="NAME_FIRST">
+					</td>
+					<td width="125px">
+						<span show.bind="!contact.edit">${PREFIX}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="PREFIX">
+					</td>
+					<td width="125px">
+						<span show.bind="!contact.edit">${PHONE_WORK}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="PHONE_WORK">
+					</td>
+					<td width="125px">
+						<span show.bind="!contact.edit">${FAX}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="FAX">
+					</td>
+					<td width="125px">
+						<span show.bind="!contact.edit">${CELLULAR}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="CELLULAR">
+					</td>
+
+					<td width="125px">
+						<span show.bind="!contact.edit">${EMAIL}</span>
+						<input show.bind="contact.edit" class="form-control input-sm" disabled.bind="!contact.edit" type="text" value.bind="EMAIL">
+					</td>
+
+					<td width="225px">
+						<button class="btn btn-primary" click.delegate="contact.edit=!contact.edit">${ !contact.edit ? 'Update' : 'Done' }</button>
+						<button class="btn btn-danger" click.delegate="remove(contact,$index)">Delete</button>
+
+					</td>
+
+
+
+				</tr>
+			</tbody>
+		</table>
+
+
+	</section>
+</template>

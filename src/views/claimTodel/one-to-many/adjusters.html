@@ -1,0 +1,72 @@
+<template>
+	<require from="./docs.css"></require>
+	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
+		<h2>
+			<i class="fa fa-folder-open"></i> Adjusters (${currentItem.adjusters.length}) ${currentItem.claimant.FIRST_NAME} ${currentItem.claimant.LAST_NAME}
+			<a slot="buttons-slot" class="btn btn-success" click.delegate="addAdjuster()">
+				<i class="fa fa-plus"></i> Add Adjuster
+			</a>
+		</h2>
+
+		<table class="table-condensed table">
+			<thead class="table-header-blue" data-sort="items.bind: currentItem.adjusters; cols: ['ADJUSTER_ID','ADJUSTER_NAME']">
+				<tr>
+					<tr>
+						<th class="header">ADJUSTER
+						</th>
+            	<!-- <th class="header">ADJUSTER OBJ
+						</th> -->
+						<th class="header">TYPE
+						</th>
+						<th class="header">Cmd
+						</th>
+					</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<!-- <tr repeat.for="adjuster of currentItem.adjusters & signal:'adjuster-signal'"> -->
+				<tr repeat.for="adjuster of currentItem.adjusters">
+					<td width="125px">
+            <!-- <span show.bind="!adjuster.edit">${adjuster.ADJUSTER_NAME & signal:'adjuster-signal'}</span> -->
+            <span show.bind="!adjuster.edit">${adjuster.ADJUSTER_NAME}</span>
+						<select show.bind="adjuster.edit" id="adj" class="form-control input-sm" value.two-way="adjuster.ADJUSTER_ID" change.delegate="selectChanged(adjuster, adjuster.ADJUSTER_ID)"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.adjusterActiveList" model.bind="opt.ADJUSTER_ID">
+                ${opt.ADJUSTER_NAME} 
+              </option> 
+            </select>
+					</td>
+          	<!-- <td width="125px" using object breaks the code>
+            <span show.bind="!adjuster.edit">${adjuster.ADJUSTER_NAME}</span>
+						<select show.bind="adjuster.edit" id="adj" class="form-control input-sm" value.two-way="adjuster" change.delegate="selectChanged(adjuster, adjuster.ADJUSTER_ID)"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.adjusterActiveList" model.bind="opt">
+                ${opt.ADJUSTER_NAME} 
+              </option> 
+            </select>
+					</td> -->
+					<td width="85px">
+            
+						<label repeat.for="opt of typeList"> 
+              <input type="radio" name="group${$parent.$index}" model.bind="opt" checked.two-way="adjuster.TYPE">
+                ${opt}
+                <!-- ${camelCaseToProperCase(opt)}  -->
+            </label>
+					</td>
+					</div>
+					<td width="225px">
+						<button class="btn btn-primary" click.delegate="adjuster.edit=!adjuster.edit">${ !adjuster.edit ? 'Update' : 'Done' }</button>
+						<button class="btn btn-danger" click.delegate="remove(adj,$index)">Delete</button>
+					</td>
+			</tbody>
+		</table>
+
+
+	</section>
+</template>

@@ -1,0 +1,191 @@
+<template>
+
+
+	<!-- <require from="./set-attribute"></require>
+	<require from="./typeahead"></require>
+ -->
+
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading} Add 2
+		</div>
+		<div class="flex-column-1 overflow-y-auto">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-2">
+					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
+						<div class="flex-row-6">
+							<div class="flex-column-1">
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1">
+										<label for="CLAIM_NO">CLAIM_NO</label>
+										<input type="text" id="CLAIM_NO" class="form-control input-sm" value.bind="currentnewItem.CLAIM_NO">
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="lastName">Claimant Last</label>
+										<input type="text" id="lastName" class="form-control input-sm" value.bind="currentnewItem.claimant.LAST_NAME">
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="firstName">Claimant First</label>
+										<input type="text" id="firstName" class="form-control input-sm" value.bind="currentnewItem.claimant.FIRST_NAME">
+									</div>
+
+								</div>
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1">
+										<label for="state">Adjuster</label>
+										<select id="adjuster" class="form-control input-sm" value.bind="currentnewItem.ADJUSTER_ID"> 
+                      <option model.bind="null">Choose...${currentnewItem.ADJUSTER_ID}</option> 
+                      <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
+                        ${opt.ADJUSTER_NAME} 
+                      </option> 
+                    </select>
+									</div>
+									<div class="form-group flex-column-1 margin-left">
+										<label for="state">INSURED_ID</label>
+										<select id="INSURED_ID" class="form-control input-sm" value.bind="currentnewItem.INSURED_ID | number">  
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.insuredList" model.bind="opt.INSURED_ID">
+                      ${opt.LEGAL_NAME} 
+                      </option> 
+                      </select>
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="JURISDICTION_ID">Jurisdiction</label>
+										<select id="JURISDICTION_ID" class="form-control input-sm" value.bind="currentnewItem.JURISDICTION_ID"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.stateList" model.bind="opt.value">
+                        ${opt.name} 
+                      </option> 
+                    </select>
+									</div>
+
+
+								</div>
+
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1">
+										<label for="state">CLAIM_TYPE</label>
+										<select id="CLAIM_TYPE" class="form-control input-sm" value.bind="currentnewItem.CLAIM_TYPE"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.claimtypeList" model.bind="opt.CLAIM_TYPE_ID">
+                        ${opt.CLAIM_TYPE_DESC} 
+                      </option> 
+                    </select>
+									</div>
+								
+									<div class="form-group flex-column-1  margin-left-10 ">
+										<label for="state">INSURANCE_COMPANY_ID</label>
+										<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="currentnewItem.INSURANCE_COMPANY_ID" change.delegate="selectChanged(currentnewItem.INSURANCE_COMPANY_ID)"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.InsurancecompanyList" model.bind="opt.INSURANCE_COMPANY_ID">
+                        ${opt.NAME} 
+                      </option> 
+                    </select>
+									</div>
+									<div class="form-group flex-column-1  margin-left-10">
+										<!-- inscoAdjusters -->
+										<label for="NAME_FIRST">Ins Carrier Adjuster</label>
+										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="currentnewItem.INSURANCE_CONTACT_ID" change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
+                       ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
+                      </option> 
+                    </select>
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+
+
+										<label for="NAME">Ins Carrier Address</label>
+										<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="currentnewItem.INSURANCE_ADDRESS_ID" 
+                    change.delegate="selectChangedIAddr(currentnewItem.INSURANCE_COMPANY_ID)"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of inscoAddresses" model.bind="opt.INSURANCE_COMPANY_ID">
+                        ${opt.ADDRESS}   ${opt.CITY} ${opt.STATE}
+                      </option> 
+                    </select>
+									</div>
+  
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="CARRIER_FILE_NO">CARRIER_FILE_NO</label>
+										<input type="text" id="CARRIER_FILE_NO" class="form-control input-sm" value.bind="currentnewItem.CARRIER_FILE_NO">
+									</div>
+
+								</div>
+
+
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1">
+										<label for="lossdescription">Loss DESCRIPTION</label>
+										<textarea name="lossdescription" value.bind="currentnewItem.DESCRIPTION" class="form-control input-sm"></textarea>
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="ASSIGNMENT_TYPE">ASSIGNMENT TYPE </label>
+										<input type="text" id="ASSIGNMENT_TYPE" class="form-control input-sm" value.bind="currentnewItem.insco.ASSIGNMENT_TYPE">
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="STATUS">Status: Open</label>
+                    
+										
+									</div>
+								</div>
+							
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</form>
+			<div class="flex-column-none section-footer">
+				<!-- ${footer} -->
+
+				<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveclaim()">
+                  Save Claim
+          </button>
+        </span>
+			</div>
+	</section>
+</template>
+<!-- <select id="STATUS" class="form-control input-sm" value.bind="currentnewItem.STATUS"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.statusList" model.bind="opt.value">
+                        ${opt.name} 
+                      </option> 
+                    </select> -->
+	<!-- <div class="flex-row-none">
+									<div class="form-group flex-column-1">
+										<label for="RECEIVED">RECEIVED</label>
+										<input type="date" id="RECEIVED" class="form-control input-sm" value.bind="currentnewItem.RECEIVED">
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="CLOSED">CLOSED</label>
+										<input type="date" id="CLOSED" class="form-control input-sm" value.bind="currentnewItem.CLOSED">
+									</div>
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="EDITED">EDITED</label>
+										<input type="date" id="EDITED" class="form-control input-sm" value.bind="currentnewItem.EDITED">
+									</div>
+				
+
+								</div> -->
+	<!-- <select show.bind="adjuster.edit" id="adjuster" class="form-control input-sm" value.bind="ADJUSTER_ID" change.delegate="selectChanged(ADJUSTER_ID,$index)"> 
+	        
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
+                        ${opt.ADJUSTER_NAME} 
+                      </option> 
+                    </select> 
+                    
+                    	<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" 
+                    value.bind="appService.currentnewItem.INSURANCE_COMPANY_ID" change.delegate="selectChanged(appService.currentnewItem.INSURANCE_COMPANY_ID)"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.InsurancecompanyList" model.bind="opt.INSURANCE_COMPANY_ID">
+                        ${opt.NAME} 
+                      </option> 
+                    </select>
+                    
+                    -->

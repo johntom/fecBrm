@@ -1,0 +1,28 @@
+<template>
+	<section class="full-height flex-column-1 ignore">
+		Claim Emails...
+
+		<div class="flex-row-1 overflow-y-auto">
+			<form class="flex-column-1">
+
+				<div id="top" class="flex-row-2">
+					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
+						<div class="flex-row-none">
+							<div class="form-group flex-column-1">
+								<label for="lastName">DESCRIPTION</label>
+								<input type="text" id="DESCRIPTION" class="form-control input-sm" value.bind="currentItem.DESCRIPTION">
+							</div>
+							<div class="form-group flex-column-1 margin-left-10">
+								<label for="notes">notes</label>
+								<input type="text" id="notes" class="form-control input-sm" value.bind="currentItem.notes">
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</section>
+</template>

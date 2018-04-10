@@ -1,0 +1,47 @@
+<template>
+  <require from="typeahead"></require>
+  <require from="star-rating"></require>
+  <form class="form card" submit.trigger="addBook()">
+    <div class="card-block">
+      <h4 class="card-title">Updates by John Tomaselli using array of objects</h4>
+     
+      <h4 class="card-title">Add book <i class="fa fa-book" aria-hidden="true"></i></h4>
+      <h6 class="card-subtitle mb-2 text-muted">add a book to your bookshelf</h6>
+      <hr/>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input name="title" class="form-control" 
+                 placeholder='enter a title' 
+                 value.bind="title & validate"></input>
+        </div>
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <input value.bind="genre.name" 
+                 typeahead="items.bind:genres" 
+                 type="text" 
+                 name="genre" 
+                 class="form-control"
+                 ref="selectGenreElement"></input>
+        </div>
+        <div class="form-group">
+          <label for="times-read">Times read</label>
+          <input name=times-read class="form-control" value.bind="timesRead & validate"></input>
+        </div>
+        
+        <hr/>
+        
+        <star-rating 
+              view-model.ref="starRatingViewModel" 
+              ref="ratingElement" 
+              rating.bind="rating">
+       </star-rating>
+      </form>
+    </div>
+   <div class="card-footer">
+      <button type="submit" class="btn btn-primary col-sm-3 push-sm-9" 
+              disabled.bind="title.length == 0">
+        add
+      </button>  
+   </div>
+  </div>
+</template>

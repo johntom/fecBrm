@@ -1,0 +1,27 @@
+<template>
+  <section class="au-animate">
+    <div class="section-header flex-row-none">
+      ${heading}
+    </div>
+  <div class="section-content flex-row-1">
+    Main content here..mas.v101
+           <img class="logo" src="http://www.michaelrosenfeldart.com/bundles/exhibitedefault/images/MRG_logo-white.png">
+    
+  </div>  
+
+
+ <template class="combobox">
+    <div class="input-ct">
+      <input ref="input" value.bind="filterText" />
+    <div>
+    <ul portal class="list-group items-list">
+      <li repeat.for="item of appService.stateList | filter: filterText" class="list-group-item">${item.name}</li>
+    </ul>
+  </template>
+
+
+  </section>
+</template>
+
+
+

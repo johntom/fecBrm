@@ -1,0 +1,132 @@
+<template>
+	<require from="./docs.css"></require>
+	<!-- <section class="customer-orders au-animate"> -->
+	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
+		<h2>
+			<i class="fa fa-folder-open"></i> Notes (${currentItem.notes.length})
+					<a slot="buttons-slot" class="btn btn-success" click.delegate="addNote()">
+				<i class="fa fa-plus"></i> Add Note
+			</a>
+		</h2>
+		
+		<!-- <table class="table table-striped table-hover" > -->
+		<table class="table-condensed table">
+			<thead class="table-header-blue" data-sort="items.bind: currentItem.notes; cols: ['WorkDate','Notes']">
+				<tr>
+					<tr>
+						<th class="header">WorkDate
+						</th>
+						<th class="header">Notes
+						</th>
+						<th class="header">Cmd
+						
+						</th>
+					</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tfoot>
+			<tbody>
+			<tr repeat.for="note of currentItem.notes" with.bind="note">
+					<td width="125px">
+						<span show.bind="!note.edit">${WorkDate}</span>
+						<input show.bind="note.edit" class="form-control input-sm" disabled.bind="!note.edit" type="date" value.bind="WorkDate">
+					</td>
+					<td width="325px">
+						<span show.bind="!note.edit">${Notes}</span>
+
+						<input show.bind="note.edit" class="form-control input-sm" disabled.bind="!note.edit" type="text" value.bind="Notes">						</td>
+
+					<td width="225px">
+					<button class="btn btn-primary" click.delegate="note.edit=!note.edit">${ !note.edit ? 'Update' : 'Done' }</button>
+					<button class="btn btn-danger" click.delegate="remove(note,$index)">Delete</button> 
+       
+					</td>
+	
+
+			</tbody>
+		</table>
+		<!-- </form> -->
+
+	</section>
+</template>
+	<!-- <button class="btn btn-primary" click.trigger="note.edit=!note.edit">${ !note.edit ? 'Update' : 'Done' }</button> -->
+				
+ <!-- <button class="btn btn-primary" click.delegate="edit(note,$index)">Edit</button>
+          <button class="btn btn-primary" click.delegate="save(note,$index)">Save</button>
+          -->
+					<!-- 					
+  						<td width="125px"><input disabled.bind="true"  type="date" id="a${$index}" class="form-control  input-sm" value.bind="WorkDate"></td>
+	  					<td width="325px">
+                <input disabled.bind="true"  type="text"  id="b${$index}" 
+                class="form-control  input-sm" value.bind="Notes"></td>
+		  -->
+					<!-- <td class="text-center"> -->
+					<!-- <span show.bind="!todo.edit" css="text-align: center;  text-decoration: ${todo.done ? 'line-through' : 'none'}">${todo.description}</span>             -->
+
+					<!-- <td>
+         	<span show.bind="mode > 0 && $index === editrec ">
+              
+         <button class="btn btn-sm btn-danger" click.delegate="save(note,$index)">
+                  save
+                </button>
+                 <button class="btn btn-sm btn-danger" click.delegate="cancel(note,$index)">
+                  cancel
+                </button>
+              
+                 </span>
+						
+           
+
+
+					
+							<span show.bind="mode===0">
+                
+          <button class="btn btn-sm btn-primary" click.delegate="edit(note,$index)">
+                  edit
+                </button>
+           <button class="btn btn-sm btn-danger" click.delegate="remove(note,$index )">
+                  Delete
+                </button>
+                 
+                </span>
+						</td> -->
+
+
+            <!-- <div class="panel-body">
+		
+				<table class="table-condensed table">
+					<thead class="table-header-blue">
+						<tr>
+							<tr>
+								<th class="header">WorkDate
+								</th>
+								<th class="header">Notes
+								</th>
+								<th class="header">Cmd
+
+								</th>
+							</tr>
+					</thead>
+
+
+					<td width="125px">
+
+						<input type="date" size="55" value.bind="newNoteWorkDate">
+					</td>
+					<td width="325px">
+						<input type="text"  size="100" value.bind="newNote">
+					</td>
+					<td width="125px">
+						<a slot="buttons-slot" class="btn btn-success" click.delegate="addNote()">
+							<i class="fa fa-plus"></i> Add Note
+						</a>
+
+					</td>
+		
+		</div> -->
+		<!-- <form> -->

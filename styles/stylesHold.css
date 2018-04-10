@@ -1,0 +1,266 @@
+//css
+.fec-web router-view {
+  height: 100%;
+}
+.fec-web .main-menu {
+  background-color: #38162E;
+}
+.fec-web .logo {
+  height: 75px;
+  width: 75px;
+  margin-bottom: 20px;
+}
+.fec-web .menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.fec-web .menu .menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  color: white;
+  border-left: 5px solid transparent;
+}
+.fec-web .menu .menu-item a {
+  color: white;
+  text-decoration: none;
+}
+.fec-web .menu .menu-item.active {
+  border-left: 5px solid lightskyblue;
+  background-color: #272823;
+}
+section.fec-web {
+  position: relative;
+  min-height: 250px;
+}
+.fec-web *:not(.ignore) {
+  /* padding: 10px; */
+}
+.fec-web header, 
+/* .fec-web aside, */
+.fec-web sidebar,
+/* .fec-web article, */
+.fec-web footer,
+.fec-web .section-header,
+.fec-web .section-footer,
+.fec-web .section-content,
+.fec-web .search-panel,
+.fec-web .search-results,
+.fec-web .data-form
+ {
+  padding: 10px;
+}
+.fec-web header,
+.fec-web .section-header {
+  height: 50px;
+  background-color: lightblue;
+}
+.fec-web .section-footer {
+  height: 40px;
+  background-color: cornflowerblue; 
+}
+.fec-web sidebar {
+  /* background-color: lightskyblue; */
+  width: 80px;
+}
+.fec-web main {
+  background-color: whitesmoke;
+  /* background-color: mistyrose; */
+}
+.fec-web article {
+  /* background-color: cornsilk; */
+}
+.fec-web footer {
+  background-color: orange;
+}
+.fec-web .search-panel {
+  /* background-color: lightskyblue; */
+}
+.fec-web .search-panel form {
+  width: 800px;
+}
+.fec-web .search-results {
+  /* background-color: lightseagreen; */
+}
+.fec-web .data-form {
+  /* background-color: lightcoral; */
+  overflow-y: auto;
+}
+
+/*
+  Layout
+*/
+.full-height {
+  height: 100%;
+}
+.margin-left-5 {
+  margin-left: 5px;
+}
+.margin-left-10 {
+  margin-left: 10px;
+}
+.margin-left-15 {
+  margin-left: 15px;
+}
+.margin-left-20 {
+  margin-left: 20px;
+}
+
+/*
+  Flexbox
+*/
+.flex-column-1 {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+}
+.flex-column-2 {
+  display: flex;
+  flex-flow: column;
+  flex: 2;
+}
+.flex-column-3 {
+  display: flex;
+  flex-flow: column;
+  flex: 3;
+}
+.flex-column-4 {
+  display: flex;
+  flex-flow: column;
+  flex: 4;
+}
+.flex-row-none {
+  display: flex;
+  flex-flow: row;
+  flex: none;
+}
+.flex-row-1 {
+  display: flex;
+  flex-flow: row;
+  flex: 1;
+}
+.flex-row-2 {
+  display: flex;
+  flex-flow: row;
+  flex: 2;
+}
+.flex-row-3 {
+  display: flex;
+  flex-flow: row;
+  flex: 3;
+}
+
+
+/*
+  Tab Navigation for open files
+*/
+.tabs {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0 0 0 0;
+  overflow:visible;
+  background: #161615;
+}
+.tab {
+  position: relative;
+  min-width:200px;
+  overflow:hidden;
+  margin:0 -15px 0 0;
+}
+.tab:hover .tab-close {
+  color: black;
+}
+.tab-close {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  color: #fff;
+  z-index: 1;
+}
+.tab-close-icon {
+  position: absolute;
+  z-index: 1;
+}
+.tab-close-icon-hover {
+  opacity: 0;
+}
+.tab-close:hover .tab-close-icon:hover.tab-close-icon-hover {
+  color: red;
+  z-index: 2;
+  opacity: 1;
+}
+.tab-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  font-family: inherit;
+  color: black;
+  height:40px;
+  background: #eee;
+  border-radius: 4px 4px 0 0;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  margin:5px 10px 0 10px;
+  padding: 0 30px 0 15px;
+}
+.tab-close:hover + .tab-box,
+.tab-box:hover {
+  font-family: inherit;
+  color: black;
+  text-decoration: none;
+  background:  lightgray;
+}
+.tab-box:focus {
+  font-family: inherit;
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+.tab.tab-selected {
+  z-index:40;
+  position:relative;
+  padding-bottom:1px;
+  color: white;
+}
+.tab.tab-selected .tab-box {
+  color: white;
+  background: #1E1E1E;
+}
+.tab.tab-selected .tab-box:hover {
+  color: lightgray;
+}
+.tab.tab-selected .tab-close  {
+  color: white;
+}
+
+
+.contact-list {
+  overflow-y: auto;
+  width: 600px;
+  position: relative;
+  /* absolute; */
+  top: 0;
+  left: 30;
+  bottom: 0;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+li.list-group-item {
+  list-style: none;
+}
+
+li.list-group-item > a {
+  text-decoration: none;
+}
+
+li.list-group-item.active > a {
+  color: white;
+}
+

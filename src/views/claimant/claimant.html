@@ -1,0 +1,21 @@
+<template>
+	<require from="./set-attribute"></require>
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading}
+		</div>
+		<div class="flex-row-1 ignore">
+			<div class="flex-column-1 search-panel">
+				<form>
+					<div class="form-group">
+						<input id="searchInput" type="text" class="form-control" placeholder="Search for Claimant Last " value.bind="search.lastname">
+					</div>
+          <div class="form-group">
+						<input id="searchInput" type="text" class="form-control" placeholder="Search for Claimant First " value.bind="search.firstname">
+					</div>
+					<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</template>

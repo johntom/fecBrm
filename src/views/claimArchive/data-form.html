@@ -1,0 +1,97 @@
+<template>
+	<!-- <require from="./claim.css"></require> -->
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading}
+		</div>
+		<div class="flex-row-1 ignore">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-2">
+					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
+						<div class="flex-row-none">
+							<div class="form-group flex-column-1">
+								<label for="lastName">Claimant Last</label>
+								<input type="text" id="lastName" class="form-control" value.bind="currentItem.claimant.LAST_NAME">
+							</div>
+							<div class="form-group flex-column-1 margin-left-10">
+								<label for="firstName">Claimant First</label>
+								<input type="text" id="firstName" class="form-control" value.bind="currentItem.claimant.FIRST_NAME">
+							</div>
+
+							<div class="form-group flex-column-1 margin-left-10">
+								<label for="lastName">Ins Name</label>
+								<input type="text" id="lastName" class="form-control" value.bind="currentItem.insco.NAME">
+							</div>
+							<div class="form-group flex-column-1 margin-left-10">
+								<label for="firstName">Ins ADDRESS</label>
+								<input type="text" id="firstName" class="form-control" value.bind="currentItem.insco.ADDRESS">
+							</div>
+						</div>
+						<div class="flex-row-1">
+							<div class="flex-column-1">
+								<div class="form-group">
+									<label for="CLAIM_NO">CLAIM_NO</label>
+									<input type="text" id="CLAIM_NO" class="form-control" value.bind="currentItem.CLAIM_NO">
+								</div>
+
+								<div class="form-group">
+									<label for="CLAIM_TYPE">CLAIM_TYPE</label>
+									<input type="text" id="CLAIM_TYPE" class="form-control" value.bind="currentItem.CLAIM_TYPE">
+								</div>
+								<div class="form-group">
+									<label for="ADJUSTER_ID">ADJUSTER_ID</label>
+									<input type="text" id="ADJUSTER_ID" class="form-control" value.bind="currentItem.ADJUSTER_ID">
+								</div>
+								<div class="form-group">
+									<label for="ACCOUNT_REP_ID">ACCOUNT_REP_ID</label>
+									<input type="text" id="ACCOUNT_REP_ID" class="form-control" value.bind="currentItem.ACCOUNT_REP_ID">
+								</div>
+								<div class="form-group">
+									<label for="INSURANCE_COMPANY_ID">INSURANCE_COMPANY_ID</label>
+									<input type="text" id="INSURANCE_COMPANY_ID" class="form-control" value.bind="currentItem.INSURANCE_COMPANY_ID">
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div id="top-middle" class="flex-column-none data-form-image">
+						Image here...
+					</div>
+					<div id="top-right" class="flex-column-2">
+						<div id="data-form-ext" class="flex-column-1">
+							<div id="data-form-one-to-one-tabs" class="flex-row-none">
+								<div repeat.for="tab of appService.dataFormOneToOneTabs" class="tab ${tab.isSelected ? 'tab-selected' : ''}">
+									<div class="tab-box" click.delegate="selectOneToOneTab(tab)">
+										<span>${tab.name}</span>
+									</div>
+								</div>
+							</div>
+							<div class="data-form flex-row-1" style="background: darkgray;">
+								<compose view-model.bind="currentOneToOneTab.viewModel"></compose>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="middle" class="flex-row-none height-10">
+				</div>
+				<div id="bottom" class="flex-row-1">
+					<div id="data-form-one-to-many" class="flex-column-1">
+						<div id="data-form-one-to-many-tab-content" class="data-form flex-row-1" style="background: darkgray;">
+							<compose view-model.bind="currentOneToManyTab.viewModel"></compose>
+						</div>
+						<div id="data-form-one-to-many-tabs" class="flex-row-none">
+							<div repeat.for="tab of appService.dataFormOneToManyTabs" class="tab tab-top ${tab.isSelected ? 'tab-selected' : ''}">
+								<div class="tab-box tab-box-top" click.delegate="selectOneToManyTab(tab)">
+									<span>${tab.name}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+			</form>
+			</div>
+
+			<div class="flex-row-none section-footer">
+				${footer}
+			</div>
+	</section>
+</template>

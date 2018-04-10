@@ -1,0 +1,23 @@
+<template>
+	<!-- <require from="./set-attribute"></require> -->
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading}
+		</div>
+		<div class="flex-row-1 ignore">
+			<div class="flex-column-1 search-panel">
+				<form>
+					<div class="form-group flex-column-1 margin-left-10">
+						<label for="adjuster"> List of  that have open dailies. After seach  ADJ_STATUS=0 on dailies. Seach will open all open dailies. This is in process and currently only repares the adjpayment collection </label>
+					</div>
+					<div class="form-group">
+						<input id="searchInput" type="text" class="form-control" placeholder="Search for AR Prep " value.bind="search.legalname">
+					</div>
+					<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>
+
+
+				</form>
+			</div>
+		</div>
+	</section>
+</template>

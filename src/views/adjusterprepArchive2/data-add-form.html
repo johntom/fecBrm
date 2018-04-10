@@ -1,0 +1,176 @@
+<template>
+	<require from="./docs.css"></require>
+	<!-- <section class="customer-orders au-animate"> -->
+	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
+		<h2>
+			<i class="fa fa-folder-open"></i> Daily Entry 
+			<!-- ${currentItem.NAME} -->
+
+			<a slot="buttons-slot" class="btn btn-success" click.delegate="addDaily()">
+				<i class="fa fa-plus"></i> Add Daily
+			</a>
+
+			
+				
+				<label for="state">Adjuster
+				<select style="width: 300px"  id="adjuster" class="form-control input-sm" value.bind="currentAdjuster"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.adjusterActiveList" model.bind="opt">
+                        ${opt.ADJUSTER_NAME} 
+                      </option> 
+                      </select>
+       </label>
+	<label for="dol">Default Date
+							<input style="width: 200px"  id="searchdol" type="date" class="form-control" placeholder="Date" value.bind="currentDate">
+</label>
+
+		</h2>
+		<table class="table-condensed table">
+			<thead class="table-header-blue" data-sort="items.bind: currentItem.dailies; cols: ['CLAIM_NO','WORK_DATE',
+     'SERVICE','WORK_TIME','MILEAGE','EXPENSE_TYPE_ID','EXPENSE','WORK_DESCRIPTION','ADJUSTER_NOTES',
+     'ADJUSTER']">
+				<tr>
+					<th class="header">CLAIM_NO </th>
+					<th class="header">WORK_DATE </th>
+					<th class="header">SERVICE </th>
+					<th class="header">WORK_TIME </th>
+					<th class="header">MILEAGE </th>
+					<th class="header">EXPENSE </th>
+					<th class="header">EXPENSE AMT </th>
+					<th class="header">WORK_DESCRIPTION </th>
+					<th class="header">ADJUSTER_NOTES </th>
+					<th class="header">ADJUSTER </th>
+					<th class="header">Cmd </th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+
+
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr repeat.for="daily of currentItem.dailies" with.bind="daily">
+
+
+
+					<!-- <td width="200px">
+						<span show.bind="!daily.edit">${CLAIM_NO}</span>
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="CLAIM_NO">
+					</td> -->
+					<td width="125px">
+						<span show.bind="!daily.edit">${CLAIM.CLAIM_NO}</span>
+						<select show.bind="daily.edit" id="claim" class="form-control input-sm" value.two-way="CLAIM"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.claimList" model.bind="opt">
+               ${opt.CLAIM_NO}
+              </option> 
+            </select>
+					</td>
+					<td width="200px">
+						<span show.bind="!daily.edit">${WORK_DATE}</span>
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="date" value.bind="WORK_DATE">
+					</td>
+					<!-- <td width="125px">
+						<span show.bind="!daily.edit">${SERVICE_ID}</span>
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="SERVICE_ID">
+					</td> -->
+
+					<!-- <td width="125px">
+						<span show.bind="!daily.edit">${SERVICE_ID}</span>
+						<select show.bind="daily.edit" id="adj" class="form-control input-sm" value.two-way="SERVICE_ID" change.delegate="selectChanged(daily, SERVICE_ID)"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.serviceList" model.bind="opt.CODE_ID">
+                ${opt.DESCRIPTION} 
+              </option> 
+            </select>
+					</td> -->
+					<td width="125px">
+						<span show.bind="!daily.edit">${SERVICE.DESCRIPTION}</span>
+						<select show.bind="daily.edit" id="adj" class="form-control input-sm" value.two-way="SERVICE" change.delegate="selectChanged(daily, SERVICE)"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.serviceList" model.bind="opt">
+               ${opt.SORT_NO} &nbsp;  ${opt.DESCRIPTION} 
+              </option> 
+            </select>
+					</td>
+
+
+					<td width="125px">
+						<span show.bind="!daily.edit">${WORK_TIME}</span>
+
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="WORK_TIME">						</td>
+					</td>
+					<td width="95px">
+						<span show.bind="!daily.edit">${MILEAGE}</span>
+
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="MILEAGE">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!daily.edit">${EXPENSE.DESCRIPTION}</span>
+						<select show.bind="daily.edit" id="adj" class="form-control input-sm" value.two-way="EXPENSE"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.expenseList" model.bind="opt">
+               ${opt.SORT_NO} &nbsp;  ${opt.DESCRIPTION} 
+              </option> 
+            </select>
+					</td>
+
+					<td width="125px">
+						<span show.bind="!daily.edit">${EXPENSE_AMT}</span>
+
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="EXPENSE_AMT">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!daily.edit">${WORK_DESCRIPTION}</span>
+
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="WORK_DESCRIPTION">						</td>
+					</td>
+					<td width="125px">
+						<span show.bind="!daily.edit">${ADJUSTER_NOTES}</span>
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="ADJUSTER_NOTES">						</td>
+					</td>
+
+
+
+					<td width="125px">
+						<span show.bind="!daily.edit">${ADJUSTER.ADJUSTER_NAME}</span>
+						<select show.bind="daily.edit" id="adj" class="form-control input-sm" value.two-way="ADJUSTER"> 
+              <option model.bind="null">Choose...</option> 
+              <option repeat.for="opt of appService.adjusterActiveList" model.bind="opt">
+                ${opt.ADJUSTER_NAME} 
+              </option> 
+            </select>
+					</td>
+
+
+					<td width="225px">
+						<!-- <button class="btn btn-primary" click.delegate="daily.edit=!daily.edit">${ !daily.edit ? 'Update' : 'Done' }</button> -->
+						<button class="btn btn-primary" click.delegate="saveitem(daily)">${ !daily.edit ? 'Update' : 'Done' }</button>
+
+						<button class="btn btn-danger" click.delegate="remove(daily,$index)">Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<button class="btn btn-primary" click.delegate="saveDaily()">Submit Daily (save all line items)</button>
+	<div class="flex-column-none section-footer">
+			<!-- ${footer} -->
+
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveDaily()">
+                  Save Daily
+          </button>
+        </span>
+        	<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="close()">
+                 Close
+          </button>
+        </span>
+		</div>
+
+	</section>
+</template>

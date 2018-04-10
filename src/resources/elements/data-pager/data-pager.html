@@ -1,0 +1,18 @@
+<template>
+  <require from="./data-pager.css"></require>
+  <nav class="data-pager" aria-label="Data page navigation">
+    <ul class="pagination">
+      <li class="page-item ${currentPage === 0 ? 'disabled' : ''}">
+        <a class="page-link" click.delegate="previousPage()">Previous</a>
+      </li>
+      <li class="page-item ${currentPage === $index ? 'active' : ''}" 
+        repeat.for="item of pages">
+        <a class="page-link" 
+          click.delegate="setCurrentPage($index)">${$index + 1}</a>
+      </li>
+      <li class="page-item ${currentPage === pages - 1 ? 'disabled' : ''}">
+        <a class="page-link" click.delegate="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>  
+</template>

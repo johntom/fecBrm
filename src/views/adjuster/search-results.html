@@ -1,0 +1,54 @@
+<template>
+	<require from="aurelia-kendoui-bridge/grid/grid"></require>
+	<require from="aurelia-kendoui-bridge/grid/col"></require>
+	<require from="aurelia-kendoui-bridge/common/template"></require>
+	<require from="../../../styles/kendo.css"></require>
+
+	<require from="./customers.css"></require>
+	<section class="customers au-animate">
+		<h2>Insured ( ${origItems.length})</h2>
+		<a slot="buttons-slot" class="btn btn-primary" click.delegate="addClaim()">
+			<i class="fa fa-plus"></i> Add Insured
+		</a>
+	</section>
+	<section class="full-height flex-column-1 au-animate ignore">
+"ADJUSTER_ID" : NumberInt(4), 
+    "ADJUSTER_NAME" : "Donna Luciani", 
+    "ADJUSTER_PHONE" : "973-398-9982", 
+    "ADJUSTER_EXT" : NumberInt(0), 
+    "Email" : "DLuciani@markadjustment.com", 
+    "ADJUSTER_EMAIL" : "DLuciani@markadjustment.com", 
+    "ACTIVE" : NumberInt(-1), 
+    "EMP_TYPE" : "e", 
+    "LIABILITY_RATE" : 35.0, 
+    "PROPERTY_RATE" : 50.0, 
+    "MILEAGE_RATE" : 0.41
+		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="datasource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
+		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
+		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
+
+			<ak-col k-field="ADJUSTER_ID" k-filterable.bind="true" k-title="Edit ADJUSTER_ID" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=ADJUSTER_ID#</button>">
+			</ak-col>
+		<ak-col k-field="ADJUSTER_NAME" k-filterable.bind="true" k-title="LEGAL ADJUSTER_NAME" k-width.bind="280"  >
+			</ak-col>
+      	<ak-col k-field="ADJUSTER_PHONE" k-filterable.bind="true" k-title="ADJUSTER_PHONE" k-width.bind="280"  >
+			</ak-col>
+       	<ak-col k-field="ADJUSTER_EMAIL" k-filterable.bind="true" k-title="ADJUSTER_EMAIL" k-width.bind="280"  >
+			</ak-col>
+       	<ak-col k-field="ACTIVE" k-filterable.bind="true" k-title="ACTIVE" k-width.bind="280"  >
+			</ak-col>
+       	<ak-col k-field="EMP_TYPE" k-filterable.bind="true" k-title="EMP_TYPE" k-width.bind="280"  >
+			</ak-col>
+       	<ak-col k-field="LIABILITY_RATE" k-filterable.bind="true" k-title="LIABILITY_RATE" k-width.bind="280"  >
+			</ak-col>
+       	<ak-col k-field="PROPERTY_RATE" k-filterable.bind="true" k-title="PROPERTY_RATE" k-width.bind="280"  >
+			</ak-col>
+       	<ak-col k-field="MILEAGE_RATE" k-filterable.bind="true" k-title="MILEAGE_RATE" k-width.bind="280"  >
+			</ak-col>
+
+		</ak-grid>
+		<div class="flex-row-none section-footer">
+			${footer} <span>  ${queryParams}</span> <span>&nbsp;&nbsp;	<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performRefresh()">Refresh</button></span>
+		</div>
+	</section>
+</template>

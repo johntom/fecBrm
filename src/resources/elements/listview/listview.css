@@ -1,0 +1,61 @@
+.listview {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "listview-header"
+    "listview-content"
+    "listview-footer";
+  overflow: auto;
+}
+.listview .listview-header {
+  grid-area: listview-header;
+  display: grid;
+  grid-template-columns: auto 1fr 300px;
+  grid-template-areas:
+    "listview-header-buttons listview-header-buttons-extra listview-header-input";
+}
+.listview .listview-header-buttons {
+  grid-area: listview-header-buttons;
+}
+.listview .listview-header-buttons-extra {
+  grid-area: listview-header-buttons-extra;
+  margin-left: 10px;
+}
+.listview .listview-header-input {
+  grid-area: listview-header-input;
+}
+.listview .listview-content {
+  grid-area: listview-content;
+  min-height: 0;
+  overflow-y: auto;
+}
+.listview .listview-footer {
+  grid-area: listview-footer;
+}
+
+.listview-item-selected {
+  background: #e6e6e6;
+}
+.listview .listview-buttons button:focus,
+.listview-item-selected:focus,
+.listview-item-selected:active:focus {
+  border-color: #ccc;
+  outline: none;
+  outline-color: transparent;
+}
+.listview-item-hidden * {
+  /* border: none; */
+  opacity: 0.1 !important;  
+}
+.listview-item-visible * {
+  /* border: solid 2px red; */
+  opacity: 1;
+  -webkit-animation: fadeIn var(--delay);
+  animation: fadeIn var(--delay);  
+}
+
+/* .view-hidden {
+  opacity: 0;
+  -webkit-animation: listviewFadeOut var(--delay);
+  animation: listviewFadeOut var(--delay);
+} */

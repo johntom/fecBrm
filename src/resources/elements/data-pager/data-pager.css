@@ -1,0 +1,4 @@
+.data-pager .page-item {
+  user-select: none;
+  cursor: pointer;
+}

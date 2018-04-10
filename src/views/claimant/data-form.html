@@ -1,0 +1,99 @@
+<!-- <require from="./set-attribute"></require>
+	<require from="./typeahead"></require>
+ -->
+<template>
+
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading} Add
+		</div>
+   
+   
+		<div class="flex-column-1 overflow-y-auto">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-2">
+
+					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
+						<div class="flex-row-6">
+							<div class="flex-column-1">
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1 ">
+										<label for="CLAIMANT_ID">CLAIMANT_ID</label> ${appService.currentClaimant.CLAIMANT_ID}
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="LAST_NAME">LAST_NAME</label>
+										<input type="text" id="LAST_NAME" class="form-control input-sm" value.bind="appService.currentClamant.LAST_NAME">
+									</div>
+									
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="FIRST_NAME">FIRST_NAME</label>
+										<input type="text" id="FIRST_NAME" class="form-control input-sm" value.bind="appService.currentClamant.FIRST_NAME">
+									</div>
+                  	<div class="form-group flex-column-1 margin-left-10">
+										<label for="STREET">STREET</label>
+										<input type="text" id="STREET" class="form-control input-sm" value.bind="appService.currentClamant.STREET">
+									</div>
+
+                   	<div class="form-group flex-column-1 margin-left-10">
+										<label for="CITY">CITY</label>
+										<input type="text" id="CITY" class="form-control input-sm" value.bind="appService.currentInsured.CITY">
+									</div>
+ 	<div class="form-group flex-column-1 margin-left-10">
+										<label for="CITY">STATE</label>
+										<input type="text" id="STATE" class="form-control input-sm" value.bind="appService.currentInsured.STATE">
+									</div>
+                   	<div class="form-group flex-column-1 margin-left-10">
+										<label for="CITY">ZIP</label>
+										<input type="text" id="ZIP" class="form-control input-sm" value.bind="appService.currentInsured.ZIP">
+									</div>
+                   	<div class="form-group flex-column-1 margin-left-10">
+										<label for="PHONE">PHONE</label>
+										<input type="text" id="PHONE" class="form-control input-sm" value.bind="appService.currentInsured.PHONE">
+									</div>
+                   	<div class="form-group flex-column-1 margin-left-10">
+										<label for="SS">SS</label>
+										<input type="text" id="CITY" class="form-control input-sm" value.bind="appService.currentInsured.SS">
+									</div>
+                   	<div class="form-group flex-column-1 margin-left-10">
+										<label for="AGE">AGE</label>
+										<input type="text" id="AGE" class="form-control input-sm" value.bind="appService.currentInsured.AGE">
+									</div>
+                   	<div class="form-group flex-column-1 margin-left-10">
+										<label for="SEX">SEX</label>
+										<input type="text" id="SEX" class="form-control input-sm" value.bind="appService.currentInsured.SEX">
+									</div>
+ 	<div class="form-group flex-column-1 margin-left-10">
+										<label for="DOB">DOB</label>
+										<input type="date" id="DOB" class="form-control input-sm" value.bind="appService.currentInsured.DOB">
+									</div>
+
+
+
+								</div>
+
+								
+
+
+
+
+
+						
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="flex-column-none section-footer">
+			<!-- ${footer} -->
+
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveinsco()">
+                  Save Insurance co
+          </button>
+        </span>
+		</div>
+	</section>
+</template>

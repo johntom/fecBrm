@@ -1,0 +1,52 @@
+<template>
+	<require from="aurelia-kendoui-bridge/grid/grid"></require>
+	<require from="aurelia-kendoui-bridge/grid/col"></require>
+	<require from="aurelia-kendoui-bridge/common/template"></require>
+	<require from="../../../styles/kendo.css"></require>
+ 
+	<require from="./customers.css"></require>
+  <!-- CLAIM_NO: "02-00184",
+TOTAL: 1,
+ADJUSTER: {
+ADJUSTER_ID: 2,
+ADJUSTER_NAME: "Bob Guida",
+TYPE: "Primary",
+edit: false
+} -->
+	<section class="customers au-animate">
+		<h2>ArPrep v3 -- ( ${origItems.length})</h2>
+		<!-- <a slot="buttons-slot" class="btn btn-primary" click.delegate="addDaily()">
+			<i class="fa fa-plus"></i> Add Daily
+		</a> -->
+	</section>
+	<section class="full-height flex-column-1 au-animate ignore">
+
+		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="datasource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
+		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
+		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
+	<!-- <ak-col k-field="batchno" k-filterable.bind="true" k-title="Edit batchno" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=batchno#</button>">
+			</ak-col> -->
+			<!-- <ak-col k-field="CLAIM.CLAIM_NO" k-filterable.bind="true" k-title="Edit CLAIM_NO" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=CLAIM.CLAIM_NO#</button>">
+			</ak-col> -->
+      	<ak-col k-field="CLAIM_NO" k-filterable.bind="true" k-title="Edit Daily" k-width.bind="80" k-template="<button click.delegate='details($event)' class='k-button'>#=CLAIM_NO#</button>">
+			</ak-col>
+      	<ak-col k-field="TOTAL" k-filterable.bind="true" k-title="Total Hours" k-width.bind="80"  >
+			</ak-col>
+		<!-- <ak-col k-field="STATUS" k-filterable.bind="true" k-title="STATUS" k-width.bind="80"  >
+			</ak-col> -->
+      	<ak-col k-field="ADJUSTER.ADJUSTER_NAME" k-filterable.bind="true" k-title="Primary Adjuster" k-width.bind="180"  >
+			</ak-col>
+    	<ak-col k-field="insco.NAME" k-filterable.bind="true" k-title="insco" k-width.bind="180"  >
+			</ak-col>
+    	<ak-col k-field="insured.LEGAL_NAME" k-filterable.bind="true" k-title="insured" k-width.bind="180"  >
+			</ak-col>
+
+
+
+
+		</ak-grid>
+		<div class="flex-row-none section-footer">
+			${footer} <span>  ${queryParams}</span> <span>&nbsp;&nbsp;	<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performRefresh()">Refresh</button></span>
+		</div>
+	</section>
+</template>
