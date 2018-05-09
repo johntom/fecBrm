@@ -6,23 +6,13 @@
 
 	<require from="./customers.css"></require>
 	<section class="customers au-animate">
-		<h2>Insured ( ${origItems.length})</h2>
-		<a slot="buttons-slot" class="btn btn-primary" click.delegate="addClaim()">
+		<h2>Adjusters ( ${origItems.length})</h2>
+		<!-- <a slot="buttons-slot" class="btn btn-primary" click.delegate="addClaim()">
 			<i class="fa fa-plus"></i> Add Insured
-		</a>
+		</a> -->
 	</section>
 	<section class="full-height flex-column-1 au-animate ignore">
-"ADJUSTER_ID" : NumberInt(4), 
-    "ADJUSTER_NAME" : "Donna Luciani", 
-    "ADJUSTER_PHONE" : "973-398-9982", 
-    "ADJUSTER_EXT" : NumberInt(0), 
-    "Email" : "DLuciani@markadjustment.com", 
-    "ADJUSTER_EMAIL" : "DLuciani@markadjustment.com", 
-    "ACTIVE" : NumberInt(-1), 
-    "EMP_TYPE" : "e", 
-    "LIABILITY_RATE" : 35.0, 
-    "PROPERTY_RATE" : 50.0, 
-    "MILEAGE_RATE" : 0.41
+
 		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="datasource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
 		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
 		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">

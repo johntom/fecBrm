@@ -1,0 +1,51 @@
+<!-- <require from="./set-attribute"></require>
+	<require from="./typeahead"></require>
+ -->
+<template>
+
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading} Add
+		</div>
+
+		<div class="flex-column-1 overflow-y-auto">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-2">
+
+					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
+						<div class="flex-row-6">
+							<div class="flex-column-1">
+								<div class="flex-row-none">
+									<div class="form-group flex-column-1 ">
+										<label for="LEGAL_NAME">INSURED_ID</label> ${appService.currentInsured.INSURED_ID}
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="LEGAL">LEGAL Name</label>
+										<input type="text" id="LEGAL" class="form-control input-sm" value.bind="appService.currentInsured.LEGAL_NAME">
+									</div>
+									
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="COMMON_NAME">COMMON_NAME</label>
+										<input type="text" id="COMMON_NAME" class="form-control input-sm" value.bind="appService.currentInsured.COMMON_NAME">
+									</div>
+								</div>
+						
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="flex-column-none section-footer">
+			<!-- ${footer} -->
+
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveinsco()">
+                  Save Insurance co
+          </button>
+        </span>
+		</div>
+	</section>
+</template>

@@ -47,6 +47,8 @@ export class Home {
         this.dataService.loadClaimlist(),
         this.dataService.loadMasrep(),
         this.dataService.loadPayperiod(),
+        this.dataService.loadCodes(),
+
         //findclaimlist
         // findservice findexpesnse findclaim
         // ,        this.dataService.loadClaimant()
@@ -65,7 +67,17 @@ export class Home {
         this.appService.claimList = values[10];
         this.appService.MasrepList = values[11];
         this.appService.PayperiodList = values[12];
+        this.appService.codesList = values[13];
 
+        
+        // let i, item, ct
+        //   this.appService.LookupDataLoaded = true;
+        //   let codesInventoryLocation = []//1,
+        //   let codesInventoryType = []//2,
+        //   let codesGenre = []//3, change to keyword
+        //   let allothers = []
+        //   let codesOwnership = []//4,
+        //   let codesFormat = []//5
 
 
         // console.log(' this.genderList', this.appService.genderList)
@@ -80,11 +92,13 @@ export class Home {
         // console.log(' this.claimList', this.appService.claimList)
         // console.log(' this.appService.MasrepList values[11]', values[11], this.appService.MasrepList)
 
-        console.log(' this.appService.PayperiodList values[12]', values[12], this.appService.PayperiodList)
-
-
+        //console.log(' this.appService.PayperiodList values[12]', values[12], this.appService.PayperiodList)
         let adjusterActiveList = this.appService.adjusterList.filter(rec => rec.ACTIVE === -1);
+
+
         this.appService.adjusterActiveList = adjusterActiveList
+        console.log('  this.appService.adjusterList  / adjusterActiveList', this.appService.adjusterList, adjusterActiveList)
+
         let i
         // lets get sort_no as part of desc
         for (i = 0; i < this.appService.serviceList.length; i++) {

@@ -120,6 +120,21 @@ export class Prompt {
       }
     }
 
+
+    if (this.fieldname === 'ADJUSTER_ID') {
+      let meds = this.appService.adjusterList
+      if ((this.appService.currentSearchadj === undefined) || (this.appService.currentSearchadj === null)) {
+      } else {
+        // let mid = meds.findIndex(x => x._id === this.currentSearchadj)
+        // let orgobj = this.appService.orgsList[mid]
+
+        // this.OrgName = orgobj
+        // this.dadjuster_id.value = this.OrgName
+      }
+    }
+
+
+
   }
   save(modal) {
     //  this.LEGAL_NAME = insuredobj
@@ -145,14 +160,19 @@ export class Prompt {
       let orgid = `${this.LEGAL_NAME.INSURED_ID}`
       let LEGAL_NAME = `${this.LEGAL_NAME.LEGAL_NAME}`
       let id = `${this.LEGAL_NAME.id}`
-
       this.currentItem.INSURED_ID = orgid // keep for legacy until converted
       // this.currentItem.LEGAL_NAME = LEGAL_NAME
       if (this.currentItem.insured === undefined) this.currentItem.insured = {}
-
       this.currentItem.insured.LEGAL_NAME = LEGAL_NAME
       this.currentItem.insured.INSURED_ID = orgid
       this.currentItem.insured.id = id
+    }
+
+    if (this.fieldname === 'ADJUSTER_ID') {
+      let ADJUSTER_ID = `${this.ADJUSTER_NAME.ADJUSTER_ID}`// _id}`
+      let ADJUSTER_NAME = `${this.ADJUSTER_NAME.ADJUSTER_NAME}`
+      this.appService.currentSearchadj.ADJUSTER_ID = ADJUSTER_ID
+      this.appService.currentSearchadj.ADJUSTER_NAME = ADJUSTER_NAME
     }
 
     this.controller.cancel(modal) //this.controller.cancel()

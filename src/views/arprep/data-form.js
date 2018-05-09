@@ -71,15 +71,23 @@ export class DataForm {
   saveCreate() {
     // this is final
     let status = 1
-  //  this.api.saveDailyforar(this.dailies, status).then((jsonRes) => {
+       let claimno = this.appService.currentDaily.CLAIM_NO
+    //  this.api.saveDailyforar(this.dailies, status).then((jsonRes) => {
     this.api.saveDaily(this.dailies, status).then((jsonRes) => {
-  
-      console.log('jsonRes ', jsonRes);
 
+      console.log('jsonRes ', jsonRes);
+   
       this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
         console.log('jsonRes ', jsonRes);
       });
     });
+    let rt2a = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+
+    console.log('rt2a ' + rt2a + ' jsonRes ' + jsonRes)
+    // alert('rt2 ' + rt2)
+    window.open(rt2a, '_blank');
+
+
     let tab = this.appService.tabs.find(f => f.isSelected);
     this.closeTab(tab);
     let rt2 = '#/arprep/Searchadjusterprep?'
@@ -98,14 +106,15 @@ export class DataForm {
       let claimno = this.appService.currentDaily.CLAIM_NO
       this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
         console.log('jsonRes ', jsonRes);
-      //  let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + claimno + 'inv.pdf'
-        let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+        //  let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+        let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
+
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
         // alert('rt2 ' + rt2)
         window.open(rt2, '_blank');
       });
     });
-   
+
   }
 
   // saveCreatePDF() {

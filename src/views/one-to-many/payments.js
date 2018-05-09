@@ -1,0 +1,6 @@
+export class Payments {
+
+  constructor() {
+
+  }
+}

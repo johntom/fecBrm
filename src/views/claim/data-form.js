@@ -197,8 +197,6 @@ export class DataForm {
     //this.ratingChangedListener =  e => this.rating = e.rating;
   }
 
-
-
   detached() {
     // this.ratingElement.removeEventListener('change', this.ratingChangedListener);
     // this.selectAdjusterElement.removeEventListener('change', this.adjusterSelectedListener);
@@ -241,23 +239,20 @@ export class DataForm {
           let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
           console.log('this.tabname ', this.tabname)
           this.router.navigate(rt2);
-
         });
       } else {
         this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
           let tab = this.appService.tabs.find(f => f.isSelected);
-
           this.closeTab(tab);
           let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
           console.log('this.tabname ', this.tabname)
           this.router.navigate(rt2);
-
         });
-
       }
     }
   }
+
   close() {
     let tab = this.appService.tabs.find(f => f.isSelected);
     // Next, we navigate to the newly created claim

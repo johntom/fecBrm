@@ -1,0 +1,78 @@
+<!-- <require from="./set-attribute"></require>
+	<require from="./typeahead"></require>
+ -->
+<template>
+
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading} Add
+		</div>
+   
+   
+		<div class="flex-column-1 overflow-y-auto">
+			<form class="flex-column-1">
+				<div id="top" class="flex-row-2">
+
+					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
+						<div class="flex-row-6">
+							<div class="flex-column-1">
+								<div class="flex-row-none">
+
+
+
+									<div class="form-group flex-column-1 ">
+										<label for="CODE_ID">CODE_ID</label> ${appService.currentCode.CODE_ID}
+									</div>
+
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="CODE_TYPE_ID">CODE_TYPE_ID</label>
+										<input type="text" id="CODE_TYPE_ID" class="form-control input-sm" value.bind="appService.currentCode.CODE_TYPE_ID">
+									</div>
+									
+									<div class="form-group flex-column-1 margin-left-10">
+										<label for="DESCRIPTION">DESCRIPTION</label>
+										<input type="text" id="v" class="form-control input-sm" value.bind="appService.currentCode.DESCRIPTION">
+									</div>
+                  	<div class="form-group flex-column-1 margin-left-10">
+										<label for="ABBREVIATION">ABBREVIATION</label>
+										<input type="text" id="ABBREVIATION" class="form-control input-sm" value.bind="appService.currentCode.ABBREVIATION">
+									</div>
+
+                   	<div class="form-group flex-column-1 margin-left-10">
+										<label for="SORT_NO">SORT_NO</label>
+										<input type="text" id="SORT_NO" class="form-control input-sm" value.bind="appService.currentCode.SORT_NO">
+									</div>
+ 	<div class="form-group flex-column-1 margin-left-10">
+										<label for="id">id</label>
+										<input type="text" id="id" class="form-control input-sm" value.bind="appService.currentCode.id">
+									</div>
+                
+
+
+								</div>
+
+								
+
+
+
+
+
+						
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="flex-column-none section-footer">
+			<!-- ${footer} -->
+
+			<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveinsco()">
+                  Save Insurance co
+          </button>
+        </span>
+		</div>
+	</section>
+</template>

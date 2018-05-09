@@ -2,25 +2,44 @@
 	<!-- <require from="./set-attribute"></require> -->
 	<section class="full-height flex-column-1 au-animate ignore">
 		<div class="flex-row-none section-header">
-			${heading}
+			* ${heading}
 		</div>
 		<div class="flex-row-1 ignore">
 			<div class="flex-column-1 search-panel">
 				<form>
 					<!-- <div class="form-group">
 						<input id="searchInput" type="text" class="form-control" placeholder="Search for AR Prep " value.bind="search.adjuster">
-					</div> -->
+					</div> <select size="50" -->
 					<div class="form-group flex-column-1 margin-left-10">
-						<label for="adjuster"> List of adjusters  </label>
+						<label for="adjuster"> click to select an adjuster ${appService.adjusterList.length}  </label>
 				
-						<select id="searchInvCode" class="form-control input-sm" value.bind="search.adjuster"> 
+						<!-- <select id="searchInvCode" class="form-control input-sm" value.bind="search.adjuster"> 
                       <option model.bind="null">Choose...</option> 
-                      <option repeat.for="opt of adjusterprep" model.bind="opt.ADJUSTER_ID">
+                      <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
                         ${opt.ADJUSTER_NAME} 
                       </option> 
-                    </select>
+                    </select> -->
 
-					</div>
+						<!-- <input click.delegate="showModal('ADJUSTER_ID')" type="text" ref="ADJUSTER_ID"
+         autocomplete="section-red"    id="ADJUSTER_ID" class="form-control input-sm" value.bind="search.adjuster">
+           -->
+	<!-- <aubs-typeahead ref='dadjuster_id' data.bind="appService.adjusterList" value.bind="search.adjuster" debounce.bind="350" placeholder="adjuster"
+					 open-on-focus.bind="true" key="ADJUSTER_NAME" results-limit.bind="12" select-single-result.bind="true">
+					</aubs-typeahead> -->
+
+					<aubs-typeahead ref='dadjuster_id' data.bind="appService.adjusterList" value.bind="ADJUSTER_NAME" debounce.bind="350" placeholder="INSURED_ID"
+					 open-on-focus.bind="true" key="ADJUSTER_NAME" results-limit.bind="12" select-single-result.bind="true">
+					</aubs-typeahead>
+	
+
+          </div>
+<!-- <div class="form-group flex-column-1 margin-left-10">
+						<label for="adjuster" > ${appService.currentSearchadj.ADJUSTER_NAME} </label>
+				
+          
+          </div> -->
+
+
 					<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>
 				</form>
 			</div>

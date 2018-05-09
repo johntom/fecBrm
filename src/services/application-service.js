@@ -19,7 +19,7 @@ export class ApplicationService {
       viewModel: "./one-to-many/adjusters",
       isSelected: false
     }, {
-      name: "Adjusternotes",
+      name: "Adjuster Notes",
       viewModel: "./one-to-many/adjusternotes",
       isSelected: false
     },
@@ -38,11 +38,11 @@ export class ApplicationService {
       viewModel: "./one-to-many/invoices",
       isSelected: false
     },
-    {
-      name: "Adjusterpayments",
-      viewModel: "./one-to-many/adjusterpayments",
-      isSelected: false
-    },
+    // {
+    //   name: "Adjuster Payments",
+    //   viewModel: "./one-to-many/adjusterpayments",
+    //   isSelected: false
+    // },
     {
       name: "Carrieremails",
       viewModel: "./one-to-many/carrieremails",
@@ -66,6 +66,20 @@ export class ApplicationService {
       isSelected: false
     }]
 
+  dataFormOneToManyTabs3 = [
+    {
+      name: "Payments",
+      viewModel: "./one-to-many/payments",
+      isSelected: true
+    }
+    // , {
+    //   name: "Contacts",
+    //   viewModel: "./one-to-many/adjuster",
+    //   isSelected: false
+    // }
+    ]
+
+
   currentRecord = 0;//null;
   testrec = 0;
   originalrec = 0;
@@ -74,10 +88,10 @@ export class ApplicationService {
 
   curentClaim;
   curentDaily;
-  curentAdjuster;
-  currentSearchadj
+  currentAdjuster;
+  currentSearchadj={}
   currentpayperiod
-  currentadjuster
+  currentpaymentAdjuster;
   
   testinscorec = 0;
   currentInsco;

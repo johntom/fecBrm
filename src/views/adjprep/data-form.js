@@ -1,4 +1,3 @@
-
 import { Router } from 'aurelia-router';
 import { ApiService } from '../../utils/servicesApi';
 import { inject } from 'aurelia-dependency-injection';
@@ -100,9 +99,8 @@ export class DataForm {
     this.closeTab(tab);
     //// let rt2 = '#/ajusterprep/'
     //// let rt2 = '#/adjusterprep/Searcharprep?'
-   
-   //let rt2 = '#/adjprep/Searchadjprep?'
-   // this.router.navigate(rt2);
+    // let rt2 = '#/adjprep/Searchadjprep?'
+    // this.router.navigate(rt2);
   }
 
   toggleAll() {
@@ -121,8 +119,17 @@ export class DataForm {
     tab.isSelected = false;
     this.appService.tabs.splice(index, 1);
   }
-
-}
+// gete(index){
+//   // "EXPENSE" : {
+//   //       "DESCRIPTION" : "201 Dictation", 
+//   //       "SORT_NO" : NumberInt(201)
+//   //   }, 
+//   return this.dailies[index].EXPENSE.DESCRIPTION
+// }
+// edit(daily,index){
+// daily.edit=!daily.edit
+// return this.dailies[index].EXPENSE.DESCRIPTION
+// }
  // selectOneToOneTab(tab) {
   //   this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
   //   tab.isSelected = true;

@@ -16,31 +16,28 @@ export class SearchResults {
   title = '';
   invcode = '';
   queryParams = '';
-  items = [];
+  adjusteritems = [];
   origItems = [];
 
   //  console.log(' inv SearchResults ');
   message = 'Hello Adjusters !';
   datasource = new kendo.data.DataSource({
+
     transport: {
       read: (options) => {
-        //  this.loadData(this.capColor, this.prevtown)
         this.loadData()
-          .then((adjuster) => {
-            console.log(' inv datasource ', adjuster.length);// inv[0]);
-            options.success(adjuster);
+          .then((adjusteritems) => {
+            console.log(' Adjusters datasource ', adjusteritems[0], adjusteritems.length)
+            options.success(adjusteritems);
           });
       },
-    
     },
     schema: {
       model: {
         id: "id", // Must assign id for update to work
-        
       }
     },
     pageSize: 12,
-    
   })
 
   constructor(router, api, utilService, appService, dataService) {
@@ -66,33 +63,32 @@ export class SearchResults {
   }
 
   loadData() {
-    console.log('this.loadData ')
-    let s2 = '1-1-2016';
-    let s3 = '10-21-2016';
-    let insured;
-    // ///api/v1/inventory/getall
-    // // let searchrec={}
-    // // if (this.title)  searchrec.title=this.title;
-    // // if (this.invcode) searchrec.invcode=this.invcode;
-    // if (this.appService.searchDataLoaded) {
-    //   console.log('using searchDataLoaded cache....')
-    //   return Promise.resolve(true);
-    // } else {
-     
-    //   return  Promise.all([
-    //     this.dataService.loadSearchInsured(this.queryParams)
-    //   ]).then(values => {
-    //     this.origItems = values[0];
-    //     insured = this.origItems;
-    //     console.log('insured ', insured.length)
-    //     return insured
-    //     //bad   this.currentItem = this.items.find(f => f.id == params.id);
-    //   }).catch(error => {
-    //     console.error("Error encountered while trying to get data.", error);
-    //   });
+    //console.log('this.loadData ')
+    // let s2 = '1-1-2016';
+    // let s3 = '10-21-2016';
+  
+    if (this.appService.searchDataLoaded) {
+      console.log('using searchDataLoaded cache....')
+      return Promise.resolve(true);
+    } else {
+      let adjusteritems = this.appService.adjusterList
+      this.origItems = adjusteritems
+      console.log("adjuster", adjusteritems)
+      return Promise.resolve(adjusteritems);
+      //  this.dataService.loadAdjusters(this.queryParams)
+      //     return  Promise.all([
+      //       this.dataService.loadAdjusters()
+      //     ]).then(values => {
+      //       this.origItems = values[0];
+      //       let adjusteritems = this.origItems;
+      //       console.log('adjusteritems ', adjusteritems.length)
+      //       return adjusteritems
+      //       //bad   this.currentItem = this.items.find(f => f.id == params.id);
+      //     }).catch(error => {
+      //       console.error("Error encountered while trying to get data.", error);
+      //     });
 
-    //   // claim = this.origItems;
-return  this.appService.adjusterList
+
     }
   }
   rowSelected(e) {
@@ -107,7 +103,7 @@ return  this.appService.adjusterList
     alert('You have selected performRefresh')
     this.appService.searchDataLoaded = false;
     this.datasource.read()  //this.loadData(); // or
-  //  this.appService.searchDataLoaded = true;
+    //  this.appService.searchDataLoaded = true;
   }
 
   details(e) {
@@ -116,7 +112,7 @@ return  this.appService.adjusterList
     grid.select(targetRow);
     let selectedRow = grid.select();
     let dataItem = grid.dataItem(selectedRow);
-     let rt2 = '#/insured/data/' + dataItem.INSURED_ID
+    let rt2 = '#/adjuster/data/' + dataItem.ADJUSTER_ID
     console.log('search-results:details', rt2);
     this.router.navigate(rt2);// `#/inventory/${path}`);
   }
@@ -124,7 +120,7 @@ return  this.appService.adjusterList
   // addClaim() {
   //   // let rt2 = '#/claim/data/create';
   //   let rt2 = '#/claim/dataadd';
-    
+
   //   this.router.navigate(rt2);// `#/inventory/${path}`);
   // }
 

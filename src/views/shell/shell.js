@@ -58,6 +58,15 @@ export class Shell {
       { route: 'adjuster/data/:id', name: 'adjuster-data-form', moduleId: '../adjuster/data-form', title: 'Data Form' },
       { route: 'adjuster', name: 'adjuster', moduleId: '../adjuster/adjuster', nav: true, title: 'Adjuster' },
 
+      { route: 'invoice/:id', name: 'invoice-search-results', moduleId: '../invoice/search-results', title: 'Search Results' },
+      { route: 'invoice/data/:id', name: 'invoice-data-form', moduleId: '../invoice/data-form', title: 'Data Form' },
+      { route: 'invoice', name: 'invoice', moduleId: '../invoice/invoice', nav: true, title: 'Invoice' },
+
+
+
+      { route: 'code/:id', name: 'code-search-results', moduleId: '../code/search-results', title: 'Search Results' },
+      { route: 'code/data/:id', name: 'code-data-form', moduleId: '../claimant/data-form', title: 'Data Form' },
+      { route: 'code', name: 'code', moduleId: '../code/code', nav: true, title: 'Code' },
 
       // { route: 'adjusterprep/:id', name: 'adjusterprep-search-results', moduleId: '../adjusterprep/search-results', title: 'Search Results' },
       // { route: 'adjusterprep/data/:id', name: 'adjusterprep-data-form', moduleId: '../adjusterprep/data-form', title: 'Data Form' },

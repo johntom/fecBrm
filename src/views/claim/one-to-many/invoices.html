@@ -2,70 +2,71 @@
 	<require from="./docs.css"></require>
 	<!-- <section class="customer-orders au-animate"> -->
 	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
-		<h2>
-			<i class="fa fa-folder-open"></i> Diary for ${currentItem.claimant.FIRST_NAME} ${currentItem.claimant.LAST_NAME}
-<a slot="buttons-slot" class="btn btn-success" click.delegate="addDiary()">
-				<i class="fa fa-plus"></i> Add Diary
-			</a>
-		</h2>
+		<h3>Invoices</h3>
+		<table class="table-condensed table">
+			<thead class="table-header-blue" data-sort="items.bind: files; cols: ['FILE_NAME','FILE_EXT']">
+				<tr>
+					<th class="header">status</th>
+					<th class="header">Open Pdf</th>
+					<th class="header">Download Pdf</th>
 
-	
-			<table class="table-condensed table">
-				<thead class="table-header-blue" data-sort="items.bind: currentItem.diaries; cols: ['ENTERED','REMIND','CANCELED','NOTES']">
-					<tr>
-						<th class="header">ENTERED
-						</th>
-						<th class="header">DIARY(REMIND)
-						</th>
-						<th class="header">CANCELED
-						</th>
-						<th class="header">NOTES
-						</th>
-					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<td></td>
-						<td></td>
+				</tr>
 
-					</tr>
-				</tfoot>
-				<tbody>
-					<tr repeat.for="diary of currentItem.diaries" with.bind="diary">
-						<!-- <td width="220px"><input type="date" id="ENTERED" class="form-control  input-sm" value.bind="ENTERED"></td>
-						<td width="220px"><input type="date" id="REMIND" class="form-control  input-sm" value.bind="REMIND"></td>
-						<td width="220px"><input type="date" id="CANCELED" class="form-control  input-sm" value.bind="CANCELED"></td>
-						<td width="220px"><input type="text" id="Notes" class="form-control  input-sm" value.bind="Notes"></td> -->
-
-	<td width="125px">
-						<span show.bind="!diary.edit">${ENTERED}</span>
-						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="date" value.bind="ENTERED">
+			</thead>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr repeat.for="ar of files">
+					<td>
+						<span show.bind="ar.status===0">
+       				Temp 
+						
+           </span>
+						<span show.bind="ar.status===1">
+           				Final	
+						
+          </span>
 					</td>
-          <td width="125px">
-						<span show.bind="!diary.edit">${REMIND}</span>
-						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="date" value.bind="REMIND">
-					</td>
-          <td width="125px">
-						<span show.bind="!diary.edit">${CANCELED}</span>
-						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="date" value.bind="CANCELED">
-					</td>
-					<td width="325px">
-						<span show.bind="!diary.edit">${Notes}</span>
+					<td>
+						<span show.bind="ar.status===0">
+              	<a size='100' class="form-control  input-sm" target="_blank" 
+                href="http://jif.bergenrisk.com:8081/api/v1/onepdf/${ar.claim.CLAIM_NO}/${ar.id}temp.pdf">
+							 	${ar.id}
+							</a>
+            </span>
+						<span show.bind="ar.status===1">
+              	<a size='100' class="form-control  input-sm" target="_blank" 
+             href="http://jif.bergenrisk.com:8081/api/v1/onepdf/${ar.claim.CLAIM_NO}/${ar.id}.pdf">
+									${ar.id}
+							</a>
+            </span>
 
-						<input show.bind="diary.edit" class="form-control input-sm" disabled.bind="!diary.edit" type="text" value.bind="Notes">						</td>
-
-					<td width="225px">
-					<button class="btn btn-primary" click.delegate="diary.edit=!diary.edit">${ !diary.edit ? 'Update' : 'Done' }</button>
-					<button class="btn btn-danger" click.delegate="remove(diary,$index)">Delete</button> 
-       
 					</td>
 
+					<td>
 
+						<span show.bind="ar.status===0">
+              	<a size='100' class="form-control  input-sm" target="_blank" 
+                href="http://jif.bergenrisk.com:8081/api/v1/downloadar/${ar.claim.CLAIM_NO}/${ar.id}temp.pdf">
+								 	${ar.id}
+							</a>
+</span>
+						<span show.bind="ar.status===1">
+              	<a size='100' class="form-control  input-sm" target="_blank" 
+             href="http://jif.bergenrisk.com:8081/api/v1/downloadar/${ar.claim.CLAIM_NO}/${ar.id}.pdf">
+									${ar.id}
+							</a>
+</span>
 
-					</tr>
-				</tbody>
-			</table>
+					</td>
 
+				</tr>
+			</tbody>
+		</table>
 
 	</section>
 </template>

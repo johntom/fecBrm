@@ -3,9 +3,9 @@
 	<require from="aurelia-kendoui-bridge/grid/col"></require>
 	<require from="aurelia-kendoui-bridge/common/template"></require>
 	<require from="../../../styles/kendo.css"></require>
- 
+
 	<require from="./customers.css"></require>
-  <!-- CLAIM_NO: "02-00184",
+	<!-- CLAIM_NO: "02-00184",
 TOTAL: 1,
 ADJUSTER: {
 ADJUSTER_ID: 2,
@@ -24,29 +24,28 @@ edit: false
 		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="datasource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
 		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
 		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
-	<!-- <ak-col k-field="batchno" k-filterable.bind="true" k-title="Edit batchno" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=batchno#</button>">
+			<!-- <ak-col k-field="batchno" k-filterable.bind="true" k-title="Edit batchno" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=batchno#</button>">
 			</ak-col> -->
 			<!-- <ak-col k-field="CLAIM.CLAIM_NO" k-filterable.bind="true" k-title="Edit CLAIM_NO" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=CLAIM.CLAIM_NO#</button>">
 			</ak-col> -->
-      	<ak-col k-field="CLAIM_NO" k-filterable.bind="true" k-title="Edit Daily" k-width.bind="80" k-template="<button click.delegate='details($event)' class='k-button'>#=CLAIM_NO#</button>">
+			<ak-col k-field="CLAIM_NO" k-filterable.bind="true" k-title="Edit Daily" k-width.bind="80" k-template="<button click.delegate='details($event)' class='k-button'>#=CLAIM_NO#</button>">
 			</ak-col>
-   
-  	<ak-col k-field="id" k-filterable.bind="true" k-title="id" k-width.bind="80"  >
+
+			<ak-col k-field="id" k-filterable.bind="true" k-title="id" k-width.bind="80">
 			</ak-col>
-  <ak-col k-field="CLAIM_NO" k-filterable.bind="true" k-title="Pdf Open" k-width.bind="160" k-template="<button click.delegate='detailspdf($event)' class='k-button'>#=CLAIM_NO#inv.pdf</button>">
-                                </ak-col>
-      	<ak-col k-field="TOTAL" k-filterable.bind="true" k-title="Total Hours" k-width.bind="80"  >
+      
+			<ak-col k-field="CLAIM_NO" k-filterable.bind="true" k-title="Pdf Open" k-width.bind="160" k-template="<button click.delegate='detailspdf($event)' class='k-button'>#=id#.pdf</button>">
 			</ak-col>
-		<!-- <ak-col k-field="STATUS" k-filterable.bind="true" k-title="STATUS" k-width.bind="80"  >
+			<ak-col k-field="TOTAL" k-filterable.bind="true" k-title="Total Hours" k-width.bind="80">
+			</ak-col>
+			<!-- <ak-col k-field="STATUS" k-filterable.bind="true" k-title="STATUS" k-width.bind="80"  >
 			</ak-col> -->
-      	<ak-col k-field="ADJUSTER.ADJUSTER_NAME" k-filterable.bind="true" k-title="Primary Adjuster" k-width.bind="180"  >
+			<ak-col k-field="ADJUSTER.ADJUSTER_NAME" k-filterable.bind="true" k-title="Primary Adjuster" k-width.bind="180">
 			</ak-col>
-    	<ak-col k-field="insco.NAME" k-filterable.bind="true" k-title="insco" k-width.bind="180"  >
+			<ak-col k-field="insco.NAME" k-filterable.bind="true" k-title="insco" k-width.bind="180">
 			</ak-col>
-    	<ak-col k-field="insured.LEGAL_NAME" k-filterable.bind="true" k-title="insured" k-width.bind="180"  >
+			<ak-col k-field="insured.LEGAL_NAME" k-filterable.bind="true" k-title="insured" k-width.bind="180">
 			</ak-col>
-
-
 
 
 		</ak-grid>

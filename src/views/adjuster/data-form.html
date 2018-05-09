@@ -1,58 +1,129 @@
-<!-- <require from="./set-attribute"></require>
-	<require from="./typeahead"></require>
- -->
 <template>
-
+	<require from="./flex.css"></require>
 	<section class="full-height flex-column-1 au-animate ignore">
 		<div class="flex-row-none section-header">
-			${heading} Add
+			${heading} Adjuster
 		</div>
-
 		<div class="flex-column-1 overflow-y-auto">
 			<form class="flex-column-1">
-				<div id="top" class="flex-row-2">
+				<div id="top" class="flex-row-3">
+					<div id="top-left" class="data-form overflow-y-auto flex-column-2">
 
-					<div id="top-left" class="data-form overflow-y-auto flex-column-1">
-						<div class="flex-row-6">
-							<div class="flex-column-1">
-								<div class="flex-row-none">
-									<div class="form-group flex-column-1 ">
-										<label for="LEGAL_NAME">INSURED_ID</label> ${appService.currentInsured.INSURED_ID}
+						<div class="flex-row-none">
+							<div class="form-group flex-column-1">
+								<div class="Rtable Rtable--2cols">
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> AdjusterID</strong>
 									</div>
 
-									<div class="form-group flex-column-1 margin-left-10">
-										<label for="LEGAL">LEGAL Name</label>
-										<input type="text" id="LEGAL" class="form-control input-sm" value.bind="appService.currentInsured.LEGAL_NAME">
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="ADJUSTER_ID" class="form-control input-sm" value.bind="adjuster.ADJUSTER_ID">
 									</div>
-									
-									<div class="form-group flex-column-1 margin-left-10">
-										<label for="COMMON_NAME">COMMON_NAME</label>
-										<input type="text" id="COMMON_NAME" class="form-control input-sm" value.bind="appService.currentInsured.COMMON_NAME">
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> ADJUSTER_NAME</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="ADJUSTER_NAME" class="form-control input-sm" value.bind="adjuster.ADJUSTER_NAME">
+									</div>
+
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> ACTIVE</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="ACTIVE" class="form-control input-sm" value.bind="adjuster.ACTIVE">
+									</div>
+
+									<!-- <div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> ADJUSTER_PHONE</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="ADJUSTER_PHONE" class="form-control input-sm" value.bind="adjuster.ADJUSTER_PHONE">
+									</div> -->
+
+
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> ADJUSTER_EMAIL</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="ADJUSTER_EMAIL" class="form-control input-sm" value.bind="adjuster.ADJUSTER_EMAIL">
+									</div>
+
+
+
+
+
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> EMP_TYPE</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="EMP_TYPE" class="form-control input-sm" value.bind="adjuster.EMP_TYPE">
 									</div>
 								</div>
+							</div>
+							<div class="form-group flex-column-1 margin-left-10">
+								<div class="Rtable Rtable--2cols">
 
-								
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> LIABILITY_RATE</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="LIABILITY_RATE" class="form-control input-sm" value.bind="adjuster.LIABILITY_RATE">
+									</div>
+
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> PROPERTY_RATE</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="PROPERTY_RATE" class="form-control input-sm" value.bind="adjuster.PROPERTY_RATE">
+									</div>
+
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> MILEAGE_RATE</strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+										<input type="text" id="MILEAGE_RATE" class="form-control input-sm" value.bind="adjuster.MILEAGE_RATE">
+									</div>
 
 
 
-
-
-						
+								</div>
 							</div>
 
 						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-		<div class="flex-column-none section-footer">
-			<!-- ${footer} -->
 
-			<span>&nbsp;&nbsp;	
-          <button class="btn btn-sm btn-danger" click.delegate="saveinsco()">
-                  Save Insurance co
+					</div>
+
+					<div id="bottom-left" class="flex-row-3">
+						<div id="data-form-ext" class="flex-column-1">
+							<div id="data-form-one-to-many-tabs" class="flex-row-none flex-wrap">
+								<div repeat.for="tab of appService.dataFormOneToManyTabs3" class="tab tab-top ${tab.isSelected ? 'tab-selected' : ''}">
+									<div class="form-tab-box" click.delegate="selectOneToManyTab(tab)">
+										<span>${tab.name}</span>
+									</div>
+								</div>
+							</div>
+							<div id="data-form-one-to-many-tab-content overflow-y-hidden" class="data-form flex-row-1" style="background: darkgray;">
+								<compose view-model.bind="currentOneToManyTab.viewModel"></compose>
+							</div>
+						</div>
+					</div>
+
+
+			</form>
+			</div>
+			<div class="flex-column-none section-footer">
+				<!-- ${footer} -->
+
+				<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="saveclaim()">
+                  Save & Close Claim
           </button>
         </span>
-		</div>
+				<span>&nbsp;&nbsp;	
+          <button class="btn btn-sm btn-danger" click.delegate="close()">
+                 Close
+          </button>
+        </span>
+			</div>
 	</section>
 </template>

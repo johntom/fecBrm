@@ -103,9 +103,6 @@ export class ApiService {
     }).then((res) => res.json());
   }
 
-
-
-
   getbatchno() {
     // search has fullu formed query string
     var url = this.baseweb + 'v1/batch/'
@@ -116,12 +113,13 @@ export class ApiService {
     }).then((res) => res.json());
 
   }
+
   saveDaily(rec, status) {
     let url = this.baseweb + `v1/daily/update`
     let i
     for (i = 0; i < rec.length; i++) {
       if (rec[i].$isSelected === true) {
-        rec[i].INV_STATUS = 0 // approved for billing
+        rec[i].INV_STATUS = status//0 // approved for billing 
       }
     }
     return this.http.fetch(url, {
@@ -157,6 +155,34 @@ export class ApiService {
     }).then((res) => res.json())
   }
 
+  // { method: ['get'], path: '/api/v1/walkpayments/:id', handler: 'WalkAdjusterdirController.walkpayments' },
+
+  walkpayments(adjusterid) {
+    var url = this.baseweb + `v1/walkpayments/${adjusterid}`
+    console.log('url ', url)
+    return this.http.fetch(url, {
+      method: 'get',
+      mode: 'cors'
+    }).then((res) => res.json());
+  }
+
+  walkinvoices(claimno) {
+    var url = this.baseweb + `v1/walkinvoices/${claimno}`
+    console.log('url ', url)
+    return this.http.fetch(url, {
+      method: 'get',
+      mode: 'cors'
+    }).then((res) => res.json());
+  }
+
+  findCodes() {
+    var url = this.baseweb + 'v1/code';
+    return this.http.fetch(url, { mode: 'cors' }).then((res) => res.json())
+
+  }
+
+
+
 
   // saveDailyCreateAR(rec) {
   //   let url = this.baseweb + `v1/daily/savecreatear`
@@ -180,23 +206,23 @@ export class ApiService {
     let detail = []
     let i
     for (i = 0; i < dailies.length; i++) {
-       if (dailies[i].$isSelected === true) {
-      let rec = {}
-      rec.CLAIM_NO = dailies[i].CLAIM_NO
-      rec.BILL_TIME = dailies[i].WORKTIME_BILLEDAPPROVED * 1
-      rec.EXPENSE_BILLED = dailies[i].EXPENSE_BILLEDAPPROVED * 1
-      rec.MILEAGE_BILLED = dailies[i].TRAVEL_APPROVED * 1 //TRAVEL_BILLEDAPPROVED //TRAVEL_APPROVED/
-      rec.SERVICE = dailies[i].SERVICE.DESCRIPTION
-      rec.EXPENSE = dailies[i].EXPENSE.DESCRIPTION
-      rec.WORK_DATE = dailies[i].WORK_DATE
-      rec.WORK_DESCRIPTION = dailies[i].WORK_DESCRIPTION
-      rec.ADJUSTER_NOTES = dailies[i].ADJUSTER_NOTES
-      rec.ADJUSTER = dailies[i].ADJUSTER.ADJUSTER_NAME
-      rec.INV_STATUS = status;
-      rec.AR_ID = 0;
+      if (dailies[i].$isSelected === true) {
+        let rec = {}
+        rec.CLAIM_NO = dailies[i].CLAIM_NO
+        rec.BILL_TIME = dailies[i].WORKTIME_BILLEDAPPROVED * 1
+        rec.EXPENSE_BILLED = dailies[i].EXPENSE_BILLEDAPPROVED * 1
+        rec.MILEAGE_BILLED = dailies[i].TRAVEL_APPROVED * 1 //TRAVEL_BILLEDAPPROVED //TRAVEL_APPROVED/
+        rec.SERVICE = dailies[i].SERVICE.DESCRIPTION
+        rec.EXPENSE = dailies[i].EXPENSE.DESCRIPTION
+        rec.WORK_DATE = dailies[i].WORK_DATE
+        rec.WORK_DESCRIPTION = dailies[i].WORK_DESCRIPTION
+        rec.ADJUSTER_NOTES = dailies[i].ADJUSTER_NOTES
+        rec.ADJUSTER = dailies[i].ADJUSTER.ADJUSTER_NAME
+        rec.INV_STATUS = status;
+        rec.AR_ID = 0;
 
-      detail.push(rec)
-       }
+        detail.push(rec)
+      }
     }
     let newmodel = { Head: 'test', status: status, claim, details: detail }
 
@@ -213,7 +239,14 @@ export class ApiService {
       body: JSON.stringify(newmodel)
     }).then((res) => res.json());
   }
-
+findAR(claimno){
+  let url = this.baseweb + `v1/ar/${claimno}`
+    
+     return this.http.fetch(url, {
+      method: 'get',
+      mode: 'cors'
+    }).then((res) => res.json());
+  }
   // createArPdf(dailies, claim,status) {
   //     // saveDailyforar is run first
   //     let url = this.baseweb + `v1/jsreportAR`
@@ -239,10 +272,10 @@ export class ApiService {
 
   // saveDailyAdjuster(dailies, claim, adjuster) {
   // saveDailyAdjuster(dailies, adjuster) {
-   // this.api.saveDailyAdjuster(this.dailies, this.appService.currentadjuster,this.appService.currentpayperiod).then((jsonRes) => {
-    
-    saveDailyAdjuster(dailies,status,adjno,currentpayperiod) {
-        console.log('params  ', status,adjno,currentpayperiod)
+  // this.api.saveDailyAdjuster(this.dailies, this.appService.currentadjuster,this.appService.currentpayperiod).then((jsonRes) => {
+
+  saveDailyAdjuster(dailies, status, adjno, currentpayperiod) {
+    console.log('params  ', status, adjno, currentpayperiod)
     let url = this.baseweb + `v1/adjusterpayment/create`
     console.log('createAR url ', url)
     // console.log('adjuster ', adjuster)
@@ -251,31 +284,31 @@ export class ApiService {
     let i
     for (i = 0; i < dailies.length; i++) {
       // WORK_TIME_PAID EXPENSE_APPROVED EXPENSE_BILLEDAPPROVED TRAVEL_APPROVED EXPENSE_BILLEDAPPROVED 
-     if (dailies[i].$isSelected === true) {
-      rec.CLAIM_NO = dailies[i].CLAIM_NO
-      rec.WORK_TIME_PAID = dailies[i].WORK_TIME_PAID
-      rec.EXPENSE_APPROVED = dailies[i].EXPENSE_APPROVED
-      rec.TRAVEL_APPROVED = dailies[i].TRAVEL_APPROVED
-      rec.WORK_DATE = dailies[i].WORK_DATE
-      rec.WORK_DESCRIPTION = dailies[i].WORK_DESCRIPTION
-      rec.ADJUSTER_NOTES = dailies[i].ADJUSTER_NOTES
-      rec.ADJUSTER = dailies[i].ADJUSTER.ADJUSTER_NAME
-      rec.SERVICE = dailies[i].SERVICE.DESCRIPTION
-      rec.EXPENSE = dailies[i].EXPENSE.DESCRIPTION
-      rec.Claim = dailies[i].CLAIM
-      rec.Aduster = dailies[i].ADJUSTER
-      
-      rec.ADJ_STATUS = status;
-      rec.AR_ID = 0;
-     // rec.Payperiod=currentpayperiod
-      // rec[i].STATUS = 0;
-      detail.push(rec)
-     }
+      if (dailies[i].$isSelected === true) {
+        rec.CLAIM_NO = dailies[i].CLAIM_NO
+        rec.WORK_TIME_PAID = dailies[i].WORK_TIME_PAID
+        rec.EXPENSE_APPROVED = dailies[i].EXPENSE_APPROVED
+        rec.TRAVEL_APPROVED = dailies[i].TRAVEL_APPROVED
+        rec.WORK_DATE = dailies[i].WORK_DATE
+        rec.WORK_DESCRIPTION = dailies[i].WORK_DESCRIPTION
+        rec.ADJUSTER_NOTES = dailies[i].ADJUSTER_NOTES
+        rec.ADJUSTER = dailies[i].ADJUSTER.ADJUSTER_NAME
+        rec.SERVICE = dailies[i].SERVICE.DESCRIPTION
+        rec.EXPENSE = dailies[i].EXPENSE.DESCRIPTION
+        rec.Claim = dailies[i].CLAIM
+        rec.Aduster = dailies[i].ADJUSTER
+
+        rec.ADJ_STATUS = status;
+        rec.AR_ID = 0;
+        // rec.Payperiod=currentpayperiod
+        // rec[i].STATUS = 0;
+        detail.push(rec)
+      }
     }
     // let newmodel = { Head: 'test2', claim:claim, details: detail, adjuster: adjuster }
-    let newmodel = { status: status, adjno:adjno,payperiod:currentpayperiod,details: detail }
+    let newmodel = { status: status, adjno: adjno, payperiod: currentpayperiod, details: detail }
     console.log('===============newmodel= ', newmodel)
-    
+
     return this.http.fetch(url, {
       method: 'post',
       mode: 'cors',
@@ -618,7 +651,7 @@ export class ApiService {
       mode: 'cors'
     }).then((res) => res.json());
   }
-    findPayperiod() {
+  findPayperiod() {
     // search has fullu formed query string  http://jif.bergenrisk.com:8081/api/v1/masrep/
     var url = this.baseweb + `v1/payperiod`
     console.log('url payperiod ', url)
@@ -627,14 +660,14 @@ export class ApiService {
       mode: 'cors'
     }).then((res) => res.json());
   }
-//  findmarep() {
-//     var url = this.baseweb + `v1/marep`
-//     console.log('url ', url)
-//     return this.http.fetch(url, {
-//       method: 'get',
-//       mode: 'cors'
-//     }).then((res) => res.json());
-//   }
+  //  findmarep() {
+  //     var url = this.baseweb + `v1/marep`
+  //     console.log('url ', url)
+  //     return this.http.fetch(url, {
+  //       method: 'get',
+  //       mode: 'cors'
+  //     }).then((res) => res.json());
+  //   }
   // new
   findinsurancecompany() {
     // search has fullu formed query string  v1/claim/
@@ -648,13 +681,31 @@ export class ApiService {
 
   findinsurancecompanyquery(search) {
     // search has fullu formed query string  v1/claim/
-    var url = this.baseweb + `v1/insurancecompanyquery/` + search
+    let url = this.baseweb + `v1/insurancecompanyquery/` + search
     console.log('url insurancecompany ', url)
     return this.http.fetch(url, {
       method: 'get',
       mode: 'cors'
     }).then((res) => res.json());
   }
+
+
+  findinvoicequery(search) {
+    let url = this.baseweb + `v1/arcontent/` + search
+
+    console.log('url ', url)
+    return this.http.fetch(url, {
+      method: 'get',
+      mode: 'cors'
+      // headers: {
+      //   'Accept': 'application/json',
+      //   'Content-Type': 'application/json'
+      //   // , 'Authorization': 'JWT ' + token
+      // },
+      // body: JSON.stringify(rec)
+    }).then((res) => res.json());
+  }
+
 
   findinsuredquery(search) {
     // search has fullu formed query string  v1/claim/
@@ -726,7 +777,7 @@ export class ApiService {
   //   }
 
 
- 
+
 
 
   uploadxxx(formData, id) {

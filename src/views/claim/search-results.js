@@ -48,7 +48,7 @@ export class SearchResults {
         // fields: {
         //   // LegacyID: { type: "number" }, // scan template
         //   Artist: { type: "string" }, // barcode insured
-       // }
+        // }
       }
     },
     pageSize: 12,
@@ -86,9 +86,9 @@ export class SearchResults {
     console.log('queryParams', this.queryParams);
     this.datasource.read()
   }
-addInventory(){
-  alert ('add')
-}
+  addInventory() {
+    alert('add')
+  }
   loadGrid() {
     let options = localStorage["kendo-grid-mail"];
     if (options) {
@@ -118,13 +118,13 @@ addInventory(){
       //     console.log('this.claim loadData 0 ', claim.length)//claim[0]);
       //     return claim
       //   });
-      return  Promise.all([
+      return Promise.all([
         this.dataService.loadSearch(this.queryParams)
       ]).then(values => {
         this.origItems = values[0];
-       // this.appService.searchDataLoaded = true;
+        // this.appService.searchDataLoaded = true;
         claim = this.origItems;
-       // console.log(' this.loadSearch', this.origItems)
+        // console.log(' this.loadSearch', this.origItems)
         console.log('claim ', claim.length)
         return claim
         //bad   this.currentItem = this.items.find(f => f.id == params.id);
@@ -148,31 +148,27 @@ addInventory(){
     alert('You have selected performRefresh')
     this.appService.searchDataLoaded = false;
     this.datasource.read()  //this.loadData(); // or
-  //  this.appService.searchDataLoaded = true;
+    //  this.appService.searchDataLoaded = true;
   }
 
   details(e) {
     let tab = this.appService.tabs.find(f => f.isSelected) // find current search tab
     // this.appService.currentSearch=tab//path
-  
     let grid = this.grid;
     let targetRow = $(e.target).closest("tr");
     grid.select(targetRow);
     let selectedRow = grid.select();
     let dataItem = grid.dataItem(selectedRow);
     //  let rt2 = 'http://jif.bergenrisk.com:8080/api/v1/onepdf/' + dataItem.template + '/' + dataItem.filename + '.pdf'
-  
-   
-   
     let rt2 = '#/claim/data/' + dataItem.CLAIM_NO; //CLAIM_ID;
     console.log('search-results:details', rt2);
     this.router.navigate(rt2);// `#/inventory/${path}`);
   }
 
   addClaim() {
-     let rt2 = '#/claim/data/create';
-   // let rt2 = '#/claim/dataadd';
-    
+    let rt2 = '#/claim/data/create';
+    // let rt2 = '#/claim/dataadd';
+
     this.router.navigate(rt2);// `#/inventory/${path}`);
   }
 

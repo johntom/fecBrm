@@ -100,7 +100,8 @@
 										<strong> INSURANCE COMPANY></strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<input click.delegate="showModal('insco')" type="text" id="INSURANCE" class="form-control input-sm" value.bind="appService.currentClaim.insco.NAME">
+										<input click.delegate="showModal('insco')" type="text" id="INSURANCE" class="form-control input-sm" 
+                    value.bind="appService.currentClaim.insco.NAME">
 										<!-- <input type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentClaim.insured.LEGAL_NAME"> -->
 
 									</div>
@@ -153,12 +154,11 @@
 										 value.bind="appService.currentClaim.DESCRIPTION"></textarea>
 									</div> -->
 
-	<div class="Rtable-cell-30 Rtable-cell--highlight">
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> Loss description ></strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<textarea rows="3" click.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm"
-										 value.bind="appService.currentClaim.DESCRIPTION"></textarea>
+										<textarea rows="3" click.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION"></textarea>
 									</div>
 
 

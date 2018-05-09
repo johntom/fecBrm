@@ -2,14 +2,18 @@ import { Router, Redirect } from 'aurelia-router';
 import { UtilService } from '../../services/util-service';
 import { ApplicationService } from '../../services/application-service';
 import { ApiService } from '../../utils/servicesApi';
+import { DialogService } from 'aurelia-dialog';
+// import { lodash } from 'lodash'
+import { Prompt } from '../claim/prompt';
+
 export class Adjuster {
-  static inject = [Router, UtilService, ApplicationService, ApiService];
+  static inject = [Router, UtilService, ApplicationService, ApiService, DialogService];
 
   heading = 'Welcome to the Adjusterprep page';
   counter = 1;
   search = {}
   selectedValue = null; //ADJUSTER_NAME
-  constructor(router, utilService, appService, api) {
+  constructor(router, utilService, appService, api, dialogService) {
     console.log('name-tag constructor');
     this.router = router;
     this.utilService = utilService;
@@ -17,6 +21,8 @@ export class Adjuster {
     this.appService = appService;
     // this.search.claimno = '01-03188'
     this.api = api;
+    this.dialogService = dialogService
+    alert(this.appService.adjusterList.length)
   }
   //  findOption = value => this.appService.adjusterList.find(x => x.ADJUSTER_NAME === value);
   created() {
@@ -30,17 +36,26 @@ export class Adjuster {
   attached() {
     console.log('name-tag attached');
   }
+
+  showModal(fieldname) {
+    // alert('fieldname'+fieldname)
+    // this.currentItem={}
+    this.appService.currentSearchadj = {}
+    this.appService.currentSearchadj.ADJUSTER_ID = undefined
+    this.appService.currentSearchadj.ADJUSTER_NAME = undefined
+
+    // this.currentItem.ADJUSTER_NAME=undefined
+    this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
+      console.log(response.output)
+      console.log(this.appService.currentSearchadj)
+      // this.ADJUSTER_ID = this.appService.currentSearchadj.ADJUSTER_ID + ' ' + this.appService.currentSearchadj.ADJUSTER_NAME
+      this.search.adjuster = this.appService.currentSearchadj.ADJUSTER_ID
+    });
+  }
   activate() {
     console.log('name-tag activate before attached ');
-    // only get adjusters that have open dailies
-    // return new Promise((resolve, reject) => {
-    //   this.api.findAdjusters()
-    //     .then((jsonRes) => {
-    //       this.adjusters = jsonRes.data;
-    //       //adjusterprep = this.origItems
-    //       resolve(this.adjusters);
-    //     });
-    // });
+   // let aid = this.appService.adjusterList.findIndex(x => x.ADJUSTER_ID === 4)
+
 
   }
 
@@ -56,29 +71,22 @@ export class Adjuster {
     if (this.search) {
       console.log('this.search', this.search)
       let qs = this.utilService.generateQueryString(this.search);
-      let adj = this.search.adjuster
+     // let adj = this.search.adjuster.ADJUSTER_ID
+//  this.appService.currentSearchadj.ADJUSTER_ID = ADJUSTER_ID
+//       this.appService.currentSearchadj.ADJUSTER_NAME = ADJUSTER_NAME
+ let adj =`${this.ADJUSTER_NAME.ADJUSTER_ID}`
+      //let path = `Searchadjuster${this.utilService.counter++}${qs}`;
+      let path = `Searchadjuster${qs}`;
+      //     let path = `Searcharprep${qs}`;
+      // this.router.navigate(`#/adjuster/${path}`);
+
       if (adj !== null) {
-        let rt2 = '#/adjusterprep/data/' + adj
-        // this.router.navigate(rt2)
-        this.router.navigate(rt2);
+        let rt2 = '#/adjuster/data/' + adj
+        this.router.navigate(rt2)
+
       } else this.router.navigate(`#/adjuster/${path}`);
     }
   }
 
-  // performSearchArc1() {
-  //   if (this.search) {
-  //     console.log('this.search', this.search)
-  //     let qs = this.utilService.generateQueryString(this.search);
-  //     //let path = `Searcharprep${this.utilService.counter++}${qs}`;
-  //     let path = `Searcharprep${qs}`;
-
-  //     if (this.search.adjuster === undefined) {
-  //       this.router.navigate(`#/adjusterprep/data/AdjusterAll`)
-  //     } else {
-
-  //       this.router.navigate(`#/adjusterprep/data/${path}`);
-  //     }
-  //   }
-  // }
 
 }

@@ -4,15 +4,11 @@
 	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
 		<h2>
 			<i class="fa fa-folder-open"></i> Adjuster Prep version:A ${dailies[0].length} Total ${appService.currentAdjuster.TOTAL}
-			${appService.currentAdjuster.ADJUSTER_NAME} type: ${appService.currentAdjuster.EMP_TYPE}
+			${appService.currentAdjuster.ADJUSTER_NAME} perdiod: ${appService.currentpayperiod} type: ${appService.currentAdjuster.EMP_TYPE}
 
 			<!-- <a slot="buttons-slot" class="btn btn-success" click.delegate="addAR()">
 				<i class="fa fa-plus"></i> Create AR
 			</a> -->
-
-
-
-
 
 		</h2>
 		<table class="table-condensed table">
@@ -71,17 +67,27 @@
 						<span show.bind="!daily.edit">${WORK_DATE}</span>
 						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="date" value.bind="WORK_DATE">
 					</td>
-					<td width="155px">
+			
+					<td width="205px">
 
-						<span show.bind="!daily.edit">${SERVICE.DESCRIPTION}</span>
-						<select show.bind="daily.edit" id="service" class="form-control input-sm" value.two-way="SERVICE.DESCRIPTION" change.delegate="selectChanged(daily, SERVICE)"> 
+          <span show.bind="!daily.edit">${SERVICE.DESCRIPTION}</span>
+          	<select show.bind="daily.edit" id="service" class="form-control input-sm" 
+            value.two-way="SERVICE.DESCRIPTION" change.delegate="selectChanged(daily, SERVICE)"> 
               <option model.bind="null">Choose...</option> 
               <option repeat.for="opt of appService.serviceList" model.bind="opt.DESCRIPTION">
                ${opt.SORT_NO} &nbsp;  ${opt.DESCRIPTION} 
               </option> 
             </select>
-					</td>
+          <!-- <span show.bind="daily.edit">
+            <aubs-typeahead  id="service" ref='service'
+            data.bind="appService.serviceList" 
+            value.bind="DESCRIPTION" debounce.bind="350" placeholder="SERVICE"
+            open-on-focus.bind="true" key="DESCRIPTION" results-limit.bind="12" 
+            select-single-result.bind="true">
+            </aubs-typeahead>
+          </span> -->
 
+					</td>
 					<td width="90px">
 						<span show.bind="!daily.edit">${WORK_TIME}</span>
 
@@ -111,12 +117,22 @@
 
 					<td width="155px">
 						<span show.bind="!daily.edit">${EXPENSE.DESCRIPTION}</span>
-						<select show.bind="daily.edit" id="adj" class="form-control input-sm" value.two-way="EXPENSE.DESCRIPTION"> 
+						<select show.bind="daily.edit" id="adj" class="form-control input-sm" 
+            value.two-way="EXPENSE.DESCRIPTION"> 
               <option model.bind="null">Choose...</option> 
               <option repeat.for="opt of appService.expenseList" model.bind="opt.DESCRIPTION">
                ${opt.SORT_NO} &nbsp;  ${opt.DESCRIPTION} 
               </option> 
             </select>
+          <!-- <span show.bind="daily.edit">  
+          
+            <aubs-typeahead  id="expense" ref='expense'
+            data.bind="appService.expenseList" 
+            value.bind.two-way="DESCRIPTION" debounce.bind="350" placeholder="EXPENSE"
+            open-on-focus.bind="true" key="DESCRIPTION" results-limit.bind="12" 
+            select-single-result.bind="true">
+            </aubs-typeahead>
+       </span> -->
 					</td>
 
 
@@ -150,11 +166,9 @@
 						<!-- <span show.bind="!daily.edit">${ADJUSTER.ADJUSTER_NAME}</span> -->
 						<!-- <input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="ADJUSTER_NAME">						</td> -->
 					</td>
-
 					<td width="225px">
 						<!-- <button class="btn btn-primary" click.delegate="saveitem(daily)">${ !daily.edit ? 'Update' : 'Done' }</button> -->
 						<button class="btn btn-primary" click.delegate="daily.edit=!daily.edit">${ !daily.edit ? 'Update' : 'Done' }</button>
-
 						<button class="btn btn-danger" click.delegate="remove(daily,$index)">Delete</button>
 					</td>
 				</tr>
@@ -162,13 +176,11 @@
 		</table>
 		<!-- <button class="btn btn-primary" click.delegate="save()">Create Adjuster Report (save all line items)</button> -->
 		<div class="flex-column-none section-footer">
-		<span>&nbsp;&nbsp;	
+			<span>&nbsp;&nbsp;	
           <button class="btn btn-sm btn-danger" click.delegate="saveCreateTemp()">
                   Save Dailies & Create Temp Adjuster Payment
           </button>
         </span>
-
-
 			<span>&nbsp;&nbsp;	
           <button class="btn btn-sm btn-danger" click.delegate="saveCreate()">
                   Save Dailies & Create Adjuster Payment

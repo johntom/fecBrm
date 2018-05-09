@@ -260,6 +260,19 @@ export class MyDataService {
   }
 
 
+loadSearchInvoice(queryParams) {
+    return new Promise((resolve, reject) => {
+      this.api.findinvoicequery(queryParams)
+        .then((jsonRes) => {
+          var inssearch = jsonRes.data;
+          console.log('findinvoiceyquery', inssearch)
+          resolve(inssearch);
+        });
+
+    });
+  }
+
+
   loadInsured() {
     return new Promise((resolve, reject) => {
       this.api.findinsured()
@@ -337,7 +350,16 @@ export class MyDataService {
         });
     });
   }
-
+  loadCodes() {
+    return new Promise((resolve, reject) => {
+      this.api.findCodes()
+        .then((jsonRes) => {
+          var codesList = jsonRes.data;
+          console.log('codesList', codesList)
+          resolve(codesList)
+        })
+    })
+  }
 
 
 
