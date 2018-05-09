@@ -33,29 +33,29 @@ export class SearchResults {
           });
       },
       update: (options) => {
-                //console.log('updateDataoptions ')
-                let updatedItem = options.data;
-                console.log('   updatedItem ', updatedItem)
-                this.updateData(updatedItem)
-                    .then((scans) => {
-                        options.success(scans)
-                        if (scans.data === 'alreadyComplete') {
-                            alert('record was completed no updates allowed...')
-                            //   this.toast.show('record was completed no updates allowed!', 4000);
-                        }
-                        this.dataSource.read()
-                    })
-                options.success()
-            },
+        //console.log('updateDataoptions ')
+        let updatedItem = options.data;
+        console.log('   updatedItem ', updatedItem)
+        this.updateData(updatedItem)
+          .then((scans) => {
+            options.success(scans)
+            if (scans.data === 'alreadyComplete') {
+              alert('record was completed no updates allowed...')
+              //   this.toast.show('record was completed no updates allowed!', 4000);
+            }
+            this.dataSource.read()
+          })
+        options.success()
+      },
     },
     schema: {
       model: {
         id: "id", // Must assign id for update to work
-        
+
       }
     },
     pageSize: 12,
-    
+
   })
 
 
@@ -66,15 +66,15 @@ export class SearchResults {
     this.appService = appService;
     this.dataService = dataService;
   }
-    updateData(e) {
-        console.log('updateData ', e)
-       
-        // return this.api.updateccode(e, this.user)
-        //     .then((jsonRes) => {
-        //         console.log('this.scans ', jsonRes)
-        //         return jsonRes
-        //     })
-    }
+  updateData(e) {
+    console.log('updateData ', e)
+return
+    // return this.api.updateccode(e, this.user)
+    //     .then((jsonRes) => {
+    //         console.log('this.scans ', jsonRes)
+    //         return jsonRes
+    //     })
+  }
   activate(params, routeConfig) {
     //http://74.114.164.24/api/v1/inventorycontent?artistl=s%26artistf=c 
 
@@ -96,15 +96,15 @@ export class SearchResults {
     let s2 = '1-1-2016';
     let s3 = '10-21-2016';
     let code;
-  
+
     if (this.appService.searchDataLoaded) {
       console.log('using searchDataLoaded cache....')
       return Promise.resolve(true);
     } else {
-     
-      return  Promise.all([
+
+      return Promise.all([
         this.dataService.loadCodes(this.queryParams)
-   
+
       ]).then(values => {
         this.origItems = values[0]//.data;
         code = this.origItems;
@@ -130,7 +130,8 @@ export class SearchResults {
     console.log('performRefresh ')
     alert('You have selected performRefresh')
     this.appService.searchDataLoaded = false;
-    this.datasource.read()    }
+    this.datasource.read()
+  }
 
   details(e) {
     let grid = this.grid;
