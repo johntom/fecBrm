@@ -9,3 +9,8 @@ and invoices
 6 - Add ability to open claim from the invoice form
 7 - discuss users and roles
 8 - show adjusters status 1 or 2   Threhold for every month to pay Phil/Guida a commision for net ar (which is invoice amt - expenses)
+for 5 12
+add code type to form
+global search and replace to delete a code
+replace all small forms with in place edit 
+only show exit message on dirty form
