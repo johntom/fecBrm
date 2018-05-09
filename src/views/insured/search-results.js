@@ -94,7 +94,7 @@ export class SearchResults {
 
           LEGAL_NAME: {
             type: 'string'
-          },
+          }
         }
       }
     },
