@@ -56,6 +56,52 @@ export class SearchResults {
   })
 
 
+  dataSource = new kendo.data.DataSource({
+    transport: {
+      read: (options) => {
+        //  this.loadData(this.capColor, this.prevtown)
+        this.loadData()
+          .then((claim) => {
+            options.success(claim)
+
+          })
+
+      },
+
+    
+      update: (options) => {
+     
+        let updatedItem = options.data;
+        console.log('   updatedItem ', updatedItem)
+        this.updateInsuredData(updatedItem)
+          .then((insured) => {
+            options.success(insured)
+            // if (code.data === 'alreadyComplete') {
+            //   alert('record was completed no updates allowed...')
+            //   //   this.toast.show('record was completed no updates allowed!', 4000);
+            // }
+            this.dataSource.read()
+          })
+        options.success()
+      }
+    },
+   // filter: { field: "inactive", operator: "eq", value: false },
+
+    schema: {
+      model: {
+        id: "id", // Must assign id for update to work
+        fields: {
+
+          inactive: {
+            type: 'boolean'
+          },
+        }
+      }
+    },
+    pageSize: 10,
+    // sort: { field: 'filename', dir: 'asc' },
+
+  })
   constructor(router, api, utilService, appService, dataService) {
     this.router = router;
     this.api = api;
