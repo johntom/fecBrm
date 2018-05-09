@@ -118,24 +118,23 @@ export class SearchResults {
   }
 
   loadData() {
-    console.log('this.loadData ')
+   console.log('this.loadData ')
     let s2 = '1-1-2016';
     let s3 = '10-21-2016';
-    let code;
-
-    if (this.appService.searchDataLoaded) {
+    let insured;
+    ///api/v1/invent
+ if (this.appService.searchDataLoaded) {
       console.log('using searchDataLoaded cache....')
       return Promise.resolve(true);
     } else {
-
-      return Promise.all([
-        this.dataService.loadCodes(this.queryParams)
-
+     
+      return  Promise.all([
+        this.dataService.loadSearchInsured(this.queryParams)
       ]).then(values => {
-        this.origItems = values[0]//.data;
-        code = this.origItems;
-        console.log('code ', code.length)
-        return code
+        this.origItems = values[0];
+        insured = this.origItems;
+        console.log('insured ', insured.length)
+        return insured
         //bad   this.currentItem = this.items.find(f => f.id == params.id);
       }).catch(error => {
         console.error("Error encountered while trying to get data.", error);
@@ -145,6 +144,7 @@ export class SearchResults {
 
     }
   }
+    
   rowSelected(e) {
     console.log('e ' + e.sender)
     let grid = e.sender;
