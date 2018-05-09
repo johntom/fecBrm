@@ -32,21 +32,21 @@ export class SearchResults {
             options.success(code);
           });
       },
-      update: (options) => {
-        //console.log('updateDataoptions ')
-        let updatedItem = options.data;
-        console.log('   updatedItem ', updatedItem)
-        this.updateData(updatedItem)
-          .then((scans) => {
-            options.success(scans)
-            if (scans.data === 'alreadyComplete') {
-              alert('record was completed no updates allowed...')
-              //   this.toast.show('record was completed no updates allowed!', 4000);
-            }
-            this.dataSource.read()
-          })
-        options.success()
-      },
+      // update: (options) => {
+      //   //console.log('updateDataoptions ')
+      //   let updatedItem = options.data;
+      //   console.log('   updatedItem ', updatedItem)
+      //   this.updateData(updatedItem)
+      //     .then((scans) => {
+      //       options.success(scans)
+      //       if (scans.data === 'alreadyComplete') {
+      //         alert('record was completed no updates allowed...')
+      //         //   this.toast.show('record was completed no updates allowed!', 4000);
+      //       }
+      //       this.dataSource.read()
+      //     })
+      //   options.success()
+      // },
     },
     schema: {
       model: {
