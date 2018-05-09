@@ -26,16 +26,7 @@
 			</ak-col>
 			<ak-col k-field="SORT_NO" k-filterable.bind="true" k-title="SORT_NO" k-width.bind="65">
 			</ak-col>
-			<div class="col-sm-1" style="display:${displayoption}">
-
-				<ak-combobox k-value.two-way="inactive">
-					<select style="width: 75px;">
-<option>true</option>
-<option>false</option>
-
-</select>
-				</ak-combobox>
-			</div>
+	
 		</ak-grid>
 		<div class="flex-row-none section-footer">
 			${footer} <span>  ${queryParams}</span> <span>&nbsp;&nbsp;	<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performRefresh()">Refresh</button></span>
