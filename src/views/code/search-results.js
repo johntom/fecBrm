@@ -103,7 +103,7 @@ export class SearchResults {
         options.success()
       }
     },
-    filter: { field: "inactive", operator: "eq", value: false },
+   // filter: { field: "inactive", operator: "eq", value: false },
 
     schema: {
       model: {
@@ -118,7 +118,7 @@ export class SearchResults {
       }
     },
     pageSize: 10,
-    sort: { field: 'filename', dir: 'asc' },
+    // sort: { field: 'filename', dir: 'asc' },
 
   })
 
