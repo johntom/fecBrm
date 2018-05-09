@@ -13,7 +13,7 @@
 	</section>
 	<section class="full-height flex-column-1 au-animate ignore">
 
-		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="datasource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
+		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
 		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
 		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
 	<ak-col k-command.bind="['edit']" k-title="&nbsp;" k-width.bind="65"></ak-col>
