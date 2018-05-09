@@ -22,38 +22,7 @@ export class SearchResults {
 
   //  console.log(' inv SearchResults ');
   message = 'Hello Claim 100!';
-  dataSource = new kendo.data.DataSource({
-    transport: {
-      read: (options) => {
-        //  this.loadData(this.capColor, this.prevtown)
-        this.loadData()
-          .then((claim) => {
-            console.log(' inv datasource ', claim.length);// inv[0]);
-            options.success(claim);
-          });
-      },
-      update: (options) => {
-     
-        let updatedItem = options.data;
-        console.log('   updatedItem ', updatedItem)
-        this.updateinsuredData(updatedItem)
-          .then((insured) => {
-            options.success(insured)
-          
-            this.dataSource.read()
-          })
-        options.success()
-      }
-    },
-    schema: {
-      model: {
-        id: "id", // Must assign id for update to work
-        
-      }
-    },
-    pageSize: 12,
-    
-  })
+  
 
 
   dataSource = new kendo.data.DataSource({
@@ -62,24 +31,32 @@ export class SearchResults {
         //  this.loadData(this.capColor, this.prevtown)
         this.loadData()
           .then((claim) => {
+            // console.log('   claim ', claim[0])
             options.success(claim)
 
           })
 
       },
 
-    
+      // destroy: (options) => {
+
+      //   let updatedItem = options.data;
+      //   console.log('   updatedItem ', updatedItem)
+      //   this.deleteData(updatedItem)
+      //     .then((scans) => {
+      //       options.success(scans)
+      //       this.dataSource.read()
+      //     })
+      //   options.success()
+      // },
       update: (options) => {
      
         let updatedItem = options.data;
         console.log('   updatedItem ', updatedItem)
-        this.updateInsuredData(updatedItem)
-          .then((insured) => {
-            options.success(insured)
-            // if (code.data === 'alreadyComplete') {
-            //   alert('record was completed no updates allowed...')
-            //   //   this.toast.show('record was completed no updates allowed!', 4000);
-            // }
+        this.updateCodeData(updatedItem)
+          .then((code) => {
+            options.success(code)
+           
             this.dataSource.read()
           })
         options.success()
@@ -90,18 +67,24 @@ export class SearchResults {
     schema: {
       model: {
         id: "id", // Must assign id for update to work
+        // id: "_id", // if useing native then change id to _id        
         fields: {
 
-          LEGAL_NAME: {
+          COMMON_NAME: {
             type: 'string'
-          }
+          },
         }
       }
     },
-    pageSize: 10,
+    pageSize: 12,
     // sort: { field: 'filename', dir: 'asc' },
 
   })
+
+
+
+
+
   constructor(router, api, utilService, appService, dataService) {
     this.router = router;
     this.api = api;
@@ -109,7 +92,15 @@ export class SearchResults {
     this.appService = appService;
     this.dataService = dataService;
   }
-
+  updateCodeData(e) {
+    console.log('in updateData ', e)
+    // return [{ data: 'all' }]
+    // return this.api.saveinsured(e)
+    //   .then((jsonRes) => {
+    //     console.log('this.scans ', jsonRes)
+    //     return jsonRes
+    //   })
+  }
   activate(params, routeConfig) {
     //http://74.114.164.24/api/v1/inventorycontent?artistl=s%26artistf=c 
 
@@ -130,23 +121,21 @@ export class SearchResults {
     console.log('this.loadData ')
     let s2 = '1-1-2016';
     let s3 = '10-21-2016';
-    let insured;
-    ///api/v1/inventory/getall
-    // let searchrec={}
-    // if (this.title)  searchrec.title=this.title;
-    // if (this.invcode) searchrec.invcode=this.invcode;
+    let code;
+
     if (this.appService.searchDataLoaded) {
       console.log('using searchDataLoaded cache....')
       return Promise.resolve(true);
     } else {
-     
-      return  Promise.all([
-        this.dataService.loadSearchInsured(this.queryParams)
+
+      return Promise.all([
+        this.dataService.loadCodes(this.queryParams)
+
       ]).then(values => {
-        this.origItems = values[0];
-        insured = this.origItems;
-        console.log('insured ', insured.length)
-        return insured
+        this.origItems = values[0]//.data;
+        code = this.origItems;
+        console.log('code ', code.length)
+        return code
         //bad   this.currentItem = this.items.find(f => f.id == params.id);
       }).catch(error => {
         console.error("Error encountered while trying to get data.", error);
@@ -156,18 +145,6 @@ export class SearchResults {
 
     }
   }
-
- updateinsuredData(e) {
-    console.log('in updateData ', e)
-    // return [{ data: 'all' }]
-    return this.api.saveinsured(e)
-      .then((jsonRes) => {
-        console.log('this.scans ', jsonRes)
-        return jsonRes
-      })
-  }
-
-
   rowSelected(e) {
     console.log('e ' + e.sender)
     let grid = e.sender;
@@ -179,8 +156,7 @@ export class SearchResults {
     console.log('performRefresh ')
     alert('You have selected performRefresh')
     this.appService.searchDataLoaded = false;
-    this.datasource.read()  //this.loadData(); // or
-  //  this.appService.searchDataLoaded = true;
+    this.dataSource.read()
   }
 
   details(e) {
@@ -189,16 +165,15 @@ export class SearchResults {
     grid.select(targetRow);
     let selectedRow = grid.select();
     let dataItem = grid.dataItem(selectedRow);
-     let rt2 = '#/insured/data/' + dataItem.INSURED_ID
+    this.appService.currentCode = dataItem
+    let rt2 = '#/code/data/' + dataItem.CODE_ID;
     console.log('search-results:details', rt2);
-    this.router.navigate(rt2);// `#/inventory/${path}`);
+    this.router.navigate(rt2);
   }
 
-  addClaim() {
-    // let rt2 = '#/claim/data/create';
-    let rt2 = '#/claim/dataadd';
-    
-    this.router.navigate(rt2);// `#/inventory/${path}`);
+  addCode() {
+    let rt2 = '#/code/dataadd';
+    this.router.navigate(rt2);
   }
 
 }
