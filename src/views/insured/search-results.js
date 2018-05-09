@@ -92,8 +92,8 @@ export class SearchResults {
         id: "id", // Must assign id for update to work
         fields: {
 
-          inactive: {
-            type: 'boolean'
+          LEGAL_NAME: {
+            type: 'string'
           },
         }
       }
