@@ -70,7 +70,7 @@ export class SearchResults {
 
     this.queryParams = this.utilService.parseQueryStringUrl();
     console.log('queryParams', this.queryParams);
-    this.datasource.read()
+    this.dataSource.read()
   }
 
   loadGrid() {
