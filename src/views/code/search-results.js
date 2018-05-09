@@ -73,11 +73,11 @@ export class SearchResults {
   updateData(e) {
     console.log('in updateData ', e)
     return [{ data: 'all' }]
-    // return this.api.updateccode(e, this.user)
-    //     .then((jsonRes) => {
-    //         console.log('this.scans ', jsonRes)
-    //         return jsonRes
-    //     })
+    return this.api.updateccode(e, this.user)
+        .then((jsonRes) => {
+            console.log('this.scans ', jsonRes)
+            return jsonRes
+        })
   }
   activate(params, routeConfig) {
     //http://74.114.164.24/api/v1/inventorycontent?artistl=s%26artistf=c 
