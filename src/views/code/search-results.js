@@ -22,45 +22,45 @@ export class SearchResults {
 
   //  console.log(' inv SearchResults ');
   message = 'Hello Claim 100!';
-  dataSource = new kendo.data.DataSource({
-    transport: {
-      read: (options) => {
-        //  this.loadData(this.capColor, this.prevtown)
-        this.loadData()
-          .then((code) => {
-            console.log(' inv datasource ', code.length);// inv[0]);
-            options.success(code);
-          });
-      },
-      update: (options) => {
-        //console.log('updateDataoptions ')
-        let updatedItem = options.data;
-        console.log('   updatedItem ', updatedItem)
-        this.updateData(updatedItem)
-          .then((scans) => {
-            options.success(scans)
-            if (scans.data === 'alreadyComplete') {
-              alert('record was completed no updates allowed...')
-              //   this.toast.show('record was completed no updates allowed!', 4000);
-            }
-            this.dataSource.read()
-          })
-        options.success()
-      },
-    },
-    schema: {
-      model: {
-        id: "id", // Must assign id for update to work
-        fields: {
-          inactive: {
-            type: 'boolean'
-          }
-        }
-      }
-    },
-    pageSize: 12,
+  // dataSource = new kendo.data.DataSource({
+  //   transport: {
+  //     read: (options) => {
+  //       //  this.loadData(this.capColor, this.prevtown)
+  //       this.loadData()
+  //         .then((code) => {
+  //           console.log(' inv datasource ', code.length);// inv[0]);
+  //           options.success(code);
+  //         });
+  //     },
+  //     update: (options) => {
+  //       //console.log('updateDataoptions ')
+  //       let updatedItem = options.data;
+  //       console.log('   updatedItem ', updatedItem)
+  //       this.updateData(updatedItem)
+  //         .then((scans) => {
+  //           options.success(scans)
+  //           if (scans.data === 'alreadyComplete') {
+  //             alert('record was completed no updates allowed...')
+  //             //   this.toast.show('record was completed no updates allowed!', 4000);
+  //           }
+  //           this.dataSource.read()
+  //         })
+  //       options.success()
+  //     },
+  //   },
+  //   schema: {
+  //     model: {
+  //       id: "id", // Must assign id for update to work
+  //       fields: {
+  //         inactive: {
+  //           type: 'boolean'
+  //         }
+  //       }
+  //     }
+  //   },
+  //   pageSize: 12,
 
-  })
+  // })
 
 
   dataSource = new kendo.data.DataSource({
