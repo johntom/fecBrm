@@ -91,7 +91,7 @@ export class SearchResults {
      
         let updatedItem = options.data;
         console.log('   updatedItem ', updatedItem)
-        this.updateData(updatedItem)
+        this.updateCodeData(updatedItem)
           .then((code) => {
             options.success(code)
             // if (code.data === 'alreadyComplete') {
@@ -133,9 +133,9 @@ export class SearchResults {
     this.appService = appService;
     this.dataService = dataService;
   }
-  updateData(e) {
+  updateCodeData(e) {
     console.log('in updateData ', e)
-    return [{ data: 'all' }]
+    // return [{ data: 'all' }]
     return this.api.updateccode(e)
       .then((jsonRes) => {
         console.log('this.scans ', jsonRes)
