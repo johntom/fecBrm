@@ -13,30 +13,29 @@
 	</section>
 	<section class="full-height flex-column-1 au-animate ignore">
 
-		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid" 
-    k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
-		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" 
-     k-resizable.bind="true"
-		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" 
-     k-pageable.bind="true">
-	<ak-col k-command.bind="['edit']" k-title="&nbsp;" k-width.bind="65"></ak-col>
-		
+		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
+		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
+		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
+			<ak-col k-command.bind="['edit']" k-title="&nbsp;" k-width.bind="65"></ak-col>
+
 			<!-- <ak-col k-field="INSURED_ID" k-filterable.bind="true" k-title="Edit INSURED_ID" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=INSURED_ID#</button>">
 			</ak-col> -->
-		<ak-col k-field="LEGAL_NAME" k-filterable.bind="true" k-title="LEGAL NAME" k-width.bind="280"  >
+      <ak-col k-field="id" k-filterable.bind="true" k-title="id" k-width.bind="280">
 			</ak-col>
-      	<ak-col k-field="COMMON_NAME" k-filterable.bind="true" k-title="COMMON NAME" k-width.bind="280"  >
+			<ak-col k-field="LEGAL_NAME" k-filterable.bind="true" k-title="LEGAL NAME" k-width.bind="280">
 			</ak-col>
-	<ak-col k-field="STREET" k-filterable.bind="true" k-title="STREET" k-width.bind="120"  >
+			<ak-col k-field="COMMON_NAME" k-filterable.bind="true" k-title="COMMON NAME" k-width.bind="280">
 			</ak-col>
- 
- 	<ak-col k-field="CITY" k-filterable.bind="true" k-title="CITY" k-width.bind="120"  >
+			<ak-col k-field="STREET" k-filterable.bind="true" k-title="STREET" k-width.bind="120">
 			</ak-col>
-      	<ak-col k-field="STATE" k-filterable.bind="true" k-title="STATE" k-width.bind="120"  >
+
+			<ak-col k-field="CITY" k-filterable.bind="true" k-title="CITY" k-width.bind="120">
 			</ak-col>
-      	<ak-col k-field="ZIP" k-filterable.bind="true" k-title="ZIP" k-width.bind="120"  >
+			<ak-col k-field="STATE" k-filterable.bind="true" k-title="STATE" k-width.bind="120">
 			</ak-col>
-   
+			<ak-col k-field="ZIP" k-filterable.bind="true" k-title="ZIP" k-width.bind="120">
+			</ak-col>
+
 
 		</ak-grid>
 		<div class="flex-row-none section-footer">
