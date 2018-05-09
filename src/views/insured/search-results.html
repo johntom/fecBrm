@@ -24,6 +24,22 @@
 			</ak-col>
       	<ak-col k-field="COMMON_NAME" k-filterable.bind="true" k-title="COMMON NAME" k-width.bind="280"  >
 			</ak-col>
+	<ak-col k-field="STREET" k-filterable.bind="true" k-title="STREET" k-width.bind="120"  >
+			</ak-col>
+ 
+ 	<ak-col k-field="CITY" k-filterable.bind="true" k-title="CITY" k-width.bind="120"  >
+			</ak-col>
+      	<ak-col k-field="STATE" k-filterable.bind="true" k-title="STATE" k-width.bind="120"  >
+			</ak-col>
+      	<ak-col k-field="ZIP" k-filterable.bind="true" k-title="ZIP" k-width.bind="120"  >
+			</ak-col>
+      	<ak-col k-field="STREET" k-filterable.bind="true" k-title="COMMONSTREETNAME" k-width.bind="120"  >
+			</ak-col>
+
+<!-- 
+    "ACCOUNT_NO" : "", 
+    "CC" : "" -->
+
 		</ak-grid>
 		<div class="flex-row-none section-footer">
 			${footer} <span>  ${queryParams}</span> <span>&nbsp;&nbsp;	<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performRefresh()">Refresh</button></span>
