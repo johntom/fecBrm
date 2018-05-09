@@ -32,7 +32,25 @@ export class SearchResults {
             options.success(code);
           });
       },
-     
+      update: (options) => {
+                //console.log('updateDataoptions ')
+
+
+
+
+                let updatedItem = options.data;
+                console.log('   updatedItem ', updatedItem)
+                this.updateData(updatedItem)
+                    .then((scans) => {
+                        options.success(scans)
+                        if (scans.data === 'alreadyComplete') {
+                            alert('record was completed no updates allowed...')
+                            //   this.toast.show('record was completed no updates allowed!', 4000);
+                        }
+                        this.dataSource.read()
+                    })
+                options.success()
+            },
     },
     schema: {
       model: {
@@ -52,7 +70,15 @@ export class SearchResults {
     this.appService = appService;
     this.dataService = dataService;
   }
-
+    updateData(e) {
+        console.log('updateData ', e)
+       
+        // return this.api.updateccode(e, this.user)
+        //     .then((jsonRes) => {
+        //         console.log('this.scans ', jsonRes)
+        //         return jsonRes
+        //     })
+    }
   activate(params, routeConfig) {
     //http://74.114.164.24/api/v1/inventorycontent?artistl=s%26artistf=c 
 
