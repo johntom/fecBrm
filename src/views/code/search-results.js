@@ -71,7 +71,7 @@ export class SearchResults {
     this.dataService = dataService;
   }
   updateData(e) {
-    console.log('updateData ', e)
+    console.log('in updateData ', e)
     return [{ data: 'all' }]
     // return this.api.updateccode(e, this.user)
     //     .then((jsonRes) => {
