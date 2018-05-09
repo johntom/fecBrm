@@ -27,9 +27,9 @@ export class SearchResults {
       read: (options) => {
         //  this.loadData(this.capColor, this.prevtown)
         this.loadData()
-          .then((insured) => {
-            console.log(' inv datasource ', insured.length);// inv[0]);
-            options.success(insured);
+          .then((claim) => {
+            console.log(' inv datasource ', claim.length);// inv[0]);
+            options.success(claim);
           });
       },
       update: (options) => {
