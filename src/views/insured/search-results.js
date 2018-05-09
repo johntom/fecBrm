@@ -38,27 +38,17 @@ export class SearchResults {
 
       },
 
-      // destroy: (options) => {
-
-      //   let updatedItem = options.data;
-      //   console.log('   updatedItem ', updatedItem)
-      //   this.deleteData(updatedItem)
-      //     .then((scans) => {
-      //       options.success(scans)
-      //       this.dataSource.read()
-      //     })
-      //   options.success()
-      // },
+     
       update: (options) => {
      
         let updatedItem = options.data;
         console.log('   updatedItem ', updatedItem)
-        this.updateCodeData(updatedItem)
-          .then((code) => {
-            options.success(code)
+        // this.updateCodeData(updatedItem)
+        //   .then((code) => {
+        //     options.success(code)
            
-            this.dataSource.read()
-          })
+        //     this.dataSource.read()
+        //   })
         options.success()
       }
     },
