@@ -22,7 +22,7 @@ export class SearchResults {
 
   //  console.log(' inv SearchResults ');
   message = 'Hello Claim 100!';
-  datasource = new kendo.data.DataSource({
+  dataSource = new kendo.data.DataSource({
     transport: {
       read: (options) => {
         //  this.loadData(this.capColor, this.prevtown)
@@ -68,7 +68,7 @@ export class SearchResults {
   }
   updateData(e) {
     console.log('updateData ', e)
-return {data:'all'}
+    return { data: 'all' }
     // return this.api.updateccode(e, this.user)
     //     .then((jsonRes) => {
     //         console.log('this.scans ', jsonRes)
@@ -81,7 +81,7 @@ return {data:'all'}
 
     this.queryParams = this.utilService.parseQueryStringUrl();
     console.log('queryParams', this.queryParams);
-    this.datasource.read()
+    this.dataSource.read()
   }
 
   loadGrid() {
@@ -130,7 +130,7 @@ return {data:'all'}
     console.log('performRefresh ')
     alert('You have selected performRefresh')
     this.appService.searchDataLoaded = false;
-    this.datasource.read()
+    this.dataSource.read()
   }
 
   details(e) {
