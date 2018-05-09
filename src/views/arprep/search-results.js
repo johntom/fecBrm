@@ -147,7 +147,7 @@ export class SearchResults {
         let selectedRow = grid.select();
         let dataItem = grid.dataItem(selectedRow);
         //href="http://adjusters.markadjustment.com/docs/${currentItem.CLAIM_NO}/${doc.FILE_NAME}">				${FILE_NAME}
-        let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + dataItem.CLAIM_NO + '/' + dataItem.CLAIM_NO + 'inv.pdf'
+        let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + dataItem.CLAIM_NO + '/' + dataItem.CLAIM_NO + 'inv.pdf'
         //  alert('rt2 '+rt2)
         window.open(rt2, '_blank');
     }

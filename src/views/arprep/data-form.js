@@ -81,7 +81,7 @@ export class DataForm {
         console.log('jsonRes ', jsonRes);
       });
     });
-    let rt2a = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+    let rt2a = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
 
     console.log('rt2a ' + rt2a + ' jsonRes ' + jsonRes)
     // alert('rt2 ' + rt2)
@@ -107,7 +107,7 @@ export class DataForm {
       this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
         console.log('jsonRes ', jsonRes);
         //  let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
-        let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
+        let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
 
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
         // alert('rt2 ' + rt2)
