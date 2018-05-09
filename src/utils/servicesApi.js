@@ -8,7 +8,8 @@ export class ApiService {
     this.http = http;
     this.upmess = ''
     //this.baseweb = 'http://localhost:8080/api/';
-    this.baseweb = 'https://jif.bergenrisk.com:8081/api/';
+    // this.baseweb = 'https://jif.bergenrisk.com:8081/api/';
+    this.baseweb = 'https://jif.bergenrisk.com/api/';
   }
   getUserJwt(username, pass) {
     var token = {};
