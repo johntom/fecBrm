@@ -32,10 +32,10 @@ export class SearchResults {
             options.success(code);
           });
       },
-      // update: (options) => {
-      //   //console.log('updateDataoptions ')
-      //   let updatedItem = options.data;
-      //   console.log('   updatedItem ', updatedItem)
+      update: (options) => {
+        //console.log('updateDataoptions ')
+        let updatedItem = options.data;
+        console.log('   updatedItem ', updatedItem)
       //   this.updateData(updatedItem)
       //     .then((scans) => {
       //       options.success(scans)
@@ -46,15 +46,15 @@ export class SearchResults {
       //       this.dataSource.read()
       //     })
       //   options.success()
-      // },
+       },
     },
     schema: {
       model: {
         id: "id", // Must assign id for update to work
         fields: {
-        inactive: {
-             type: 'boolean'
-        }
+          inactive: {
+            type: 'boolean'
+          }
         }
       }
     },
