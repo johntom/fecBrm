@@ -163,8 +163,8 @@ export class SearchResults {
 
     let pdft = (type === 0) ? 'onepdf' : 'downloadar'
     if (dataItem.status === 0) {
-      rt2 = `http://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + 'temp.pdf'
-    } else rt2 = `http://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + '.pdf'
+      rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + 'temp.pdf'
+    } else rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + '.pdf'
 
     window.open(rt2, '_blank');
   }
