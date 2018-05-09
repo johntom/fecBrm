@@ -56,8 +56,8 @@ export class SearchResults {
 
     schema: {
       model: {
-        id: "id", // Must assign id for update to work
-        // id: "_id", // if useing native then change id to _id        
+        //id: "id", // Must assign id for update to work
+        id: "_id", // if useing native then change id to _id        
         fields: {
 
           COMMON_NAME: {
