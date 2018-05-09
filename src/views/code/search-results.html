@@ -15,7 +15,7 @@
 		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="dataSource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
 		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
 		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
- <ak-col k-command.bind="['edit']" k-title="&nbsp;" width="125px"></ak-col>
+ <ak-col k-command.bind="['edit']" k-title="&nbsp;" k-width.bind="125px"></ak-col>
 			<ak-col k-field="CODE_ID" k-filterable.bind="true" k-title="Edit CODE_ID" k-width.bind="180" k-template="<button click.delegate='details($event)' class='k-button'>#=CODE_ID#</button>">
 			</ak-col>
 		<ak-col k-field="DESCRIPTION" k-filterable.bind="true" k-title="DESCRIPTION" k-width.bind="150"  >
