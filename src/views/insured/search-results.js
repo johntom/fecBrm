@@ -27,9 +27,9 @@ export class SearchResults {
       read: (options) => {
         //  this.loadData(this.capColor, this.prevtown)
         this.loadData()
-          .then((claim) => {
-            console.log(' inv datasource ', claim.length);// inv[0]);
-            options.success(claim);
+          .then((insured) => {
+            console.log(' inv datasource ', insured.length);// inv[0]);
+            options.success(insured);
           });
       },
       update: (options) => {
@@ -37,8 +37,8 @@ export class SearchResults {
         let updatedItem = options.data;
         console.log('   updatedItem ', updatedItem)
         this.updateinsuredData(updatedItem)
-          .then((claim) => {
-            options.success(claim)
+          .then((insured) => {
+            options.success(insured)
           
             this.dataSource.read()
           })
