@@ -142,7 +142,7 @@ export class SearchResults {
         //href="http://adjusters.markadjustment.com/docs/${currentItem.CLAIM_NO}/${doc.FILE_NAME}">				${FILE_NAME}
       // let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/oneadjpdf/' + this.recordId + '/' + data + '.pdf'
      
-        let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/oneadjpdf/' +4 + '/' + dataItem.id + '.pdf'
+        let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/oneadjpdf/' +4 + '/' + dataItem.id + '.pdf'
         //  alert('rt2 '+rt2)
         window.open(rt2, '_blank');
     }
