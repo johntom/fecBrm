@@ -36,6 +36,24 @@ export class ApiService {
       mode: 'cors'
     }).then((res) => res.json());
   }
+ updatecode(row) { 
+       
+        let url = this.baseweb + `v1/code/update`
+        return this.http.fetch(url, {
+            method: 'put',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                // , 'Authorization': 'JWT ' + token
+            },
+            body: JSON.stringify(row)
+        }).then((res) => res.json());
+
+    }
+
+
+
   /*
    //const squares = arr.map(x => x * x);
  
