@@ -68,7 +68,7 @@ export class SearchResults {
   }
   updateData(e) {
     console.log('updateData ', e)
-return
+return {data:'all'}
     // return this.api.updateccode(e, this.user)
     //     .then((jsonRes) => {
     //         console.log('this.scans ', jsonRes)
