@@ -22,7 +22,7 @@ export class SearchResults {
 
   //  console.log(' inv SearchResults ');
   message = 'Hello Claim 100!';
-  datasource = new kendo.data.DataSource({
+  dataSource = new kendo.data.DataSource({
     transport: {
       read: (options) => {
         //  this.loadData(this.capColor, this.prevtown)
@@ -32,7 +32,18 @@ export class SearchResults {
             options.success(claim);
           });
       },
+      update: (options) => {
      
+        let updatedItem = options.data;
+        console.log('   updatedItem ', updatedItem)
+        this.updateCodeData(updatedItem)
+          .then((claim) => {
+            options.success(claim)
+          
+            this.dataSource.read()
+          })
+        options.success()
+      }
     },
     schema: {
       model: {
