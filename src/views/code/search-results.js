@@ -36,15 +36,15 @@ export class SearchResults {
         //console.log('updateDataoptions ')
         let updatedItem = options.data;
         console.log('   updatedItem ', updatedItem)
-      //   this.updateData(updatedItem)
-      //     .then((scans) => {
-      //       options.success(scans)
-      //       if (scans.data === 'alreadyComplete') {
-      //         alert('record was completed no updates allowed...')
-      //         //   this.toast.show('record was completed no updates allowed!', 4000);
-      //       }
-      //       this.dataSource.read()
-      //     })
+        this.updateData(updatedItem)
+          .then((scans) => {
+            options.success(scans)
+            if (scans.data === 'alreadyComplete') {
+              alert('record was completed no updates allowed...')
+              //   this.toast.show('record was completed no updates allowed!', 4000);
+            }
+            this.dataSource.read()
+          })
          options.success()
        },
     },
@@ -72,7 +72,7 @@ export class SearchResults {
   }
   updateData(e) {
     console.log('updateData ', e)
-    return { data: 'all' }
+    return [{ data: 'all' }]
     // return this.api.updateccode(e, this.user)
     //     .then((jsonRes) => {
     //         console.log('this.scans ', jsonRes)
