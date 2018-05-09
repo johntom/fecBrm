@@ -45,7 +45,7 @@ export class SearchResults {
       //       }
       //       this.dataSource.read()
       //     })
-      //   options.success()
+         options.success()
        },
     },
     schema: {
