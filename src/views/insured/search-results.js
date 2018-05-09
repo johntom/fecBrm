@@ -36,7 +36,7 @@ export class SearchResults {
      
         let updatedItem = options.data;
         console.log('   updatedItem ', updatedItem)
-        this.updateCodeData(updatedItem)
+        this.updateinsuredData(updatedItem)
           .then((claim) => {
             options.success(claim)
           
@@ -110,6 +110,18 @@ export class SearchResults {
 
     }
   }
+
+ updateinsuredData(e) {
+    console.log('in updateData ', e)
+    // return [{ data: 'all' }]
+    return this.api.saveinsured(e)
+      .then((jsonRes) => {
+        console.log('this.scans ', jsonRes)
+        return jsonRes
+      })
+  }
+
+
   rowSelected(e) {
     console.log('e ' + e.sender)
     let grid = e.sender;

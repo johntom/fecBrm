@@ -97,22 +97,22 @@ export class DataForm {
       this.selectOneToManyTab(tab);
     }
   }
-  selectChangedIA(adjusterid) {
+  // selectChangedIA(adjusterid) {
 
-    let insadjusters = this.inscoAdjusters
-    let aid = insadjusters.findIndex(x => x.INSURANCE_CONTACT_ID === adjusterid)
-    let item = insadjusters[aid];// { ADJUSTER_ID: 4, ADJUSTER_NAME: "Donna Luciani", edit: true }
-    this.currentnewItem.inscontact = item
+  //   let insadjusters = this.inscoAdjusters
+  //   let aid = insadjusters.findIndex(x => x.INSURANCE_CONTACT_ID === adjusterid)
+  //   let item = insadjusters[aid];// { ADJUSTER_ID: 4, ADJUSTER_NAME: "Donna Luciani", edit: true }
+  //   this.currentnewItem.inscontact = item
 
-  }
-  selectChangedIAddr(insurancecompanyid) {
+  // }
+  // selectChangedIAddr(insurancecompanyid) {
 
-    let insaddresses = this.inscoAddresses
-    let aid = insaddresses.findIndex(x => x.INSURANCE_COMPANY_ID === insurancecompanyid)
-    let item = insaddresses[aid];// { ADJUSTER_ID: 4, ADJUSTER_NAME: "Donna Luciani", edit: true }
-    this.currentnewItem.insaddress = item
+  //   let insaddresses = this.inscoAddresses
+  //   let aid = insaddresses.findIndex(x => x.INSURANCE_COMPANY_ID === insurancecompanyid)
+  //   let item = insaddresses[aid];// { ADJUSTER_ID: 4, ADJUSTER_NAME: "Donna Luciani", edit: true }
+  //   this.currentnewItem.insaddress = item
 
-  }
+  // }
   bind() {
     // this.adjusters = this.appService.adjusterList
     // console.log('adjusters ', this.adjusters);
