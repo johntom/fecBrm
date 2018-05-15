@@ -94,7 +94,9 @@ export class DataForm {
             //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
             // chnage INSURED_ID to _id
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
+            console.log('oid ',oid)
             insuredobj = this.appService.insuredList[oid]//10]
+             console.log('insuredobj ',insuredobj)
             if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
           // setup insured
