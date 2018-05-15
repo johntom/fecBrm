@@ -93,6 +93,7 @@ export class DataForm {
           } else {
             //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
             // chnage INSURED_ID to _id
+              let insured = this.appService.insuredList
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
             console.log('oid ',oid)
             insuredobj = this.appService.insuredList[oid]//10]
