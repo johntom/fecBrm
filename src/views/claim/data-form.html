@@ -121,8 +121,8 @@
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> Ins Carrier Adjuster</strong>
 									</div>
-                   <!-- change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)">  -->
-                   
+									<!-- change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)">  -->
+
 									<!-- <div class="Rtable-cell-70  Rtable-cell--highlight">
 										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="appService.currentClaim.INSURANCE_CONTACT_ID"
 										 change.delegate="selectChangedIA(currentClaim.INSURANCE_CONTACT_ID)"> 
@@ -132,7 +132,7 @@
                       </option> 
                     </select>
 									</div> -->
-	<div class="Rtable-cell-70  Rtable-cell--highlight">
+									<!-- <div class="Rtable-cell-70  Rtable-cell--highlight">
 										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID"
 										 change.delegate="selectChangedIA(currentClaim.INSURANCE_CONTACT_ID)"> 
                       <option model.bind="null">Choose...</option> 
@@ -140,8 +140,17 @@
                        ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
                       </option> 
                     </select>
+									</div> -->
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
+                    value.bind="appService.currentClaim.inscontact"
+										 change.delegate="selectChangedIA(currentClaim.INSURANCE_CONTACT_ID)"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of inscoAdjusters" model.bind="opt">
+                       ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
+                      </option> 
+                    </select>
 									</div>
-
 									<!-- changed from 1 embeded rec to many recs ie for allstate -->
 
 									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
