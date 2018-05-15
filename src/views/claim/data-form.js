@@ -84,8 +84,19 @@ export class DataForm {
             let item = insco[aid];
             this.inscoAdjusters = item.contacts
           //  this.inscoAddresses = item.addresses
+          let aid =  this.inscoAdjusters.findIndex(x => x.inscontact === serviceinsco)
+          this.
           }
+          
 
+          if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+          } else {
+            //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
+            // chnage INSURED_ID to _id
+            oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
+            insuredobj = this.appService.insuredList[oid]//10]
+            if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
+          }
           // setup insured
           let oid
           let insuredobj
@@ -95,10 +106,12 @@ export class DataForm {
             //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
             // chnage INSURED_ID to _id
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
-
             insuredobj = this.appService.insuredList[oid]//10]
             if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
+
+
+
           // end setup insured
 
         });
