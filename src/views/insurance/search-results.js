@@ -32,7 +32,18 @@ export class SearchResults {
             options.success(insco);
           });
       },
-     
+        update: (options) => {
+        let updatedItem = options.data;
+        updatedItem.offerdate=this.offerdate
+        console.log('   updatedItem ', updatedItem)
+        // this.updateData(updatedItem)
+        //   .then((scans) => {
+        //     options.success(scans)
+        //     this.datasource.read()
+        //   })
+
+        options.success(updatedItem)
+      }
     },
     schema: {
       model: {
