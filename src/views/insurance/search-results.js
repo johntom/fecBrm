@@ -36,11 +36,11 @@ export class SearchResults {
         let updatedItem = options.data;
        // updatedItem.offerdate=this.offerdate
         console.log('   updatedItem ', updatedItem)
-        // this.updateData(updatedItem)
-        //   .then((scans) => {
-        //     options.success(scans)
-        //     this.datasource.read()
-        //   })
+        this.saveinsco(updatedItem)
+          .then((insco) => {
+            options.success(insco)
+            this.datasource.read()
+          })
 
         options.success(updatedItem)
       }
