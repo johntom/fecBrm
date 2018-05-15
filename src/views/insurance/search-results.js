@@ -34,7 +34,7 @@ export class SearchResults {
       },
         update: (options) => {
         let updatedItem = options.data;
-        updatedItem.offerdate=this.offerdate
+       // updatedItem.offerdate=this.offerdate
         console.log('   updatedItem ', updatedItem)
         // this.updateData(updatedItem)
         //   .then((scans) => {
