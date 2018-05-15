@@ -56,11 +56,12 @@ export class ApplicationService {
   ];
 
   dataFormOneToManyTabs2 = [
+    // {
+    //   name: "Addresses",
+    //   viewModel: "./one-to-many/addresses",
+    //   isSelected: false
+    // }, 
     {
-      name: "Addresses",
-      viewModel: "./one-to-many/addresses",
-      isSelected: false
-    }, {
       name: "Contacts",
       viewModel: "./one-to-many/adjuster",
       isSelected: false
