@@ -83,21 +83,21 @@ export class DataForm {
             let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
             let item = insco[aid];
             this.inscoAdjusters = item.contacts
-          //  this.inscoAddresses = item.addresses
-          //let aid =  this.inscoAdjusters.findIndex(x => x.inscontact === serviceinsco)
-         
+            //  this.inscoAddresses = item.addresses
+            //let aid =  this.inscoAdjusters.findIndex(x => x.inscontact === serviceinsco)
+
           }
-          
+
 
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
             //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
             // chnage INSURED_ID to _id
-              let insured = this.appService.insuredList
+            let insured = this.appService.insuredList
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
-            console.log('oid ',oid)
+            console.log('oid ', oid)
             insuredobj = this.appService.insuredList[oid]//10]
-             console.log('insuredobj ',insuredobj)
+            console.log('insuredobj ', insuredobj)
             if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
           // setup insured
@@ -180,12 +180,12 @@ export class DataForm {
   }
   selectChangedIA(adjusterid) {
 
-    let insadjusters = this.inscoAdjusters
-    let aid = insadjusters.findIndex(x => x.INSURANCE_CONTACT_ID === adjusterid)
-    let item = insadjusters[aid];// { ADJUSTER_ID: 4, ADJUSTER_NAME: "Donna Luciani", edit: true }
-  //  this.currentnewItem.inscontact = item
- //this.currentItem.inscontact = item
-  this.appService.currentClaim.inscontact = item
+    // let insadjusters = this.inscoAdjusters
+    // let aid = insadjusters.findIndex(x => x.INSURANCE_CONTACT_ID === adjusterid)
+    // let item = insadjusters[aid];// { ADJUSTER_ID: 4, ADJUSTER_NAME: "Donna Luciani", edit: true }
+    // //  this.currentnewItem.inscontact = item
+    // //this.currentItem.inscontact = item
+    // this.appService.currentClaim.inscontact = item
   }
   // selectChangedIAddr(insurancecompanyid) {
 
