@@ -36,7 +36,7 @@ export class SearchResults {
         let updatedItem = options.data;
        // updatedItem.offerdate=this.offerdate
         console.log('   updatedItem ', updatedItem)
-        this.saveinsco(updatedItem)
+        this.api.saveinsco(updatedItem)
           .then((insco) => {
             options.success(insco)
             this.datasource.read()
