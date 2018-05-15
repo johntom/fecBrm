@@ -84,8 +84,8 @@ export class DataForm {
             let item = insco[aid];
             this.inscoAdjusters = item.contacts
           //  this.inscoAddresses = item.addresses
-          let aid =  this.inscoAdjusters.findIndex(x => x.inscontact === serviceinsco)
-          this.
+          //let aid =  this.inscoAdjusters.findIndex(x => x.inscontact === serviceinsco)
+         
           }
           
 
