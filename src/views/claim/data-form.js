@@ -83,7 +83,7 @@ export class DataForm {
             let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
             let item = insco[aid];
             this.inscoAdjusters = item.contacts
-            this.inscoAddresses = item.addresses
+          //  this.inscoAddresses = item.addresses
           }
 
           // setup insured
