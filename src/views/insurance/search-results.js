@@ -47,7 +47,8 @@ export class SearchResults {
     },
     schema: {
       model: {
-        id: "id", // Must assign id for update to work
+       // id: "id", // Must assign id for update to work
+         id: "_id", // Must assign id for update to work
         
       }
     },
