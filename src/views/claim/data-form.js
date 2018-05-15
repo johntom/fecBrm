@@ -184,7 +184,8 @@ export class DataForm {
     let aid = insadjusters.findIndex(x => x.INSURANCE_CONTACT_ID === adjusterid)
     let item = insadjusters[aid];// { ADJUSTER_ID: 4, ADJUSTER_NAME: "Donna Luciani", edit: true }
     this.currentnewItem.inscontact = item
-
+ this.currentItem.inscontact = item
+  this.appService.currentClaim.inscontact = item
   }
   // selectChangedIAddr(insurancecompanyid) {
 

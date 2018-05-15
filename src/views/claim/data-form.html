@@ -152,7 +152,7 @@
 							
                      <div class="Rtable-cell-70  Rtable-cell--highlight">
 										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
-                    value.bind="appService.currentClaim.inscontact.INSURANCE_CONTACT_ID"
+                    value.bind="appService.currentClaim.inscontact"
 										 change.delegate="selectChangedIA(currentClaim.INSURANCE_CONTACT_ID)"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of inscoAdjusters" model.bind="opt">
