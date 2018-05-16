@@ -163,8 +163,8 @@ ${inscontactMatcher} -->
                     value.bind="selectedContact" 
                     matcher.bind="inscontactMatcher"> 
                       <option model.bind="null">Choose...</option> 
-                      <option repeat.for="inscontact of inscoAdjusters" model.bind="inscontact">
-                       ${inscontact.NAME_LAST},  ${inscontact.NAME_FIRST}  
+                      <option repeat.for="opt of inscoAdjusters" model.bind="opt">
+                       ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
                       </option> 
                     </select>
 									</div>
