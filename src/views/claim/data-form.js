@@ -84,8 +84,18 @@ export class DataForm {
             let item = insco[aid];
             this.inscoAdjusters = item.contacts
             //  this.inscoAddresses = item.addresses
-            //let aid =  this.inscoAdjusters.findIndex(x => x.inscontact === serviceinsco)
+            let bid =  this.inscoAdjusters.findIndex(x => x.inscontact === this.inscoAdjusters)
+// products = [
+//         { id: 0, name: 'Motherboard' },
+//         { id: 1, name: 'CPU' },
+//         { id: 2, name: 'Memory' },
+//       ];
 
+//       productMatcher = (a, b) => a.id === b.id;
+
+//       selectedProduct = { id: 1, name: 'CPU' };
+
+inscontactMatcher= this.inscoAdjusters[bid]
           }
 
 
