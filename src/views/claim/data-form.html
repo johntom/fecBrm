@@ -145,10 +145,7 @@
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> Ins Carrier Adjuster2</strong>
 									</div>
-
-<!-- ${appService.currentClaim.inscontact}
-${inscontactMatcher} -->
-									<div class="Rtable-cell-70  Rtable-cell--highlight">
+<!-- <div class="Rtable-cell-70  Rtable-cell--highlight">
 										<select  class="form-control input-sm" 
                     value.bind="appService.currentClaim.inscontact" 
                     matcher.bind="inscontactMatcher"> 
@@ -157,9 +154,28 @@ ${inscontactMatcher} -->
                        ${inscontact.NAME_LAST},  ${inscontact.NAME_FIRST}  
                       </option> 
                     </select>
+									</div> -->
+
+<!-- ${appService.currentClaim.inscontact}
+${inscontactMatcher} -->
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<select  class="form-control input-sm" 
+                    value.bind="selectedContact" 
+                    matcher.bind="inscontactMatcher"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="inscontact of inscoAdjusters" model.bind="inscontact">
+                       ${inscontact.NAME_LAST},  ${inscontact.NAME_FIRST}  
+                      </option> 
+                    </select>
 									</div>
 
-
+ <!-- <select value.bind="selectedProduct" matcher.bind="productMatcher">
+          <option model.bind="null">Choose...</option>
+          <option repeat.for="product of products"
+                  model.bind="product">
+            ${product.id} - ${product.name}
+          </option>
+        </select> -->
 
 
 
