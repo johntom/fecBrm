@@ -14,7 +14,7 @@ export class DataForm {
   footer = 'DataAddForm FOOTER...';
   adjusterList = 'adjusterList';
   recordId = '';
-inscontactMatcher='';
+//inscontactMatcher='';
 
   constructor(router, api, appService, dataService, eventAggregator, dialogService) {
     this.api = api;
@@ -27,6 +27,7 @@ inscontactMatcher='';
     this.inscoAddresses = []
     this.router = router;
     this.dialogService = dialogService
+    this.inscontactMatcher=''
     //  this.lodash = lodash;
     // this.genre= { id:7,name: 'Photography'};/
   }
