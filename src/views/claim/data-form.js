@@ -79,11 +79,10 @@ inscontactMatcher='';
           }
           let insco = this.appService.InsurancecompanyList
           let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
-          let inscoAdjusters=this.inscoAdjusters
-          if (serviceinsco !== undefined) {
+           if (serviceinsco !== undefined) {
             let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
             let item = insco[aid];
-            this.inscoAdjusters = item.contacts
+            let inscoAdjusters = item.contacts
             //  this.inscoAddresses = item.addresses
             			// <select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
                   // value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
