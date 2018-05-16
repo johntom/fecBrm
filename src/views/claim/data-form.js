@@ -14,7 +14,7 @@ export class DataForm {
   footer = 'DataAddForm FOOTER...';
   adjusterList = 'adjusterList';
   recordId = '';
-//inscontactMatcher='';
+  //inscontactMatcher='';
 
   constructor(router, api, appService, dataService, eventAggregator, dialogService) {
     this.api = api;
@@ -27,7 +27,7 @@ export class DataForm {
     this.inscoAddresses = []
     this.router = router;
     this.dialogService = dialogService
-    this.inscontactMatcher=''
+    this.inscontactMatcher = ''
     //  this.lodash = lodash;
     // this.genre= { id:7,name: 'Photography'};/
   }
@@ -80,34 +80,37 @@ export class DataForm {
           }
           let insco = this.appService.InsurancecompanyList
           let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
-           if (serviceinsco !== undefined) {
+          if (serviceinsco !== undefined) {
             let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
             let item = insco[aid];
+            let icd
+            let bid
             this.appService.currentClaim.inscoAdjusters = item.contacts
             //  this.inscoAddresses = item.addresses
-            			// <select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
-                  // value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
-                  //     <option model.bind="null">Choose...</option> 
-                  //     <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
-                  //      ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
-                  //     </option> 
-                  //   </select>
-                  let icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
-                 let bid =  this.appService.currentClaim.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
-// products = [
-//         { id: 0, name: 'Motherboard' },
-//         { id: 1, name: 'CPU' },
-//         { id: 2, name: 'Memory' },
-//       ];
+            // <select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
+            // value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
+            //     <option model.bind="null">Choose...</option> 
+            //     <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
+            //      ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
+            //     </option> 
+            //   </select>
+            icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
+            bid = this.appService.currentClaim.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+            // products = [
+            //         { id: 0, name: 'Motherboard' },
+            //         { id: 1, name: 'CPU' },
+            //         { id: 2, name: 'Memory' },
+            //       ];
 
-//       productMatcher = (a, b) => a.id === b.id;
+            //       productMatcher = (a, b) => a.id === b.id;
 
-//       selectedProduct = { id: 1, name: 'CPU' };
+            //       selectedProduct = { id: 1, name: 'CPU' };
 
-this.inscontactMatcher= this.inscoAdjusters[bid]
+            this.inscontactMatcher = this.inscoAdjusters[bid]
+            console.log('   this.inscontactMatcher',   this.inscontactMatcher)
           }
 
-
+ console.log('   this.inscontactMatcher',   this.inscontactMatcher)
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
             //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
