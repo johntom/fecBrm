@@ -84,7 +84,14 @@ inscontactMatcher='';
             let item = insco[aid];
             this.inscoAdjusters = item.contacts
             //  this.inscoAddresses = item.addresses
-            let bid =  this.inscoAdjusters.findIndex(x => x.inscontact === this.appService.currentClaim.inscontact)
+            			// <select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
+                  // value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
+                  //     <option model.bind="null">Choose...</option> 
+                  //     <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
+                  //      ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
+                  //     </option> 
+                  //   </select>
+            let bid =  this.inscoAdjusters.findIndex(x => x.inscontact.INSURANCE_CONTACT_ID === this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID)
 // products = [
 //         { id: 0, name: 'Motherboard' },
 //         { id: 1, name: 'CPU' },
