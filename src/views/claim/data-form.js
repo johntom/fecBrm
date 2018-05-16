@@ -114,7 +114,7 @@ export class DataForm {
             //this.inscontactMatcher = this.appService.currentClaim.inscoAdjusters[bid]
             this.inscontactMatcher = this.inscoAdjusters[bid]
             
-            console.log('   this.inscontactMatcher', this.inscontactMatcher)
+            console.log('   this.inscontactMatcher,this.appService.currentClaim.inscontact', this.inscontactMatcher,this.appService.currentClaim.inscontact)
           }
 
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
