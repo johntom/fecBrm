@@ -106,7 +106,7 @@ export class DataForm {
 
             //       selectedProduct = { id: 1, name: 'CPU' };
 
-            this.inscontactMatcher = this.inscoAdjusters[bid]
+            this.inscontactMatcher = this.appService.currentClaim[bid]
             console.log('   this.inscontactMatcher',   this.inscontactMatcher)
           }
 
