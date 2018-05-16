@@ -27,7 +27,7 @@ export class DataForm {
     this.inscoAddresses = []
     this.router = router;
     this.dialogService = dialogService
-    this.inscontactMatcher  = {}
+    this.inscontactMatcher = {}
     //  this.lodash = lodash;
     // this.genre= { id:7,name: 'Photography'};/
   }
@@ -85,7 +85,10 @@ export class DataForm {
             let item = insco[aid];
             let icd
             let bid
-            this.appService.currentClaim.inscoAdjusters = item.contacts
+            // this.appService.currentClaim.inscoAdjusters = item.contacts
+
+            this.inscoAdjusters = item.contacts
+
             //  this.inscoAddresses = item.addresses
             // <select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
             // value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
@@ -95,7 +98,9 @@ export class DataForm {
             //     </option> 
             //   </select>
             icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
-            bid = this.appService.currentClaim.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+       //     bid = this.appService.currentClaim.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+            bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+       
             // products = [
             //         { id: 0, name: 'Motherboard' },
             //         { id: 1, name: 'CPU' },
@@ -106,11 +111,12 @@ export class DataForm {
 
             //       selectedProduct = { id: 1, name: 'CPU' };
 
-            this.inscontactMatcher = this.appService.currentClaim.inscoAdjusters[bid]
-            console.log('   this.inscontactMatcher',   this.inscontactMatcher)
+            //this.inscontactMatcher = this.appService.currentClaim.inscoAdjusters[bid]
+            this.inscontactMatcher = this.inscoAdjusters[bid]
+            
+            console.log('   this.inscontactMatcher', this.inscontactMatcher)
           }
 
- console.log('   this.inscontactMatcher',   this.inscontactMatcher)
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
             //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
