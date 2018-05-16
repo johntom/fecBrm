@@ -79,6 +79,7 @@ inscontactMatcher='';
           }
           let insco = this.appService.InsurancecompanyList
           let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
+          let inscoAdjusters=this.inscoAdjusters
           if (serviceinsco !== undefined) {
             let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
             let item = insco[aid];
@@ -91,7 +92,8 @@ inscontactMatcher='';
                   //      ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
                   //     </option> 
                   //   </select>
-            let bid =  this.inscoAdjusters.findIndex(x => x.inscontact.INSURANCE_CONTACT_ID === this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID)
+                  let icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
+            let bid =  inscoAdjusters.findIndex(x => x.inscontact.INSURANCE_CONTACT_ID === icd)
 // products = [
 //         { id: 0, name: 'Motherboard' },
 //         { id: 1, name: 'CPU' },
