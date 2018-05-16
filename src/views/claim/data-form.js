@@ -92,7 +92,7 @@ inscontactMatcher='';
                   //     </option> 
                   //   </select>
                   let icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
-            let bid =  inscoAdjusters.findIndex(x => x.inscontact.INSURANCE_CONTACT_ID === icd)
+            let bid =  inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
 // products = [
 //         { id: 0, name: 'Motherboard' },
 //         { id: 1, name: 'CPU' },
