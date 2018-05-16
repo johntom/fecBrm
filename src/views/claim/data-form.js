@@ -95,7 +95,7 @@ export class DataForm {
 
 //       selectedProduct = { id: 1, name: 'CPU' };
 
-inscontactMatcher= this.inscoAdjusters[bid]
+let inscontactMatcher= this.inscoAdjusters[bid]
           }
 
 
