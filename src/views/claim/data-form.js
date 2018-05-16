@@ -27,7 +27,7 @@ export class DataForm {
     this.inscoAddresses = []
     this.router = router;
     this.dialogService = dialogService
-    this.inscontactMatcher = ''
+    this.inscontactMatcher  = {}
     //  this.lodash = lodash;
     // this.genre= { id:7,name: 'Photography'};/
   }
