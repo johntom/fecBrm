@@ -84,7 +84,7 @@ inscontactMatcher='';
             let item = insco[aid];
             this.inscoAdjusters = item.contacts
             //  this.inscoAddresses = item.addresses
-            let bid =  this.inscoAdjusters.findIndex(x => x.inscontact === this.inscoAdjusters)
+            let bid =  this.inscoAdjusters.findIndex(x => x.inscontact === this.appService.currentClaim)
 // products = [
 //         { id: 0, name: 'Motherboard' },
 //         { id: 1, name: 'CPU' },
