@@ -14,7 +14,7 @@ export class DataForm {
   footer = 'DataAddForm FOOTER...';
   adjusterList = 'adjusterList';
   recordId = '';
-
+inscontactMatcher='';
 
   constructor(router, api, appService, dataService, eventAggregator, dialogService) {
     this.api = api;
@@ -95,7 +95,7 @@ export class DataForm {
 
 //       selectedProduct = { id: 1, name: 'CPU' };
 
-let inscontactMatcher= this.inscoAdjusters[bid]
+this.inscontactMatcher= this.inscoAdjusters[bid]
           }
 
 
