@@ -82,7 +82,7 @@ inscontactMatcher='';
            if (serviceinsco !== undefined) {
             let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
             let item = insco[aid];
-            let inscoAdjusters = item.contacts
+            this.appService.currentClaim.inscoAdjusters = item.contacts
             //  this.inscoAddresses = item.addresses
             			// <select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
                   // value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
@@ -92,7 +92,7 @@ inscontactMatcher='';
                   //     </option> 
                   //   </select>
                   let icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
-            let bid =  inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+                 let bid =  this.appService.currentClaim.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
 // products = [
 //         { id: 0, name: 'Motherboard' },
 //         { id: 1, name: 'CPU' },
