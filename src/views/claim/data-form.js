@@ -300,10 +300,11 @@ export class DataForm {
 
 
 
-
+// if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
+   
   canDeactivate() {
     let tab = this.appService.tabs.find(f => f.isSelected);
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
+    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) ) {
       if (confirm("Unsaved data, are you sure you want to navigate away?")) {
         this.closeTab(tab);
         let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
