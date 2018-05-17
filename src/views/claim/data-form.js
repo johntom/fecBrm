@@ -324,7 +324,7 @@ export class DataForm {
 
   }
 
-  canDeactivate() {
+  //canDeactivate() {
     // return confirm('Are you sure you want to leave this page?');
     // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
     //  if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
@@ -339,20 +339,20 @@ export class DataForm {
     //   console.log('this.tabname ', this.tabname)
     //    this.router.navigate(rt2);
 
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
+  //   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
 
-      if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-    else {
-      return true;
-    }
+  //     if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+  //       return true;
+  //     }
+  //     else {
+  //       return false;
+  //     }
+  //   }
+  //   else {
+  //     return true;
+  //   }
 
-  }
+  // }
 
 
 
