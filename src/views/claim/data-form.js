@@ -321,6 +321,7 @@ export class DataForm {
 		}
   }
   close() {
+    alert(this.navaway )
     if (  this.navaway === true) {
      let tab = this.appService.tabs.find(f => f.isSelected);
     // Next, we navigate to the newly created claim
