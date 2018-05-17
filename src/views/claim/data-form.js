@@ -14,15 +14,15 @@ export class DataForm {
   footer = 'DataAddForm FOOTER...';
   adjusterList = 'adjusterList';
   recordId = '';
-   products = [
-        { id: 0, name: 'Motherboard' },
-        { id: 1, name: 'CPU' },
-        { id: 2, name: 'Memory' },
-      ];
+  products = [
+    { id: 0, name: 'Motherboard' },
+    { id: 1, name: 'CPU' },
+    { id: 2, name: 'Memory' },
+  ];
 
-      productMatcher = (a, b) => a.id === b.id;
+  productMatcher = (a, b) => a.id === b.id;
 
-      selectedProduct = { id: 1, name: 'CPU' };
+  selectedProduct = { id: 1, name: 'CPU' };
 
   constructor(router, api, appService, dataService, eventAggregator, dialogService) {
     this.api = api;
@@ -96,36 +96,22 @@ export class DataForm {
             // this.appService.currentClaim.inscoAdjusters = item.contacts
 
             this.inscoAdjusters = item.contacts
-
-            //  this.inscoAddresses = item.addresses
-            // <select id="INSURANCE_CONTACT_ID" class="form-control input-sm" 
-            // value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
-            //     <option model.bind="null">Choose...</option> 
-            //     <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
-            //      ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
-            //     </option> 
-            //   </select>
             icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
-       //     bid = this.appService.currentClaim.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
-            bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
-      
-            //this.inscontactMatcher = this.appService.currentClaim.inscoAdjusters[bid]
+             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+
             this.inscontactMatcher = this.inscoAdjusters[bid]
 
-let a = this.inscoAdjusters
-let b = this.appService.currentClaim.inscontact
- this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
-// productMatcher = (a, b) => a.id === b.id;
+            let a = this.inscoAdjusters
+            let b = this.appService.currentClaim.inscontact
+            this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
+            // productMatcher = (a, b) => a.id === b.id;
 
-            this.selectedContact  =this.appService.currentClaim.inscontact
-          //  console.log('   this.inscontactMatcher,this.appService.currentClaim.inscontact', this.inscontactMatcher,this.appService.currentClaim.inscontact)
+            this.selectedContact = this.appService.currentClaim.inscontact
           }
 
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
-            //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
-            // chnage INSURED_ID to _id
-            let insured = this.appService.insuredList
+             let insured = this.appService.insuredList
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
             console.log('oid ', oid)
             insuredobj = this.appService.insuredList[oid]//10]
@@ -138,9 +124,7 @@ let b = this.appService.currentClaim.inscontact
           let insured = this.appService.insuredList
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
-            //    oid = insured.findIndex(x => x._id === this.appService.currentClaim.INSURED_ID)
-            // chnage INSURED_ID to _id
-            oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
+             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
             insuredobj = this.appService.insuredList[oid]//10]
             if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
@@ -155,13 +139,7 @@ let b = this.appService.currentClaim.inscontact
   showModal(fieldname) {
     // alert('fieldname'+fieldname)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
-      // if (!response.wasCancelled) {
-      //   console.log('Delete')
-      //   let notes = this.currentItem.notes
-      //   notes.splice(index, 1)// start, deleteCount)
-      // } else {
-      //   console.log('cancel');
-      // }
+      
       if (fieldname === 'insco') {
         let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1 // or insco.IN...
         let insco = this.appService.InsurancecompanyList
@@ -175,24 +153,10 @@ let b = this.appService.currentClaim.inscontact
       console.log(response.output);
     });
   }
-  // findAdjusterListOption(value) {
-  //   const result = this.appService.adjusterList.find(x => x.ADJUSTER_NAME === value);
-  //   if (result) {
-  //     return result.ADJUSTER_ID;
-  //   }
-  //   return null;
-  // }
+
   attached() {
 
-    //
-    // let insco = this.appService.InsurancecompanyList
-    // let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID
-    // let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco )
-    // let item = insco[aid];
-    // this.inscoAdjusters = item.contacts
-    // this.inscoAddresses= item.addresses
 
-    //
     if (this.appService.dataFormOneToOneTabs.length > 0) {
       let tab = this.appService.dataFormOneToOneTabs[0];
 
@@ -238,7 +202,7 @@ let b = this.appService.currentClaim.inscontact
         console.log('this.adjuster  createEventListeners ', this.adjuster)
       }
     };
-    //this.ratingChangedListener =  e => this.rating = e.rating;
+   
   }
 
   detached() {
@@ -250,15 +214,7 @@ let b = this.appService.currentClaim.inscontact
     return confirm('Are you sure you want to leave this page?');
   }
   saveclaim() {
-    // alert('save claim') //this.currentItem this.appService.originalrec 
-    // console.log('this.adjuster.ADJUSTER_ID ',this.adjuster.ADJUSTER_ID )
-    // this.appService.currentClaim.ADJUSTER_ID = this.adjuster.ADJUSTER_ID 
-    // let tab2 = this.appService.tabs.find(f => f.isSelected);
-    //  lodash.count = lodash.sumBy(this.appService.currentClaim.adjusters, lodash.flow(pred, Boolean));
-    // Whether its implemented that way or not. It's pretty clear what would be expected from:
-    //  lodash.count = lodash.sumBy(collection, _.flow(pred, Boolean));
-    //  let primaryct = lodash.count(this.appService.currentClaim.adjusters, x => x > 1)  // I read this is, "how many of myNumbers are > 5
-
+   
     let pcount = 0
     this.appService.currentClaim.adjusters.forEach(function (item, index) {
       console.log(item);
