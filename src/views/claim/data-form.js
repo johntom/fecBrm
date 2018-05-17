@@ -306,6 +306,7 @@ export class DataForm {
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
   async canDeactivate() {
+    alert('in')
     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
      // return new Promise((resolve, reject) => {
     //   await  this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
@@ -316,19 +317,22 @@ export class DataForm {
     //       resolve(out)
     //     });
     //   });
-      	if (await confirm("Unsaved data, are you sure you want to navigate away?")) {
+      	if ( confirm("Unsaved data, are you sure you want to navigate away?")) {
           this.navaway = true
-      		return true;
+      		return await true;
       	}
       	else {
            this.navaway = false
-      		return false;
+      		return await false;
       	}
       }
       else {
         this.navaway = true
-      	return true;
+      	return await true;
       }
+
+
+
    }
 
  
