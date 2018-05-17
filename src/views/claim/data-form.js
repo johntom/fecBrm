@@ -37,6 +37,7 @@ export class DataForm {
     this.dialogService = dialogService
     this.inscontactMatcher = {}
     this.skippromt = false
+    this.navaway =false
   }
 
   activate(params, routeConfig) {
@@ -306,21 +307,21 @@ export class DataForm {
     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) ) {
    
 			if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-        this.skippromt = true
+        this.navaway = true
 				return true;
 			}
 			else {
-         this.skippromt = false
+         this.navaway = false
 				return false;
 			}
 		}
 		else {
-      this.skippromt = true
+      this.navaway = true
 			return true;
 		}
   }
   close() {
-    if (  this.skippromt === true) {
+    if (  this.navaway === true) {
      let tab = this.appService.tabs.find(f => f.isSelected);
     // Next, we navigate to the newly created claim
     // Finally, we close out this tab
