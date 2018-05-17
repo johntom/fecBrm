@@ -260,13 +260,17 @@
 			<div class="flex-column-none section-footer">
 				<!-- ${footer} -->
 
-				<span>&nbsp;&nbsp;	
-          <button class="btn btn-sm btn-danger" click.delegate="saveclaim()">
-                  Save & Close Claim
-          </button>
-        </span>
-				<span>&nbsp;&nbsp;	
-          <button class="btn btn-sm btn-danger" click.delegate="close()">
+				
+
+<span>&nbsp;&nbsp;	
+          	<button class="btn btn-sm btn-danger" click.delegate="saveclaim(0)">
+							Save & Stay
+					</button>
+					<button class="btn btn-sm btn-danger" click.delegate="saveclaim(1)">
+							Save & Close
+					</button>
+				
+		      <button class="btn btn-sm btn-danger" click.delegate="close()">
                  Close
           </button>
         </span>
