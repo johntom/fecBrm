@@ -39,6 +39,7 @@ export class DataForm {
     this.inscontactMatcher = {}
     this.skippromt = false
     this.navaway = false
+     this.dialogService = dialogService
   }
 
   activate(params, routeConfig) {
