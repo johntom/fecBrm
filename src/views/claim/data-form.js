@@ -36,8 +36,7 @@ export class DataForm {
     this.router = router;
     this.dialogService = dialogService
     this.inscontactMatcher = {}
-    //  this.lodash = lodash;
-    // this.genre= { id:7,name: 'Photography'};/
+    this.skippromt = false
   }
 
   activate(params, routeConfig) {
@@ -97,7 +96,7 @@ export class DataForm {
 
             this.inscoAdjusters = item.contacts
             icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
-             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+            bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
 
             this.inscontactMatcher = this.inscoAdjusters[bid]
 
@@ -111,7 +110,7 @@ export class DataForm {
 
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
-             let insured = this.appService.insuredList
+            let insured = this.appService.insuredList
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
             console.log('oid ', oid)
             insuredobj = this.appService.insuredList[oid]//10]
@@ -124,7 +123,7 @@ export class DataForm {
           let insured = this.appService.insuredList
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
-             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
+            oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
             insuredobj = this.appService.insuredList[oid]//10]
             if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
@@ -139,7 +138,7 @@ export class DataForm {
   showModal(fieldname) {
     // alert('fieldname'+fieldname)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
-      
+
       if (fieldname === 'insco') {
         let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1 // or insco.IN...
         let insco = this.appService.InsurancecompanyList
@@ -202,7 +201,7 @@ export class DataForm {
         console.log('this.adjuster  createEventListeners ', this.adjuster)
       }
     };
-   
+
   }
 
   detached() {
@@ -211,10 +210,58 @@ export class DataForm {
   }
 
   canDeactivate() {
-    return confirm('Are you sure you want to leave this page?');
+    // return confirm('Are you sure you want to leave this page?');
+    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
+      return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?');
+    }
+
+
   }
-  saveclaim() {
-   
+  // saveclaim() {
+
+  //   let pcount = 0
+  //   this.appService.currentClaim.adjusters.forEach(function (item, index) {
+  //     console.log(item);
+  //     if (item.TYPE === "Primary") {
+  //       pcount++
+  //     }
+  //   });
+  //   if (pcount > 1) {
+
+  //     return confirm('There can only be one primary adjuster');
+  //   }
+  //   console.log('primaryct call save ', pcount, JSON.stringify(this.appService.currentClaim) === JSON.stringify(this.appService.testrec)) //this.appService.currentClaim)
+  //   //return 
+  //   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+  //     if (this.recordId === 'create') {
+  //       this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
+  //         console.log('jsonRes ', jsonRes);
+  //         let tab = this.appService.tabs.find(f => f.isSelected);
+  //         // this.recordId =  jsonRes.id
+  //         // this.mess = 'Record has been added'
+  //         this.closeTab(tab);
+  //         let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+  //         console.log('this.tabname ', this.tabname)
+  //         this.router.navigate(rt2);
+  //       });
+  //     } else {
+  //       this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
+  //         console.log('jsonRes ', jsonRes);
+  //         let tab = this.appService.tabs.find(f => f.isSelected);
+  //         this.closeTab(tab);
+  //         let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+  //         console.log('this.tabname ', this.tabname)
+  //         this.router.navigate(rt2);
+  //       });
+  //     }
+  //   }
+  // }
+
+  saveclaim(option) {
+
+    console.log(' call save ', JSON.stringify(this.appService.currentItem) === JSON.stringify(this.appService.testrec)) //this.appService.currentClaim)
+    //return 
+
     let pcount = 0
     this.appService.currentClaim.adjusters.forEach(function (item, index) {
       console.log(item);
@@ -226,9 +273,8 @@ export class DataForm {
 
       return confirm('There can only be one primary adjuster');
     }
-    console.log('primaryct call save ', pcount, JSON.stringify(this.appService.currentClaim) === JSON.stringify(this.appService.testrec)) //this.appService.currentClaim)
-    //return 
     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+
       if (this.recordId === 'create') {
         this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
@@ -238,7 +284,10 @@ export class DataForm {
           this.closeTab(tab);
           let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
           console.log('this.tabname ', this.tabname)
-          this.router.navigate(rt2);
+          // this.router.navigate(rt2);
+          window.alert("Save successful!");
+          this.skippromt = true
+          if (option === 1) this.close()
         });
       } else {
         this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
@@ -247,11 +296,18 @@ export class DataForm {
           this.closeTab(tab);
           let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
           console.log('this.tabname ', this.tabname)
-          this.router.navigate(rt2);
+          //  this.router.navigate(rt2);
+          window.alert("Save successful!");
+          this.skippromt = true
+          if (option === 1) this.close()
         });
       }
+
     }
   }
+
+
+
 
   close() {
     let tab = this.appService.tabs.find(f => f.isSelected);
