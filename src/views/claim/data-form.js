@@ -39,7 +39,7 @@ export class DataForm {
     this.inscontactMatcher = {}
     this.skippromt = false
     this.navaway = false
-   
+
   }
 
   activate(params, routeConfig) {
@@ -305,49 +305,49 @@ export class DataForm {
 
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
-   canDeactivate() {
+  canDeactivate() {
     alert('in')
-     return new Promise((resolve, reject) => {
-   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
-      //   await  this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
-    //       // let out = { name: obj.name, val: obj.val, ext: obj.ext, resp: response.wasCancelled }
-    //         let out = {  resp: response.wasCancelled }
-        
-    //       // send object back with answer
-    //       resolve(out)
-    //     });
-    //   });
-      	if ( confirm("Unsaved data, are you sure you want to navigate away?")) {
-          this.navaway = true
-      		return await true;
-      	}
-      	else {
-           this.navaway = false
-      		return await false;
-      	}
-      }
-      else {
-        this.navaway = true
-      	return await true;
-      }
-}
+    return new Promise((resolve, reject) => {
+
+     
+        if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+
+          if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+            this.navaway = true // does not work
+            return resolve(true);
+          }
+          else {
+            return resolve(false);
+
+          }
+        }
+        else {
+          return resolve(true);
+
+        }
+     
 
 
-   }
 
- 
+    })
+  }
+
+
+
+
+
   close() {
     //alert(this.navaway)
-   // if (this.navaway === true) {
-      let tab = this.appService.tabs.find(f => f.isSelected);
-      // Next, we navigate to the newly created claim
-      // Finally, we close out this tab
-    
-      // this.closeTab(tab);
-      // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-      // console.log('this.tabname ', this.tabname)
-      // this.router.navigate(rt2);
-  //  }
+    // if (this.navaway === true) {
+    let tab = this.appService.tabs.find(f => f.isSelected);
+    // Next, we navigate to the newly created claim
+    // Finally, we close out this tab
+
+    // this.closeTab(tab);
+    // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+    // console.log('this.tabname ', this.tabname)
+    // this.router.navigate(rt2);
+    //  }
   }
 
   //canDeactivate() {
