@@ -39,7 +39,7 @@ export class DataForm {
     this.inscontactMatcher = {}
     this.skippromt = false
     this.navaway = false
-     this.dialogService = dialogService
+   
   }
 
   activate(params, routeConfig) {
@@ -306,7 +306,7 @@ export class DataForm {
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
   canDeactivate() {
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
       return new Promise((resolve, reject) => {
         this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
           // let out = { name: obj.name, val: obj.val, ext: obj.ext, resp: response.wasCancelled }
@@ -329,7 +329,7 @@ export class DataForm {
       //   this.navaway = true
       // 	return true;
       // }
-    }
+   // }
 
   }
   close() {
