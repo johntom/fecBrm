@@ -326,7 +326,7 @@ export class DataForm {
     //   this.navaway = true
 		// 	return true;
 		// }
-
+    }
 
   }
   close() {
