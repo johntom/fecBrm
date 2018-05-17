@@ -306,7 +306,7 @@ export class DataForm {
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
   canDeactivate() {
-    alert('in')
+   // alert('in')
     return new Promise((resolve, reject) => {
 
      
