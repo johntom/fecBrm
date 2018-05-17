@@ -305,11 +305,11 @@ export class DataForm {
 
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
-  async canDeactivate() {
+   canDeactivate() {
     alert('in')
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
-     // return new Promise((resolve, reject) => {
-    //   await  this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
+     return new Promise((resolve, reject) => {
+   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+      //   await  this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
     //       // let out = { name: obj.name, val: obj.val, ext: obj.ext, resp: response.wasCancelled }
     //         let out = {  resp: response.wasCancelled }
         
@@ -330,7 +330,7 @@ export class DataForm {
         this.navaway = true
       	return await true;
       }
-
+}
 
 
    }
