@@ -211,7 +211,10 @@ export class DataForm {
 
   canDeactivate() {
     // return confirm('Are you sure you want to leave this page?');
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
+   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
+     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
+    
+     
       return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?');
     }
 
