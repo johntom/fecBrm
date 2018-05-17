@@ -6,7 +6,7 @@ import { ApplicationService } from '../../services/application-service';
 import { MyDataService } from "../../services/my-data-service";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Prompt } from './prompt';
-import { Promptyn } from '../../services/promptyn';
+import { Promptyn } from './promptyn';
 import { DialogService } from 'aurelia-dialog';
 import { lodash } from 'lodash'
 @inject(Router, ApiService, ApplicationService, MyDataService, EventAggregator, DialogService)
