@@ -124,15 +124,7 @@
 									</div>
 									<!-- change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)">  -->
 
-									<!-- <div class="Rtable-cell-70  Rtable-cell--highlight">
-										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="appService.currentClaim.INSURANCE_CONTACT_ID"
-										 change.delegate="selectChangedIA(currentClaim.INSURANCE_CONTACT_ID)"> 
-                      <option model.bind="null">Choose...</option> 
-                      <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
-                       ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
-                      </option> 
-                    </select>
-									</div> -->
+								
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
 										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
                       <option model.bind="null">Choose...</option> 
@@ -145,9 +137,8 @@
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> Ins Carrier Adjuster2</strong>
 									</div>
-<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<select  class="form-control input-sm" 
-                    value.bind="appService.currentClaim.inscontact" 
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<select class="form-control input-sm" value.bind="appService.currentClaim.inscontact" 
                     matcher.bind="inscontactMatcher"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="inscontact of inscoAdjusters" model.bind="inscontact">
@@ -156,27 +147,6 @@
                     </select>
 									</div>
 
-
-									<!-- <div class="Rtable-cell-70  Rtable-cell--highlight">
-										<select  class="form-control input-sm" 
-                    value.bind="selectedContact" 
-                    matcher.bind="inscontactMatcher"> 
-                      <option model.bind="null">Choose...</option> 
-                      <option repeat.for="inscontact of inscoAdjusters" model.bind="inscontact">
-                       ${inscontact.NAME_LAST},  ${inscontact.NAME_FIRST}  
-                      </option> 
-                    </select>
-									</div> -->
-	<!-- <div class="Rtable-cell-70  Rtable-cell--highlight">
-								
- <select value.bind="selectedProduct" matcher.bind="productMatcher">
-          <option model.bind="null">Choose...</option>
-          <option repeat.for="product of products"
-                  model.bind="product">
-            ${product.id} - ${product.name}
-          </option>
-        </select>
-</div> -->
 
 
 
@@ -197,15 +167,6 @@
                     </select>
 									</div> -->
 
-
-
-									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
-										<strong> Loss description doubleclick >></strong>
-									</div>
-									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm"
-										 value.bind="appService.currentClaim.DESCRIPTION"></textarea>
-									</div> -->
 
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> Loss description ></strong>
