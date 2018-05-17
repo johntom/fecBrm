@@ -302,9 +302,9 @@ export class DataForm {
 
 
   close() {
-    if (canDeactivate()===true) {
-      alert ('close it')
-    } else  alert ('cancel it')
+    // if (canDeactivate()===true) {
+    //   alert ('close it')
+    // } else  alert ('cancel it')
     // let tab = this.appService.tabs.find(f => f.isSelected);
     // // Next, we navigate to the newly created claim
     // // Finally, we close out this tab
@@ -328,6 +328,20 @@ export class DataForm {
   //   let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
   //   console.log('this.tabname ', this.tabname)
   //    this.router.navigate(rt2);
+
+	 if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
+    
+			if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return true;
+		}
+
     }
 
 
