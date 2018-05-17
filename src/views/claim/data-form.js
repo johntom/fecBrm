@@ -144,13 +144,8 @@ let b = this.appService.currentClaim.inscontact
             insuredobj = this.appService.insuredList[oid]//10]
             if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
-
-
-
           // end setup insured
-
         });
-
       }
     }
 
