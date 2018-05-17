@@ -6,7 +6,7 @@ import { ApplicationService } from '../../services/application-service';
 import { MyDataService } from "../../services/my-data-service";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Prompt } from './prompt';
- import { Promptyn } from '../../services/promptyn';
+import { Promptyn } from '../../services/promptyn';
 import { DialogService } from 'aurelia-dialog';
 import { lodash } from 'lodash'
 @inject(Router, ApiService, ApplicationService, MyDataService, EventAggregator, DialogService)
@@ -38,7 +38,7 @@ export class DataForm {
     this.dialogService = dialogService
     this.inscontactMatcher = {}
     this.skippromt = false
-    this.navaway =false
+    this.navaway = false
   }
 
   activate(params, routeConfig) {
@@ -302,60 +302,62 @@ export class DataForm {
 
 
 
-// if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
-//&& this.skippromt === false) {
+  // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
+  //&& this.skippromt === false) {
   canDeactivate() {
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) ) {
-     return new Promise((resolve, reject) => {
-    this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
-      let out = { name: obj.name, val: obj.val, ext: obj.ext, resp: response.wasCancelled }
-      // send object back with answer
-      resolve(out)
-    });
-  });
-		// 	if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-    //     this.navaway = true
-		// 		return true;
-		// 	}
-		// 	else {
-    //      this.navaway = false
-		// 		return false;
-		// 	}
-		// }
-		// else {
-    //   this.navaway = true
-		// 	return true;
-		// }
+    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+      return new Promise((resolve, reject) => {
+        this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
+          // let out = { name: obj.name, val: obj.val, ext: obj.ext, resp: response.wasCancelled }
+            let out = {  resp: response.wasCancelled }
+        
+          // send object back with answer
+          resolve(out)
+        });
+      });
+      // 	if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+      //     this.navaway = true
+      // 		return true;
+      // 	}
+      // 	else {
+      //      this.navaway = false
+      // 		return false;
+      // 	}
+      // }
+      // else {
+      //   this.navaway = true
+      // 	return true;
+      // }
     }
 
   }
   close() {
-    alert(this.navaway )
-    if (  this.navaway === true) {
-     let tab = this.appService.tabs.find(f => f.isSelected);
-    // Next, we navigate to the newly created claim
-    // Finally, we close out this tab
-    this.closeTab(tab);
-    let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    console.log('this.tabname ', this.tabname)
-    this.router.navigate(rt2);
+    alert(this.navaway)
+    if (this.navaway === true) {
+      let tab = this.appService.tabs.find(f => f.isSelected);
+      // Next, we navigate to the newly created claim
+      // Finally, we close out this tab
+      this.closeTab(tab);
+      let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+      console.log('this.tabname ', this.tabname)
+      this.router.navigate(rt2);
     }
   }
 
   //canDeactivate() {
-    // return confirm('Are you sure you want to leave this page?');
-    // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
-    //  if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
+  // return confirm('Are you sure you want to leave this page?');
+  // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
+  //  if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
 
 
-    //   return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?');
-    // let tab = this.appService.tabs.find(f => f.isSelected);
-    //   // Next, we navigate to the newly created claim
-    //   // Finally, we close out this tab
-    //   this.closeTab(tab);
-    //   let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    //   console.log('this.tabname ', this.tabname)
-    //    this.router.navigate(rt2);
+  //   return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?');
+  // let tab = this.appService.tabs.find(f => f.isSelected);
+  //   // Next, we navigate to the newly created claim
+  //   // Finally, we close out this tab
+  //   this.closeTab(tab);
+  //   let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+  //   console.log('this.tabname ', this.tabname)
+  //    this.router.navigate(rt2);
 
   //   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
 
