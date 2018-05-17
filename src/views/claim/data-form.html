@@ -61,7 +61,7 @@
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--green">
 
-										<input click.delegate="showModal('INSURED_ID')" type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentClaim.insured.LEGAL_NAME">
+										<input dblclick.delegate="showModal('INSURED_ID')" type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentClaim.insured.LEGAL_NAME">
 
 
 										<!-- <select id="JURISDICTION_ID" class="form-control input-sm" value.bind="appService.currentClaim.JURISDICTION_ID"> 
@@ -169,10 +169,11 @@
 
 
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
-										<strong> Loss description ></strong>
+										<strong> Loss description >></strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<textarea rows="3" click.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION"></textarea>
+										<textarea rows="3" click.delegate="showModal('DESCRIPTION')" type="text"
+                     id="DESCRIPTION" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION"></textarea>
 									</div>
 
 
