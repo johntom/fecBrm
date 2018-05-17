@@ -306,26 +306,28 @@ export class DataForm {
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
   canDeactivate() {
-   // alert('in')
+    // alert('in')
     return new Promise((resolve, reject) => {
 
-     
-        if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
 
-          if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-            this.navaway = true // does not work
-            return resolve(true);
-          }
-          else {
-            return resolve(false);
+      if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
 
-          }
+        if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+          this.navaway = true // does not work
+          return resolve(true);
         }
         else {
-          return resolve(true);
+          this.navaway = false
+          return resolve(false);
 
         }
-     
+      }
+      else {
+        this.navaway = false
+        return resolve(true);
+
+      }
+
 
 
 
@@ -397,10 +399,11 @@ export class DataForm {
     return true;
   }
   closeTab(tab) {
-
-    // let index = this.appService.tabs.indexOf(tab);
-    // tab.isSelected = false;
-    // this.appService.tabs.splice(index, 1);
+    if (this.navaway) {
+      let index = this.appService.tabs.indexOf(tab);
+      tab.isSelected = false;
+      this.appService.tabs.splice(index, 1);
+    }
   }
 
 }
