@@ -108,19 +108,15 @@ export class DataForm {
             icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
        //     bid = this.appService.currentClaim.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
-       
-            // products = [
-            //         { id: 0, name: 'Motherboard' },
-            //         { id: 1, name: 'CPU' },
-            //         { id: 2, name: 'Memory' },
-            //       ];
-
-            //       productMatcher = (a, b) => a.id === b.id;
-
-            //       selectedProduct = { id: 1, name: 'CPU' };
-
+      
             //this.inscontactMatcher = this.appService.currentClaim.inscoAdjusters[bid]
             this.inscontactMatcher = this.inscoAdjusters[bid]
+
+let a = this.inscoAdjusters
+let b = this.appService.currentClaim.inscontact
+ this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
+// productMatcher = (a, b) => a.id === b.id;
+
             this.selectedContact  =this.appService.currentClaim.inscontact
           //  console.log('   this.inscontactMatcher,this.appService.currentClaim.inscontact', this.inscontactMatcher,this.appService.currentClaim.inscontact)
           }
