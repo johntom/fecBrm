@@ -306,20 +306,28 @@ export class DataForm {
 //&& this.skippromt === false) {
   canDeactivate() {
     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) ) {
-   
-			if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-        this.navaway = true
-				return true;
-			}
-			else {
-         this.navaway = false
-				return false;
-			}
-		}
-		else {
-      this.navaway = true
-			return true;
-		}
+     return new Promise((resolve, reject) => {
+    this.dialogService.open({ viewModel: Promptyn, model: "Unsaved data, are you sure you want to navigate away?" + obj.name + '?', lock: false }).whenClosed(response => {
+      let out = { name: obj.name, val: obj.val, ext: obj.ext, resp: response.wasCancelled }
+      // send object back with answer
+      resolve(out)
+    });
+  });
+		// 	if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+    //     this.navaway = true
+		// 		return true;
+		// 	}
+		// 	else {
+    //      this.navaway = false
+		// 		return false;
+		// 	}
+		// }
+		// else {
+    //   this.navaway = true
+		// 	return true;
+		// }
+
+
   }
   close() {
     alert(this.navaway )
