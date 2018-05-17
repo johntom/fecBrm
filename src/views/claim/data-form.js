@@ -316,36 +316,36 @@ export class DataForm {
 
   canDeactivate() {
     // return confirm('Are you sure you want to leave this page?');
-   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
-     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
-    
-     
-      return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?');
-  // let tab = this.appService.tabs.find(f => f.isSelected);
-  //   // Next, we navigate to the newly created claim
-  //   // Finally, we close out this tab
-  //   this.closeTab(tab);
-  //   let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-  //   console.log('this.tabname ', this.tabname)
-  //    this.router.navigate(rt2);
+    // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec) && this.skippromt === false) {
+    //  if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
 
-	 if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
-    
-			if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-		else {
-			return true;
-		}
 
+    //   return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?');
+    // let tab = this.appService.tabs.find(f => f.isSelected);
+    //   // Next, we navigate to the newly created claim
+    //   // Finally, we close out this tab
+    //   this.closeTab(tab);
+    //   let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+    //   console.log('this.tabname ', this.tabname)
+    //    this.router.navigate(rt2);
+
+    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) && this.skippromt === false) {
+
+      if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return true;
     }
 
-
   }
+
+
+
   selectOneToOneTab(tab) {
     this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
     tab.isSelected = true;
