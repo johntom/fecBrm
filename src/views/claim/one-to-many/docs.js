@@ -3,7 +3,7 @@ import { ApiService } from '../../../utils/servicesApi';
 import { ApplicationService } from '../../../services/application-service';
 import moment from 'moment';
 import { DialogService } from 'aurelia-dialog';
- import { Promptyn } from '../../../services/promptyn';
+import { Promptyn } from '../../../services/promptyn';
 import { Prompt } from '../prompt';
 
 @inject(ApiService, ApplicationService, DialogService)
