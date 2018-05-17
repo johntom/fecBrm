@@ -398,9 +398,9 @@ export class DataForm {
   }
   closeTab(tab) {
 
-    let index = this.appService.tabs.indexOf(tab);
-    tab.isSelected = false;
-    this.appService.tabs.splice(index, 1);
+    // let index = this.appService.tabs.indexOf(tab);
+    // tab.isSelected = false;
+    // this.appService.tabs.splice(index, 1);
   }
 
 }
