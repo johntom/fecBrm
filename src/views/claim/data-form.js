@@ -335,7 +335,7 @@ export class DataForm {
   }
 
 
-closeTab(tab) {
+closeTabx(tab) {
    
         let index = this.appService.tabs.indexOf(tab);
         tab.isSelected = false;
@@ -343,7 +343,7 @@ closeTab(tab) {
 
     }
   
-  closeTabxx(tab) {
+  closeTab(tab) {
     // alert('in close tab')
     if (JSON.stringify(this.appService.currentClaim) !==
       JSON.stringify(this.appService.originalrec)) {
@@ -355,7 +355,10 @@ closeTab(tab) {
         this.appService.tabs.splice(index, 1);
 
       } else {
-        this.saveclaim(1)
+        // this.saveclaim(1)
+ this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
+          console.log('jsonRes ', jsonRes);
+ })
       }
     }
   }
