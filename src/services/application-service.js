@@ -164,7 +164,7 @@ this.router = router
    tryCloseTab(item, tab, route) {
     if (item.isRecordDirty) {
       this.asyncHandleDirty().then(result => {
-        if (result) {
+        if (!result.wasCancelled) {
           this.closeTab(tab);
           if (route) {
             this.navigate(route);
