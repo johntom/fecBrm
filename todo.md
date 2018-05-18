@@ -15,3 +15,5 @@ global search and replace to delete a code
 replace all small forms with in place edit 
 only show exit message on dirty form
 dont accept no search values on some forms
+5/18/18
+1.
