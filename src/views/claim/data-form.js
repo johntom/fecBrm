@@ -370,9 +370,9 @@ export class DataForm {
     // // Finally, we close out this tab
 
     // this.closeTab(tab);
-    // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    // console.log('this.tabname ', this.tabname)
-    // this.router.navigate(rt2);
+    let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+    console.log('this.tabname ', this.tabname)
+    this.router.navigate(rt2);
     // //  }
   }
 
