@@ -313,7 +313,7 @@ export class DataForm {
     //     return result;
     // }
     if (JSON.stringify(this.appService.currentClaim) !==
-      JSON.stringify(this.appService.originalrec)) {
+      JSON.stringify(this.appService.originalrec)) { 
       var result = confirm('canDeactivate:Do you really want to discard your changes?');
       if (result) {
         let tab = this.appService.tabs.find(f => f.isSelected);
@@ -326,6 +326,12 @@ export class DataForm {
         this.router.navigate(rt2);
       }
         return result;
+    } else {
+        let tab = this.appService.tabs.find(f => f.isSelected);
+        this.closeTab(tab);
+        let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+        console.log('this.tabname ', this.tabname)
+        this.router.navigate(rt2);
     }
   }
 
