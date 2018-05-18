@@ -212,45 +212,6 @@ export class DataForm {
     // this.selectAdjusterElement.removeEventListener('change', this.adjusterSelectedListener);
   }
 
-  // saveclaim() {
-
-  //   let pcount = 0
-  //   this.appService.currentClaim.adjusters.forEach(function (item, index) {
-  //     console.log(item);
-  //     if (item.TYPE === "Primary") {
-  //       pcount++
-  //     }
-  //   });
-  //   if (pcount > 1) {
-
-  //     return confirm('There can only be one primary adjuster');
-  //   }
-  //   console.log('primaryct call save ', pcount, JSON.stringify(this.appService.currentClaim) === JSON.stringify(this.appService.testrec)) //this.appService.currentClaim)
-  //   //return 
-  //   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
-  //     if (this.recordId === 'create') {
-  //       this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
-  //         console.log('jsonRes ', jsonRes);
-  //         let tab = this.appService.tabs.find(f => f.isSelected);
-  //         // this.recordId =  jsonRes.id
-  //         // this.mess = 'Record has been added'
-  //         this.closeTab(tab);
-  //         let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-  //         console.log('this.tabname ', this.tabname)
-  //         this.router.navigate(rt2);
-  //       });
-  //     } else {
-  //       this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
-  //         console.log('jsonRes ', jsonRes);
-  //         let tab = this.appService.tabs.find(f => f.isSelected);
-  //         this.closeTab(tab);
-  //         let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-  //         console.log('this.tabname ', this.tabname)
-  //         this.router.navigate(rt2);
-  //       });
-  //     }
-  //   }
-  // }
 
   saveclaim(option) {
 
@@ -294,7 +255,10 @@ export class DataForm {
           //  this.router.navigate(rt2);
           window.alert("Save successful!");
           this.skippromt = true
-          if (option === 1) this.close()
+          if (option === 1) { this.close() } else
+          {
+               this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
+          }
         });
       }
 
