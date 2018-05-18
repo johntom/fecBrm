@@ -356,8 +356,9 @@ export class DataForm {
         this.router.navigate(rt2);
 
 
-        return result;
+       // return result;
       }
+        return result;
     }
   }
 
