@@ -213,7 +213,7 @@ export class DataForm {
   }
 
   detached() {
-    alert('detach')
+   // alert('det')
     // this.ratingElement.removeEventListener('change', this.ratingChangedListener);
     // this.selectAdjusterElement.removeEventListener('change', this.adjusterSelectedListener);
   }
@@ -335,12 +335,20 @@ export class DataForm {
   }
   closeTab(tab) {
     // alert('in close tab')
+     if (JSON.stringify(this.appService.currentClaim) !==
+      JSON.stringify(this.appService.originalrec)) {
+      var result = confirm('canDeactivate:Do you really want to discard your changes?');
+      if (result) {
+      
     let index = this.appService.tabs.indexOf(tab);
     tab.isSelected = false;
     this.appService.tabs.splice(index, 1);
 
+  } else  {
+    this.saveclaim(1)
   }
-
+}
+}
 }
 
 
