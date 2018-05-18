@@ -157,11 +157,11 @@ export class DataForm {
   }
 
   attached() {
-// @HostListener('window:beforeunload', ['$event'])
-// handleClose($event) {
-//     $event.returnValue = false;
+    // @HostListener('window:beforeunload', ['$event'])
+    // handleClose($event) {
+    //     $event.returnValue = false;
 
-// }
+    // }
 
 
     if (this.appService.dataFormOneToOneTabs.length > 0) {
@@ -213,7 +213,7 @@ export class DataForm {
   }
 
   detached() {
-   // alert('det')
+    // alert('det')
     // this.ratingElement.removeEventListener('change', this.ratingChangedListener);
     // this.selectAdjusterElement.removeEventListener('change', this.adjusterSelectedListener);
   }
@@ -241,11 +241,11 @@ export class DataForm {
         this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
           let tab = this.appService.tabs.find(f => f.isSelected);
-         
+
           this.closeTab(tab);
           // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
           // console.log('this.tabname ', this.tabname)
-        
+
           window.alert("Save successful!");
           this.skippromt = true
           if (option === 1) this.close()
@@ -261,7 +261,7 @@ export class DataForm {
 
             let tab = this.appService.tabs.find(f => f.isSelected);
             this.closeTab(tab);
-            
+
             this.close()
           } else {
             this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
@@ -335,20 +335,20 @@ export class DataForm {
   }
   closeTab(tab) {
     // alert('in close tab')
-     if (JSON.stringify(this.appService.currentClaim) !==
+    if (JSON.stringify(this.appService.currentClaim) !==
       JSON.stringify(this.appService.originalrec)) {
-      var result = confirm('canDeactivate:Do you really want to discard your changes?');
+      var result = confirm('closeTab:Do you really want to discard your changes?');
       if (result) {
-      
-    let index = this.appService.tabs.indexOf(tab);
-    tab.isSelected = false;
-    this.appService.tabs.splice(index, 1);
 
-  } else  {
-    this.saveclaim(1)
+        let index = this.appService.tabs.indexOf(tab);
+        tab.isSelected = false;
+        this.appService.tabs.splice(index, 1);
+
+      } else {
+        this.saveclaim(1)
+      }
+    }
   }
-}
-}
 }
 
 
