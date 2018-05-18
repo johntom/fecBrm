@@ -401,7 +401,8 @@ export class DataForm {
   closeTab(tab) {
    // if (this.navaway) {
      // && this.skippromt === false
- if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) {
+ if (JSON.stringify(this.appService.currentClaim) !==
+  JSON.stringify(this.appService.originalrec)) {
 
 
      return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?')
