@@ -153,9 +153,10 @@ this.router = router
   //   return closeResult;
   // }
    asyncHandleDirty() {
-    const model = { 'question': 'Do you really want to discard your changes?' }
+    const model = 'Do you really want to discard your changes?';
     const options = { viewModel: Prompt, model: model, lock: false };
-    return this.dialogService.open(options);
+    // return this.dialogService.open(options);
+    return this.dialogService.open(options).whenClosed(response => response);
   }
   navigate(route){ 
     this.router.navigate(route);
