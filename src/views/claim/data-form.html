@@ -1,6 +1,6 @@
-           <template>
-             <script type="text/javascript">
-             function closedWin() {
+<template>
+	<!-- <script type="text/javascript">
+		function closedWin() {
     confirm("close ?");
     return false; /* which will not allow to close the window */
 }
@@ -9,6 +9,13 @@ if(window.addEventListener) {
 }
 
 window.onclose = closedWin;
+
+	</script> -->
+  <script language="JavaScript">
+    window.onbeforeunload = confirmExit;
+    function confirmExit() {
+        return "You have attempted to leave this page. Are you sure?";
+    }
 </script>
 	<require from="./flex.css"></require>
 	<section class="full-height flex-column-1 au-animate ignore">
@@ -135,7 +142,7 @@ window.onclose = closedWin;
 									</div>
 									<!-- change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)">  -->
 
-								
+
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
 										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="appService.currentClaim.INSURANCE_ADJUSTER_ID">
                       <option model.bind="null">Choose...</option> 
@@ -149,8 +156,7 @@ window.onclose = closedWin;
 										<strong> Ins Carrier Adjuster2</strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<select class="form-control input-sm" value.bind="appService.currentClaim.inscontact" 
-                    matcher.bind="inscontactMatcher"> 
+										<select class="form-control input-sm" value.bind="appService.currentClaim.inscontact" matcher.bind="inscontactMatcher"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="inscontact of inscoAdjusters" model.bind="inscontact">
                        ${inscontact.NAME_LAST},  ${inscontact.NAME_FIRST}  
@@ -183,8 +189,8 @@ window.onclose = closedWin;
 										<strong> Loss description >></strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" type="text"
-                     id="DESCRIPTION" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION"></textarea>
+										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm"
+										 value.bind="appService.currentClaim.DESCRIPTION"></textarea>
 									</div>
 
 
@@ -272,9 +278,9 @@ window.onclose = closedWin;
 			<div class="flex-column-none section-footer">
 				<!-- ${footer} -->
 
-				
 
-<span>&nbsp;&nbsp;	
+
+				<span>&nbsp;&nbsp;	
           	<button class="btn btn-sm btn-danger" click.delegate="saveclaim(0)">
 							Save & Stay
 					</button>

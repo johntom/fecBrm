@@ -157,6 +157,11 @@ export class DataForm {
   }
 
   attached() {
+// @HostListener('window:beforeunload', ['$event'])
+// handleClose($event) {
+//     $event.returnValue = false;
+
+// }
 
 
     if (this.appService.dataFormOneToOneTabs.length > 0) {
@@ -208,6 +213,7 @@ export class DataForm {
   }
 
   detached() {
+    alert('det')
     // this.ratingElement.removeEventListener('change', this.ratingChangedListener);
     // this.selectAdjusterElement.removeEventListener('change', this.adjusterSelectedListener);
   }
