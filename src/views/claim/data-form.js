@@ -335,32 +335,32 @@ export class DataForm {
   }
 
 
-closeTabx(tab) {
-   
-        let index = this.appService.tabs.indexOf(tab);
-        tab.isSelected = false;
-        this.appService.tabs.splice(index, 1);
-
-    }
-  
   closeTab(tab) {
-    // alert('in close tab')
-    if (JSON.stringify(this.appService.currentClaim) !==
-      JSON.stringify(this.appService.originalrec)) {
-      var result = confirm('closeTab:Do you really want to discard your changes?');
-      if (result) {
 
-        let index = this.appService.tabs.indexOf(tab);
-        tab.isSelected = false;
-        this.appService.tabs.splice(index, 1);
+    let index = this.appService.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.appService.tabs.splice(index, 1);
 
-      } else {
-        // this.saveclaim(1)
- this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
-          console.log('jsonRes ', jsonRes);
- })
-      }
-    }
+  }
+
+  // closeTab(tab) {
+  //   // alert('in close tab')
+  //   if (JSON.stringify(this.appService.currentClaim) !==
+  //     JSON.stringify(this.appService.originalrec)) {
+  //     var result = confirm('closeTab:Do you really want to discard your changes?');
+  //     if (result) {
+
+  //       let index = this.appService.tabs.indexOf(tab);
+  //       tab.isSelected = false;
+  //       this.appService.tabs.splice(index, 1);
+
+  //     } else {
+  //       // this.saveclaim(1)
+  //       this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
+  //         console.log('jsonRes ', jsonRes);
+  //       })
+  //     }
+  //   }
   }
 
 
