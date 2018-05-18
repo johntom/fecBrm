@@ -1,8 +1,6 @@
 import { DialogService } from 'aurelia-dialog';
 import { Prompt } from './prompt';
-
 import { Router } from 'aurelia-router';
-
 import { inject } from 'aurelia-dependency-injection';
 
 @inject(Router,DialogService)
