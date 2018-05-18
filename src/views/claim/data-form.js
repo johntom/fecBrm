@@ -213,7 +213,7 @@ export class DataForm {
   }
 
   detached() {
-    alert('det')
+    alert('detach')
     // this.ratingElement.removeEventListener('change', this.ratingChangedListener);
     // this.selectAdjusterElement.removeEventListener('change', this.adjusterSelectedListener);
   }
