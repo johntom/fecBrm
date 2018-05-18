@@ -307,38 +307,49 @@ export class DataForm {
   // }
 canDeactivate() {
   // always boolean make isDirty
+   
     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) ) {
+      this.appService.currentClaim.isRecordDirty=true
                 return false;
             
-        }    else        return true
+        }    else     {  
+           this.appService.currentClaim.isRecordDirty=false
+            return true
+        }
         
   }
-
+//    async tryCloseTab(item, tab, route) {
   requestclose() {
+
+   
     let cand= this.canDeactivate()
     if (cand){
-    
-   this.close()
-    } else {
-      // dialg
-        var result = confirm('canDeactivate:Do you really want to discard your changes?');
-      if (result) {
-          (this.appService.originalrec =this.appService.currentClaim) 
-        this.close()
-      }
-    }
+       let tab = this.appService.tabs.find(f => f.isSelected);
+       let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+   
+    this.appService.tryCloseTab(this.appService.currentClaim,tab,rt2)
+  //  this.close()
+  //   } else {
+  //     // dialg
+  //       var result = confirm('canDeactivate:Do you really want to discard your changes?');
+  //     if (result) {
+  //         (this.appService.originalrec =this.appService.currentClaim) 
+  //       this.close()
+  //     }
+  //   }
+  }
   }
 
-close(){
+// close(){
   
- let tab = this.appService.tabs.find(f => f.isSelected);
-    // // Next, we navigate to the newly created claim
-    // // Finally, we close out this tab
-    this.closeTab(tab);
-    let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    //console.log('this.tabname ', this.tabname)
-    this.router.navigate(rt2);
-}
+//  let tab = this.appService.tabs.find(f => f.isSelected);
+//     // // Next, we navigate to the newly created claim
+//     // // Finally, we close out this tab
+//     this.closeTab(tab);
+//     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+//     //console.log('this.tabname ', this.tabname)
+//     this.router.navigate(rt2);
+// }
 
   selectOneToOneTab(tab) {
     this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);

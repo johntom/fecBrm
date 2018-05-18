@@ -1,5 +1,23 @@
+import { DialogService } from 'aurelia-dialog';
+import { Prompt } from './prompt';
+
+import { Router } from 'aurelia-router';
+
+
+
+@inject(Router,DialogService)
 export class ApplicationService {
+  constructor(router,dialogService) {
+
+    this.dialogService = dialogService
+
+this.router = router
+
+  }
+
   tabs = [];
+
+
   dataFormOneToOneTabs = [
 
     {
@@ -33,7 +51,7 @@ export class ApplicationService {
       viewModel: "./one-to-many/docs",
       isSelected: false
     },
-      {
+    {
       name: "Invoices",
       viewModel: "./one-to-many/invoices",
       isSelected: false
@@ -78,7 +96,7 @@ export class ApplicationService {
     //   viewModel: "./one-to-many/adjuster",
     //   isSelected: false
     // }
-    ]
+  ]
 
 
   currentRecord = 0;//null;
@@ -90,10 +108,10 @@ export class ApplicationService {
   curentClaim;
   curentDaily;
   currentAdjuster;
-  currentSearchadj={}
+  currentSearchadj = {}
   currentpayperiod
   currentpaymentAdjuster;
-  
+
   testinscorec = 0;
   currentInsco;
   originalinscorec = 0;
@@ -128,5 +146,38 @@ export class ApplicationService {
   adjusterprepList = []
   arpreponeList = []
   currentSearch // needed to close claim s
-  MasrepList  = [] 
+  MasrepList = []
+
+  async asyncHandleDirty() {
+    const model = { 'question': 'Do you really want to discard your changes?' }
+    const options = { viewModel: Prompt, model: model, lock: false };
+    const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
+    return closeResult;
+  }
+
+  navigate(route){ 
+    this.router.navigate(route);
+  }
+
+  async tryCloseTab(item, tab, route) {
+    if (item.isRecordDirty) {
+      const result = await this.asyncHandleDirty();
+      if (result) {
+        this.closeTab(tab);
+        if (route) {
+          this.navigate(route);
+        }
+      }
+    } else {
+      this.closeTab(tab);
+      if (route) {
+        this.navigate(route);
+      }
+    }
+  }
+  closeTab(tab) {
+    let index = this.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.tabs.splice(index, 1);
+  }
 }
