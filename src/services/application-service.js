@@ -195,6 +195,9 @@ this.router = router
   //   }
   // }
   closeTab(tab) {
+    this.currentClaim.isRecordDirty = false;
+    this.originalrec = this.currentClaim;
+    
     let index = this.tabs.indexOf(tab);
     tab.isSelected = false;
     this.tabs.splice(index, 1);

@@ -307,10 +307,10 @@ export class DataForm {
   // }
   canDeactivate() {
     // always boolean make isDirty
-
     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
       this.appService.currentClaim.isRecordDirty = true
       return false;
+
 
     } else {
       this.appService.currentClaim.isRecordDirty = false
