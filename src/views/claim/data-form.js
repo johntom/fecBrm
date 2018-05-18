@@ -399,7 +399,13 @@ export class DataForm {
     return true;
   }
   closeTab(tab) {
-    if (this.navaway) {
+   // if (this.navaway) {
+     // && this.skippromt === false
+ if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) {
+
+
+     return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?')
+ 
       let index = this.appService.tabs.indexOf(tab);
       tab.isSelected = false;
       this.appService.tabs.splice(index, 1);
