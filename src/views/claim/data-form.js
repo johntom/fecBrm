@@ -363,17 +363,17 @@ export class DataForm {
   }
 
   close() {
-    //alert(this.navaway)
-    // if (this.navaway === true) {
-    let tab = this.appService.tabs.find(f => f.isSelected);
-    // Next, we navigate to the newly created claim
-    // Finally, we close out this tab
+    // //alert(this.navaway)
+    // // if (this.navaway === true) {
+    // let tab = this.appService.tabs.find(f => f.isSelected);
+    // // Next, we navigate to the newly created claim
+    // // Finally, we close out this tab
 
-    this.closeTab(tab);
-    let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    console.log('this.tabname ', this.tabname)
-    this.router.navigate(rt2);
-    //  }
+    // this.closeTab(tab);
+    // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+    // console.log('this.tabname ', this.tabname)
+    // this.router.navigate(rt2);
+    // //  }
   }
 
   //canDeactivate() {
