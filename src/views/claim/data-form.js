@@ -235,12 +235,11 @@ export class DataForm {
         this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
           let tab = this.appService.tabs.find(f => f.isSelected);
-          // this.recordId =  jsonRes.id
-          // this.mess = 'Record has been added'
+         
           this.closeTab(tab);
-          let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-          console.log('this.tabname ', this.tabname)
-          // this.router.navigate(rt2);
+          // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+          // console.log('this.tabname ', this.tabname)
+        
           window.alert("Save successful!");
           this.skippromt = true
           if (option === 1) this.close()
@@ -248,20 +247,18 @@ export class DataForm {
       } else {
         this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
-         
+
           //  this.router.navigate(rt2);
           window.alert("Save successful!");
           this.skippromt = true
           if (option === 1) {
-             
-              let tab = this.appService.tabs.find(f => f.isSelected);
-          this.closeTab(tab);
-          // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-          // console.log('this.tabname ', this.tabname)
-             this.close()
-              } else
-          {
-               this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
+
+            let tab = this.appService.tabs.find(f => f.isSelected);
+            this.closeTab(tab);
+            
+            this.close()
+          } else {
+            this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
           }
         });
       }
@@ -273,7 +270,7 @@ export class DataForm {
 
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
-  
+
 
   canDeactivate() {
     // if(!this.isPristine()) {
@@ -281,7 +278,7 @@ export class DataForm {
     //     return result;
     // }
     if (JSON.stringify(this.appService.currentClaim) !==
-      JSON.stringify(this.appService.originalrec)) { 
+      JSON.stringify(this.appService.originalrec)) {
       var result = confirm('canDeactivate:Do you really want to discard your changes?');
       if (result) {
         let tab = this.appService.tabs.find(f => f.isSelected);
@@ -293,13 +290,13 @@ export class DataForm {
         console.log('this.tabname ', this.tabname)
         this.router.navigate(rt2);
       }
-        return result;
+      return result;
     } else {
-        let tab = this.appService.tabs.find(f => f.isSelected);
-        this.closeTab(tab);
-        let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-        console.log('this.tabname ', this.tabname)
-        this.router.navigate(rt2);
+      let tab = this.appService.tabs.find(f => f.isSelected);
+      this.closeTab(tab);
+      let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+      console.log('this.tabname ', this.tabname)
+      this.router.navigate(rt2);
     }
   }
 
@@ -308,11 +305,38 @@ export class DataForm {
     // // Next, we navigate to the newly created claim
     // // Finally, we close out this tab
     // this.closeTab(tab);
-    let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    console.log('this.tabname ', this.tabname)
+    //let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+    //console.log('this.tabname ', this.tabname)
     this.router.navigate(rt2);
-    
+
   }
+
+
+
+  selectOneToOneTab(tab) {
+    this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
+    tab.isSelected = true;
+    this.currentOneToOneTab = tab;
+    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
+    return true;
+  }
+  selectOneToManyTab(tab) {
+    this.appService.dataFormOneToManyTabs.forEach(t => t.isSelected = false);
+    tab.isSelected = true;
+    this.currentOneToManyTab = tab;
+    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
+    return true;
+  }
+  closeTab(tab) {
+    // alert('in close tab')
+    let index = this.appService.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.appService.tabs.splice(index, 1);
+
+  }
+
+}
+
 
   //canDeactivate() {
   // return confirm('Are you sure you want to leave this page?');
@@ -343,30 +367,3 @@ export class DataForm {
   //   }
 
   // }
-
-
-
-  selectOneToOneTab(tab) {
-    this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
-    tab.isSelected = true;
-    this.currentOneToOneTab = tab;
-    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
-    return true;
-  }
-  selectOneToManyTab(tab) {
-    this.appService.dataFormOneToManyTabs.forEach(t => t.isSelected = false);
-    tab.isSelected = true;
-    this.currentOneToManyTab = tab;
-    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
-    return true;
-  }
-  closeTab(tab) {
-    // alert('in close tab')
-    let index = this.appService.tabs.indexOf(tab);
-    tab.isSelected = false;
-    this.appService.tabs.splice(index, 1);
-
-  }
-
-}
-
