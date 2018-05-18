@@ -333,7 +333,17 @@ export class DataForm {
     // this.appService.currentItem = this.appService.currentClaim //this.currentItem
     return true;
   }
-  closeTab(tab) {
+
+
+closeTab(tab) {
+   
+        let index = this.appService.tabs.indexOf(tab);
+        tab.isSelected = false;
+        this.appService.tabs.splice(index, 1);
+
+    }
+  
+  closeTabxx(tab) {
     // alert('in close tab')
     if (JSON.stringify(this.appService.currentClaim) !==
       JSON.stringify(this.appService.originalrec)) {
@@ -349,6 +359,9 @@ export class DataForm {
       }
     }
   }
+
+
+
 }
 
 
