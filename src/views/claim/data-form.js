@@ -317,11 +317,13 @@ canDeactivate() {
   requestclose() {
     let cand= this.canDeactivate()
     if (cand){
+    
    this.close()
     } else {
       // dialg
         var result = confirm('canDeactivate:Do you really want to discard your changes?');
       if (result) {
+          (this.appService.originalrec =this.appService.currentClaim) 
         this.close()
       }
     }
