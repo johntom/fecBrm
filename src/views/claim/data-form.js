@@ -306,6 +306,7 @@ export class DataForm {
   //   }
   // }
 canDeactivate() {
+  // always boolean make isDirty
     if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) ) {
                 return false;
             
@@ -316,9 +317,13 @@ canDeactivate() {
   requestclose() {
     let cand= this.canDeactivate()
     if (cand){
-   this.confirmclose()
+   this.close()
     } else {
       // dialg
+        var result = confirm('canDeactivate:Do you really want to discard your changes?');
+      if (result) {
+        this.close()
+      }
     }
   }
 
