@@ -307,31 +307,32 @@ export class DataForm {
   //&& this.skippromt === false) {
   canDeactivate() {
     // alert('in')
-    return new Promise((resolve, reject) => {
+    // return new Promise((resolve, reject) => {
 
 
-      if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+    //   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
 
-        if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-          this.navaway = true // does not work
-          return resolve(true);
-        }
-        else {
-          this.navaway = false
-          return resolve(false);
+    //     if (confirm("Unsaved data, are you sure you want to navigate away?")) {
+    //       this.navaway = true // does not work
+    //       return resolve(true);
+    //     }
+    //     else {
+    //       this.navaway = false
+    //       return resolve(false);
 
-        }
-      }
-      else {
-        this.navaway = false
-        return resolve(true);
+    //     }
+    //   }
+    //   else {
+    //     this.navaway = false
+    //     return resolve(true);
 
-      }
-
-
+    //   }
 
 
-    })
+
+
+    // })
+    close()
   }
 
 
@@ -399,14 +400,14 @@ export class DataForm {
     return true;
   }
   closeTab(tab) {
-   // if (this.navaway) {
-     // && this.skippromt === false
- if (JSON.stringify(this.appService.currentClaim) !==
-  JSON.stringify(this.appService.originalrec)) {
+    // if (this.navaway) {
+    // && this.skippromt === false
+    if (JSON.stringify(this.appService.currentClaim) !==
+      JSON.stringify(this.appService.originalrec)) {
 
 
-     return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?')
- 
+      return confirm('You have unsaved changes to this record which will be lost.  Are you sure you want to leave this page?')
+
       let index = this.appService.tabs.indexOf(tab);
       tab.isSelected = false;
       this.appService.tabs.splice(index, 1);
