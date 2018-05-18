@@ -305,43 +305,37 @@ export class DataForm {
   //     this.router.navigate(rt2);
   //   }
   // }
-canDeactivate() {
-  // always boolean make isDirty
-   
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) ) {
-      this.appService.currentClaim.isRecordDirty=true
-                return false;
-            
-        }    else     {  
-           this.appService.currentClaim.isRecordDirty=false
-            return true
-        }
-        
+  canDeactivate() {
+    // always boolean make isDirty
+
+    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+      this.appService.currentClaim.isRecordDirty = true
+      return false;
+
+    } else {
+      this.appService.currentClaim.isRecordDirty = false
+      return true
+    }
+
   }
-//    async tryCloseTab(item, tab, route) {
+  //    async tryCloseTab(item, tab, route) {
   requestclose() {
 
-   
-    let cand= this.canDeactivate()
-    if (cand){
-       let tab = this.appService.tabs.find(f => f.isSelected);
-       let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-   
-    this.appService.tryCloseTab(this.appService.currentClaim,tab,rt2)
-  //  this.close()
-  //   } else {
-  //     // dialg
-  //       var result = confirm('canDeactivate:Do you really want to discard your changes?');
-  //     if (result) {
-  //         (this.appService.originalrec =this.appService.currentClaim) 
-  //       this.close()
-  //     }
-  //   }
-  }
+
+    let cand = this.canDeactivate()
+    let tab = this.appService.tabs.find(f => f.isSelected);
+    let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+    if (cand) {
+      this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2)
+      //  this.close()
+    } else {
+      this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2)
+    }
   }
 
+
 // close(){
-  
+
 //  let tab = this.appService.tabs.find(f => f.isSelected);
 //     // // Next, we navigate to the newly created claim
 //     // // Finally, we close out this tab
@@ -351,29 +345,29 @@ canDeactivate() {
 //     this.router.navigate(rt2);
 // }
 
-  selectOneToOneTab(tab) {
-    this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
-    tab.isSelected = true;
-    this.currentOneToOneTab = tab;
-    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
-    return true;
-  }
-  selectOneToManyTab(tab) {
-    this.appService.dataFormOneToManyTabs.forEach(t => t.isSelected = false);
-    tab.isSelected = true;
-    this.currentOneToManyTab = tab;
-    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
-    return true;
-  }
+selectOneToOneTab(tab) {
+  this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
+  tab.isSelected = true;
+  this.currentOneToOneTab = tab;
+  // this.appService.currentItem = this.appService.currentClaim //this.currentItem
+  return true;
+}
+selectOneToManyTab(tab) {
+  this.appService.dataFormOneToManyTabs.forEach(t => t.isSelected = false);
+  tab.isSelected = true;
+  this.currentOneToManyTab = tab;
+  // this.appService.currentItem = this.appService.currentClaim //this.currentItem
+  return true;
+}
 
 
-  closeTab(tab) {
+closeTab(tab) {
 
-    let index = this.appService.tabs.indexOf(tab);
-    tab.isSelected = false;
-    this.appService.tabs.splice(index, 1);
+  let index = this.appService.tabs.indexOf(tab);
+  tab.isSelected = false;
+  this.appService.tabs.splice(index, 1);
 
-  }
+}
 }
   // closeTab(tab) {
   //   // alert('in close tab')
