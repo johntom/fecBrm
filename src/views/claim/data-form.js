@@ -248,14 +248,18 @@ export class DataForm {
       } else {
         this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
-          let tab = this.appService.tabs.find(f => f.isSelected);
-          this.closeTab(tab);
-          let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-          console.log('this.tabname ', this.tabname)
+         
           //  this.router.navigate(rt2);
           window.alert("Save successful!");
           this.skippromt = true
-          if (option === 1) { this.close() } else
+          if (option === 1) {
+             
+              let tab = this.appService.tabs.find(f => f.isSelected);
+          this.closeTab(tab);
+          // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+          // console.log('this.tabname ', this.tabname)
+             this.close()
+              } else
           {
                this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
           }
