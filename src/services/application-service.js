@@ -3,7 +3,7 @@ import { Prompt } from './prompt';
 
 import { Router } from 'aurelia-router';
 
-
+import { inject } from 'aurelia-dependency-injection';
 
 @inject(Router,DialogService)
 export class ApplicationService {
