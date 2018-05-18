@@ -332,22 +332,34 @@ export class DataForm {
 
 
   //   // })
-   
+
   // }
 
 
 
- canDeactivate() {
-      // if(!this.isPristine()) {
-      //     var result = confirm('Do you really want to discard your changes?');
-      //     return result;
-      // }
-if (JSON.stringify(this.appService.currentClaim) !==
- JSON.stringify(this.appService.originalrec) ) {
-    var result = confirm('canDeactivate:Do you really want to discard your changes?');
-    return result;
- }
+  canDeactivate() {
+    // if(!this.isPristine()) {
+    //     var result = confirm('Do you really want to discard your changes?');
+    //     return result;
+    // }
+    if (JSON.stringify(this.appService.currentClaim) !==
+      JSON.stringify(this.appService.originalrec)) {
+      var result = confirm('canDeactivate:Do you really want to discard your changes?');
+      if (result) {
+        let tab = this.appService.tabs.find(f => f.isSelected);
+        // Next, we navigate to the newly created claim
+        // Finally, we close out this tab
+
+        this.closeTab(tab);
+        let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+        console.log('this.tabname ', this.tabname)
+        this.router.navigate(rt2);
+
+
+        return result;
+      }
     }
+  }
 
   close() {
     //alert(this.navaway)
@@ -412,19 +424,20 @@ if (JSON.stringify(this.appService.currentClaim) !==
   closeTab(tab) {
     // if (this.navaway) {
     // && this.skippromt === false
-    if (JSON.stringify(this.appService.currentClaim) !==
-      JSON.stringify(this.appService.originalrec)) {
+    alert('in close tab')
+    // if (JSON.stringify(this.appService.currentClaim) !==
+    //   JSON.stringify(this.appService.originalrec)) {
 
 
-   //   return confirm('You have unsaved changes to this record which will be lost.  Are you sure you want to leave this page?')
-      var result = confirm('closeTab: Do you really want to discard your changes?');
-      //     return result;
-      if (result) {
-      let index = this.appService.tabs.indexOf(tab);
-      tab.isSelected = false;
-      this.appService.tabs.splice(index, 1);
-      }
-    }
+    ////   return confirm('You have unsaved changes to this record which will be lost.  Are you sure you want to leave this page?')
+    // var result = confirm('closeTab: Do you really want to discard your changes?');
+    ////     return result;
+    //if (result) {
+    let index = this.appService.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.appService.tabs.splice(index, 1);
+    //}
+
   }
 
 }
