@@ -342,7 +342,7 @@ export class DataForm {
     this.appService.tabs.splice(index, 1);
 
   }
-
+}
   // closeTab(tab) {
   //   // alert('in close tab')
   //   if (JSON.stringify(this.appService.currentClaim) !==
