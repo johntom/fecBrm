@@ -416,11 +416,14 @@ if (JSON.stringify(this.appService.currentClaim) !==
       JSON.stringify(this.appService.originalrec)) {
 
 
-      return confirm('You have unsaved changes to this record which will be lost.  Are you sure you want to leave this page?')
-
+   //   return confirm('You have unsaved changes to this record which will be lost.  Are you sure you want to leave this page?')
+      var result = confirm('Do you really want to discard your changes?');
+      //     return result;
+      if (result) {
       let index = this.appService.tabs.indexOf(tab);
       tab.isSelected = false;
       this.appService.tabs.splice(index, 1);
+      }
     }
   }
 
