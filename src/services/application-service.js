@@ -146,26 +146,30 @@ this.router = router
   currentSearch // needed to close claim s
   MasrepList = []
 
-  async asyncHandleDirty() {
+  // async asyncHandleDirty() {
+  //   const model = { 'question': 'Do you really want to discard your changes?' }
+  //   const options = { viewModel: Prompt, model: model, lock: false };
+  //   const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
+  //   return closeResult;
+  // }
+   asyncHandleDirty() {
     const model = { 'question': 'Do you really want to discard your changes?' }
     const options = { viewModel: Prompt, model: model, lock: false };
-    const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
-    return closeResult;
+    return this.dialogService.open(options);
   }
-
   navigate(route){ 
     this.router.navigate(route);
   }
-
-  async tryCloseTab(item, tab, route) {
+   tryCloseTab(item, tab, route) {
     if (item.isRecordDirty) {
-      const result = await this.asyncHandleDirty();
-      if (result) {
-        this.closeTab(tab);
-        if (route) {
-          this.navigate(route);
+      this.asyncHandleDirty().then(result => {
+        if (result) {
+          this.closeTab(tab);
+          if (route) {
+            this.navigate(route);
+          }
         }
-      }
+      });
     } else {
       this.closeTab(tab);
       if (route) {
@@ -173,6 +177,22 @@ this.router = router
       }
     }
   }
+  // async tryCloseTab(item, tab, route) {
+  //   if (item.isRecordDirty) {
+  //     const result = await this.asyncHandleDirty();
+  //     if (result) {
+  //       this.closeTab(tab);
+  //       if (route) {
+  //         this.navigate(route);
+  //       }
+  //     }
+  //   } else {
+  //     this.closeTab(tab);
+  //     if (route) {
+  //       this.navigate(route);
+  //     }
+  //   }
+  // }
   closeTab(tab) {
     let index = this.tabs.indexOf(tab);
     tab.isSelected = false;
