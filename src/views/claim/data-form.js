@@ -305,37 +305,7 @@ export class DataForm {
 
   // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
   //&& this.skippromt === false) {
-  // canDeactivate() {
-  //   // alert('in')
-  //   // return new Promise((resolve, reject) => {
-
-
-  //   //   if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
-
-  //   //     if (confirm("Unsaved data, are you sure you want to navigate away?")) {
-  //   //       this.navaway = true // does not work
-  //   //       return resolve(true);
-  //   //     }
-  //   //     else {
-  //   //       this.navaway = false
-  //   //       return resolve(false);
-
-  //   //     }
-  //   //   }
-  //   //   else {
-  //   //     this.navaway = false
-  //   //     return resolve(true);
-
-  //   //   }
-
-
-
-
-  //   // })
-
-  // }
-
-
+  
 
   canDeactivate() {
     // if(!this.isPristine()) {
@@ -354,26 +324,20 @@ export class DataForm {
         let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
         console.log('this.tabname ', this.tabname)
         this.router.navigate(rt2);
-
-
-       // return result;
       }
         return result;
     }
   }
 
   close() {
-    // //alert(this.navaway)
-    // // if (this.navaway === true) {
     // let tab = this.appService.tabs.find(f => f.isSelected);
     // // Next, we navigate to the newly created claim
     // // Finally, we close out this tab
-
     // this.closeTab(tab);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
     console.log('this.tabname ', this.tabname)
     this.router.navigate(rt2);
-    // //  }
+    
   }
 
   //canDeactivate() {
@@ -383,7 +347,7 @@ export class DataForm {
 
 
   //   return confirm('You have unsaved changes to this record which will be lost. Are you sure you want to leave this page?');
-  // let tab = this.appService.tabs.find(f => f.isSelected);
+  //   let tab = this.appService.tabs.find(f => f.isSelected);
   //   // Next, we navigate to the newly created claim
   //   // Finally, we close out this tab
   //   this.closeTab(tab);
@@ -423,21 +387,10 @@ export class DataForm {
     return true;
   }
   closeTab(tab) {
-    // if (this.navaway) {
-    // && this.skippromt === false
-    alert('in close tab')
-    // if (JSON.stringify(this.appService.currentClaim) !==
-    //   JSON.stringify(this.appService.originalrec)) {
-
-
-    ////   return confirm('You have unsaved changes to this record which will be lost.  Are you sure you want to leave this page?')
-    // var result = confirm('closeTab: Do you really want to discard your changes?');
-    ////     return result;
-    //if (result) {
+    // alert('in close tab')
     let index = this.appService.tabs.indexOf(tab);
     tab.isSelected = false;
     this.appService.tabs.splice(index, 1);
-    //}
 
   }
 
