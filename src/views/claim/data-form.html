@@ -1,4 +1,15 @@
-<template>
+           <template>
+             <script type="text/javascript">
+             function closedWin() {
+    confirm("close ?");
+    return false; /* which will not allow to close the window */
+}
+if(window.addEventListener) {
+     window.addEventListener("close", closedWin, false);
+}
+
+window.onclose = closedWin;
+</script>
 	<require from="./flex.css"></require>
 	<section class="full-height flex-column-1 au-animate ignore">
 		<div class="flex-row-none section-header">
