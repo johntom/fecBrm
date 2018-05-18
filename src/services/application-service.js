@@ -13,6 +13,7 @@ this.router = router
 
   }
 
+  currentView;
   tabs = [];
 
 
@@ -162,17 +163,17 @@ this.router = router
     this.router.navigate(route);
   }
    tryCloseTab(item, tab, route) {
-    if (item.isRecordDirty) {
+    if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
-          this.closeTab(tab);
+          this.closeTab(tab, item);
           if (route) {
             this.navigate(route);
           }
         }
       });
     } else {
-      this.closeTab(tab);
+      this.closeTab(tab, item);
       if (route) {
         this.navigate(route);
       }
@@ -194,9 +195,12 @@ this.router = router
   //     }
   //   }
   // }
-  closeTab(tab) {
-    this.currentClaim.isRecordDirty = false;
-    this.originalrec = this.currentClaim;
+  closeTab(tab, item) {
+    if (item.reset) {
+      item.reset();
+    }
+    //this.currentClaim.isRecordDirty = false;
+    //this.originalrec = this.currentClaim;
     
     let index = this.tabs.indexOf(tab);
     tab.isSelected = false;

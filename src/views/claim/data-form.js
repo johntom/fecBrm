@@ -72,9 +72,16 @@ export class DataForm {
           console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
           console.log('claiminv ', claim);
-
+         
           this.appService.currentClaim = claim[0];
-
+          this.appService.currentClaim.isDirty = () => {
+            return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+          };
+          this.appService.currentClaim.reset = () => {
+            this.appService.originalrec = this.appService.currentClaim;
+          }
+          this.appService.currentView = this.appService.currentClaim; // must set on every view
+         
           this.appService.testrec = claim[0];
           this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
@@ -307,30 +314,31 @@ export class DataForm {
   // }
   canDeactivate() {
     // always boolean make isDirty
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
-      this.appService.currentClaim.isRecordDirty = true
+    if (this.appService.currentClaim && this.appService.currentClaim.isDirty()) {
+    //if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+      //this.appService.currentClaim.isRecordDirty = true
       return false;
 
 
     } else {
-      this.appService.currentClaim.isRecordDirty = false
+      //this.appService.currentClaim.isRecordDirty = false
       return true
     }
 
   }
   //    async tryCloseTab(item, tab, route) {
   requestclose() {
-
-
+    const resetFunc = () => { this.appService.originalrec = this.appService.currentClaim;};
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    if (cand) {
-      this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2)
-      //  this.close()
-    } else {
-      this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2)
-    }
+    this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2);
+    // if (cand) {
+    //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
+    //   //  this.close()
+    // } else {
+    //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
+    // }
   }
 
 

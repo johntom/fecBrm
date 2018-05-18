@@ -95,15 +95,18 @@ export class Shell {
     return true;
   }
   closeTab(tab, index) {
-    let wasSelected = tab.isSelected;
-    tab.isSelected = false;
-    this.appService.tabs.splice(index, 1);
-    if (wasSelected && this.appService.tabs.length > 0) {
-      let newIndex = (index > 0) ? index - 1 : 0;
-      let newTab = this.appService.tabs[newIndex];
-      newTab.isSelected = true;
-      this.router.navigate(newTab.href);
-    }
+    let newIndex = (index > 0) ? index - 1 : 0;
+    let newTab = this.appService.tabs[newIndex];
+    this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
+    // let wasSelected = tab.isSelected;
+    // tab.isSelected = false;
+    // this.appService.tabs.splice(index, 1);
+    // if (wasSelected && this.appService.tabs.length > 0) {
+    //   let newIndex = (index > 0) ? index - 1 : 0;
+    //   let newTab = this.appService.tabs[newIndex];
+    //   newTab.isSelected = true;
+    //   this.router.navigate(newTab.href);
+    // }
   }
 
 }
