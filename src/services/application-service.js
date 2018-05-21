@@ -196,6 +196,7 @@ this.router = router
   //   }
   // }
   closeTab(tab, item) {
+    console.log('1 2',tab,item)
     if (item.reset) {
       item.reset();
     }
