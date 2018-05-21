@@ -114,8 +114,8 @@ export class DataForm {
             let b = this.appService.currentClaim.inscontact
             this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
             // productMatcher = (a, b) => a.id === b.id;
-            let oid = this.inscoAdjusters.findIndex(x => x.INSURED_ID === b.INSURANCE_CONTACT_ID)
-            console.log('oid ', oid,  this.inscontactMatcher )
+            //let oid = this.inscoAdjusters.findIndex(x => x.INSURED_ID === b.INSURANCE_CONTACT_ID)
+            console.log('inscontactMatcher ',   this.inscontactMatcher )
          //   this.selectedContact = this.appService.currentClaim.inscontact
           }
 
