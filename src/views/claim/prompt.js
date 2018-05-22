@@ -5,9 +5,8 @@ import { MyDataService } from "../../services/my-data-service";
 import { bindable } from 'aurelia-framework';
 
 export class Prompt {
-   @bindable searchdoc
   static inject = [DialogController, ApplicationService, MyDataService];
-
+  @bindable searchdoc
   newrec = false
   constructor(controller, appService, dataService) {
     this.controller = controller;
@@ -23,7 +22,7 @@ export class Prompt {
 
   }
  searchdocChanged(value) {
-   
+   console.log('v ',value)
     this.showdocs = this.currentItem.docs.filter((item) => {
       if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
     });

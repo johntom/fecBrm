@@ -29,7 +29,7 @@
 			<div show.bind="fieldname==='docs'">
 				<div class="form-group flex-column-1">
 					<h3> docs: ${doc} 	
-       <a>   <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
+       <a slot="buttons-slot">  <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
                             
 			 <i class="material-icons prefix">search</i>
        </a>
