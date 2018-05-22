@@ -72,41 +72,19 @@ export class DataForm {
           console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
           console.log('claiminv ', claim);
-
           this.appService.currentClaim = claim[0];
-          this.appService.currentView = this.appService.currentClaim; // must set on every view
           this.appService.testrec = claim[0];
-
-          // this.appService.originalrec = this.appService.currentClaim;
-
-
-          //xxx// this.appService.originalrec = this.appService.currentClaim  //JSON.parse(JSON.stringify(claim[0]));
-          // // this.appService.currentView.isDirty = false
-          // this.appService.currentClaim.isDirty = () => {
-          //   return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-          // };
-          // this.appService.currentClaim.reset = () => {
-          //   this.appService.originalrec = this.appService.currentClaim;
-          // }
-
-
-
-          this.appService.currentView.isDirty = () => {
-        
-            // return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-        
-             return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec)
-       
+          this.appService.currentClaim.isDirty = () => {
+            return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+          // return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec)
           };
-          this.appService.currentView.reset = () => {
+
+          this.appService.currentClaim.reset = () => {
             // alert('in reset ')
             this.appService.originalrec = this.appService.currentClaim;
           }
-
-
-          // this.appService.currentView = this.appService.currentClaim; // must set on every view
-          // this.appService.testrec = claim[0];
-          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
+          this.appService.currentView = this.appService.currentClaim; // must set on every view
+          this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentClaim))// inv[0]));
 
 
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
@@ -306,48 +284,12 @@ export class DataForm {
   }
 
 
-
-  // if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec) 
-  //&& this.skippromt === false) {
-
-
-  // canDeactivate() {
-  //   // if(!this.isPristine()) {
-  //   //     var result = confirm('Do you really want to discard your changes?');
-  //   //     return result;
-  //   // }
-  //   if (JSON.stringify(this.appService.currentClaim) !==
-  //     JSON.stringify(this.appService.originalrec)) {
-  //     var result = confirm('canDeactivate:Do you really want to discard your changes?');
-  //     if (result) {
-  //       let tab = this.appService.tabs.find(f => f.isSelected);
-  //       // Next, we navigate to the newly created claim
-  //       // Finally, we close out this tab
-
-  //       this.closeTab(tab);
-  //       let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-  //       console.log('this.tabname ', this.tabname)
-  //       this.router.navigate(rt2);
-  //     }
-  //     return result;
-  //   } else {
-  //     let tab = this.appService.tabs.find(f => f.isSelected);
-  //     this.closeTab(tab);
-  //     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-  //     console.log('this.tabname ', this.tabname)
-  //     this.router.navigate(rt2);
-  //   }
-  // }
-  canDeactivate() {
+ canDeactivate() {
     // always boolean make isDirty
     if (this.appService.currentClaim && this.appService.currentClaim.isDirty()) {
-      //if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
-      //this.appService.currentClaim.isRecordDirty = true
       return false;
 
-
     } else {
-      //this.appService.currentClaim.isRecordDirty = false
       return true
     }
 
@@ -359,12 +301,7 @@ export class DataForm {
     let tab = this.appService.tabs.find(f => f.isSelected);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
     this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2);
-    // if (cand) {
-    //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
-    //   //  this.close()
-    // } else {
-    //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
-    // }
+   
   }
 
 
