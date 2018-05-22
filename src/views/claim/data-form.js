@@ -74,10 +74,10 @@ export class DataForm {
           console.log('claiminv ', claim);
 
           this.appService.currentClaim = claim[0];
-
           this.appService.currentView = this.appService.currentClaim; // must set on every view
           this.appService.testrec = claim[0];
 
+           this.appService.originalrec = this.appService.currentClaim;
 
 
           //xxx// this.appService.originalrec = this.appService.currentClaim  //JSON.parse(JSON.stringify(claim[0]));
