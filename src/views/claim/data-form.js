@@ -72,13 +72,13 @@ export class DataForm {
           console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
           console.log('claiminv ', claim);
-         
+
           this.appService.currentClaim = claim[0];
-      
+
           this.appService.currentView = this.appService.currentClaim; // must set on every view
           this.appService.testrec = claim[0];
-          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
-      
+          this.appService.originalrec = this.appService.currentClaim  //JSON.parse(JSON.stringify(claim[0]));
+          this.appService.currentView.isDirty = false
           // this.appService.currentClaim.isDirty = () => {
           //   return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
           // };
@@ -88,7 +88,7 @@ export class DataForm {
 
 
 
- this.appService.currentView.isDirty = () => {
+          this.appService.currentView.isDirty = () => {
             return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
           };
           this.appService.currentView.reset = () => {
@@ -99,8 +99,8 @@ export class DataForm {
           // this.appService.currentView = this.appService.currentClaim; // must set on every view
           // this.appService.testrec = claim[0];
           // this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
-      
-      
+
+
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
@@ -132,8 +132,8 @@ export class DataForm {
             this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
             // productMatcher = (a, b) => a.id === b.id;
             //let oid = this.inscoAdjusters.findIndex(x => x.INSURED_ID === b.INSURANCE_CONTACT_ID)
-            console.log('inscontactMatcher ',   this.inscontactMatcher )
-         //   this.selectedContact = this.appService.currentClaim.inscontact
+            console.log('inscontactMatcher ', this.inscontactMatcher)
+            //   this.selectedContact = this.appService.currentClaim.inscontact
           }
 
           if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
@@ -264,16 +264,16 @@ export class DataForm {
 
       if (this.recordId === 'create') {
         this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
-         // console.log('jsonRes ', jsonRes);
-         // let tab = this.appService.tabs.find(f => f.isSelected);
+          // console.log('jsonRes ', jsonRes);
+          // let tab = this.appService.tabs.find(f => f.isSelected);
 
-         // this.closeTab(tab);
-         // // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-         // // console.log('this.tabname ', this.tabname)
+          // this.closeTab(tab);
+          // // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+          // // console.log('this.tabname ', this.tabname)
 
           window.alert("Save successful!");
-         // this.skippromt = true
-          if (option === 1)   this.requestclose()  //this.close()
+          // this.skippromt = true
+          if (option === 1) this.requestclose()  //this.close()
         });
       } else {
         this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
@@ -284,10 +284,10 @@ export class DataForm {
           this.skippromt = true
           if (option === 1) {
 
-           // let tab = this.appService.tabs.find(f => f.isSelected);
+            // let tab = this.appService.tabs.find(f => f.isSelected);
             this.requestclose() //tab   this.close()
 
-            
+
           } else {
             this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
           }
@@ -333,7 +333,7 @@ export class DataForm {
   canDeactivate() {
     // always boolean make isDirty
     if (this.appService.currentClaim && this.appService.currentClaim.isDirty()) {
-    //if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+      //if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
       //this.appService.currentClaim.isRecordDirty = true
       return false;
 
@@ -346,7 +346,7 @@ export class DataForm {
   }
   //    async tryCloseTab(item, tab, route) {
   requestclose() {
-    const resetFunc = () => { this.appService.originalrec = this.appService.currentClaim;};
+    const resetFunc = () => { this.appService.originalrec = this.appService.currentClaim; };
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
@@ -360,40 +360,40 @@ export class DataForm {
   }
 
 
-// close(){
+  // close(){
 
-//  let tab = this.appService.tabs.find(f => f.isSelected);
-//     // // Next, we navigate to the newly created claim
-//     // // Finally, we close out this tab
-//     this.closeTab(tab);
-//     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-//     //console.log('this.tabname ', this.tabname)
-//     this.router.navigate(rt2);
-// }
+  //  let tab = this.appService.tabs.find(f => f.isSelected);
+  //     // // Next, we navigate to the newly created claim
+  //     // // Finally, we close out this tab
+  //     this.closeTab(tab);
+  //     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+  //     //console.log('this.tabname ', this.tabname)
+  //     this.router.navigate(rt2);
+  // }
 
-selectOneToOneTab(tab) {
-  this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
-  tab.isSelected = true;
-  this.currentOneToOneTab = tab;
-  // this.appService.currentItem = this.appService.currentClaim //this.currentItem
-  return true;
-}
-selectOneToManyTab(tab) {
-  this.appService.dataFormOneToManyTabs.forEach(t => t.isSelected = false);
-  tab.isSelected = true;
-  this.currentOneToManyTab = tab;
-  // this.appService.currentItem = this.appService.currentClaim //this.currentItem
-  return true;
-}
+  selectOneToOneTab(tab) {
+    this.appService.dataFormOneToOneTabs.forEach(t => t.isSelected = false);
+    tab.isSelected = true;
+    this.currentOneToOneTab = tab;
+    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
+    return true;
+  }
+  selectOneToManyTab(tab) {
+    this.appService.dataFormOneToManyTabs.forEach(t => t.isSelected = false);
+    tab.isSelected = true;
+    this.currentOneToManyTab = tab;
+    // this.appService.currentItem = this.appService.currentClaim //this.currentItem
+    return true;
+  }
 
 
-closeTab(tab) {
+  closeTab(tab) {
 
-  let index = this.appService.tabs.indexOf(tab);
-  tab.isSelected = false;
-  this.appService.tabs.splice(index, 1);
+    let index = this.appService.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.appService.tabs.splice(index, 1);
 
-}
+  }
 }
   // closeTab(tab) {
   //   // alert('in close tab')
