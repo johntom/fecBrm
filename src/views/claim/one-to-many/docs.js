@@ -42,12 +42,12 @@ export class Docs {
  searchdocChanged(value) {
    console.log('the value ', value)
    
-    // this.docs = this.origdocs.filter((item) => {
-    //   //     for (var i = 0, len = this.metacars.length; i < len; i++) {
-    //   if (item['OldFileName'].toLowerCase().search(value.toLowerCase()) != -1) return true
-    // });
+    this.docs = this.currentItem.docs.filter((item) => {
+      //     for (var i = 0, len = this.metacars.length; i < len; i++) {
+      if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
+    });
     // //console.log('the lsts ', this.docs)
-    // this.dataSource5.read();
+    this.currentItem.docs =this.docs
     return
   }
 
