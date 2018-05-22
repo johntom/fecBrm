@@ -20,6 +20,7 @@ export class Docs {
     this.appService = appService;
     this.inv = '';
     this.currentItem = this.appService.currentClaim//testrec;
+      this.showdocs = this.currentItem.docs
     this.dialogService = dialogService
   }
 
@@ -42,12 +43,12 @@ export class Docs {
  searchdocChanged(value) {
    console.log('the value ', value)
    
-    this.docs = this.currentItem.docs.filter((item) => {
+    this.showdocs = this.currentItem.docs.filter((item) => {
       //     for (var i = 0, len = this.metacars.length; i < len; i++) {
       if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
     });
     // //console.log('the lsts ', this.docs)
-    this.currentItem.docs =this.docs
+  //  this.currentItem.docs =this.docs
     return
   }
 
