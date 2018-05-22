@@ -79,6 +79,7 @@ export class DataForm {
           this.appService.testrec = claim[0];
           this.appService.originalrec = this.appService.currentClaim  //JSON.parse(JSON.stringify(claim[0]));
           this.appService.currentView.isDirty = false
+          this.appService.currentView.reset = true
           // this.appService.currentClaim.isDirty = () => {
           //   return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
           // };
@@ -87,14 +88,12 @@ export class DataForm {
           // }
 
 
-  let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
-          
-          this.appService.currentView.isDirty = (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec))
-        
-          this.appService.currentView.reset = () => {
-              alert  ('in reset ')
-            this.appService.originalrec = this.appService.currentClaim;
-          }
+
+
+          // this.appService.currentView.reset = () => {
+          //  // alert('in reset ')
+          //   this.appService.originalrec = this.appService.currentClaim;
+          // }
 
 
           // this.appService.currentView = this.appService.currentClaim; // must set on every view
