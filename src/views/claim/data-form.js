@@ -74,16 +74,22 @@ export class DataForm {
           console.log('claiminv ', claim);
          
           this.appService.currentClaim = claim[0];
+      
+          this.appService.currentView = this.appService.currentClaim; // must set on every view
+          this.appService.testrec = claim[0];
+          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
+      
           this.appService.currentClaim.isDirty = () => {
             return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
           };
           this.appService.currentClaim.reset = () => {
             this.appService.originalrec = this.appService.currentClaim;
           }
-          this.appService.currentView = this.appService.currentClaim; // must set on every view
-         
-          this.appService.testrec = claim[0];
-          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
+          // this.appService.currentView = this.appService.currentClaim; // must set on every view
+          // this.appService.testrec = claim[0];
+          // this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
+      
+      
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
