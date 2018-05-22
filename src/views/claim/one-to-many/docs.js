@@ -41,14 +41,11 @@ export class Docs {
     });
 }
  searchdocChanged(value) {
-   console.log('the value ', value)
+   //console.log('the value ', value)
    
     this.showdocs = this.currentItem.docs.filter((item) => {
-      //     for (var i = 0, len = this.metacars.length; i < len; i++) {
       if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
     });
-    // //console.log('the lsts ', this.docs)
-  //  this.currentItem.docs =this.docs
     return
   }
 

@@ -28,7 +28,11 @@
 
 			<div show.bind="fieldname==='docs'">
 				<div class="form-group flex-column-1">
-					<h3> docs: ${doc} </h3>
+					<h3> docs: ${doc} 	
+          <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
+                            
+			 <i class="material-icons prefix">search</i>
+			</h3>
 					<form>
 						<table class="table-condensed table">
 							<thead class="table-header-blue" data-sort="items.bind: currentItem.docs; cols: ['FILE_NAME','FILE_EXT']">

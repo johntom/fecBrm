@@ -2,9 +2,10 @@
 import { DialogController } from 'aurelia-dialog';
 import { ApplicationService } from '../../services/application-service';
 import { MyDataService } from "../../services/my-data-service";
-
+import { bindable } from 'aurelia-framework';
 
 export class Prompt {
+   @bindable searchdoc
   static inject = [DialogController, ApplicationService, MyDataService];
 
   newrec = false
@@ -15,15 +16,19 @@ export class Prompt {
     this.appService = appService;
     //  this.inv = '';
     this.currentItem = this.appService.currentClaim// testrec;
-    // if (this.currentItem === 0) {
-    //   this.currentItem = {}
-    //    this.currentItem.insured= {}
-    // this.newrec=true
-    // }
+    this.showdocs = this.currentItem.docs
     this.thefield = 1
     this.dataService = dataService;
     controller.settings.lock = false;
 
+  }
+ searchdocChanged(value) {
+   
+    this.showdocs = this.currentItem.docs.filter((item) => {
+      if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
+    });
+  
+    return
   }
 
 
