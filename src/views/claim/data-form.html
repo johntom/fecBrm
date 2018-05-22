@@ -36,6 +36,18 @@ window.onclose = closedWin;
 									<div class="Rtable-cell-70  Rtable-cell--green">
 										<input type="text" id="CLAIM_NO" class="form-control input-sm" value.bind="appService.currentClaim.CLAIM_NO">
 									</div>
+
+									<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> Insured></strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--green">
+
+										<input click.delegate="showModal('INSURED_ID')" type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentClaim.insured.LEGAL_NAME">
+
+
+									
+
+									</div>
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> Claimant Last</strong>
 									</div>
@@ -48,6 +60,15 @@ window.onclose = closedWin;
 									<div class="Rtable-cell-70  Rtable-cell--green">
 										<input type="text" id="FIRST_NAME" class="form-control input-sm" value.bind="appService.currentClaim.claimant.FIRST_NAME">
 									</div>
+
+	<div class="Rtable-cell-30 Rtable-cell--highlight">
+										<strong> DATE OF LOSS </strong>
+									</div>
+									<div class="Rtable-cell-70  Rtable-cell--highlight">
+										<input type="date" id="DATE_OF_LOSS" class="form-control input-sm" value.bind="appService.currentClaim.DATE_OF_LOSS">
+									</div>
+
+
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> Adjuster</strong>
 									</div>
@@ -74,22 +95,6 @@ window.onclose = closedWin;
 									</div>
 
 
-									<div class="Rtable-cell-30 Rtable-cell--green">
-										<strong> Insured></strong>
-									</div>
-									<div class="Rtable-cell-70  Rtable-cell--green">
-
-										<input click.delegate="showModal('INSURED_ID')" type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentClaim.insured.LEGAL_NAME">
-
-
-										<!-- <select id="JURISDICTION_ID" class="form-control input-sm" value.bind="appService.currentClaim.JURISDICTION_ID"> 
-                      <option model.bind="null">Choose...</option> 
-                      <option repeat.for="opt of appService.stateList" model.bind="opt.value">
-                        ${opt.name} 
-                      </option> 
-                    </select> -->
-
-									</div>
 
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> Accident Location</strong>
