@@ -22,7 +22,7 @@ export class Prompt {
 
   }
  searchdocChanged(value) {
-   console.log('v ',value)
+   //console.log('v ',value)
     this.showdocs = this.currentItem.docs.filter((item) => {
       if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
     });
