@@ -6,9 +6,8 @@ import { UtilService } from '../../services/util-service';
 // import moment from 'moment';
 import { ApplicationService } from '../../services/application-service';
 import { MyDataService } from "../../services/my-data-service";
-
-
 // @inject(ApiService, ApplicationService, MyDataService)
+
 @inject(Router, ApiService, UtilService, ApplicationService, MyDataService)
 export class SearchResults {
   heading = 'Search Results HEADER...';

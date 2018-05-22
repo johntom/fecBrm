@@ -47,8 +47,6 @@
                         ${opt.ADJUSTER_NAME} 
                       </option> 
                     </select>
-
-
 						</div>
 					</div>
 
@@ -57,6 +55,10 @@
 							<input id="searchartistl" type="text" class="form-control" placeholder="Search for inv claimant last..." value.bind="search.claimant">
 						</div>
 						<div class="form-group flex-column-1 margin-left-10">
+
+							<input id="searchartist2" type="text" class="form-control" placeholder="Search for claimant first..." value.bind="search.claimantFirst">
+						</div>
+          	<div class="form-group flex-column-1 margin-left-10">
 
 							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insured..." value.bind="search.insured">
 						</div>
@@ -86,6 +88,10 @@
 							<label for="lastName">Stop Date LT=)</label>
 							<input id="searchdrcvdate2" type="date" class="form-control" placeholder="Search for Date Stop LT=.." value.bind="search.stopdate">
 						</div>
+
+
+
+
 
 					</div>
 					<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>

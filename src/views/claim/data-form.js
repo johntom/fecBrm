@@ -247,16 +247,16 @@ export class DataForm {
 
       if (this.recordId === 'create') {
         this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
-          console.log('jsonRes ', jsonRes);
-          let tab = this.appService.tabs.find(f => f.isSelected);
+         // console.log('jsonRes ', jsonRes);
+         // let tab = this.appService.tabs.find(f => f.isSelected);
 
-          this.closeTab(tab);
-          // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-          // console.log('this.tabname ', this.tabname)
+         // this.closeTab(tab);
+         // // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+         // // console.log('this.tabname ', this.tabname)
 
           window.alert("Save successful!");
-          this.skippromt = true
-          if (option === 1) this.close()
+         // this.skippromt = true
+          if (option === 1)   this.requestclose()  //this.close()
         });
       } else {
         this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
@@ -267,10 +267,10 @@ export class DataForm {
           this.skippromt = true
           if (option === 1) {
 
-            let tab = this.appService.tabs.find(f => f.isSelected);
-            this.requestclose() //tab
+           // let tab = this.appService.tabs.find(f => f.isSelected);
+            this.requestclose() //tab   this.close()
 
-            this.close()
+            
           } else {
             this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
           }
