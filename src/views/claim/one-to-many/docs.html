@@ -6,8 +6,16 @@
 			<a slot="buttons-slot" class="btn btn-success" click.delegate="addDocs(file)">
 				<i class="fa fa-plus"></i> Add Uploaded File
 			</a>
+     
+      
       	<a slot="buttons-slot" class="btn btn-success" click.delegate="modalDocs()">
 				<i class="fa fa-plus"></i> Popup Docs
+			</a>
+
+      	<a slot="buttons-slot">
+          <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
+                            
+			 <i class="material-icons prefix">search</i>
 			</a>
 <!-- <div class="input-field col s6"> -->
  
