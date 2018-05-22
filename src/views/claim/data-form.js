@@ -77,7 +77,7 @@ export class DataForm {
           this.appService.currentView = this.appService.currentClaim; // must set on every view
           this.appService.testrec = claim[0];
 
-           this.appService.originalrec = this.appService.currentClaim;
+          // this.appService.originalrec = this.appService.currentClaim;
 
 
           //xxx// this.appService.originalrec = this.appService.currentClaim  //JSON.parse(JSON.stringify(claim[0]));
@@ -92,7 +92,11 @@ export class DataForm {
 
 
           this.appService.currentView.isDirty = () => {
-            return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+        
+            // return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+        
+             return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.testrec)
+       
           };
           this.appService.currentView.reset = () => {
             // alert('in reset ')
