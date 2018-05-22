@@ -83,9 +83,9 @@ export class DataForm {
           // this.appService.currentClaim.isDirty = () => {
           //   return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
           // };
-          // this.appService.currentClaim.reset = () => {
-          //   this.appService.originalrec = this.appService.currentClaim;
-          // }
+          this.appService.currentClaim.reset = () => {
+            this.appService.originalrec = this.appService.currentClaim;
+          }
 
 
 
