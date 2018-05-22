@@ -9,7 +9,11 @@
       	<a slot="buttons-slot" class="btn btn-success" click.delegate="modalDocs()">
 				<i class="fa fa-plus"></i> Popup Docs
 			</a>
-
+<!-- <div class="input-field col s6"> -->
+    <div class="input-field">
+                                <i class="material-icons prefix">search</i>
+                                <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
+                            </div>
       
       	<input style='height:88' id='file' type="file" name="file" files.bind="file" multiple>
 		

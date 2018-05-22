@@ -5,9 +5,10 @@ import moment from 'moment';
 import { DialogService } from 'aurelia-dialog';
 import { Promptyn } from '../../../services/promptyn';
 import { Prompt } from '../prompt';
-
+import { bindable } from 'aurelia-framework';
 @inject(ApiService, ApplicationService, DialogService)
 export class Docs {
+   @bindable searchdoc
   heading = 'DataForm HEADER...';
   footer = 'DataForm FOOTER...';
   recordId = '';
@@ -35,11 +36,22 @@ export class Docs {
       // } else {
       //   console.log('cancel');
       // }
-
       console.log(response.output);
     });
-  
 }
+ searchdocChanged(value) {
+   console.log('the value ', value)
+   
+    // this.docs = this.origdocs.filter((item) => {
+    //   //     for (var i = 0, len = this.metacars.length; i < len; i++) {
+    //   if (item['OldFileName'].toLowerCase().search(value.toLowerCase()) != -1) return true
+    // });
+    // //console.log('the lsts ', this.docs)
+    // this.dataSource5.read();
+    return
+  }
+
+
 promiseDialog(obj) {
   return new Promise((resolve, reject) => {
     this.dialogService.open({ viewModel: Promptyn, model: 'Press OK to Overwrite or Cancel ' + obj.name + '?', lock: false }).whenClosed(response => {
