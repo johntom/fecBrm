@@ -268,7 +268,7 @@ export class DataForm {
           if (option === 1) {
 
             let tab = this.appService.tabs.find(f => f.isSelected);
-            this.closeTab(tab);
+            this.requestclose() //tab
 
             this.close()
           } else {
