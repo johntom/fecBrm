@@ -26,7 +26,6 @@ export class Prompt {
     this.showdocs = this.currentItem.docs.filter((item) => {
       if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
     });
-  
     return
   }
 
