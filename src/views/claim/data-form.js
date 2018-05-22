@@ -87,11 +87,12 @@ export class DataForm {
           // }
 
 
-
-          this.appService.currentView.isDirty = () => {
-            return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-          };
+  let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
+          
+          this.appService.currentView.isDirty = (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec))
+        
           this.appService.currentView.reset = () => {
+              alert  ('in reset ')
             this.appService.originalrec = this.appService.currentClaim;
           }
 
