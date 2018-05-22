@@ -95,12 +95,11 @@ export class Shell {
   //   return true;
   // }
 
-   selectTab(tab,index) {
-    let newIndex = (index > 0) ? index - 1 : 0;
-    let newTab = this.appService.tabs[newIndex];
-    this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
+   selectTab(tab) {
+    
+    this.appService.tryCloseTab(this.appService.currentView, tab, tab.href);
    
-    console.log('shell:selectTab - tab.href', tab.href);
+ //   console.log('shell:selectTab - tab.href', tab.href);
     this.appService.tabs.forEach(t => t.isSelected = false);
     tab.isSelected = true;
     return true;
