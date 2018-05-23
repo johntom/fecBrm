@@ -96,17 +96,16 @@ export class Shell {
   // }
 
    selectTab(tab) {
-    
-   this.closeTab(tab,3)
- //   console.log('shell:selectTab - tab.href', tab.href);
-   
-   // if(this.appService.tryCloseTabonSelect(this.appService.currentView)) {
+   if(this.tabindex!==undefined) { 
+   this.closeTab(tab,this.tabindex)
+   }
+//   console.log('shell:selectTab - tab.href', tab.href);
+// if(this.appService.tryCloseTabonSelect(this.appService.currentView)) {
 // let tf = this.appService.tryCloseTabonSelect(this.appService.currentView) 
 // console.log('tf')//,tf) 
 //      if(tf){
 //          this.appService.tabs.forEach(t => t.isSelected = false);
 //      // , tab, tab.href);
-   
 //      tab.isSelected = true;
 //      return true;
 //    } else {
