@@ -163,9 +163,9 @@ export class ApplicationService {
     this.router.navigate(route);
   }
   tryCloseTab(item, tab, route) {
-    console.log('this.currentView ', this.currentView)
-    console.log('this.currentView.isDirty ', this.currentView.isDirty)
-    console.log('this.currentView.isDirty()', this.currentView.isDirty())
+    // console.log('this.currentView ', this.currentView)
+    // console.log('this.currentView.isDirty ', this.currentView.isDirty)
+    // console.log('this.currentView.isDirty()', this.currentView.isDirty())
     if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
