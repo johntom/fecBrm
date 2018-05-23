@@ -11,6 +11,71 @@ export class ApplicationService {
   }
   currentView;
   tabs = [];
+
+  // async asyncHandleDirty() {
+  //   const model = { 'question': 'Do you really want to discard your changes?' }
+  //   const options = { viewModel: Prompt, model: model, lock: false };
+  //   const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
+  //   return closeResult;
+  // }
+  // const model = 'Do you really want to discard your changes?';
+
+  asyncHandleDirty() {
+    const model = 'You have unsaved changes. Cancel to stay OK to leave';
+    const options = { viewModel: Prompt, model: model, lock: false };
+    // return this.dialogService.open(options);
+    return this.dialogService.open(options).whenClosed(response => response);
+  }
+
+  navigate(route) {
+    this.router.navigate(route);
+  }
+
+  tryCloseTab(item, tab, route) {
+    if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
+      this.asyncHandleDirty().then(result => {
+        if (!result.wasCancelled) {
+          this.closeTab(tab, item);
+          if (route) {
+            this.navigate(route);
+          }
+        }
+      });
+    } else {
+      this.closeTab(tab, item);
+      if (route) {
+        this.navigate(route);
+      }
+    }
+  }
+  // async tryCloseTab(item, tab, route) {
+  //   if (item.isRecordDirty) {
+  //     const result = await this.asyncHandleDirty();
+  //     if (result) {
+  //       this.closeTab(tab);
+  //       if (route) {
+  //         this.navigate(route);
+  //       }
+  //     }
+  //   } else {
+  //     this.closeTab(tab);
+  //     if (route) {
+  //       this.navigate(route);
+  //     }
+  //   }
+  // }
+  closeTab(tab, item) {
+    //console.log('1 2',tab,item)
+    if (item && item.reset) {
+      item.reset();
+    }
+    //this.currentClaim.isRecordDirty = false;
+    //this.originalrec = this.currentClaim;
+
+    let index = this.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.tabs.splice(index, 1);
+  }
   dataFormOneToOneTabs = [
     {
       name: "extend",
@@ -130,66 +195,4 @@ export class ApplicationService {
   currentSearch // needed to close claim s
   MasrepList = []
 
-  // async asyncHandleDirty() {
-  //   const model = { 'question': 'Do you really want to discard your changes?' }
-  //   const options = { viewModel: Prompt, model: model, lock: false };
-  //   const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
-  //   return closeResult;
-  // }
-  // const model = 'Do you really want to discard your changes?';
-   
-  asyncHandleDirty() {
-    const model = 'You have unsaved changes. Cancel to stay OK to leave';
-    const options = { viewModel: Prompt, model: model, lock: false };
-    // return this.dialogService.open(options);
-    return this.dialogService.open(options).whenClosed(response => response);
-  }
-  navigate(route) {
-    this.router.navigate(route);
-  }
-  tryCloseTab(item, tab, route) {
-    if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
-      this.asyncHandleDirty().then(result => {
-        if (!result.wasCancelled) {
-          this.closeTab(tab, item);
-          if (route) {
-            this.navigate(route);
-          }
-        }
-      });
-    } else {
-      this.closeTab(tab, item);
-      if (route) {
-        this.navigate(route);
-      }
-    }
-  }
-  // async tryCloseTab(item, tab, route) {
-  //   if (item.isRecordDirty) {
-  //     const result = await this.asyncHandleDirty();
-  //     if (result) {
-  //       this.closeTab(tab);
-  //       if (route) {
-  //         this.navigate(route);
-  //       }
-  //     }
-  //   } else {
-  //     this.closeTab(tab);
-  //     if (route) {
-  //       this.navigate(route);
-  //     }
-  //   }
-  // }
-  closeTab(tab, item) {
-    //console.log('1 2',tab,item)
-    if (item && item.reset) {
-      item.reset();
-    }
-    //this.currentClaim.isRecordDirty = false;
-    //this.originalrec = this.currentClaim;
-
-    let index = this.tabs.indexOf(tab);
-    tab.isSelected = false;
-    this.tabs.splice(index, 1);
-  }
 }
