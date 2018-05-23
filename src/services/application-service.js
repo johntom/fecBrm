@@ -3,22 +3,15 @@ import { Prompt } from './prompt';
 import { Router } from 'aurelia-router';
 import { inject } from 'aurelia-dependency-injection';
 
-@inject(Router,DialogService)
+@inject(Router, DialogService)
 export class ApplicationService {
-  constructor(router,dialogService) {
-
+  constructor(router, dialogService) {
     this.dialogService = dialogService
-
-this.router = router
-
+    this.router = router
   }
-
   currentView;
   tabs = [];
-
-
   dataFormOneToOneTabs = [
-
     {
       name: "extend",
       viewModel: "./one-to-one/extend",
@@ -97,47 +90,37 @@ this.router = router
     // }
   ]
 
-
   currentRecord = 0;//null;
   testrec = 0;
   originalrec = 0;
   claimLookupDataLoaded = false;
   searchDataLoaded = false;
-
   curentClaim;
   curentDaily;
   currentAdjuster;
   currentSearchadj = {}
   currentpayperiod
   currentpaymentAdjuster;
-
   testinscorec = 0;
   currentInsco;
   originalinscorec = 0;
-
   testinsuredrec = 0;
   currentInsured;
   originalinsuredrec = 0;
-
   testclaimantrec = 0;
   currentClaimant;
   originalclaimant = 0;
-
-
   genderList = [];
   stateList = [];
   adjusterList = [];
   adjusterActiveList = [];
   claimtypeList = [];
   dailyList = [];
-
   InsurancecompanyList = [];
   InsurancecompanycontactList = [];
-
   insuredList = [];
   statusList = [];
   searchList = [];
-
   serviceList = [];
   expenseList = [];
   claimList = []
@@ -153,32 +136,32 @@ this.router = router
   //   const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
   //   return closeResult;
   // }
-   asyncHandleDirty() {
+  asyncHandleDirty() {
     const model = 'Do you really want to discard your changes?';
     const options = { viewModel: Prompt, model: model, lock: false };
     // return this.dialogService.open(options);
     return this.dialogService.open(options).whenClosed(response => response);
   }
-  navigate(route){ 
+  navigate(route) {
     this.router.navigate(route);
   }
-   tryCloseTab(item, tab, route) {
-    if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
-      this.asyncHandleDirty().then(result => {
-        if (!result.wasCancelled) {
-          this.closeTab(tab, item);
-          if (route) {
-            this.navigate(route);
-          }
-        }
-      });
-    } else {
-      this.closeTab(tab, item);
-      if (route) {
-        this.navigate(route);
-      }
-    }
-  }
+  //  tryCloseTab(item, tab, route) {
+  //   if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
+  //     this.asyncHandleDirty().then(result => {
+  //       if (!result.wasCancelled) {
+  //         this.closeTab(tab, item);
+  //         if (route) {
+  //           this.navigate(route);
+  //         }
+  //       }
+  //     });
+  //   } else {
+  //     this.closeTab(tab, item);
+  //     if (route) {
+  //       this.navigate(route);
+  //     }
+  //   }
+  // }
   // async tryCloseTab(item, tab, route) {
   //   if (item.isRecordDirty) {
   //     const result = await this.asyncHandleDirty();
@@ -202,7 +185,7 @@ this.router = router
     }
     //this.currentClaim.isRecordDirty = false;
     //this.originalrec = this.currentClaim;
-    
+
     let index = this.tabs.indexOf(tab);
     tab.isSelected = false;
     this.tabs.splice(index, 1);

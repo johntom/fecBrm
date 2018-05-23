@@ -98,20 +98,12 @@ export class Shell {
    selectTab(tab) {
    if(this.appService.tabindex!==undefined) { 
    this.closeTab(tab,this.appService.tabindex)
+   } else {
+      this.appService.tabs.forEach(t => t.isSelected = false);
+      tab.isSelected = true;
+      return true;
    }
-//   console.log('shell:selectTab - tab.href', tab.href);
-// if(this.appService.tryCloseTabonSelect(this.appService.currentView)) {
-// let tf = this.appService.tryCloseTabonSelect(this.appService.currentView) 
-// console.log('tf')//,tf) 
-//      if(tf){
-//          this.appService.tabs.forEach(t => t.isSelected = false);
-//      // , tab, tab.href);
-//      tab.isSelected = true;
-//      return true;
-//    } else {
-//      console.log('tfelse')
-//       return false;
-//    }
+
   }
   closeTab(tab, index) {
     let newIndex = (index > 0) ? index - 1 : 0;
