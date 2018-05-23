@@ -145,23 +145,23 @@ export class ApplicationService {
   navigate(route) {
     this.router.navigate(route);
   }
-  //  tryCloseTab(item, tab, route) {
-  //   if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
-  //     this.asyncHandleDirty().then(result => {
-  //       if (!result.wasCancelled) {
-  //         this.closeTab(tab, item);
-  //         if (route) {
-  //           this.navigate(route);
-  //         }
-  //       }
-  //     });
-  //   } else {
-  //     this.closeTab(tab, item);
-  //     if (route) {
-  //       this.navigate(route);
-  //     }
-  //   }
-  // }
+   tryCloseTab(item, tab, route) {
+    if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
+      this.asyncHandleDirty().then(result => {
+        if (!result.wasCancelled) {
+          this.closeTab(tab, item);
+          if (route) {
+            this.navigate(route);
+          }
+        }
+      });
+    } else {
+      this.closeTab(tab, item);
+      if (route) {
+        this.navigate(route);
+      }
+    }
+  }
   // async tryCloseTab(item, tab, route) {
   //   if (item.isRecordDirty) {
   //     const result = await this.asyncHandleDirty();
