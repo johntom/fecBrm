@@ -173,7 +173,7 @@ export class ApplicationService {
           if (route) {
             this.navigate(route);
           }
-        }
+        } 
       });
     } else {
       this.closeTab(tab, item);
@@ -191,7 +191,7 @@ export class ApplicationService {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
           return false
-        } 
+        } else   return true
       })
     } else {
           return true
