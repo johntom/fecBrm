@@ -136,8 +136,10 @@ export class ApplicationService {
   //   const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
   //   return closeResult;
   // }
+  // const model = 'Do you really want to discard your changes?';
+   
   asyncHandleDirty() {
-    const model = 'Do you really want to discard your changes?';
+    const model = 'You have unsaved changes. Cancel to stay OK to leave';
     const options = { viewModel: Prompt, model: model, lock: false };
     // return this.dialogService.open(options);
     return this.dialogService.open(options).whenClosed(response => response);
@@ -145,7 +147,7 @@ export class ApplicationService {
   navigate(route) {
     this.router.navigate(route);
   }
-   tryCloseTab(item, tab, route) {
+  tryCloseTab(item, tab, route) {
     if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
