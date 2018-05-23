@@ -97,7 +97,7 @@ export class Shell {
 
    selectTab(tab) {
     
-    closeTab(tab,3)
+   this.closeTab(tab,3)
  //   console.log('shell:selectTab - tab.href', tab.href);
    
    // if(this.appService.tryCloseTabonSelect(this.appService.currentView)) {
