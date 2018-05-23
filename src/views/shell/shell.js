@@ -108,6 +108,8 @@ let tf = this.appService.tryCloseTabonSelect(this.appService.currentView)
    
      tab.isSelected = true;
      return true;
+   } else {
+     
    }
   }
   closeTab(tab, index) {
