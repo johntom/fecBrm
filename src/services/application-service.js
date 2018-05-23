@@ -191,11 +191,11 @@ export class ApplicationService {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
           return false
-        } else {
+        } 
+      })
+    } else {
           return true
         }
-      })
-    }
   }
     // async tryCloseTab(item, tab, route) {
     //   if (item.isRecordDirty) {
