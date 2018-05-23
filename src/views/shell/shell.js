@@ -96,8 +96,8 @@ export class Shell {
   // }
 
    selectTab(tab) {
-   if(this.tabindex!==undefined) { 
-   this.closeTab(tab,this.tabindex)
+   if(this.appService.tabindex!==undefined) { 
+   this.closeTab(tab,this.appService.tabindex)
    }
 //   console.log('shell:selectTab - tab.href', tab.href);
 // if(this.appService.tryCloseTabonSelect(this.appService.currentView)) {
