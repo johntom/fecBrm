@@ -3,13 +3,13 @@ import { Prompt } from './prompt';
 import { Router } from 'aurelia-router';
 import { inject } from 'aurelia-dependency-injection';
 
-@inject(Router, DialogService)
+@inject(Router,DialogService)
 export class ApplicationService {
-  constructor(router, dialogService) {
+  constructor(router,dialogService) {
 
     this.dialogService = dialogService
 
-    this.router = router
+this.router = router
 
   }
 
@@ -153,19 +153,16 @@ export class ApplicationService {
   //   const closeResult = await this.dialogService.open(options).then(result => result.closeResult);
   //   return closeResult;
   // }
-  asyncHandleDirty() {
+   asyncHandleDirty() {
     const model = 'Do you really want to discard your changes?';
     const options = { viewModel: Prompt, model: model, lock: false };
     // return this.dialogService.open(options);
     return this.dialogService.open(options).whenClosed(response => response);
   }
-  navigate(route) {
+  navigate(route){ 
     this.router.navigate(route);
   }
-  tryCloseTab(item, tab, route) {
-    // console.log('this.currentView ', this.currentView)
-    // console.log('this.currentView.isDirty ', this.currentView.isDirty)
-    // console.log('this.currentView.isDirty()', this.currentView.isDirty())
+   tryCloseTab(item, tab, route) {
     if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
@@ -182,28 +179,6 @@ export class ApplicationService {
       }
     }
   }
-
-  tryCloseTabonSelect(item) {
-    // console.log('this.currentView ', this.currentView)
-    // console.log('this.currentView.isDirty ', this.currentView.isDirty)
-    // console.log('this.currentView.isDirty()', this.currentView.isDirty())
-    return new Promise((resolve, reject) => {
-
-     
-
-
-      if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
-        this.asyncHandleDirty().then(result => {
-          if (!result.wasCancelled) {
-            resolve(false)
-          } else  resolve(true)
-        })
-      } else {
-      resolve(true)
-      }
-    })
-  }
-
   // async tryCloseTab(item, tab, route) {
   //   if (item.isRecordDirty) {
   //     const result = await this.asyncHandleDirty();
@@ -221,13 +196,13 @@ export class ApplicationService {
   //   }
   // }
   closeTab(tab, item) {
-    //  console.log('1 2', tab, item)
+    //console.log('1 2',tab,item)
     if (item && item.reset) {
       item.reset();
     }
     //this.currentClaim.isRecordDirty = false;
     //this.originalrec = this.currentClaim;
-
+    
     let index = this.tabs.indexOf(tab);
     tab.isSelected = false;
     this.tabs.splice(index, 1);
