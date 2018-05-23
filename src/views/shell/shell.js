@@ -100,7 +100,7 @@ export class Shell {
     this.appService.tryCloseTab(this.appService.currentView, tab, tab.href);
    
  //   console.log('shell:selectTab - tab.href', tab.href);
-    // this.appService.tabs.forEach(t => t.isSelected = false);
+     this.appService.tabs.forEach(t => t.isSelected = false);
     // tab.isSelected = true;
     // return true;
   }
