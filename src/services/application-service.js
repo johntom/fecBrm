@@ -173,7 +173,7 @@ export class ApplicationService {
           if (route) {
             this.navigate(route);
           }
-        } 
+        }
       });
     } else {
       this.closeTab(tab, item);
@@ -187,42 +187,49 @@ export class ApplicationService {
     // console.log('this.currentView ', this.currentView)
     // console.log('this.currentView.isDirty ', this.currentView.isDirty)
     // console.log('this.currentView.isDirty()', this.currentView.isDirty())
-    if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
-      this.asyncHandleDirty().then(result => {
-        if (!result.wasCancelled) {
-          return false
-        } else   return true
-      })
-    } else {
-          return true
-        }
-  }
-    // async tryCloseTab(item, tab, route) {
-    //   if (item.isRecordDirty) {
-    //     const result = await this.asyncHandleDirty();
-    //     if (result) {
-    //       this.closeTab(tab);
-    //       if (route) {
-    //         this.navigate(route);
-    //       }
-    //     }
-    //   } else {
-    //     this.closeTab(tab);
-    //     if (route) {
-    //       this.navigate(route);
-    //     }
-    //   }
-    // }
-    closeTab(tab, item) {
-      //  console.log('1 2', tab, item)
-      if (item && item.reset) {
-        item.reset();
-      }
-      //this.currentClaim.isRecordDirty = false;
-      //this.originalrec = this.currentClaim;
+    return new Promise((resolve, reject) => {
 
-      let index = this.tabs.indexOf(tab);
-      tab.isSelected = false;
-      this.tabs.splice(index, 1);
-    }
+     
+
+
+      if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
+        this.asyncHandleDirty().then(result => {
+          if (!result.wasCancelled) {
+            resolve(false)
+          } else  resolve(true)
+        })
+      } else {
+      resolve(true)
+      }
+    })
   }
+
+  // async tryCloseTab(item, tab, route) {
+  //   if (item.isRecordDirty) {
+  //     const result = await this.asyncHandleDirty();
+  //     if (result) {
+  //       this.closeTab(tab);
+  //       if (route) {
+  //         this.navigate(route);
+  //       }
+  //     }
+  //   } else {
+  //     this.closeTab(tab);
+  //     if (route) {
+  //       this.navigate(route);
+  //     }
+  //   }
+  // }
+  closeTab(tab, item) {
+    //  console.log('1 2', tab, item)
+    if (item && item.reset) {
+      item.reset();
+    }
+    //this.currentClaim.isRecordDirty = false;
+    //this.originalrec = this.currentClaim;
+
+    let index = this.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.tabs.splice(index, 1);
+  }
+}
