@@ -100,10 +100,10 @@ export class Shell {
     
  //   console.log('shell:selectTab - tab.href', tab.href);
    
-  //  if(this.appService.tryCloseTabonSelect(this.appService.currentView)) {
-let tf = this.appService.tryCloseTabonSelect(this.appService.currentView) 
-console.log('tf',tf) 
-     if(tf){
+    if(this.appService.tryCloseTabonSelect(this.appService.currentView)) {
+//let tf = this.appService.tryCloseTabonSelect(this.appService.currentView) 
+console.log('tf')//,tf) 
+    //  if(tf){
          this.appService.tabs.forEach(t => t.isSelected = false);
      // , tab, tab.href);
    
@@ -111,6 +111,7 @@ console.log('tf',tf)
      return true;
    } else {
      console.log('tfelse')
+      return false;
    }
   }
   closeTab(tab, index) {
