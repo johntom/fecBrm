@@ -96,7 +96,7 @@ export class Shell {
   // }
 
    selectTab(tab) {
-   if(this.appService.tabindex!==undefined) { 
+   if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length) { 
    this.closeTab(tab,this.appService.tabindex)
    } else {
       this.appService.tabs.forEach(t => t.isSelected = false);
