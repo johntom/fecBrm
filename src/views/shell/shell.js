@@ -104,7 +104,7 @@ export class Shell {
   //     return true;
   //  }
   // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname) this.appService.currentView
-let aid = this.appService.tabs.findIndex(x => x.href === this.appService.currenttabname)
+let aid = this.appService.tabs.findIndex(x => x.isSelected === true)
 
 this.closeTab(tab,aid)
   }
