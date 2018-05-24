@@ -88,14 +88,14 @@ export class Shell {
 
 
 
-  // selectTab(tab) {
-  //   console.log('shell:selectTab - tab.href', tab.href);
-  //   this.appService.tabs.forEach(t => t.isSelected = false);
-  //   tab.isSelected = true;
-  //   return true;
-  // }
-
   selectTab(tab) {
+    console.log('shell:selectTab - tab.href', tab.href);
+    this.appService.tabs.forEach(t => t.isSelected = false);
+    tab.isSelected = true;
+    return true;
+  }
+
+  selectTabnew(tab) {
     //  if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length-1) { 
     //  this.closeTab(tab,this.appService.tabindex)
     //  } else {
@@ -110,11 +110,11 @@ export class Shell {
     let newTab = this.appService.tabs[newIndex];
 
     this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
- if(tlen === this.appService.tabs.length) {} else {
-   this.appService.tabs.forEach(t => t.isSelected = false);
-        tab.isSelected = true;
-        return true;
- }
+    if (tlen === this.appService.tabs.length) { } else {
+      this.appService.tabs.forEach(t => t.isSelected = false);
+      tab.isSelected = true;
+      return true;
+    }
     //this.closeTab(tab,aid)
   }
   closeTab(tab, index) {
