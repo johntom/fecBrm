@@ -160,6 +160,8 @@ export class SearchResults {
     let dataItem = grid.dataItem(selectedRow);
     //  let rt2 = 'http://jif.bergenrisk.com:8080/api/v1/onepdf/' + dataItem.template + '/' + dataItem.filename + '.pdf'
     let rt2 = '#/claim/data/' + dataItem.CLAIM_NO; //CLAIM_ID;
+    rt2 = '#/claim/data/' + dataItem.CLAIM_NO; //CLAIM_ID;
+    this.appService.justaddedtabname=rt2
     console.log('search-results:details', rt2);
     this.router.navigate(rt2);// `#/inventory/${path}`);
   }
