@@ -50,7 +50,7 @@ export class DataForm {
     // let newtabname = this.appService.tabs[lasttabindex].name
     // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname)
     this.appService.tabindex = this.appService.tabs.length-1
-    this.currenttabname =  this.appService.tabs.findIndex(t => t.href = this.appService.currentSearch);
+    this.currenttabname =  this.appService.tabs.findIndex(t => t.href = '#/'+this.appService.currentSearch);
    //   let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
           
     if (params.id) {
