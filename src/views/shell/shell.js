@@ -96,13 +96,13 @@ export class Shell {
   // }
 
    selectTab(tab) {
-   if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length-1) { 
-   this.closeTab(tab,this.appService.tabindex)
-   } else {
-      this.appService.tabs.forEach(t => t.isSelected = false);
-      tab.isSelected = true;
-      return true;
-   }
+  //  if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length-1) { 
+  //  this.closeTab(tab,this.appService.tabindex)
+  //  } else {
+  //     this.appService.tabs.forEach(t => t.isSelected = false);
+  //     tab.isSelected = true;
+  //     return true;
+  //  }
   // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname) this.appService.currentView
 let aid = this.appService.tabs.findIndex(x => x.tab.name === this.appService.currentView)
 
