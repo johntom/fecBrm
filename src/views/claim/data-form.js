@@ -50,6 +50,7 @@ export class DataForm {
     // let newtabname = this.appService.tabs[lasttabindex].name
     // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname)
     this.appService.tabindex = this.appService.tabs.length-1
+    this.currenttabname =  this.appService.tabs.forEach(t => t.href = this.appService.currentSearch);
     if (params.id) {
       this.recordId = params.id;
 
