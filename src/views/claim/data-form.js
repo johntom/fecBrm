@@ -43,20 +43,19 @@ export class DataForm {
   }
 
   activate(params, routeConfig) {
-   // this.tabname = this.appService.currentSearch
-    // this.tabindex = this.appService.currentSearch
-   // this.appService.tabs.forEach(t => t.tabname = this.tabname);
-    // let lasttabindex = this.appService.tabs.length-1
-    // let newtabname = this.appService.tabs[lasttabindex].name
-    // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname)
-    this.appService.tabindex = this.appService.tabs.length-1
-    this.appService.currenttabname =  this.appService.tabs.findIndex(t => t.href = this.appService.justaddedtabname);
-    if ( this.appService.currenttabname ===  0)  this.appService.currenttabname  = this.appService.justaddedtabname
-   //   let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
-          
+    //  // this.tabname = this.appService.currentSearch
+    //   // this.tabindex = this.appService.currentSearch
+    //  // this.appService.tabs.forEach(t => t.tabname = this.tabname);
+    //   // let lasttabindex = this.appService.tabs.length-1
+    //   // let newtabname = this.appService.tabs[lasttabindex].name
+    //   // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname)
+    //   this.appService.tabindex = this.appService.tabs.length-1
+    //   this.appService.currenttabname =  this.appService.tabs.findIndex(t => t.href = this.appService.justaddedtabname);
+    //   if ( this.appService.currenttabname ===  0)  this.appService.currenttabname  = this.appService.justaddedtabname
+    //   let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
+
     if (params.id) {
       this.recordId = params.id;
-
 
       if (this.recordId === 'create') {
         this.appService.currentClaim = {}
@@ -90,7 +89,6 @@ export class DataForm {
             this.appService.originalrec = this.appService.currentClaim;
           }
           this.appService.currentView = this.appService.currentClaim; // must set on every view
-
           this.appService.testrec = claim[0];
           this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
@@ -116,9 +114,7 @@ export class DataForm {
             this.inscoAdjusters = item.contacts
             icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
-
             this.inscontactMatcher = this.inscoAdjusters[bid]
-
             let a = this.inscoAdjusters
             let b = this.appService.currentClaim.inscontact
             this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
