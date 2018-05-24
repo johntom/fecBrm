@@ -103,7 +103,10 @@ export class Shell {
       tab.isSelected = true;
       return true;
    }
+  // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname) this.appService.currentView
+let aid = this.appService.tabs.findIndex(x => x.tab.name === this.appService.currentView)
 
+this.closeTab(tab,aid)
   }
   closeTab(tab, index) {
     let newIndex = (index > 0) ? index - 1 : 0;

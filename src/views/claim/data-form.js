@@ -43,9 +43,9 @@ export class DataForm {
   }
 
   activate(params, routeConfig) {
-    this.tabname = this.appService.currentSearch
+   // this.tabname = this.appService.currentSearch
     // this.tabindex = this.appService.currentSearch
-    //  this.appService.tabs.forEach(t => t.tabname = this.tabname);
+   // this.appService.tabs.forEach(t => t.tabname = this.tabname);
     // let lasttabindex = this.appService.tabs.length-1
     // let newtabname = this.appService.tabs[lasttabindex].name
     // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname)
