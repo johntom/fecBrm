@@ -31,23 +31,6 @@ export class ApplicationService {
     this.router.navigate(route);
   }
 
-  cantryCloseTab(item, tab, route) {
-    return new Promise(function (resolve, reject) {
-
-      if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
-        this.asyncHandleDirty().then(result => {
-          if (!result.wasCancelled) {
-            resolve(false)
-          }
-        });
-      } else {
-        resolve(true)
-      }
-    }) 
-    
-  }
-
-
 
   tryCloseTab(item, tab, route) {
     if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
@@ -66,6 +49,23 @@ export class ApplicationService {
       }
     }
   }
+  // cantryCloseTab(item, tab, route) {
+  //   return new Promise(function (resolve, reject) {
+
+  //     if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
+  //       this.asyncHandleDirty().then(result => {
+  //         if (!result.wasCancelled) {
+  //           resolve(false)
+  //         }
+  //       });
+  //     } else {
+  //       resolve(true)
+  //     }
+  //   }) 
+    
+  // }
+
+
   // async tryCloseTab(item, tab, route) {
   //   if (item.isRecordDirty) {
   //     const result = await this.asyncHandleDirty();

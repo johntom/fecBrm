@@ -82,9 +82,11 @@ export class Shell {
 
 
   selectTab(tab) {
-    console.log('shell:selectTab - tab.href', tab.href);
-    this.appService.tabs.forEach(t => t.isSelected = false);
-    tab.isSelected = true;
+    // console.log('shell:selectTab - tab.href', tab.href);
+    // this.appService.tabs.forEach(t => t.isSelected = false);
+    // tab.isSelected = true;
+    // return true;
+    this.appService.tryCloseTab(this.appService.currentView, tab, tab.href);
     return true;
   }
   closeTab(tab, index) {
