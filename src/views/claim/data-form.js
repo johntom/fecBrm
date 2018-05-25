@@ -324,20 +324,37 @@ export class DataForm {
   //   }
   // }
   canDeactivate() {
-    // always boolean make isDirty
-    console.log('data-form:canDeactivate...');
-    if (this.appService.currentClaim && 
-      this.appService.currentClaim.isDirty &&
-      this.appService.currentClaim.isDirty()) {
-      //if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
-      //this.appService.currentClaim.isRecordDirty = true
-      return false;
+   return new Promise(function (resolve, reject) {
+      if (this.appService.currentClaim && 
+        this.appService.currentClaim.isDirty &&
+        this.appService.currentClaim.isDirty()) {
+        // Now, we need to query the user...
+        this.asyncHandleDirty().then(result => {
+          if (!result.wasCancelled) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        });
+      } else {
+        resolve(true);
+      }
+    }); 
+
+    // // always boolean make isDirty
+    // console.log('data-form:canDeactivate...');
+    // if (this.appService.currentClaim && 
+    //   this.appService.currentClaim.isDirty &&
+    //   this.appService.currentClaim.isDirty()) {
+    //   //if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+    //   //this.appService.currentClaim.isRecordDirty = true
+    //   return false;
 
 
-    } else {
-      //this.appService.currentClaim.isRecordDirty = false
-      return true
-    }
+    // } else {
+    //   //this.appService.currentClaim.isRecordDirty = false
+    //   return true
+    // }
 
   }
   //    async tryCloseTab(item, tab, route) {
