@@ -87,40 +87,6 @@ export class Shell {
     tab.isSelected = true;
     return true;
   }
-
-  // selectTabnew2(tab) {
-  //   console.log('shell:selectTab - tab.href', tab.href);
-  //   let tf = this.appService.cantryCloseTab()
-    
-  //   if (tf===true) {
-  //   this.appService.tabs.forEach(t => t.isSelected = false);
-  //   tab.isSelected = true;
-  //   return true;
-  //   }
-  // }
-
-  //selectTabnew(tab) {
-   // //  if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length-1) { 
-   // //  this.closeTab(tab,this.appService.tabindex)
-   // //  } else {
-   // //     this.appService.tabs.forEach(t => t.isSelected = false);
-   // //     tab.isSelected = true;
-    ////     return true;
-   // //  }
-   // // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname) this.appService.currentView
-  //   let tlen = this.appService.tabs.length
-  //   let aid = this.appService.tabs.findIndex(x => x.isSelected === true)
-  //   let newIndex = (aid > 0) ? aid - 1 : 0;
-  //   let newTab = this.appService.tabs[newIndex];
-
-  //   this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
-  //   if (tlen === this.appService.tabs.length) { } else {
-  //     this.appService.tabs.forEach(t => t.isSelected = false);
-  //     tab.isSelected = true;
-  //     return true;
-  //   }
-  //   //this.closeTab(tab,aid)
-  // }
   closeTab(tab, index) {
     let newIndex = (index > 0) ? index - 1 : 0;
     let newTab = this.appService.tabs[newIndex];
@@ -135,5 +101,39 @@ export class Shell {
     //   this.router.navigate(newTab.href);
     // }
   }
+
+  // selectTabnew2(tab) {
+  //   console.log('shell:selectTab - tab.href', tab.href);
+  //   let tf = this.appService.cantryCloseTab()
+
+  //   if (tf===true) {
+  //   this.appService.tabs.forEach(t => t.isSelected = false);
+  //   tab.isSelected = true;
+  //   return true;
+  //   }
+  // }
+
+  //selectTabnew(tab) {
+  // //  if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length-1) { 
+  // //  this.closeTab(tab,this.appService.tabindex)
+  // //  } else {
+  // //     this.appService.tabs.forEach(t => t.isSelected = false);
+  // //     tab.isSelected = true;
+  ////     return true;
+  // //  }
+  // // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname) this.appService.currentView
+  //   let tlen = this.appService.tabs.length
+  //   let aid = this.appService.tabs.findIndex(x => x.isSelected === true)
+  //   let newIndex = (aid > 0) ? aid - 1 : 0;
+  //   let newTab = this.appService.tabs[newIndex];
+
+  //   this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
+  //   if (tlen === this.appService.tabs.length) { } else {
+  //     this.appService.tabs.forEach(t => t.isSelected = false);
+  //     tab.isSelected = true;
+  //     return true;
+  //   }
+  //   //this.closeTab(tab,aid)
+  // }
 
 }
