@@ -325,7 +325,7 @@ export class DataForm {
   // }
   canDeactivate() {
     // always boolean make isDirty
- 
+    console.log('data-form:canDeactivate...');
     if (this.appService.currentClaim && 
       this.appService.currentClaim.isDirty &&
       this.appService.currentClaim.isDirty()) {

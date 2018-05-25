@@ -16,14 +16,14 @@ export class Shell {
   configureRouter(config, router) {
     config.title = 'BRM Layout';
     config.addPipelineStep('authorize', AuthorizeStep);
-    function step() {
-      return step.run;
-    }
-    step.run = (navigationInstruction, next) => {
-      console.log('PreActivateStep', navigationInstruction);
-      return next();
-    };
-    config.addPreActivateStep(step)
+    // function step() {
+    //   return step.run;
+    // }
+    // step.run = (navigationInstruction, next) => {
+    //   console.log('PreActivateStep', navigationInstruction);
+    //   return next();
+    // };
+    // config.addPreActivateStep(step)
 
 
     config.map([
