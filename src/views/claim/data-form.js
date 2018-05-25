@@ -77,7 +77,7 @@ export class DataForm {
       } else {
         // console.log('this.recordId ', this.recordId);
         // if ((this.appService.currentClaim !== undefined) && (this.appService.currentClaim.CLAIM_NO === this.recordId)) {
-
+        //  alert('You have previously modified and unsaved data')
         // } else {
           return this.api.findclaimOne(this.recordId).then((jsonRes) => {
             console.log('jsonRes ', jsonRes);
@@ -150,7 +150,7 @@ export class DataForm {
 
           });
         }
-      //}
+      // } // state
     }
 
 
@@ -325,6 +325,7 @@ export class DataForm {
   // }
   canDeactivate() {
     // always boolean make isDirty
+ 
     if (this.appService.currentClaim && this.appService.currentClaim.isDirty()) {
       //if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
       //this.appService.currentClaim.isRecordDirty = true
