@@ -86,7 +86,8 @@ export class Shell {
     // this.appService.tabs.forEach(t => t.isSelected = false);
     // tab.isSelected = true;
     // return true;
-    this.appService.tryCloseTab(this.appService.currentView, tab, tab.href);
+    let currentTab = this.appService.tabs.find(x => x.isSelected);
+    this.appService.tryCloseTab(this.appService.currentView, currentTab, tab.href);
     return true;
   }
   closeTab(tab, index) {

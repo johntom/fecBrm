@@ -49,6 +49,18 @@ export class ApplicationService {
       }
     }
   }
+   closeTab(tab, item) {
+    //console.log('1 2',tab,item)
+    if (item && item.reset) {
+      item.reset();
+    }
+    //this.currentClaim.isRecordDirty = false;
+    //this.originalrec = this.currentClaim;
+
+    let index = this.tabs.indexOf(tab);
+    tab.isSelected = false;
+    this.tabs.splice(index, 1);
+  }
   // cantryCloseTab(item, tab, route) {
   //   return new Promise(function (resolve, reject) {
 
@@ -82,18 +94,7 @@ export class ApplicationService {
   //     }
   //   }
   // }
-  closeTab(tab, item) {
-    //console.log('1 2',tab,item)
-    if (item && item.reset) {
-      item.reset();
-    }
-    //this.currentClaim.isRecordDirty = false;
-    //this.originalrec = this.currentClaim;
-
-    let index = this.tabs.indexOf(tab);
-    tab.isSelected = false;
-    this.tabs.splice(index, 1);
-  }
+ 
   dataFormOneToOneTabs = [
     {
       name: "extend",
