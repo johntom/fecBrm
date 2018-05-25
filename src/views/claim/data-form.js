@@ -76,6 +76,9 @@ export class DataForm {
         //this.currentItem.insured.INSURED_ID
       } else {
         console.log('this.recordId ', this.recordId);
+        if (    this.appService.currentClaim.CLAIM_NO === this.recordId) {
+
+        } else {
         return this.api.findclaimOne(this.recordId).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
@@ -144,8 +147,10 @@ export class DataForm {
             if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
           // end setup insured
+
         });
       }
+    }
     }
 
 

@@ -61,9 +61,6 @@ export class Shell {
       { route: 'invoice/:id', name: 'invoice-search-results', moduleId: '../invoice/search-results', title: 'Search Results' },
       { route: 'invoice/data/:id', name: 'invoice-data-form', moduleId: '../invoice/data-form', title: 'Data Form' },
       { route: 'invoice', name: 'invoice', moduleId: '../invoice/invoice', nav: true, title: 'Invoice' },
-
-
-
       { route: 'code/:id', name: 'code-search-results', moduleId: '../code/search-results', title: 'Search Results' },
       { route: 'code/data/:id', name: 'code-data-form', moduleId: '../claimant/data-form', title: 'Data Form' },
       { route: 'code', name: 'code', moduleId: '../code/code', nav: true, title: 'Code' },
@@ -71,12 +68,9 @@ export class Shell {
       // { route: 'adjusterprep/:id', name: 'adjusterprep-search-results', moduleId: '../adjusterprep/search-results', title: 'Search Results' },
       // { route: 'adjusterprep/data/:id', name: 'adjusterprep-data-form', moduleId: '../adjusterprep/data-form', title: 'Data Form' },
       // { route: 'adjusterprep', name: 'adjusterprep', moduleId: '../adjusterprep/adjusterprep', nav: true, title: 'adjuster prep ' },
-
-
       // { route: 'contact', name: 'contact', moduleId: '../contact/contact', nav: true, title: 'Contact' },
       // { route: 'contact/:id', name: 'contact-search-results', moduleId: '../contact/search-results', title: 'Search Results' },
       // { route: 'contact/data/:id', name: 'contact-data-form', moduleId: '../contact/data-form', title: 'Data Form' },
-
       // { route: 'catalog', name: 'catalog', moduleId: '../catalog/catalog', nav: true, title: 'Catalog' },
       // { route: 'catalog/:id', name: 'catalog-search-results', moduleId: '../catalog/search-results', title: 'Search Results' },
       // { route: 'catalog/data/:id', name: 'catalog-data-form', moduleId: '../catalog/data-form', title: 'Data Form' },
@@ -87,46 +81,46 @@ export class Shell {
   }
 
 
-  // selectTab(tab) {
-  //   console.log('shell:selectTab - tab.href', tab.href);
-  //   this.appService.tabs.forEach(t => t.isSelected = false);
-  //   tab.isSelected = true;
-  //   return true;
-  // }
-
   selectTab(tab) {
     console.log('shell:selectTab - tab.href', tab.href);
-    let tf = this.appService.cantryCloseTab()
-    
-    if (tf===true) {
     this.appService.tabs.forEach(t => t.isSelected = false);
     tab.isSelected = true;
     return true;
-    }
   }
 
-  selectTabnew(tab) {
-    //  if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length-1) { 
-    //  this.closeTab(tab,this.appService.tabindex)
-    //  } else {
-    //     this.appService.tabs.forEach(t => t.isSelected = false);
-    //     tab.isSelected = true;
-    //     return true;
-    //  }
-    // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname) this.appService.currentView
-    let tlen = this.appService.tabs.length
-    let aid = this.appService.tabs.findIndex(x => x.isSelected === true)
-    let newIndex = (aid > 0) ? aid - 1 : 0;
-    let newTab = this.appService.tabs[newIndex];
+  // selectTabnew2(tab) {
+  //   console.log('shell:selectTab - tab.href', tab.href);
+  //   let tf = this.appService.cantryCloseTab()
+    
+  //   if (tf===true) {
+  //   this.appService.tabs.forEach(t => t.isSelected = false);
+  //   tab.isSelected = true;
+  //   return true;
+  //   }
+  // }
 
-    this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
-    if (tlen === this.appService.tabs.length) { } else {
-      this.appService.tabs.forEach(t => t.isSelected = false);
-      tab.isSelected = true;
-      return true;
-    }
-    //this.closeTab(tab,aid)
-  }
+  //selectTabnew(tab) {
+   // //  if(this.appService.tabindex!==undefined && this.appService.tabindex <= this.appService.tabs.length-1) { 
+   // //  this.closeTab(tab,this.appService.tabindex)
+   // //  } else {
+   // //     this.appService.tabs.forEach(t => t.isSelected = false);
+   // //     tab.isSelected = true;
+    ////     return true;
+   // //  }
+   // // let aid = this.appService.tabs.findIndex(x => x.tab.name === newtabname) this.appService.currentView
+  //   let tlen = this.appService.tabs.length
+  //   let aid = this.appService.tabs.findIndex(x => x.isSelected === true)
+  //   let newIndex = (aid > 0) ? aid - 1 : 0;
+  //   let newTab = this.appService.tabs[newIndex];
+
+  //   this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
+  //   if (tlen === this.appService.tabs.length) { } else {
+  //     this.appService.tabs.forEach(t => t.isSelected = false);
+  //     tab.isSelected = true;
+  //     return true;
+  //   }
+  //   //this.closeTab(tab,aid)
+  // }
   closeTab(tab, index) {
     let newIndex = (index > 0) ? index - 1 : 0;
     let newTab = this.appService.tabs[newIndex];
