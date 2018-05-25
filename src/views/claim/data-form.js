@@ -324,7 +324,7 @@ export class DataForm {
   //   }
   // }
   canDeactivate() {
-   return new Promise(function (resolve, reject) {
+   return new Promise((resolve, reject) => {
       if (this.appService.currentClaim && 
         this.appService.currentClaim.isDirty &&
         this.appService.currentClaim.isDirty()) {
