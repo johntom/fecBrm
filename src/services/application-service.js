@@ -31,6 +31,24 @@ export class ApplicationService {
     this.router.navigate(route);
   }
 
+  cantryCloseTab(item, tab, route) {
+    return new Promise(function (resolve, reject) {
+
+      if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
+        this.asyncHandleDirty().then(result => {
+          if (!result.wasCancelled) {
+            resolve(false)
+          }
+        });
+      } else {
+        resolve(true)
+      }
+    }) 
+    
+  }
+
+
+
   tryCloseTab(item, tab, route) {
     if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
       this.asyncHandleDirty().then(result => {

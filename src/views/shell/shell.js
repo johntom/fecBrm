@@ -87,12 +87,22 @@ export class Shell {
   }
 
 
+  // selectTab(tab) {
+  //   console.log('shell:selectTab - tab.href', tab.href);
+  //   this.appService.tabs.forEach(t => t.isSelected = false);
+  //   tab.isSelected = true;
+  //   return true;
+  // }
 
   selectTab(tab) {
     console.log('shell:selectTab - tab.href', tab.href);
+    let tf = this.appService.cantryCloseTab()
+    
+    if (tf===true) {
     this.appService.tabs.forEach(t => t.isSelected = false);
     tab.isSelected = true;
     return true;
+    }
   }
 
   selectTabnew(tab) {
