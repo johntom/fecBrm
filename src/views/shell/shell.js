@@ -91,7 +91,9 @@ export class Shell {
   }
 
 
-  selectTab(tab) {
+  selectTab(e, tab) {
+    e.preventDefault();
+    e.stopPropagation();
     // console.log('shell:selectTab - tab.href', tab.href);
     // this.appService.tabs.forEach(t => t.isSelected = false);
     // tab.isSelected = true;

@@ -35,7 +35,7 @@
                   <i class="tab-close-icon tab-close-icon-hover fa fa-times-circle"></i>
                 </a>
                 <a class="tab-box" href="${tab.href}"
-                  click.delegate="selectTab(tab)">
+                  click.delegate="selectTab($event, tab)">
                   <span>${tab.name}</span>
                 </a>
               </div>
