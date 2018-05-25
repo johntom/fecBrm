@@ -76,7 +76,7 @@ export class DataForm {
         //this.currentItem.insured.INSURED_ID
       } else {
         console.log('this.recordId ', this.recordId);
-        if (    this.appService.currentClaim.CLAIM_NO === this.recordId) {
+        if (   (this.appService.currentClaim!==undefined) && (this.appService.currentClaim.CLAIM_NO === this.recordId)) {
 
         } else {
         return this.api.findclaimOne(this.recordId).then((jsonRes) => {
