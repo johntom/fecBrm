@@ -328,7 +328,7 @@ export class DataForm {
       if (this.appService.currentClaim && 
         this.appService.currentClaim.isDirty &&
         this.appService.currentClaim.isDirty()) {
-        // Now, we need to query the user...
+        // Now, we need to query the user... result => makes it a closure
         this.appService.asyncHandleDirty().then(result => {
           if (!result.wasCancelled) {
             resolve(true);

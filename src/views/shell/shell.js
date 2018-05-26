@@ -101,6 +101,9 @@ export class Shell {
     // let currentTab = this.appService.tabs.find(x => x.isSelected);
     // this.appService.tryCloseTab(this.appService.currentView, currentTab, tab.href);
     // return true;
+    
+    // by calling router if canDeactivate is false it wont allow route
+    // the canDeactivate raises a dialog
     this.appService.navigate(tab.href);
     return true;
   }
