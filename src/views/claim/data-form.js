@@ -92,10 +92,13 @@ export class DataForm {
          
           this.appService.currentClaim.isDirty = () => {
        //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-          // alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
+         alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
           //   alert(this.appService.currentClaim===this.appService.originalrec)
           // return (this.appService.currentClaim) !== (this.appService.originalrec)
 console.log('compare ',JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec,JSON.stringify(this.appService.currentClaim) , this.appService.originalrec)
+console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
+console.log('compare2 ', this.appService.originalrec)
+
 return JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec
 
        
@@ -109,10 +112,10 @@ return JSON.stringify(this.appService.currentClaim) !== this.appService.original
           // this.appService.originalrec = this.appService.testrec 
         //  this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
        //  var copy = {}; for (var item in obj) { obj.hasOwnProperty(item) && (copy[item] = obj[item]); }
-          var copy = {}; 
-          for (var item in  this.appService.testrec) { 
-             this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
-             }
+          // var copy = {}; 
+          // for (var item in  this.appService.testrec) { 
+          //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
+          //    }
 
   //  this.appService.originalrec = copy;
    this.appService.originalrec= JSON.parse(JSON.stringify( this.appService.testrec));
