@@ -83,11 +83,10 @@ export class DataForm {
           console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
           console.log('claiminv ', claim);
-         // this.appService.currentClaim = claim[0];
+          this.appService.currentClaim = claim[0];
          //this.appService.originalrec =  claim[0]
        
-         this.appService.currentClaim = JSON.parse(JSON.stringify(claim[0].toJSON()  ));
-        
+         
           this.appService.currentClaim.isDirty = () => {
        //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
           alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
@@ -98,12 +97,14 @@ export class DataForm {
           this.appService.currentClaim.reset = () => {
             this.appService.originalrec = this.appService.currentClaim;
           }
+       
           this.appService.testrec = claim[0];
-         this.appService.originalrec = JSON.parse(JSON.stringify(claim[0].toJSON() ));
+          this.appService.originalrec = this.appService.testrec 
         
         
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
-          // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
+            console.log('data-form:originalrec -  this.appService.currentClaim', this.appService.originalrec);
+        // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
           // selectedadjuster.ADJUSTER_ID = adj.ADJUSTER_ID;
           // // We don't need to change the TYPE as it is bound correctly from the UI
