@@ -196,14 +196,14 @@ window.onclose = closedWin;
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
 										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" 
-                     id="DESCRIPTION" class="form-control input-sm" value.two-way="currentItem.DESCRIPTION"></textarea>
+                     id="DESCRIPTION" class="form-control input-sm" value.bind="currentItem.DESCRIPTION"></textarea>
 									</div>
 	<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> DESCRIPTION</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										<input ref="lossdesc" type="text" id="DESCRIPTION" 
-                    class="form-control input-sm" value.two-way="currentItem.DESCRIPTION">
+                    class="form-control input-sm" value.bind="currentItem.DESCRIPTION">
 									</div>
 
 

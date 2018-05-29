@@ -89,14 +89,14 @@ attached(){
           this.appService.currentClaim = claim[0];
            this.currentItem = claim[0]
          // this.lossdesc = this.appService.currentClaim.DESCRIPTION
-          this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
+        //  this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
           console.log('claim[0] ', this.appService.currentClaim.DESCRIPTION, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
           //this.appService.originalrec =  claim[0]
 
 
-          this.appService.currentClaim.isDirty = () => {
-            return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+          // this.appService.currentClaim.isDirty = () => {
+          //   return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
             //  alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
             //   alert(this.appService.currentClaim===this.appService.originalrec)
             // return (this.appService.currentClaim) !== (this.appService.originalrec)
@@ -108,10 +108,32 @@ attached(){
             //   console.log('this.compare()', this.compare())
             ///  return !this.compare()
 
-          };
-          this.appService.currentClaim.reset = () => {
-            this.appService.originalrec = this.appService.currentClaim;
-          }
+          // };
+          // this.appService.currentClaim.reset = () => {
+          //   this.appService.originalrec = this.appService.currentClaim;
+          // }
+
+
+//  this.appService.currentItem.isDirty = () => {
+//               return JSON.stringify(this.appService.currentItem) !== JSON.stringify(this.appService.originalrec)
+//             };
+//             this.appService.currentItem.reset = () => {
+//               this.appService.originalrec = this.appService.currentItem;
+//             }
+//             this.appService.currentView = this.appService.currentItem; // must set on every view
+
+//             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
+            
+ this.currentItem.isDirty = () => {
+              return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
+            };
+            this.appService.currentItem.reset = () => {
+              this.appService.originalrec = this.currentItem;
+            }
+            this.appService.currentView = this.currentItem; // must set on every view
+
+            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+            
 
           this.appService.testrec = claim[0];
 
@@ -123,7 +145,7 @@ attached(){
           //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
           //    }
           //  this.appService.originalrec = copy;
-          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
+        //  this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
@@ -133,7 +155,7 @@ attached(){
           if (claim[0].adjusters !== undefined && claim[0].adjusters.length > 0) {
             // this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[0].ADJUSTER_NAME
             let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
-            this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
+            this.currentItem.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
           }
           let insco = this.appService.InsurancecompanyList
           let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
@@ -145,11 +167,11 @@ attached(){
             // this.appService.currentClaim.inscoAdjusters = item.contacts
 
             this.inscoAdjusters = item.contacts
-            icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
+            icd = this.currentItem.inscontact.INSURANCE_CONTACT_ID
             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
             this.inscontactMatcher = this.inscoAdjusters[bid]
             let a = this.inscoAdjusters
-            let b = this.appService.currentClaim.inscontact
+            let b = this.currentItem.inscontact
             this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
             // productMatcher = (a, b) => a.id === b.id;
             //let oid = this.inscoAdjusters.findIndex(x => x.INSURED_ID === b.INSURANCE_CONTACT_ID)
@@ -157,24 +179,24 @@ attached(){
             //   this.selectedContact = this.appService.currentClaim.inscontact
           }
 
-          if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+          if ((this.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
             let insured = this.appService.insuredList
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
             console.log('oid ', oid)
             insuredobj = this.appService.insuredList[oid]//10]
             console.log('insuredobj ', insuredobj)
-            if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
+            if (insuredobj !== undefined) this.currentItem.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
           // setup insured
           let oid
           let insuredobj
           let insured = this.appService.insuredList
-          if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+          if ((this.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
-            oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
+            oid = insured.findIndex(x => x.INSURED_ID === this.currentItem.INSURED_ID)
             insuredobj = this.appService.insuredList[oid]//10]
-            if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
+            if (insuredobj !== undefined) this.currentItem.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
           // end setup insured
 
@@ -252,17 +274,17 @@ isReviewed
 primaryAdjuster
 */
   compare() {
-    console.log('1', this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
-    console.log('2', this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-    console.log('3', this.appService.currentClaim.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
-    console.log('4', this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID)
+    console.log('1', this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
+    console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
+    console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
+    console.log('4', this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID)
 
     return (
-      this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
+      this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION
       // && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
-      && this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID
-      && this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
-      && this.appService.currentClaim.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
+      && this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID
+      && this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
+      && this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
       //&& this.appService.currentClaim.claimant === this.appService.originalrec.claimant
       //&& this.appService.currentClaim.diaries === this.appService.originalrec.diaries
       //&& this.appService.currentClaim.notes === this.appService.originalrec.notes
@@ -367,10 +389,10 @@ primaryAdjuster
 
       return confirm('There can only be one primary adjuster');
     }
-    if (JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)) {
+    if (JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)) {
 
       if (this.recordId === 'create') {
-        this.api.addclaim(this.appService.currentClaim).then((jsonRes) => {
+        this.api.addclaim(this.currentItem).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
           let tab = this.appService.tabs.find(f => f.isSelected);
 
@@ -383,7 +405,7 @@ primaryAdjuster
           if (option === 1) this.close()
         });
       } else {
-        this.api.saveclaim(this.appService.currentClaim).then((jsonRes) => {
+        this.api.saveclaim(this.currentItem).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
 
           //  this.router.navigate(rt2);
@@ -399,7 +421,7 @@ primaryAdjuster
 
           } else {
             //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
-            this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentClaim));
+            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
 
           }
         });
