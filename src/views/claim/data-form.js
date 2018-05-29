@@ -91,7 +91,8 @@ export class DataForm {
           this.appService.currentClaim.isDirty = () => {
        //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
           alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
-            return (this.appService.currentClaim) !== (this.appService.originalrec)
+            alert(this.appService.currentClaim===this.appService.originalrec)
+          return (this.appService.currentClaim) !== (this.appService.originalrec)
        
           };
           this.appService.currentClaim.reset = () => {
