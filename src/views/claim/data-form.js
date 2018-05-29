@@ -80,10 +80,11 @@ export class DataForm {
         //  alert('You have previously modified and unsaved data')
         // } else {
         return this.api.findclaimOne(this.recordId).then((jsonRes) => {
-          console.log('jsonRes ', jsonRes);
+         // console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
-          console.log('claiminv ', claim);
+         
          this.appService.currentClaim = claim[0];
+          console.log('claim[0] ', claim[0]);
          // cant do this.appService.currentClaim = JSON.stringify( claim[0])
          //this.appService.originalrec =  claim[0]
        
@@ -102,7 +103,7 @@ export class DataForm {
           this.appService.testrec = claim[0];
          
           // this.appService.originalrec = this.appService.testrec 
-         this.appService.originalrec = lodash.cloneDeep(claim[0])
+         this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
         
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
             console.log('data-form:originalrec -  this.appService.currentClaim', this.appService.originalrec);
