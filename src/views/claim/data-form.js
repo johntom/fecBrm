@@ -423,8 +423,8 @@ primaryAdjuster
 
           } else {
             //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
-           this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
-
+          //  this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
+  this.appService.originalrec = this.currentItem
           }
         });
       }
