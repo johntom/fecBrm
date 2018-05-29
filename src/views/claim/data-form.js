@@ -387,9 +387,10 @@ primaryAdjuster
           if (option === 1) {
 
             let tab = this.appService.tabs.find(f => f.isSelected);
-             this.closeTab(tab);
-            // this.close()
-            //this.requestclose()
+            // this.closeTab(tab);
+             
+            //// this.close()
+            this.requestclose()
 
           } else {
         //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
