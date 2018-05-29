@@ -42,7 +42,9 @@ export class DataForm {
     // console.log('lodash',lodash)
 
   }
-
+attached(){
+  this.lossdesc = appService.currentClaim.DESCRIPTION
+}
   activate(params, routeConfig) {
     //  // this.tabname = this.appService.currentSearch
     //   // this.tabindex = this.appService.currentSearch
@@ -85,7 +87,7 @@ export class DataForm {
           let claim = jsonRes.data
           this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
-          this.claimform.reset
+        
           console.log('claim[0] ', this.appService.currentClaim.DESCRIPTION, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
           //this.appService.originalrec =  claim[0]

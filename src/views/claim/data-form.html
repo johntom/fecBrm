@@ -202,7 +202,8 @@ window.onclose = closedWin;
 										<strong> DESCRIPTION</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input type="text" id="DESCRIPTION" click.delegate="showModal('DESCRIPTION')" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION">
+										<input ref="lossdesc" type="text" id="DESCRIPTION" 
+                    click.delegate="showModal('DESCRIPTION')" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION">
 									</div>
 
 
