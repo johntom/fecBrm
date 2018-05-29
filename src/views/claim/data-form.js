@@ -91,7 +91,7 @@ export class DataForm {
 
 
           this.appService.currentClaim.isDirty = () => {
-            //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+            return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
             //  alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
             //   alert(this.appService.currentClaim===this.appService.originalrec)
             // return (this.appService.currentClaim) !== (this.appService.originalrec)
@@ -100,8 +100,8 @@ export class DataForm {
             // console.log('compare2 ', this.appService.originalrec)
 
             //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
-            console.log('this.compare()', this.compare())
-            return !this.compare()
+         //   console.log('this.compare()', this.compare())
+          ///  return !this.compare()
 
           };
           this.appService.currentClaim.reset = () => {
