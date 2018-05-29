@@ -39,7 +39,7 @@ export class DataForm {
     this.inscontactMatcher = {}
     this.skippromt = false
     this.navaway = false
-    console.log('lodash',lodash)
+    // console.log('lodash',lodash)
 
   }
 
@@ -104,10 +104,17 @@ export class DataForm {
           this.appService.testrec = claim[0];
          
           // this.appService.originalrec = this.appService.testrec 
-         this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
-        
-          console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
-            console.log('data-form:originalrec -  this.appService.currentClaim', this.appService.originalrec);
+        //  this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
+       //  var copy = {}; for (var item in obj) { obj.hasOwnProperty(item) && (copy[item] = obj[item]); }
+          var copy = {}; 
+          for (var item in  this.appService.testrec) { 
+             this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
+             }
+
+   this.appService.originalrec = copy;
+
+         // console.log('copy', this.appService.currentClaim);
+            console.log('copy this.appService.originalrec ', this.appService.originalrec );
         // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
           // selectedadjuster.ADJUSTER_ID = adj.ADJUSTER_ID;
