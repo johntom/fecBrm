@@ -99,9 +99,9 @@ export class DataForm {
             // console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
             // console.log('compare2 ', this.appService.originalrec)
 
-        //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
- console.log('this.compare()',this.compare())
- return !this.compare()
+            //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
+            console.log('this.compare()', this.compare())
+            return !this.compare()
 
           };
           this.appService.currentClaim.reset = () => {
@@ -247,17 +247,17 @@ isReviewed
 
 primaryAdjuster
 */
-compare(){
-  return (
-    this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
-    &&  this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
-    &&  this.appService.currentClaim.claimant === this.appService.originalrec.claimant
-   &&  this.appService.currentClaim.diaries === this.appService.originalrec.diaries
-   &&  this.appService.currentClaim.notes === this.appService.originalrec.notes
-  
-  )
-   
-}
+  compare() {
+    return (
+      this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
+      && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
+      && this.appService.currentClaim.claimant === this.appService.originalrec.claimant
+      && this.appService.currentClaim.diaries === this.appService.originalrec.diaries
+    //  && this.appService.currentClaim.notes === this.appService.originalrec.notes
+
+    )
+
+  }
   showModal(fieldname) {
     // alert('fieldname'+fieldname)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
