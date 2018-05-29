@@ -331,9 +331,13 @@ export class DataForm {
         // Now, we need to query the user... result => makes it a closure
         this.appService.asyncHandleDirty().then(result => {
           if (!result.wasCancelled) {
-            resolve(true);
+            resolve(true); // stay
           } else {
-            resolve(false);
+            // need whenu have multi claims opened
+           this.appService.currentClaim= this.appService.originalrec 
+
+            resolve(false); // leave
+
           }
         });
       } else {
