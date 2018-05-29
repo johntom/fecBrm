@@ -83,9 +83,10 @@ export class DataForm {
         return this.api.findclaimOne(this.recordId).then((jsonRes) => {
           // console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
- this.appService.currentClaim = {}
+          this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
-          console.log('claim[0] ',this.appService.currentClaim.DESCRIPTION,  claim[0]);
+          this.claimform.reset
+          console.log('claim[0] ', this.appService.currentClaim.DESCRIPTION, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
           //this.appService.originalrec =  claim[0]
 
@@ -100,8 +101,8 @@ export class DataForm {
             // console.log('compare2 ', this.appService.originalrec)
 
             //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
-         //   console.log('this.compare()', this.compare())
-          ///  return !this.compare()
+            //   console.log('this.compare()', this.compare())
+            ///  return !this.compare()
 
           };
           this.appService.currentClaim.reset = () => {
@@ -118,7 +119,7 @@ export class DataForm {
           //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
           //    }
           //  this.appService.originalrec = copy;
-          this.appService.originalrec =  JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
+          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
@@ -247,18 +248,18 @@ isReviewed
 primaryAdjuster
 */
   compare() {
-  console.log('1', this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
-  console.log('2', this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-  console.log('3', this.appService.currentClaim.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
-   console.log('4', this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID)
+    console.log('1', this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
+    console.log('2', this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
+    console.log('3', this.appService.currentClaim.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
+    console.log('4', this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID)
 
-      return (
+    return (
       this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
-    // && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
-       && this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID
-       && this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
+      // && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
+      && this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID
+      && this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
       && this.appService.currentClaim.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
-     //&& this.appService.currentClaim.claimant === this.appService.originalrec.claimant
+      //&& this.appService.currentClaim.claimant === this.appService.originalrec.claimant
       //&& this.appService.currentClaim.diaries === this.appService.originalrec.diaries
       //&& this.appService.currentClaim.notes === this.appService.originalrec.notes
 
@@ -267,7 +268,7 @@ primaryAdjuster
   }
   showModal(fieldname) {
 
-     alert('fieldname'+fieldname,this.appService.currentClaim.DESCRIPTION)
+    alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
 
       if (fieldname === 'insco') {
@@ -388,14 +389,14 @@ primaryAdjuster
 
             let tab = this.appService.tabs.find(f => f.isSelected);
             // this.closeTab(tab);
-             
+
             //// this.close()
             this.requestclose()
 
           } else {
-        //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
+            //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentClaim));
-        
+
           }
         });
       }
