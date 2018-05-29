@@ -101,7 +101,7 @@ export class DataForm {
 
         //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
  console.log('this.compare()',this.compare())
- return this.compare()
+ return !this.compare()
 
           };
           this.appService.currentClaim.reset = () => {
