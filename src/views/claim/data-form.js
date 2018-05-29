@@ -249,7 +249,7 @@ primaryAdjuster
   compare() {
   console.log('1', this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
   console.log('2', this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-  console.log('3', this.appService.currentClaim.inscontact === this.appService.originalrec.inscontact)
+  console.log('3', this.appService.currentClaim.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
    console.log('4', this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID)
 
       return (
@@ -257,7 +257,7 @@ primaryAdjuster
     // && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
        && this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID
        && this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
-      && this.appService.currentClaim.inscontact === this.appService.originalrec.inscontact
+      && this.appService.currentClaim.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
      //&& this.appService.currentClaim.claimant === this.appService.originalrec.claimant
       //&& this.appService.currentClaim.diaries === this.appService.originalrec.diaries
       //&& this.appService.currentClaim.notes === this.appService.originalrec.notes
