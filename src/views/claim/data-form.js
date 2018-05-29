@@ -99,7 +99,7 @@ export class DataForm {
             // console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
             // console.log('compare2 ', this.appService.originalrec)
 
-            return JSON.stringify(this.appService.currentClaim.DESCRIPTION) !== this.appService.originalrec.DESCRIPTION
+            return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
 
 
           };
