@@ -42,9 +42,9 @@ export class DataForm {
     // console.log('lodash',lodash)
 
   }
-attached(){
-  this.lossdesc = appService.currentClaim.DESCRIPTION
-}
+// attached(){
+//   this.lossdesc = appService.currentClaim.DESCRIPTION
+// }
   activate(params, routeConfig) {
     //  // this.tabname = this.appService.currentSearch
     //   // this.tabindex = this.appService.currentSearch
@@ -90,7 +90,7 @@ attached(){
            this.currentItem = claim[0]
          // this.lossdesc = this.appService.currentClaim.DESCRIPTION
         //  this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
-          console.log('claim[0] ', this.appService.currentClaim.DESCRIPTION, claim[0]);
+          console.log('claim[0] ', this.currentItem.DESCRIPTION, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
           //this.appService.originalrec =  claim[0]
 
