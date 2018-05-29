@@ -42,9 +42,9 @@ export class DataForm {
     // console.log('lodash',lodash)
 
   }
-// attached(){
-//   this.lossdesc = appService.currentClaim.DESCRIPTION
-// }
+  // attached(){
+  //   this.lossdesc = appService.currentClaim.DESCRIPTION
+  // }
   activate(params, routeConfig) {
     //  // this.tabname = this.appService.currentSearch
     //   // this.tabindex = this.appService.currentSearch
@@ -87,9 +87,9 @@ export class DataForm {
           let claim = jsonRes.data
           // this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
-           this.currentItem = claim[0]
-         // this.lossdesc = this.appService.currentClaim.DESCRIPTION
-        //  this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
+          this.currentItem = claim[0]
+          // this.lossdesc = this.appService.currentClaim.DESCRIPTION
+          //  this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
           console.log('claim[0] ', this.currentItem.DESCRIPTION, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
           //this.appService.originalrec =  claim[0]
@@ -97,16 +97,16 @@ export class DataForm {
 
           // this.appService.currentClaim.isDirty = () => {
           //   return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-            //  alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
-            //   alert(this.appService.currentClaim===this.appService.originalrec)
-            // return (this.appService.currentClaim) !== (this.appService.originalrec)
-            // console.log('compare ',JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec,JSON.stringify(this.appService.currentClaim) , this.appService.originalrec)
-            // console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
-            // console.log('compare2 ', this.appService.originalrec)
+          //  alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
+          //   alert(this.appService.currentClaim===this.appService.originalrec)
+          // return (this.appService.currentClaim) !== (this.appService.originalrec)
+          // console.log('compare ',JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec,JSON.stringify(this.appService.currentClaim) , this.appService.originalrec)
+          // console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
+          // console.log('compare2 ', this.appService.originalrec)
 
-            //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
-            //   console.log('this.compare()', this.compare())
-            ///  return !this.compare()
+          //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
+          //   console.log('this.compare()', this.compare())
+          ///  return !this.compare()
 
           // };
           // this.appService.currentClaim.reset = () => {
@@ -114,26 +114,26 @@ export class DataForm {
           // }
 
 
-//  this.appService.currentItem.isDirty = () => {
-//               return JSON.stringify(this.appService.currentItem) !== JSON.stringify(this.appService.originalrec)
-//             };
-//             this.appService.currentItem.reset = () => {
-//               this.appService.originalrec = this.appService.currentItem;
-//             }
-//             this.appService.currentView = this.appService.currentItem; // must set on every view
+          //  this.appService.currentItem.isDirty = () => {
+          //               return JSON.stringify(this.appService.currentItem) !== JSON.stringify(this.appService.originalrec)
+          //             };
+          //             this.appService.currentItem.reset = () => {
+          //               this.appService.originalrec = this.appService.currentItem;
+          //             }
+          //             this.appService.currentView = this.appService.currentItem; // must set on every view
 
-//             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
-            
- this.currentItem.isDirty = () => {
-              return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
-            };
-            this.currentItem.reset = () => {
-              this.appService.originalrec = this.currentItem;
-            }
-            this.appService.currentView = this.currentItem; // must set on every view
+          //             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
 
-            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
-            
+          this.currentItem.isDirty = () => {
+            return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
+          };
+          this.currentItem.reset = () => {
+            this.appService.originalrec = this.currentItem;
+          }
+          this.appService.currentView = this.currentItem; // must set on every view
+
+          this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+
 
           this.appService.testrec = claim[0];
 
@@ -145,7 +145,7 @@ export class DataForm {
           //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
           //    }
           //  this.appService.originalrec = copy;
-        //  this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
+          //  this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
@@ -421,7 +421,7 @@ primaryAdjuster
 
           } else {
             //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
-            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
+         //   this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
 
           }
         });
