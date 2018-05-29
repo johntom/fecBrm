@@ -247,10 +247,10 @@ isReviewed
 primaryAdjuster
 */
   compare() {
-  console('1', this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
-  console('2', this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-  console('3', this.appService.currentClaim.inscontact === this.appService.originalrec.inscontact)
-   console('4', this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID)
+  console.log('1', this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
+  console.log('2', this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
+  console.log('3', this.appService.currentClaim.inscontact === this.appService.originalrec.inscontact)
+   console.log('4', this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID)
 
       return (
       this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
