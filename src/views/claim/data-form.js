@@ -86,7 +86,7 @@ export class DataForm {
          // this.appService.currentClaim = claim[0];
          //this.appService.originalrec =  claim[0]
        
-         this.appService.currentClaim = JSON.parse(JSON.stringify(claim[0]));
+         this.appService.currentClaim = JSON.parse(JSON.stringify(claim[0].toJSON()  ));
         
           this.appService.currentClaim.isDirty = () => {
        //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
@@ -99,7 +99,7 @@ export class DataForm {
             this.appService.originalrec = this.appService.currentClaim;
           }
           this.appService.testrec = claim[0];
-         this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
+         this.appService.originalrec = JSON.parse(JSON.stringify(claim[0].toJSON() ));
         
         
           console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
