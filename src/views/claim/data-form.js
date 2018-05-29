@@ -92,9 +92,12 @@ export class DataForm {
          
           this.appService.currentClaim.isDirty = () => {
        //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-          alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
-            alert(this.appService.currentClaim===this.appService.originalrec)
-          return (this.appService.currentClaim) !== (this.appService.originalrec)
+          // alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
+          //   alert(this.appService.currentClaim===this.appService.originalrec)
+          // return (this.appService.currentClaim) !== (this.appService.originalrec)
+console.log('compare ',JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec,JSON.stringify(this.appService.currentClaim) , this.appService.originalrec)
+return JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec
+
        
           };
           this.appService.currentClaim.reset = () => {
@@ -111,8 +114,8 @@ export class DataForm {
              this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
              }
 
-   this.appService.originalrec = copy;
-
+  //  this.appService.originalrec = copy;
+   this.appService.originalrec= JSON.parse(JSON.stringify( this.appService.testrec));
          // console.log('copy', this.appService.currentClaim);
             console.log('copy this.appService.originalrec ', this.appService.originalrec );
         // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
