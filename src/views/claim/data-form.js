@@ -247,7 +247,7 @@ isReviewed
 primaryAdjuster
 */
 compare(){
-  if (
+  return (
     this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
     &&  this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
     &&  this.appService.currentClaim.claimant === this.appService.originalrec.claimant
@@ -255,7 +255,7 @@ compare(){
    &&  this.appService.currentClaim.notes === this.appService.originalrec.notes
   
   )
-  return 
+   
 }
   showModal(fieldname) {
     // alert('fieldname'+fieldname)
