@@ -333,7 +333,7 @@ export class DataForm {
           if (!result.wasCancelled) {
              // need whenu have multi claims opened
 
-            this.appService.currentClaim = this.appService.originalrec
+           // this.appService.currentClaim = this.appService.originalrec
 
             resolve(true); // ok to leave
           } else {
