@@ -88,6 +88,8 @@ export class DataForm {
           // this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
           this.currentItem = claim[0]
+           this.currentItem.xdesc = claim[0].DESCRIPTION
+         
           // this.lossdesc = this.appService.currentClaim.DESCRIPTION
           //  this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
           console.log('claim[0] ', this.currentItem.DESCRIPTION, claim[0]);
@@ -421,7 +423,7 @@ primaryAdjuster
 
           } else {
             //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
-         //   this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
+           this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
 
           }
         });
