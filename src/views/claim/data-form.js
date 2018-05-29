@@ -118,8 +118,7 @@ export class DataForm {
           //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
           //    }
           //  this.appService.originalrec = copy;
-          this.appService.originalrec =  claim[0];//JSON.parse(JSON.stringify(this.appService.testrec));
-          // console.log('copy', this.appService.currentClaim);
+          this.appService.originalrec =  JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
@@ -248,11 +247,16 @@ isReviewed
 primaryAdjuster
 */
   compare() {
-    return (
+  console('1', this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
+  console('2', this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
+  console('3', this.appService.currentClaim.inscontact === this.appService.originalrec.inscontact)
+   console('4', this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID)
+
+      return (
       this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
-      && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
-      // && this.appService.currentClaim.insured === this.appService.originalrec.insured
-       && this.appService.currentClaim.insco === this.appService.originalrec.insco
+    // && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
+       && this.appService.currentClaim.INSURED_ID === this.appService.originalrec.INSURED_ID
+       && this.appService.currentClaim.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
       && this.appService.currentClaim.inscontact === this.appService.originalrec.inscontact
      //&& this.appService.currentClaim.claimant === this.appService.originalrec.claimant
       //&& this.appService.currentClaim.diaries === this.appService.originalrec.diaries
