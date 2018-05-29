@@ -117,7 +117,7 @@ export class DataForm {
           //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
           //    }
           //  this.appService.originalrec = copy;
-          this.appService.originalrec = this.appService.testrec// JSON.parse(JSON.stringify( this.appService.testrec));
+          this.appService.originalrec = JSON.parse(JSON.stringify( this.appService.testrec));
           // console.log('copy', this.appService.currentClaim);
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
