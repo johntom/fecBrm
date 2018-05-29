@@ -84,6 +84,7 @@ export class DataForm {
           let claim = jsonRes.data
           console.log('claiminv ', claim);
           this.appService.currentClaim = claim[0];
+         this.appService.currentClaim = JSON.stringify( claim[0])
          //this.appService.originalrec =  claim[0]
        
          
@@ -98,7 +99,9 @@ export class DataForm {
             this.appService.originalrec = this.appService.currentClaim;
           }
        
-          this.appService.testrec = claim[0];
+         // this.appService.testrec = claim[0];
+          this.appService.testrec = JSON.stringify( claim[0])
+     
           this.appService.originalrec = this.appService.testrec 
         
         
