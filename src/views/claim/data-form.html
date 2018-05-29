@@ -52,7 +52,7 @@ window.onclose = closedWin;
 										<strong> Claimant Last</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input type="text" id="CLAIM_NO" class="form-control input-sm" value.bind="appService.currentClaim.claimant.LAST_NAME">
+										<input type="text" id="LAST_NAME" class="form-control input-sm" value.bind="appService.currentClaim.claimant.LAST_NAME">
 									</div>
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> Claimant First</strong>
@@ -195,9 +195,15 @@ window.onclose = closedWin;
 										<strong> Loss description dblclick &gt;</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<textarea rows="3" click.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION"></textarea>
+										<textarea rows="3" click.delegate="showModal('DESCRIPTION')" 
+                     id="DESCRIPTION" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION"></textarea>
 									</div>
-
+	<div class="Rtable-cell-30 Rtable-cell--green">
+										<strong> DESCRIPTION</strong>
+									</div>
+									<div class="Rtable-cell-70 Rtable-cell--green">
+										<input type="text" id="DESCRIPTION" click.delegate="showModal('DESCRIPTION')" class="form-control input-sm" value.bind="appService.currentClaim.DESCRIPTION">
+									</div>
 
 
 
