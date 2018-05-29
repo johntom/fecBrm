@@ -79,77 +79,77 @@ export class DataForm {
         // if ((this.appService.currentClaim !== undefined) && (this.appService.currentClaim.CLAIM_NO === this.recordId)) {
         //  alert('You have previously modified and unsaved data')
         // } else {
-          return this.api.findclaimOne(this.recordId).then((jsonRes) => {
-            console.log('jsonRes ', jsonRes);
-            let claim = jsonRes.data
-            console.log('claiminv ', claim);
+        return this.api.findclaimOne(this.recordId).then((jsonRes) => {
+          console.log('jsonRes ', jsonRes);
+          let claim = jsonRes.data
+          console.log('claiminv ', claim);
 
-            this.appService.currentClaim = claim[0];
-            this.appService.currentClaim.isDirty = () => {
-              return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-            };
-            this.appService.currentClaim.reset = () => {
-              this.appService.originalrec = this.appService.currentClaim;
-            }
-            this.appService.currentView = this.appService.currentClaim; // must set on every view
-            this.appService.testrec = claim[0];
-            this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
-            console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
-            // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
-            // Update the current adjuster with the new values
-            // selectedadjuster.ADJUSTER_ID = adj.ADJUSTER_ID;
-            // // We don't need to change the TYPE as it is bound correctly from the UI
-            // selectedadjuster.ADJUSTER_NAME = adj.ADJUSTER_NAME;
-            if (claim[0].adjusters !== undefined && claim[0].adjusters.length > 0) {
-              // this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[0].ADJUSTER_NAME
-              let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
-              this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
-            }
-            let insco = this.appService.InsurancecompanyList
-            let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
-            if (serviceinsco !== undefined) {
-              let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
-              let item = insco[aid];
-              let icd
-              let bid
-              // this.appService.currentClaim.inscoAdjusters = item.contacts
+          this.appService.currentClaim = claim[0];
+          this.appService.currentClaim.isDirty = () => {
+            return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+          };
+          this.appService.currentClaim.reset = () => {
+            this.appService.originalrec = this.appService.currentClaim;
+          }
+          this.appService.currentView = this.appService.currentClaim; // must set on every view
+          this.appService.testrec = claim[0];
+          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
+          console.log('data-form:activate -  this.appService.currentClaim', this.appService.currentClaim);
+          // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
+          // Update the current adjuster with the new values
+          // selectedadjuster.ADJUSTER_ID = adj.ADJUSTER_ID;
+          // // We don't need to change the TYPE as it is bound correctly from the UI
+          // selectedadjuster.ADJUSTER_NAME = adj.ADJUSTER_NAME;
+          if (claim[0].adjusters !== undefined && claim[0].adjusters.length > 0) {
+            // this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[0].ADJUSTER_NAME
+            let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
+            this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
+          }
+          let insco = this.appService.InsurancecompanyList
+          let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
+          if (serviceinsco !== undefined) {
+            let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
+            let item = insco[aid];
+            let icd
+            let bid
+            // this.appService.currentClaim.inscoAdjusters = item.contacts
 
-              this.inscoAdjusters = item.contacts
-              icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
-              bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
-              this.inscontactMatcher = this.inscoAdjusters[bid]
-              let a = this.inscoAdjusters
-              let b = this.appService.currentClaim.inscontact
-              this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
-              // productMatcher = (a, b) => a.id === b.id;
-              //let oid = this.inscoAdjusters.findIndex(x => x.INSURED_ID === b.INSURANCE_CONTACT_ID)
-              console.log('inscontactMatcher ', this.inscontactMatcher)
-              //   this.selectedContact = this.appService.currentClaim.inscontact
-            }
+            this.inscoAdjusters = item.contacts
+            icd = this.appService.currentClaim.inscontact.INSURANCE_CONTACT_ID
+            bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
+            this.inscontactMatcher = this.inscoAdjusters[bid]
+            let a = this.inscoAdjusters
+            let b = this.appService.currentClaim.inscontact
+            this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
+            // productMatcher = (a, b) => a.id === b.id;
+            //let oid = this.inscoAdjusters.findIndex(x => x.INSURED_ID === b.INSURANCE_CONTACT_ID)
+            console.log('inscontactMatcher ', this.inscontactMatcher)
+            //   this.selectedContact = this.appService.currentClaim.inscontact
+          }
 
-            if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
-            } else {
-              let insured = this.appService.insuredList
-              oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
-              console.log('oid ', oid)
-              insuredobj = this.appService.insuredList[oid]//10]
-              console.log('insuredobj ', insuredobj)
-              if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
-            }
-            // setup insured
-            let oid
-            let insuredobj
+          if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+          } else {
             let insured = this.appService.insuredList
-            if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
-            } else {
-              oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
-              insuredobj = this.appService.insuredList[oid]//10]
-              if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
-            }
-            // end setup insured
+            oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
+            console.log('oid ', oid)
+            insuredobj = this.appService.insuredList[oid]//10]
+            console.log('insuredobj ', insuredobj)
+            if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
+          }
+          // setup insured
+          let oid
+          let insuredobj
+          let insured = this.appService.insuredList
+          if ((this.appService.currentClaim.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+          } else {
+            oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
+            insuredobj = this.appService.insuredList[oid]//10]
+            if (insuredobj !== undefined) this.appService.currentClaim.LEGAL_NAME = insuredobj.LEGAL_NAME
+          }
+          // end setup insured
 
-          });
-        }
+        });
+      }
       // } // state
     }
 
@@ -324,26 +324,28 @@ export class DataForm {
   //   }
   // }
   canDeactivate() {
-   return new Promise((resolve, reject) => {
-      if (this.appService.currentClaim && 
+    return new Promise((resolve, reject) => {
+      if (this.appService.currentClaim &&
         this.appService.currentClaim.isDirty &&
         this.appService.currentClaim.isDirty()) {
         // Now, we need to query the user... result => makes it a closure
         this.appService.asyncHandleDirty().then(result => {
           if (!result.wasCancelled) {
-            resolve(true); // stay
-          } else {
-            // need whenu have multi claims opened
-           this.appService.currentClaim= this.appService.originalrec 
+             // need whenu have multi claims opened
 
-            resolve(false); // leave
+            this.appService.currentClaim = this.appService.originalrec
+
+            resolve(true); // ok to leave
+          } else {
+           
+            resolve(false); // cancel to stay
 
           }
         });
       } else {
         resolve(true);
       }
-    }); 
+    });
 
     // // always boolean make isDirty
     // console.log('data-form:canDeactivate...');
