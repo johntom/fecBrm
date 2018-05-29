@@ -81,47 +81,46 @@ export class DataForm {
         //  alert('You have previously modified and unsaved data')
         // } else {
         return this.api.findclaimOne(this.recordId).then((jsonRes) => {
-         // console.log('jsonRes ', jsonRes);
+          // console.log('jsonRes ', jsonRes);
           let claim = jsonRes.data
-         
-         this.appService.currentClaim = claim[0];
+
+          this.appService.currentClaim = claim[0];
           console.log('claim[0] ', claim[0]);
-         // cant do this.appService.currentClaim = JSON.stringify( claim[0])
-         //this.appService.originalrec =  claim[0]
-       
-         
+          // cant do this.appService.currentClaim = JSON.stringify( claim[0])
+          //this.appService.originalrec =  claim[0]
+
+
           this.appService.currentClaim.isDirty = () => {
-       //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-         alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
-          //   alert(this.appService.currentClaim===this.appService.originalrec)
-          // return (this.appService.currentClaim) !== (this.appService.originalrec)
-console.log('compare ',JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec,JSON.stringify(this.appService.currentClaim) , this.appService.originalrec)
-console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
-console.log('compare2 ', this.appService.originalrec)
+            //     return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
+            //  alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
+            //   alert(this.appService.currentClaim===this.appService.originalrec)
+            // return (this.appService.currentClaim) !== (this.appService.originalrec)
+            // console.log('compare ',JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec,JSON.stringify(this.appService.currentClaim) , this.appService.originalrec)
+            // console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
+            // console.log('compare2 ', this.appService.originalrec)
 
-return JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec
+            return JSON.stringify(this.appService.currentClaim.DESCRIPTION) !== this.appService.originalrec.DESCRIPTION
 
-       
+
           };
           this.appService.currentClaim.reset = () => {
             this.appService.originalrec = this.appService.currentClaim;
           }
-       
+
           this.appService.testrec = claim[0];
-         
+
           // this.appService.originalrec = this.appService.testrec 
-        //  this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
-       //  var copy = {}; for (var item in obj) { obj.hasOwnProperty(item) && (copy[item] = obj[item]); }
+          //  this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
+          //  var copy = {}; for (var item in obj) { obj.hasOwnProperty(item) && (copy[item] = obj[item]); }
           // var copy = {}; 
           // for (var item in  this.appService.testrec) { 
           //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
           //    }
-
-  //  this.appService.originalrec = copy;
-   this.appService.originalrec= JSON.parse(JSON.stringify( this.appService.testrec));
-         // console.log('copy', this.appService.currentClaim);
-            console.log('copy this.appService.originalrec ', this.appService.originalrec );
-        // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
+          //  this.appService.originalrec = copy;
+          this.appService.originalrec = this.appService.testrec// JSON.parse(JSON.stringify( this.appService.testrec));
+          // console.log('copy', this.appService.currentClaim);
+          console.log('copy this.appService.originalrec ', this.appService.originalrec);
+          // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
           // selectedadjuster.ADJUSTER_ID = adj.ADJUSTER_ID;
           // // We don't need to change the TYPE as it is bound correctly from the UI
@@ -356,13 +355,13 @@ return JSON.stringify(this.appService.currentClaim) !== this.appService.original
         // Now, we need to query the user... result => makes it a closure
         this.appService.asyncHandleDirty().then(result => {
           if (!result.wasCancelled) {
-             // need whenu have multi claims opened
+            // need whenu have multi claims opened
 
-           // this.appService.currentClaim = this.appService.originalrec
+            // this.appService.currentClaim = this.appService.originalrec
 
             resolve(true); // ok to leave
           } else {
-           
+
             resolve(false); // cancel to stay
 
           }
