@@ -84,7 +84,7 @@ export class DataForm {
           let claim = jsonRes.data
           console.log('claiminv ', claim);
           this.appService.currentClaim = claim[0];
-          this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));
+          this.appService.originalrec =  this.appService.currentClaim
        
           this.appService.currentClaim.isDirty = () => {
             return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
