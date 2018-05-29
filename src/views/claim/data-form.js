@@ -87,7 +87,7 @@ attached(){
           let claim = jsonRes.data
           // this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
-          this.lossdesc = appService.currentClaim.DESCRIPTION
+          this.lossdesc = this.appService.currentClaim.DESCRIPTION
           console.log('claim[0] ', this.appService.currentClaim.DESCRIPTION, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
           //this.appService.originalrec =  claim[0]
