@@ -85,7 +85,7 @@ export class DataForm {
           let claim = jsonRes.data
 
           this.appService.currentClaim = claim[0];
-          console.log('claim[0] ', claim[0]);
+          console.log('claim[0] ',this.appService.currentClaim.DESCRIPTION,  claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
           //this.appService.originalrec =  claim[0]
 
