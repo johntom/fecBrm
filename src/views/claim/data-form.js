@@ -251,7 +251,7 @@ primaryAdjuster
     return (
       this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
       && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
-      && this.appService.currentClaim.insured === this.appService.originalrec.insured
+      // && this.appService.currentClaim.insured === this.appService.originalrec.insured
        && this.appService.currentClaim.insco === this.appService.originalrec.insco
       && this.appService.currentClaim.inscontact === this.appService.originalrec.inscontact
      //&& this.appService.currentClaim.claimant === this.appService.originalrec.claimant
