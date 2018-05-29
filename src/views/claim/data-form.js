@@ -465,9 +465,9 @@ primaryAdjuster
   // }
   canDeactivate() {
     return new Promise((resolve, reject) => {
-      if (this.appService.currentClaim &&
-        this.appService.currentClaim.isDirty &&
-        this.appService.currentClaim.isDirty()) {
+      if (this.currentItem &&
+        this.currentItem.isDirty &&
+        this.currentItem.isDirty()) {
         // Now, we need to query the user... result => makes it a closure
         this.appService.asyncHandleDirty().then(result => {
           if (!result.wasCancelled) {
@@ -505,11 +505,11 @@ primaryAdjuster
   }
   //    async tryCloseTab(item, tab, route) {
   requestclose() {
-    const resetFunc = () => { this.appService.originalrec = this.appService.currentClaim; };
+    const resetFunc = () => { this.appService.originalrec = this.currentItem; };
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2);
+    this.appService.tryCloseTab(this.currentItem, tab, rt2);
     // if (cand) {
     //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
     //   //  this.close()
