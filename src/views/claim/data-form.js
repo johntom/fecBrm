@@ -100,7 +100,7 @@ export class DataForm {
             // console.log('compare2 ', this.appService.originalrec)
 
             return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
-
+ return this.compare()
 
           };
           this.appService.currentClaim.reset = () => {
@@ -117,7 +117,7 @@ export class DataForm {
           //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
           //    }
           //  this.appService.originalrec = copy;
-          this.appService.originalrec = JSON.parse(JSON.stringify( this.appService.testrec));
+          this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.testrec));
           // console.log('copy', this.appService.currentClaim);
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
@@ -180,7 +180,83 @@ export class DataForm {
 
 
   }
+  /*3
+ADJUSTER
+ADJUSTER_NAME {}
+ADJUSTER_ID
+ADJUSTER_RATE
+ASSIGNMENT_TYPE
+ASSIGNMENT_TYPE_DESC
+ASSIST_ID
+ASSIST_RATE
+CARRIER_FILE_NO
+CLAIMANT_ID
+CLAIM_ID
+CLAIM_NO
+CLAIM_TYPE
+CLOSED_AMT
+COMMENTS
+DATE_INSTITUTED
+DATE_OF_LOSS
+DEFAULT_FEE
+DEFENSE_ATTY
+DESCRIPTION
+EDITED
+FORMAL_INSTITUTED
+INSURANCE_ADJUSTER_ID
+INSURANCE_COMPANY_ID
+INSURED_ID
+INV_STATUS
+JURISDICTION_ID
+LEGAL_NAME
+LOCATION_ID
+MARK_CLAIMOFFICE_ID
+MULTI_CLAIMANTS
+MULTI_NAMES
+OPEN_AMT
+PERIOD
+PLAINTIFF_ATTY
+POLICY_DEDUCTABLE
+POLICY_EXPIRATION
+POLICY_INCEPTION
+POLICY_LIMITS
+POLICY_NO
+POLICY_NUMBER
+RECEIVED
+RECOVERY_AGAINST
+RECOVERY_AVAIL
+RECOVERY_COMMENTS
+RECOVERY_DATE_FILED
+RECOVERY_EST
+RECOVERY_LIEN_FILED
+RECOVERY_TYPE
+REOPEN_FLAG
+REPORTED
+STATUS
+TOTHRS
+adjusters[]
+claimant{}
+diaries[]
+docs[]
+insco{}
+inscontact{}
+insured{}
 
+isReviewed
+
+primaryAdjuster
+*/
+compare(){
+  if (
+    this.appService.currentClaim.DESCRIPTION === this.appService.originalrec.DESCRIPTION
+    &&  this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
+    &&  this.appService.currentClaim.claimant === this.appService.originalrec.claimant
+   &&  this.appService.currentClaim.diaries === this.appService.originalrec.diaries
+   &&  this.appService.currentClaim.notes === this.appService.originalrec.notes
+  
+  )
+  return 
+}
   showModal(fieldname) {
     // alert('fieldname'+fieldname)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
