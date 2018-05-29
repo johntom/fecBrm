@@ -140,7 +140,8 @@ window.onclose = closedWin;
 										<strong> CARRIER_FILE_NO</strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<input type="text" id="CARRIER_FILE_NO" class="form-control input-sm" value.bind="appService.currentClaim.CARRIER_FILE_NO">
+										<input type="text" id="CARRIER_FILE_NO" class="form-control input-sm"
+                     value.bind="appService.currentClaim.CARRIER_FILE_NO">
 									</div>
 
                   	<!-- change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)">  -->
@@ -193,10 +194,10 @@ window.onclose = closedWin;
 
 
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
-										<strong> Loss description ${appService.currentClaim.DESCRIPTION} >></strong>
+										<strong> Loss description dblclick ></strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm"
+										<textarea rows="3" click.delegate="showModal('DESCRIPTION')" type="text" id="DESCRIPTION" class="form-control input-sm"
 										 value.bind="appService.currentClaim.DESCRIPTION"></textarea>
 									</div>
 
