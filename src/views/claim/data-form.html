@@ -133,7 +133,7 @@ window.onclose = closedWin;
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
 										<span> 
                     ${currentItem.insco.ADDRESS}/${currentItem.INSURANCE_CONTACT_ID}/
-                    ${currentItem.inscontact.LAST_NAME} /  ${currentItem.DESCRIPTION}
+                    ${currentItem.inscontact.LAST_NAME} /  ${currentItem.LossDescription}
 									</span>
 									</div>
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
@@ -195,7 +195,7 @@ window.onclose = closedWin;
 										<strong> Loss description dblclick &gt;</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" id="DESCRIPTION" class="form-control input-sm" value.bind="currentItem.DESCRIPTION"></textarea>
+										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" id="LossDescription" class="form-control input-sm" value.bind="currentItem.LossDescription"></textarea>
 									</div>
 									<!-- <div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> DESCRIPTION</strong>
@@ -204,13 +204,13 @@ window.onclose = closedWin;
 										<input ref="lossdesc" type="text" id="DESCRIPTION" class="form-control input-sm" value.bind="currentItem.DESCRIPTION">
 									</div> -->
 
-									<div class="Rtable-cell-30 Rtable-cell--highlight">
+									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> xdesc>></strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
 										<input type="text" id="xdesc" class="form-control input-sm" value.bind="currentItem.xdesc"> ${currentItem.DESCRIxdescPTION}
 
-									</div>
+									</div> -->
 
 								</div>
 								<!-- Rtable Rtable--2cols" -->
