@@ -102,12 +102,12 @@ window.onclose = closedWin;
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										<input type="text" id="LOCATION_ID" class="form-control input-sm" value.bind="currentItem.LOCATION_ID">
 									</div>
-									<div class="Rtable-cell-30 Rtable-cell--green">
+									<!-- <div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> LossDescription</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										<input ref="lossdesc3" type="text" id="LossDescription" class="form-control input-sm" value.bind="currentItem.LossDescription">
-									</div>
+									</div> -->
 
 
 
@@ -129,15 +129,14 @@ window.onclose = closedWin;
 								<div class="Rtable Rtable--2cols">
 
 
+
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> LossDescription</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input ref="lossdesc4" type="text" id="LossDescription" 
-                    dblclick.delegate="showModal('LossDescription')"
-                    class="form-control input-sm" value.bind="currentItem.LossDescription">
+										<input ref="lossdesc4" type="text" id="LossDescription" dblclick.delegate="showModal('LossDescription')" class="form-control input-sm"
+										 value.bind="currentItem.LossDescription">
 									</div>
-
 
 
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
@@ -148,14 +147,9 @@ window.onclose = closedWin;
 										<!-- <input type="text" id="INSURED_ID" class="form-control input-sm" value.bind="currentItem.insured.LEGAL_NAME"> -->
 
 									</div>
-                  
-                  	<div class="Rtable-cell-70 Rtable-cell--green">
-										<input ref="lossdesc4" type="text" id="LossDescription" 
-                    dblclick.delegate="showModal('LossDescription')"
-                    class="form-control input-sm" value.bind="currentItem.LossDescription">
-									</div>
-								
-                	<div class="Rtable-cell-30 Rtable-cell--highlight">
+
+
+									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> INSURANCE ADDRESS&gt;</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
@@ -165,11 +159,6 @@ window.onclose = closedWin;
 									</span>
 									</div>
 
-	<div class="Rtable-cell-70 Rtable-cell--green">
-										<input ref="lossdesc4" type="text" id="LossDescription" 
-                    dblclick.delegate="showModal('LossDescription')"
-                    class="form-control input-sm" value.bind="currentItem.LossDescription">
-									</div>
 
 
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
@@ -179,26 +168,8 @@ window.onclose = closedWin;
 										<input type="text" id="CARRIER_FILE_NO" class="form-control input-sm" value.bind="currentItem.CARRIER_FILE_NO">
 									</div>
 
-	<div class="Rtable-cell-70 Rtable-cell--green">
-										<input ref="lossdesc4" type="text" id="LossDescription" 
-                    dblclick.delegate="showModal('LossDescription')"
-                    class="form-control input-sm" value.bind="currentItem.LossDescription">
-									</div>
 
-									<!-- change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)">  -->
-									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
-										<strong> Ins Carrier Adjuster</strong>
-									</div>
-								
 
-									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="currentItem.INSURANCE_ADJUSTER_ID">
-                      <option model.bind="null">Choose...</option> 
-                      <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
-                       ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
-                      </option> 
-                    </select>
-									</div> -->
 
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> Ins Carrier Adjuster2</strong>
@@ -215,53 +186,7 @@ window.onclose = closedWin;
 
 
 
-									<!-- changed from 1 embeded rec to many recs ie for allstate -->
 
-									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
-										<strong> Ins Carrier Address</strong>
-									</div>
-									<div class="Rtable-cell-70  Rtable-cell--highlight">
-								
-
-										<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="currentItem.INSURANCE_ADDRESS_ID"
-										 change.delegate="selectChangedIAddr(currentnewItem.INSURANCE_COMPANY_ID)"> 
-                      <option model.bind="null">Choose...</option> 
-                      <option repeat.for="opt of inscoAddresses" model.bind="opt.INSURANCE_COMPANY_ID">
-                        ${opt.ADDRESS}   ${opt.CITY} ${opt.STATE}
-                      </option> 
-                    </select>
-									</div> -->
-
-
-									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
-										<strong> Loss description dblclick &gt;</strong>
-									</div>
-									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<textarea rows="3" dblclick.delegate="showModal('DESCRIPTION')" id="LossDescription" class="form-control input-sm" value.bind="currentItem.LossDescription"></textarea>
-									</div>
-									<div class="Rtable-cell-30 Rtable-cell--green">
-										<strong> LossDescription</strong>
-									</div>
-									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input ref="lossdesc2" type="text" id="LossDescription" class="form-control input-sm" value.bind="currentItem.LossDescription">
-									</div> -->
-
-
-									<div class="Rtable-cell-30 Rtable-cell--green">
-										<strong> LossDescription</strong>
-									</div>
-									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input ref="lossdesc3" type="text" id="LossDescription" class="form-control input-sm" value.bind="currentItem.LossDescription">
-									</div>
-
-
-									<!-- <div class="Rtable-cell-30 Rtable-cell--highlight">
-										<strong> xdesc>></strong>
-									</div>
-									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<input type="text" id="xdesc" class="form-control input-sm" value.bind="currentItem.xdesc"> ${currentItem.DESCRIxdescPTION}
-
-									</div> -->
 
 								</div>
 								<!-- Rtable Rtable--2cols" -->
