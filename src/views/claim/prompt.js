@@ -143,7 +143,7 @@ export class Prompt {
     //  this.LEGAL_NAME = insuredobj
     //       this.dinsured.value = this.LEGAL_NAME
     // let orgid = `${this.LEGAL_NAME._id}`
-    if (this.fieldname === 'DESCRIPTION') {
+    if (this.fieldname === 'LossDescription') {
 
     }
     if (this.fieldname === 'insco') {

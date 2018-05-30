@@ -102,7 +102,7 @@ window.onclose = closedWin;
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										<input type="text" id="LOCATION_ID" class="form-control input-sm" value.bind="currentItem.LOCATION_ID">
 									</div>
-		<div class="Rtable-cell-30 Rtable-cell--green">
+									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> LossDescription</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
@@ -129,11 +129,13 @@ window.onclose = closedWin;
 								<div class="Rtable Rtable--2cols">
 
 
-	<div class="Rtable-cell-30 Rtable-cell--green">
+									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> LossDescription</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input ref="lossdesc4" type="text" id="LossDescription" class="form-control input-sm" value.bind="currentItem.LossDescription">
+										<input ref="lossdesc4" type="text" id="LossDescription" 
+                    dblclick.delegate="showModal('LossDescription')"
+                    class="form-control input-sm" value.bind="currentItem.LossDescription">
 									</div>
 
 
@@ -146,7 +148,14 @@ window.onclose = closedWin;
 										<!-- <input type="text" id="INSURED_ID" class="form-control input-sm" value.bind="currentItem.insured.LEGAL_NAME"> -->
 
 									</div>
-									<div class="Rtable-cell-30 Rtable-cell--highlight">
+                  
+                  	<div class="Rtable-cell-70 Rtable-cell--green">
+										<input ref="lossdesc4" type="text" id="LossDescription" 
+                    dblclick.delegate="showModal('LossDescription')"
+                    class="form-control input-sm" value.bind="currentItem.LossDescription">
+									</div>
+								
+                	<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> INSURANCE ADDRESS&gt;</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
@@ -155,11 +164,25 @@ window.onclose = closedWin;
                     ${currentItem.inscontact.LAST_NAME} /  ${currentItem.LossDescription}
 									</span>
 									</div>
+
+	<div class="Rtable-cell-70 Rtable-cell--green">
+										<input ref="lossdesc4" type="text" id="LossDescription" 
+                    dblclick.delegate="showModal('LossDescription')"
+                    class="form-control input-sm" value.bind="currentItem.LossDescription">
+									</div>
+
+
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> CARRIER_FILE_NO</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
 										<input type="text" id="CARRIER_FILE_NO" class="form-control input-sm" value.bind="currentItem.CARRIER_FILE_NO">
+									</div>
+
+	<div class="Rtable-cell-70 Rtable-cell--green">
+										<input ref="lossdesc4" type="text" id="LossDescription" 
+                    dblclick.delegate="showModal('LossDescription')"
+                    class="form-control input-sm" value.bind="currentItem.LossDescription">
 									</div>
 
 									<!-- change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)">  -->
@@ -224,7 +247,7 @@ window.onclose = closedWin;
 									</div> -->
 
 
-		<div class="Rtable-cell-30 Rtable-cell--green">
+									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> LossDescription</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
