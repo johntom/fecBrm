@@ -237,7 +237,7 @@ export class DataForm {
     console.log('STATUS', this.currentItem.STATUS === this.appService.originalrec.STATUS)
     // console.log('claimant', this.currentItem.claimant === this.appService.originalrec.claimant)
     console.log('diaries', this.currentItem.diaries.length === this.appService.originalrec.diaries.length)
-    console.log('docs', this.currentItem.docs.length === this.appService.originalrec.docs.length)
+    console.log('docs',this.currentItem.docs.length, this.appService.originalrec.docs.length,this.currentItem.docs.length === this.appService.originalrec.docs.length)
     console.log('insured', this.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME)
 
     console.log('primaryAdjuster', this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster)
@@ -245,7 +245,7 @@ export class DataForm {
 
 
     // console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-    console.log('insco', this.currentItem.insco.NAME === this.appService.originalrec.insco.NAME)
+    console.log('insco',this.currentItem.insco.NAME , this.appService.originalrec.insco.NAME, this.currentItem.insco.NAME === this.appService.originalrec.insco.NAME)
     //   console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
     console.log('inscontact', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
     // console.log('4', this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID)
