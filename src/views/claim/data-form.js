@@ -127,9 +127,9 @@ export class DataForm {
           //             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
 
 
-          this.appService.currentView = this.currentItem; // must set on every view
-          this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
-          this.appService.testrec = claim[0];
+          // this.appService.currentView = this.currentItem; // must set on every view
+          // this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+          // this.appService.testrec = claim[0];
           this.currentItem.isDirty = () => {
             //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
             let tf = this.comparedata()
@@ -138,16 +138,15 @@ export class DataForm {
             tf === true ? revtf = false : revtf = true
             alert(revtf)
             return revtf
+            // return this.currentItem.LossDescription!==this.appService.originalrec.LossDescription
           };
           this.currentItem.reset = () => {
             this.appService.originalrec = this.currentItem;
           }
-          //6-13          this.appService.currentView = this.currentItem; // must set on every view
-
-          //6-13 this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
-
-
-          //6-13 this.appService.testrec = claim[0];
+         // 6-13  
+           this.appService.currentView = this.currentItem; // must set on every view
+         this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+          this.appService.testrec = claim[0];
 
           // this.appService.originalrec = this.appService.testrec 
           //  this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
