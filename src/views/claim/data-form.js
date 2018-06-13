@@ -132,7 +132,7 @@ export class DataForm {
           this.appService.testrec = claim[0];
           this.currentItem.isDirty = () => {
             //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
-            return this.comparedata()
+            return !this.comparedata()
           };
           this.currentItem.reset = () => {
             this.appService.originalrec = this.currentItem;
