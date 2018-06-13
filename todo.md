@@ -23,6 +23,9 @@ dont accept no search values on some forms
 1.  change this.currentItem.isDirty = () => {
      return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
     };
+
+2. Add claim only works after a successful search
+    
 to do a comparison
 D_AMT
 COMMENTS

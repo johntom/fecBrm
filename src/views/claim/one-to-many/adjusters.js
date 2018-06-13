@@ -31,7 +31,7 @@ export class Adjusters {
     this.api = api;
     this.appService = appService;
     this.inv = '';
-    this.currentItem = this.appService.currentClaim//testrec;
+    this.currentItem = this.appService.currentItem//currentClaim//testrec;
     this.mode = 0;
     this.editrec = '';
 
