@@ -128,19 +128,20 @@ export class DataForm {
 
 
           this.appService.currentView = this.currentItem; // must set on every view
-
+ this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+  this.appService.testrec = claim[0];
           this.currentItem.isDirty = () => {
             return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
           };
           this.currentItem.reset = () => {
             this.appService.originalrec = this.currentItem;
           }
-//          this.appService.currentView = this.currentItem; // must set on every view
+//6-13          this.appService.currentView = this.currentItem; // must set on every view
 
-          this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+         //6-13 this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
 
 
-          this.appService.testrec = claim[0];
+          //6-13 this.appService.testrec = claim[0];
 
           // this.appService.originalrec = this.appService.testrec 
           //  this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
