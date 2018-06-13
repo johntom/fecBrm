@@ -61,22 +61,30 @@ export class DataForm {
       this.recordId = params.id;
 
       if (this.recordId === 'create') {
-        this.appService.currentClaim = {}
+        // this.appService.currentClaim = {}
+        // this.appService.testrec = {}
+        // this.appService.originalrec = {}
+        // this.appService.currentClaim.insured = {}
+        // this.appService.currentClaim.claimant = {}
+        // this.appService.currentClaim.insco = {}
+        // this.appService.currentClaim.insaddress = {}
+        // this.appService.currentClaim.inscontact = {}
+        // this.appService.currentClaim.diaries = []
+        // this.appService.currentClaim.notes = []
+        // this.appService.currentClaim.adjusters = []
+this.appService.currentItem = {}
         this.appService.testrec = {}
         this.appService.originalrec = {}
-        this.appService.currentClaim.insured = {}
-        this.appService.currentClaim.claimant = {}
-        this.appService.currentClaim.insco = {}
-        this.appService.currentClaim.insaddress = {}
-        this.appService.currentClaim.inscontact = {}
-        this.appService.currentClaim.diaries = []
-        this.appService.currentClaim.notes = []
-        this.appService.currentClaim.adjusters = []
+        this.appService.currentItem.insured = {}
+        this.appService.currentItem.claimant = {}
+        this.appService.currentItem.insco = {}
+        this.appService.currentItem.insaddress = {}
+        this.appService.currentItem.inscontact = {}
+        this.appService.currentItem.diaries = []
+        this.appService.currentItem.notes = []
+        this.appService.currentItem.adjusters = []
 
 
-        // filter adjusterlist with ACTIVE = -1
-
-        //this.currentItem.insured.INSURED_ID
       } else {
         // console.log('this.recordId ', this.recordId);
         // if ((this.appService.currentClaim !== undefined) && (this.appService.currentClaim.CLAIM_NO === this.recordId)) {
@@ -90,46 +98,10 @@ export class DataForm {
           this.currentItem = claim[0]
           this.currentItem.xdesc = claim[0].DESCRIPTION
 
-          // this.lossdesc = this.appService.currentClaim.DESCRIPTION
-          //  this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
-          console.log('claim[0] ', this.currentItem.DESCRIPTION, claim[0]);
+            console.log('claim[0] ', this.currentItem.DESCRIPTION, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
-          //this.appService.originalrec =  claim[0]
-
-
-          // this.appService.currentClaim.isDirty = () => {
-          //   return JSON.stringify(this.appService.currentClaim) !== JSON.stringify(this.appService.originalrec)
-          //  alert(this.appService.currentClaim.DESCRIPTION +' '+ this.appService.originalrec.DESCRIPTION)
-          //   alert(this.appService.currentClaim===this.appService.originalrec)
-          // return (this.appService.currentClaim) !== (this.appService.originalrec)
-          // console.log('compare ',JSON.stringify(this.appService.currentClaim) !== this.appService.originalrec,JSON.stringify(this.appService.currentClaim) , this.appService.originalrec)
-          // console.log('compare1 ', JSON.stringify(this.appService.currentClaim))
-          // console.log('compare2 ', this.appService.originalrec)
-
-          //    return (this.appService.currentClaim.DESCRIPTION) !== (this.appService.originalrec.DESCRIPTION)
-          //   console.log('this.compare()', this.compare())
-          ///  return !this.compare()
-
-          // };
-          // this.appService.currentClaim.reset = () => {
-          //   this.appService.originalrec = this.appService.currentClaim;
-          // }
-
-
-          //  this.appService.currentItem.isDirty = () => {
-          //               return JSON.stringify(this.appService.currentItem) !== JSON.stringify(this.appService.originalrec)
-          //             };
-          //             this.appService.currentItem.reset = () => {
-          //               this.appService.originalrec = this.appService.currentItem;
-          //             }
-          //             this.appService.currentView = this.appService.currentItem; // must set on every view
-
-          //             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
-
-
-          // this.appService.currentView = this.currentItem; // must set on every view
-          // this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
-          // this.appService.testrec = claim[0];
+        
+         
           this.currentItem.isDirty = () => {
             //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
             let tf = this.comparedata()
@@ -148,16 +120,7 @@ export class DataForm {
           this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
           this.appService.testrec = claim[0];
 
-          // this.appService.originalrec = this.appService.testrec 
-          //  this.appService.originalrec = lodash.cloneDeep(this.appService.currentClaim)// claim[0])
-          //  var copy = {}; for (var item in obj) { obj.hasOwnProperty(item) && (copy[item] = obj[item]); }
-          // var copy = {}; 
-          // for (var item in  this.appService.testrec) { 
-          //    this.appService.testrec.hasOwnProperty(item) && (copy[item] =  this.appService.testrec[item])
-          //    }
-          //  this.appService.originalrec = copy;
-          //  this.appService.originalrec = JSON.parse(JSON.stringify(claim[0]));//.. must be deep other wise just a ref
-          console.log('copy this.appService.originalrec ', this.appService.originalrec);
+              console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values
           // selectedadjuster.ADJUSTER_ID = adj.ADJUSTER_ID;
@@ -175,8 +138,6 @@ export class DataForm {
             let item = insco[aid];
             let icd
             let bid
-            // this.appService.currentClaim.inscoAdjusters = item.contacts
-
             this.inscoAdjusters = item.contacts
             icd = this.currentItem.inscontact.INSURANCE_CONTACT_ID
             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
@@ -184,10 +145,7 @@ export class DataForm {
             let a = this.inscoAdjusters
             let b = this.currentItem.inscontact
             this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
-            // productMatcher = (a, b) => a.id === b.id;
-            //let oid = this.inscoAdjusters.findIndex(x => x.INSURED_ID === b.INSURANCE_CONTACT_ID)
-            console.log('inscontactMatcher ', this.inscontactMatcher)
-            //   this.selectedContact = this.appService.currentClaim.inscontact
+             console.log('inscontactMatcher ', this.inscontactMatcher)
           }
 
           if ((this.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
