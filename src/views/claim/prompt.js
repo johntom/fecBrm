@@ -14,7 +14,7 @@ export class Prompt {
 
     this.appService = appService;
     //  this.inv = '';
-    this.currentItem = this.appService.currentClaim// testrec;
+    this.currentItem = this.appService.currentItem // currentClaim// testrec;
     this.showdocs = this.currentItem.docs
     this.thefield = 1
     this.dataService = dataService;
@@ -68,7 +68,7 @@ export class Prompt {
     this.doc = `type any characters to select ${this.fieldname}`
 
     if (this.fieldname === 'docs') {
-      this.currentItem = this.appService.currentClaim
+      this.currentItem = this.appService.currentItem//currentClaim
 
     }
 
