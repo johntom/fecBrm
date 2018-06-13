@@ -248,7 +248,8 @@ export class DataForm {
       && this.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS
       // && this.currentItem.DEFAULT_FEE === this.appService.originalrec.ADJUSTER
       // && this.currentItem.DEFENSE_ATTY === this.appService.originalrec.ADJUSTER
-      && this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION
+      // DESCRIPTION
+      && this.currentItem.LossDescription === this.appService.originalrec.LossDescription
       // && this.currentItem.FORMAL_INSTITUTED === this.appService.originalrec.ADJUSTER
       && this.currentItem.INSURANCE_ADJUSTER_ID === this.appService.originalrec.INSURANCE_ADJUSTER_ID
       && this.currentItem.INSURANCE_COMPANY_ID === this.appService.originalrec.INSURANCE_COMPANY_ID
