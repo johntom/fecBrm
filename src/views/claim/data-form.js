@@ -132,7 +132,7 @@ export class DataForm {
           this.appService.testrec = claim[0];
           this.currentItem.isDirty = () => {
             //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
-            return this.compare()
+            return this.comparedata()
           };
           this.currentItem.reset = () => {
             this.appService.originalrec = this.currentItem;
@@ -215,7 +215,7 @@ export class DataForm {
 
   }
  
-  compare() {
+  comparedata() {
     // console.log('1', this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
     // console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
     // console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
