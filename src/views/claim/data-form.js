@@ -303,12 +303,13 @@ this.appService.currentItem = {}
   }
   showModal(fieldname) {
 
-    // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
-    console.log('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
+    // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION) currentClaim
+    console.log('fieldname' + fieldname, this.appService.currentItem.DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
 
       if (fieldname === 'insco') {
-        let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1 // or insco.IN...
+        ///let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1 // or insco.IN...
+        let serviceinsco = this.appService.currentItem.INSURANCE_COMPANY_ID * 1 // or insco.IN...
         let insco = this.appService.InsurancecompanyList
         if (serviceinsco !== undefined) {
           let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
@@ -389,7 +390,9 @@ this.appService.currentItem = {}
     //return 
 
     let pcount = 0
-    this.appService.currentClaim.adjusters.forEach(function (item, index) {
+    // this.appService.currentClaim.adjusters.forEach(function (item, index) {
+  this.appService.currentItem.adjusters.forEach(function (item, index) {
+      
       console.log(item);
       if (item.TYPE === "Primary") {
         pcount++
