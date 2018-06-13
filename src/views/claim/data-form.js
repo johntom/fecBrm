@@ -310,7 +310,7 @@ this.appService.currentItem = {}
   showModal(fieldname) {
 
     // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION) currentClaim
-    console.log('fieldname' + fieldname, this.appService.currentItem.DESCRIPTION)
+    console.log('fieldname' + fieldname, this.appService.currentItem.LossDescription)//DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
 
       if (fieldname === 'insco') {
