@@ -88,8 +88,8 @@ export class DataForm {
           // this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
           this.currentItem = claim[0]
-           this.currentItem.xdesc = claim[0].DESCRIPTION
-         
+          this.currentItem.xdesc = claim[0].DESCRIPTION
+
           // this.lossdesc = this.appService.currentClaim.DESCRIPTION
           //  this.appService.DESCRIPTION = this.appService.currentClaim.DESCRIPTION
           console.log('claim[0] ', this.currentItem.DESCRIPTION, claim[0]);
@@ -128,17 +128,18 @@ export class DataForm {
 
 
           this.appService.currentView = this.currentItem; // must set on every view
- this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
-  this.appService.testrec = claim[0];
+          this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+          this.appService.testrec = claim[0];
           this.currentItem.isDirty = () => {
-            return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
+            //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
+            return this.compare()
           };
           this.currentItem.reset = () => {
             this.appService.originalrec = this.currentItem;
           }
-//6-13          this.appService.currentView = this.currentItem; // must set on every view
+          //6-13          this.appService.currentView = this.currentItem; // must set on every view
 
-         //6-13 this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+          //6-13 this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
 
 
           //6-13 this.appService.testrec = claim[0];
@@ -213,95 +214,109 @@ export class DataForm {
 
 
   }
-  /*3
-ADJUSTER
-ADJUSTER_NAME {}
-ADJUSTER_ID
-ADJUSTER_RATE
-ASSIGNMENT_TYPE
-ASSIGNMENT_TYPE_DESC
-ASSIST_ID
-ASSIST_RATE
-CARRIER_FILE_NO
-CLAIMANT_ID
-CLAIM_ID
-CLAIM_NO
-CLAIM_TYPE
-CLOSED_AMT
-COMMENTS
-DATE_INSTITUTED
-DATE_OF_LOSS
-DEFAULT_FEE
-DEFENSE_ATTY
-DESCRIPTION
-EDITED
-FORMAL_INSTITUTED
-INSURANCE_ADJUSTER_ID
-INSURANCE_COMPANY_ID
-INSURED_ID
-INV_STATUS
-JURISDICTION_ID
-LEGAL_NAME
-LOCATION_ID
-MARK_CLAIMOFFICE_ID
-MULTI_CLAIMANTS
-MULTI_NAMES
-OPEN_AMT
-PERIOD
-PLAINTIFF_ATTY
-POLICY_DEDUCTABLE
-POLICY_EXPIRATION
-POLICY_INCEPTION
-POLICY_LIMITS
-POLICY_NO
-POLICY_NUMBER
-RECEIVED
-RECOVERY_AGAINST
-RECOVERY_AVAIL
-RECOVERY_COMMENTS
-RECOVERY_DATE_FILED
-RECOVERY_EST
-RECOVERY_LIEN_FILED
-RECOVERY_TYPE
-REOPEN_FLAG
-REPORTED
-STATUS
-TOTHRS
-adjusters[]
-claimant{}
-diaries[]
-docs[]
-insco{}
-inscontact{}
-insured{}
-
-isReviewed
-
-primaryAdjuster
-*/
+ 
   compare() {
-    console.log('1', this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
-    console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-    console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
-    console.log('4', this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID)
+    // console.log('1', this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
+    // console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
+    // console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
+    // console.log('4', this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID)
 
     return (
-      this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION
-      // && this.appService.currentClaim.adjusters === this.appService.originalrec.adjusters
-      && this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID
-      && this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
-      && this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
-      //&& this.appService.currentClaim.claimant === this.appService.originalrec.claimant
-      //&& this.appService.currentClaim.diaries === this.appService.originalrec.diaries
-      //&& this.appService.currentClaim.notes === this.appService.originalrec.notes
+      // this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION
+      // && this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID
+      // && this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
+      // && this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
+
+
+      this.currentItem.ADJUSTER === this.appService.originalrec.ADJUSTER
+      && this.currentItem.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER_NAME
+      && this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID
+      // && this.currentItem.ADJUSTER_RATE === this.appService.originalrec.ADJUSTER_RATE
+      && this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE
+      && this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC
+      // && this.currentItem.ASSIST_ID === this.appService.originalrec.ADJUSTER
+      // && this.currentItem.ASSIST_RATE === this.appService.originalrec.ADJUSTER
+      // && this.currentItem.ASSIST_RATE === this.appService.originalrec.ADJUSTER
+      && this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO
+      && this.currentItem.CLAIMANT_ID === this.appService.originalrec.CLAIMANT_ID
+      // && this.currentItem.CLAIM_ID === this.appService.originalrec.ADJUSTER
+      // && this.currentItem.CLAIM_NO === this.appService.originalrec.ADJUSTER
+      && this.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE
+      // && this.currentItem.CLOSED_AMT === this.appService.originalrec.ADJUSTER
+      // && this.currentItem.COMMENTS === this.appService.originalrec.ADJUSTER
+      // && this.currentItem.DATE_INSTITUTED === this.appService.originalrec.ADJUSTER
+      && this.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS
+      // && this.currentItem.DEFAULT_FEE === this.appService.originalrec.ADJUSTER
+      // && this.currentItem.DEFENSE_ATTY === this.appService.originalrec.ADJUSTER
+      && this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION
+      // && this.currentItem.FORMAL_INSTITUTED === this.appService.originalrec.ADJUSTER
+      && this.currentItem.INSURANCE_ADJUSTER_ID === this.appService.originalrec.INSURANCE_ADJUSTER_ID
+      && this.currentItem.INSURANCE_COMPANY_ID === this.appService.originalrec.INSURANCE_COMPANY_ID
+      && this.currentItem.STATUS === this.appService.originalrec.STATUS
+      && this.currentItem.adjusters === this.appService.originalrec.adjusters
+      && this.currentItem.claimant === this.appService.originalrec.claimant
+      && this.currentItem.diaries === this.appService.originalrec.diaries
+      && this.currentItem.docs === this.appService.originalrec.docs
+      && this.currentItem.insco === this.appService.originalrec.insco
+      && this.currentItem.inscontact === this.appService.originalrec.inscontact
+      && this.currentItem.insured === this.appService.originalrec.insured
+      && this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster
 
     )
+
+
+
+
+
+    // EDITED
+    // FORMAL_INSTITUTED
+    // INV_STATUS
+    // JURISDICTION_ID
+    // LEGAL_NAME
+    // LOCATION_ID
+    // MARK_CLAIMOFFICE_ID
+    // MULTI_CLAIMANTS
+    // MULTI_NAMES
+    // OPEN_AMT
+    // PERIOD
+    // PLAINTIFF_ATTY
+    // POLICY_DEDUCTABLE
+    // POLICY_EXPIRATION
+    // POLICY_INCEPTION
+    // POLICY_LIMITS
+    // POLICY_NO
+    // POLICY_NUMBER
+    // RECEIVED
+    // RECOVERY_AGAINST
+    // RECOVERY_AVAIL
+    // RECOVERY_COMMENTS
+    // RECOVERY_DATE_FILED
+    // RECOVERY_EST
+    // RECOVERY_LIEN_FILED
+    // RECOVERY_TYPE
+    // REOPEN_FLAG
+    // REPORTED
+    // STATUS
+    // TOTHRS
+
+    // adjusters[]
+    // claimant{}
+    // diaries[]
+    // docs[]
+    // insco{}
+    // inscontact{}
+    // insured{}
+    // isReviewed
+    // primaryAdjuster
+
+
+
 
   }
   showModal(fieldname) {
 
-   // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
-	  console.log('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
+    // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
+    console.log('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
 
       if (fieldname === 'insco') {
@@ -428,8 +443,8 @@ primaryAdjuster
 
           } else {
             //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
-          //  this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
-  this.appService.originalrec = this.currentItem
+            //  this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
+            this.appService.originalrec = this.currentItem
           }
         });
       }

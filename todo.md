@@ -21,8 +21,8 @@ only show exit message on dirty form
 dont accept no search values on some forms
 6/13/18
 1.  change this.currentItem.isDirty = () => {
-            return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
-          };
+     return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
+    };
 to do a comparison
 D_AMT
 COMMENTS
