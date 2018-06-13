@@ -96,9 +96,9 @@ this.appService.currentItem = {}
           // this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
           this.currentItem = claim[0]
-          this.currentItem.xdesc = claim[0].DESCRIPTION
+          this.currentItem.xdesc = claim[0].LossDescription//DESCRIPTION
 
-            console.log('claim[0] ', this.currentItem.DESCRIPTION, claim[0]);
+            console.log('claim[0] ', this.currentItem.LossDescription, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
         
          
