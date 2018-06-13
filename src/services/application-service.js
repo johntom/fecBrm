@@ -33,7 +33,7 @@ export class ApplicationService {
 
 
   tryCloseTab(item, tab, route) {
-    if (this.currentView && this.currentView.isDirty && !this.currentView.isDirty()) {
+    if (this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
           this.closeTab(tab, item);
