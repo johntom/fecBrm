@@ -1,3 +1,7 @@
+git hub repo
+ALWAYS TEST https://jif.bergenrisk.com/api/v1/adjuster
+to see changes must commit
+
 5/10/18
 to do
 1 - Convert and document the conversion
@@ -15,5 +19,57 @@ global search and replace to delete a code
 replace all small forms with in place edit 
 only show exit message on dirty form
 dont accept no search values on some forms
-5/18/18
-1.
+6/13/18
+1.  change this.currentItem.isDirty = () => {
+            return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
+          };
+to do a comparison
+D_AMT
+COMMENTS
+DATE_INSTITUTED
+DATE_OF_LOSS
+DEFAULT_FEE
+DEFENSE_ATTY
+DESCRIPTION
+EDITED
+FORMAL_INSTITUTED
+INSURANCE_ADJUSTER_ID
+INSURANCE_COMPANY_ID
+INSURED_ID
+INV_STATUS
+JURISDICTION_ID
+LEGAL_NAME
+LOCATION_ID
+MARK_CLAIMOFFICE_ID
+MULTI_CLAIMANTS
+MULTI_NAMES
+OPEN_AMT
+PERIOD
+PLAINTIFF_ATTY
+POLICY_DEDUCTABLE
+POLICY_EXPIRATION
+POLICY_INCEPTION
+POLICY_LIMITS
+POLICY_NO
+POLICY_NUMBER
+RECEIVED
+RECOVERY_AGAINST
+RECOVERY_AVAIL
+RECOVERY_COMMENTS
+RECOVERY_DATE_FILED
+RECOVERY_EST
+RECOVERY_LIEN_FILED
+RECOVERY_TYPE
+REOPEN_FLAG
+REPORTED
+STATUS
+TOTHRS
+adjusters[]
+claimant{}
+diaries[]
+docs[]
+insco{}
+inscontact{}
+insured{}
+isReviewed
+primaryAdjuster
