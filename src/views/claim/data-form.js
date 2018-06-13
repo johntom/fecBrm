@@ -132,11 +132,11 @@ export class DataForm {
           this.appService.testrec = claim[0];
           this.currentItem.isDirty = () => {
             //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
-          let tf = this.comparedata()
-          alert (tf)
-          let revtf
-          tf === true ? revtf=false : revtf=true
-           alert (revtf)
+            let tf = this.comparedata()
+            alert(tf)
+            let revtf
+            tf === true ? revtf = false : revtf = true
+            alert(revtf)
             return revtf
           };
           this.currentItem.reset = () => {
@@ -219,11 +219,35 @@ export class DataForm {
 
 
   }
- 
+
   comparedata() {
-    // console.log('1', this.currentItem.DESCRIPTION === this.appService.originalrec.DESCRIPTION)
+    console.log('ADJUSTER', this.currentItem.ADJUSTER === this.appService.originalrec.ADJUSTER)
+    console.log('ADJUSTER_NAME', this.currentItem.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER_NAME)
+    console.log('ADJUSTER_ID', this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID)
+    console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
+    console.log('ASSIGNMENT_TYPE_DESC', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
+    console.log('CARRIER_FILE_NO', this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.inscontCARRIER_FILE_NOact)
+    console.log('CLAIMANT_ID', this.currentItem.inscontact === this.appService.originalrec.CLAIMANT_ID)
+    console.log('CLAIM_TYPE', this.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE)
+
+    console.log('DATE_OF_LOSS', this.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS)
+    console.log('LossDescription', this.currentItem.LossDescription === this.appService.originalrec.LossDescription)
+    console.log('INSURANCE_ADJUSTER_ID', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.INSURANCE_ADJUSTER_ID)
+    console.log('INSURANCE_COMPANY_ID', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.INSURANCE_COMPANY_ID)
+    console.log('STATUS', this.currentItem.STATUS === this.appService.originalrec.STATUS)
+    console.log('claimant', this.currentItem.claimant === this.appService.originalrec.claimant)
+    console.log('diaries', this.currentItem.diaries === this.appService.originalrec.diaries)
+    console.log('docs', this.currentItem.docs === this.appService.originalrec.docs)
+    console.log('insured', this.currentItem.diaries === this.appService.originalrec.insured)
+
+    console.log('primaryAdjuster', this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster)
+
+
+
     // console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-    // console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
+    console.log('insco', this.currentItem.insco === this.appService.originalrec.insco)
+    //   console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
+    console.log('inscontact', this.currentItem.inscontact === this.appService.originalrec.inscontact)
     // console.log('4', this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID)
 
     return (
