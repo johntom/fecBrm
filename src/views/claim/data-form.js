@@ -6,9 +6,10 @@ import { ApplicationService } from '../../services/application-service';
 import { MyDataService } from "../../services/my-data-service";
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Prompt } from './prompt';
-import { Promptyn } from './promptyn';
 import { DialogService } from 'aurelia-dialog';
-import { lodash } from 'lodash'
+// import { lodash } from 'lodash'
+// import { Promptyn } from './promptyn';
+
 @inject(Router, ApiService, ApplicationService, MyDataService, EventAggregator, DialogService)
 export class DataForm {
   heading = 'DataAddForm HEADER...';
