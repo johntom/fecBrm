@@ -296,7 +296,8 @@ primaryAdjuster
   }
   showModal(fieldname) {
 
-    alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
+   // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
+	  console.log('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
 
       if (fieldname === 'insco') {
