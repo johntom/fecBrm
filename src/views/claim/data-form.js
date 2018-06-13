@@ -132,7 +132,13 @@ this.appService.currentItem = {}
             this.currentItem.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
           }
           let insco = this.appService.InsurancecompanyList
-          let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
+         // let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
+    //       "insco" : {
+    //     "NAME" : "HARRG (NY)", 
+    //     "ADDRESS" : "P.O. Box 189", 
+    //     "INSURANCE_COMPANY_ID" : NumberInt(314)
+    // }, 
+          let serviceinsco = this.appService.currentClaim.insco.INSURANCE_COMPANY_ID * 1
           if (serviceinsco !== undefined) {
             let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
             let item = insco[aid];
@@ -309,7 +315,7 @@ this.appService.currentItem = {}
 
       if (fieldname === 'insco') {
         ///let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1 // or insco.IN...
-        let serviceinsco = this.appService.currentItem.INSURANCE_COMPANY_ID * 1 // or insco.IN...
+        let serviceinsco = this.appService.currentItem.insco.INSURANCE_COMPANY_ID * 1 // or insco.IN...
         let insco = this.appService.InsurancecompanyList
         if (serviceinsco !== undefined) {
           let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)

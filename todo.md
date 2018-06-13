@@ -25,7 +25,13 @@ dont accept no search values on some forms
     };
 
 2. Add claim only works after a successful search
-    
+3. {  "CLAIM_NO" : "99-000002"} has the minimum of fields   
+4. fix in add and Convert
+  "insco" : {
+        "NAME" : "HARRG (NY)", 
+        "ADDRESS" : "P.O. Box 189", 
+        "INSURANCE_COMPANY_ID" : NumberInt(314)
+    },  
 to do a comparison
 D_AMT
 COMMENTS
