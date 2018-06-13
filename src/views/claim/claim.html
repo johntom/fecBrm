@@ -27,16 +27,112 @@
 							<button class="btn btn-default" click.delegate="name = null" disabled.bind="!name">Clear State</button>
 						</div>
 					</div>
-					<!-- <div class="flex-row-none">
-					<div class="form-group flex-column-1">
-						<input id="searchartistl" type="text" class="form-control" placeholder="Search for inv artist last..." value.bind="search.artistl">
+	
+
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+
+							<label for="adjuster">Adjuster</label>
+							<select id="searchInvCode" class="form-control input-sm" value.bind="search.adjuster"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
+                        ${opt.ADJUSTER_NAME} 
+                      </option> 
+                    </select>
+						</div>
 					</div>
-					<div class="form-group flex-column-1 margin-left-10">
-						<input id="searchartistf" type="text" class="form-control" placeholder="Search for inv artist first..." value.bind="search.artistf">
+
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<input id="searchartistl" type="text" class="form-control" placeholder="Search for inv claimant last..." value.bind="search.claimant">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+
+							<input id="searchartist2" type="text" class="form-control" placeholder="Search for claimant first..." value.bind="search.claimantFirst">
+						</div>
+          	<div class="form-group flex-column-1 margin-left-10">
+
+							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insured..." value.bind="search.insured">
+						</div>
 					</div>
-				</div> -->
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+
+							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insurance company..." value.bind="search.insco">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<input id="searchlossdesc" type="text" class="form-control" placeholder="Search for Loss desc..." value.bind="search.lossdesc">
+						</div>
+					</div>
 
 
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<label for="dol">Date Of Loss</label>
+							<input id="searchdol" type="date" class="form-control" placeholder="Search for Date of Loss..." value.bind="search.dol">
+
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<label for="searchdrcvdatel">(Received Start Date GT=</label>
+							<input id="searchdrcvdatel" type="date" class="form-control" placeholder="Search for Received Date Start GT=..." value.bind="search.receiveddate">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<label for="lastName">Stop Date LT=)</label>
+							<input id="searchdrcvdate2" type="date" class="form-control" placeholder="Search for Date Stop LT=.." value.bind="search.stopdate">
+						</div>
+
+					</div>
+					<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</template>
+
+
+<!-- datalist  -->
+<!-- <div class="form-group">
+						<label for="adjuster">Adjuster--</label>
+						<input id="searchInvCode" type="text" list.bind="searchInvCode & setAttribute">
+						<datalist  id.bind="searchInvCode">
+							<option repeat.for="opt of appService.adjusterList">${opt.ADJUSTER_NAME}</option>
+						</datalist>
+					</div> -->
+<!-- <require from="../../utils/set-attribute"></require> -->
+
+<!-- <require from="./set-attribute"></require> -->
+
+
+<!-- <template>
+	<require from="./set-attribute"></require>
+	<section class="full-height flex-column-1 au-animate ignore">
+		<div class="flex-row-none section-header">
+			${heading}
+		</div>
+		<div class="flex-row-1 ignore">
+			<div class="flex-column-1 search-panel">
+				<form role="form" >
+
+					<div class="flex-row-none">
+
+						<div class="form-group flex-column-1">
+							<input id="searchInput" type="text" class="form-control" placeholder="Search for CLAIM_NO..ie.'01-03188'" autocomplete="searchInput"
+							 value.bind="search.claimno">
+						</div>
+				
+						<div class="form-group flex-column-1 margin-left-10">
+							<aubs-typeahead ref='dow' data.bind="appService.stateList" value.bind="name" debounce.bind="350" placeholder="States" open-on-focus.bind="true"
+							 key="name" results-limit.bind="10" select-single-result.bind="true">
+							</aubs-typeahead>
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							Selected State: ${name.value}
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<button class="btn btn-default" click.delegate="name = null" disabled.bind="!name">Clear State</button>
+						</div>
+					</div>
+		
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
 
@@ -102,7 +198,7 @@
 			</div>
 		</div>
 	</section>
-</template>
+</template> -->
 
 
 <!-- datalist  -->
