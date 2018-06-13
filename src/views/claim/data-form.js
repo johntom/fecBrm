@@ -133,10 +133,10 @@ export class DataForm {
           this.currentItem.isDirty = () => {
             //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
             let tf = this.comparedata()
-            alert(tf)
+          //  alert(tf)
             let revtf
             tf === true ? revtf = false : revtf = true
-            alert(revtf)
+          //  alert(revtf)
             return revtf
             // return this.currentItem.LossDescription!==this.appService.originalrec.LossDescription
           };

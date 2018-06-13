@@ -6,7 +6,7 @@
 		</div>
 		<div class="flex-row-1 ignore">
 			<div class="flex-column-1 search-panel">
-				<form role="form" >
+				<form role="form">
 
 					<div class="flex-row-none">
 
@@ -14,7 +14,7 @@
 							<input id="searchInput" type="text" class="form-control" placeholder="Search for CLAIM_NO..ie.'01-03188'" autocomplete="searchInput"
 							 value.bind="search.claimno">
 						</div>
-				
+
 						<div class="form-group flex-column-1 margin-left-10">
 							<aubs-typeahead ref='dow' data.bind="appService.stateList" value.bind="name" debounce.bind="350" placeholder="States" open-on-focus.bind="true"
 							 key="name" results-limit.bind="10" select-single-result.bind="true">
@@ -27,7 +27,7 @@
 							<button class="btn btn-default" click.delegate="name = null" disabled.bind="!name">Clear State</button>
 						</div>
 					</div>
-	
+
 
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
@@ -50,7 +50,7 @@
 
 							<input id="searchartist2" type="text" class="form-control" placeholder="Search for claimant first..." value.bind="search.claimantFirst">
 						</div>
-          	<div class="form-group flex-column-1 margin-left-10">
+						<div class="form-group flex-column-1 margin-left-10">
 
 							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insured..." value.bind="search.insured">
 						</div>
@@ -60,6 +60,10 @@
 
 							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insurance company..." value.bind="search.insco">
 						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<input id="inscoadjuster" type="text" class="form-control" placeholder="Search for ins co adjuster last name..." value.bind="search.inscoadjuster">
+						</div>
+
 						<div class="form-group flex-column-1 margin-left-10">
 							<input id="searchlossdesc" type="text" class="form-control" placeholder="Search for Loss desc..." value.bind="search.lossdesc">
 						</div>
