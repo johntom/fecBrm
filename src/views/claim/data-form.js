@@ -126,13 +126,16 @@ export class DataForm {
 
           //             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
 
+
+          this.appService.currentView = this.currentItem; // must set on every view
+
           this.currentItem.isDirty = () => {
             return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
           };
           this.currentItem.reset = () => {
             this.appService.originalrec = this.currentItem;
           }
-          this.appService.currentView = this.currentItem; // must set on every view
+//          this.appService.currentView = this.currentItem; // must set on every view
 
           this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
 
