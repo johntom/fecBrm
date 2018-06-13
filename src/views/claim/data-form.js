@@ -221,33 +221,33 @@ export class DataForm {
   }
 
   comparedata() {
-    console.log('ADJUSTER', this.currentItem.ADJUSTER === this.appService.originalrec.ADJUSTER)
+    console.log('ADJUSTER', this.currentItem.ADJUSTER.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER.ADJUSTER_NAME)
     console.log('ADJUSTER_NAME', this.currentItem.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER_NAME)
     console.log('ADJUSTER_ID', this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID)
     console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
     console.log('ASSIGNMENT_TYPE_DESC', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
-    console.log('CARRIER_FILE_NO', this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.inscontCARRIER_FILE_NOact)
-    console.log('CLAIMANT_ID', this.currentItem.inscontact === this.appService.originalrec.CLAIMANT_ID)
+    console.log('CARRIER_FILE_NO', this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO)
+    console.log('CLAIMANT_ID', this.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME)
     console.log('CLAIM_TYPE', this.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE)
 
     console.log('DATE_OF_LOSS', this.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS)
     console.log('LossDescription', this.currentItem.LossDescription === this.appService.originalrec.LossDescription)
-    console.log('INSURANCE_ADJUSTER_ID', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.INSURANCE_ADJUSTER_ID)
-    console.log('INSURANCE_COMPANY_ID', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.INSURANCE_COMPANY_ID)
+    console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
+    console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
     console.log('STATUS', this.currentItem.STATUS === this.appService.originalrec.STATUS)
-    console.log('claimant', this.currentItem.claimant === this.appService.originalrec.claimant)
-    console.log('diaries', this.currentItem.diaries === this.appService.originalrec.diaries)
-    console.log('docs', this.currentItem.docs === this.appService.originalrec.docs)
-    console.log('insured', this.currentItem.diaries === this.appService.originalrec.insured)
+    // console.log('claimant', this.currentItem.claimant === this.appService.originalrec.claimant)
+    console.log('diaries', this.currentItem.diaries.length === this.appService.originalrec.diaries.length)
+    console.log('docs', this.currentItem.docslength === this.appService.originalrec.docs.length)
+    console.log('insured', this.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME)
 
     console.log('primaryAdjuster', this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster)
 
 
 
     // console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
-    console.log('insco', this.currentItem.insco === this.appService.originalrec.insco)
+    console.log('insco', this.currentItem.NAME === this.appService.originalrec.insco.NAME)
     //   console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
-    console.log('inscontact', this.currentItem.inscontact === this.appService.originalrec.inscontact)
+    console.log('inscontact', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
     // console.log('4', this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID)
 
     return (
@@ -257,8 +257,8 @@ export class DataForm {
       // && this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
 
 
-      this.currentItem.ADJUSTER === this.appService.originalrec.ADJUSTER
-      && this.currentItem.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER_NAME
+      // this.currentItem.ADJUSTER === this.appService.originalrec.ADJUSTER
+      this.currentItem.ADJUSTER.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER.ADJUSTER_NAME
       && this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID
       // && this.currentItem.ADJUSTER_RATE === this.appService.originalrec.ADJUSTER_RATE
       && this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE
@@ -267,7 +267,7 @@ export class DataForm {
       // && this.currentItem.ASSIST_RATE === this.appService.originalrec.ADJUSTER
       // && this.currentItem.ASSIST_RATE === this.appService.originalrec.ADJUSTER
       && this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO
-      && this.currentItem.CLAIMANT_ID === this.appService.originalrec.CLAIMANT_ID
+      && this.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME
       // && this.currentItem.CLAIM_ID === this.appService.originalrec.ADJUSTER
       // && this.currentItem.CLAIM_NO === this.appService.originalrec.ADJUSTER
       && this.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE
@@ -280,16 +280,16 @@ export class DataForm {
       // DESCRIPTION
       && this.currentItem.LossDescription === this.appService.originalrec.LossDescription
       // && this.currentItem.FORMAL_INSTITUTED === this.appService.originalrec.ADJUSTER
-      && this.currentItem.INSURANCE_ADJUSTER_ID === this.appService.originalrec.INSURANCE_ADJUSTER_ID
-      && this.currentItem.INSURANCE_COMPANY_ID === this.appService.originalrec.INSURANCE_COMPANY_ID
+      // && this.currentItem.INSURANCE_ADJUSTER_ID === this.appService.originalrec.INSURANCE_ADJUSTER_ID
+      // && this.currentItem.INSURANCE_COMPANY_ID === this.appService.originalrec.INSURANCE_COMPANY_ID
       && this.currentItem.STATUS === this.appService.originalrec.STATUS
-      && this.currentItem.adjusters === this.appService.originalrec.adjusters
+      && this.currentItem.adjusters.length === this.appService.originalrec.adjusters.length
       && this.currentItem.claimant === this.appService.originalrec.claimant
-      && this.currentItem.diaries === this.appService.originalrec.diaries
-      && this.currentItem.docs === this.appService.originalrec.docs
-      && this.currentItem.insco === this.appService.originalrec.insco
-      && this.currentItem.inscontact === this.appService.originalrec.inscontact
-      && this.currentItem.insured === this.appService.originalrec.insured
+      && this.currentItem.diaries.length === this.appService.originalrec.diaries.length
+      && this.currentItem.docs.length === this.appService.originalrec.docs.length
+      && this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID
+      && this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
+      && this.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME
       && this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster
 
     )
