@@ -115,13 +115,15 @@ export class DataForm {
             // return this.currentItem.LossDescription!==this.appService.originalrec.LossDescription
           };
           this.currentItem.reset = () => {
-            this.appService.originalrec = this.currentItem;
+         //   this.appService.originalrec = this.currentItem;
+           // check for null
+             this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+         
           }
           // 6-13  
           this.appService.currentView = this.currentItem; // must set on every view
           this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
           this.appService.testrec = claim[0];
-
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
           // Update the current adjuster with the new values

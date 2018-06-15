@@ -1,5 +1,12 @@
 <template>
 	<require from="./set-attribute"></require>
+
+  <require from="aurelia-kendoui-bridge/datepicker/datepicker"></require>
+
+
+
+
+
 	<section class="full-height flex-column-1 au-animate ignore">
 		<div class="flex-row-none section-header">
 			${heading}
@@ -9,7 +16,16 @@
 				<form role="form">
 
 					<div class="flex-row-none">
+  
+	<div class="form-group flex-column-1">
+      <h4>Show e-mails from:</h4>
+      <input id="datepicker" ak-datepicker="k-value.bind:'10/10/2011'" style="width: 100%" />
 
+      <h4 style="margin-top: 2em;">Add to archive mail from:</h4>
+      <input id="monthpicker" ak-datepicker="k-value.bind:'November 2011'; k-start.bind:'year'; k-depth.bind: 'year';k-format.bind:'MMMM yyyy';" style="width: 100%" />
+      </p>
+    </div>
+    	<div class="flex-row-none">
 						<div class="form-group flex-column-1">
 							<input id="searchInput" type="text" class="form-control" placeholder="Search for CLAIM_NO..ie.'01-03188'" autocomplete="searchInput"
 							 value.bind="search.claimno">
