@@ -227,10 +227,10 @@ export class DataForm {
 
 
       // this.currentItem.ADJUSTER === this.appService.originalrec.ADJUSTER
-      this.currentItem.ADJUSTER.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER.ADJUSTER_NAME
+     // this.currentItem.ADJUSTER.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER.ADJUSTER_NAME
       // && this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID
       // && this.currentItem.ADJUSTER_RATE === this.appService.originalrec.ADJUSTER_RATE
-      && this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE
+      this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE
       && this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC
       // && this.currentItem.ASSIST_ID === this.appService.originalrec.ADJUSTER
       // && this.currentItem.ASSIST_RATE === this.appService.originalrec.ADJUSTER
