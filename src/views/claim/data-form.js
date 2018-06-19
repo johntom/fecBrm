@@ -316,7 +316,7 @@ export class DataForm {
     // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION) currentClaim
     console.log('fieldname' + fieldname, this.currentItem.LossDescription)//DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
-
+//INSURED_ID currentItem.insured.LEGAL_NAME
       if (fieldname === 'insco') {
         ///let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1 // or insco.IN...
         let serviceinsco = this.appService.currentItem.insco.INSURANCE_COMPANY_ID * 1 // or insco.IN...
@@ -328,6 +328,14 @@ export class DataForm {
           this.inscoAddresses = item.addresses
         }
       }
+
+ if (fieldname === 'INSURED_ID') {
+  
+      this.currentItem.insured = this.appService.currentItem.insured
+    }
+   
+
+
       console.log(response.output);
     });
   }
