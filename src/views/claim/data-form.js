@@ -134,6 +134,8 @@ export class DataForm {
             // this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[0].ADJUSTER_NAME
             let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
             this.currentItem.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
+            // 6-19
+            this.appService.originalrec.primaryAdjuster=this.currentItem.primaryAdjuster
           }
           let insco = this.appService.InsurancecompanyList
           // let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
@@ -335,7 +337,7 @@ export class DataForm {
         this.currentItem.insured = this.appService.currentItem.insured
       }
 
- if (fieldname === 'LossDescription') {
+      if (fieldname === 'LossDescription') {
 
         this.currentItem.LossDescription = this.appService.currentItem.LossDescription
       }
