@@ -100,15 +100,15 @@ export class DataForm {
           this.appService.currentItem = claim[0];
           //this.currentItem = claim[0]
 
-           this.currentItem = this.appService.currentItem
+         //  this.currentItem = this.appService.currentItem
 
-          this.currentItem.xdesc = claim[0].LossDescription//DESCRIPTION
+          this.appService.currentItem.xdesc = claim[0].LossDescription//DESCRIPTION
 
-          console.log('claim[0] ', this.currentItem.LossDescription, claim[0]);
+          console.log('claim[0] ', this.appService.currentItem.LossDescription, claim[0]);
           // cant do this.appService.currentClaim = JSON.stringify( claim[0])
 
 
-          this.currentItem.isDirty = () => {
+          this.appService.currentItem.isDirty = () => {
             //return JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)
             let tf = this.comparedata()
             //  alert(tf)
@@ -118,15 +118,15 @@ export class DataForm {
             return revtf
             // return this.currentItem.LossDescription!==this.appService.originalrec.LossDescription
           };
-          this.currentItem.reset = () => {
+          this.appService.currentItem.reset = () => {
             //   this.appService.originalrec = this.currentItem;
             // check for null
-            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+            this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
 
           }
           // 6-13  
-          this.appService.currentView = this.currentItem; // must set on every view
-          this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+          this.appService.currentView = this.appService.currentItem; // must set on every view
+          this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
           this.appService.testrec = claim[0];
           console.log('copy this.appService.originalrec ', this.appService.originalrec);
           // let adj = this.appService.adjusterList.find(x => x.ADJUSTER_ID === adjusterid);
@@ -137,9 +137,9 @@ export class DataForm {
           if (claim[0].adjusters !== undefined && claim[0].adjusters.length > 0) {
             // this.appService.currentClaim.primaryAdjuster = claim[0].adjusters[0].ADJUSTER_NAME
             let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
-            this.currentItem.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
+            this.appService.currentItem.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
             // 6-19
-            this.appService.originalrec.primaryAdjuster = this.currentItem.primaryAdjuster
+            this.appService.originalrec.primaryAdjuster = this.appService.currentItem.primaryAdjuster
           }
           let insco = this.appService.InsurancecompanyList
           // let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
@@ -155,7 +155,7 @@ export class DataForm {
             let icd
             let bid
             this.inscoAdjusters = item.contacts
-            icd = this.currentItem.inscontact.INSURANCE_CONTACT_ID
+            icd = this.appService.currentItem.inscontact.INSURANCE_CONTACT_ID
             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
             this.inscontactMatcher = this.inscoAdjusters[bid]
             let a = this.inscoAdjusters
@@ -164,24 +164,24 @@ export class DataForm {
             console.log('inscontactMatcher ', this.inscontactMatcher)
           }
 
-          if ((this.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+          if ((this.appService.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
             let insured = this.appService.insuredList
             oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentClaim.INSURED_ID)
             console.log('oid ', oid)
             insuredobj = this.appService.insuredList[oid]//10]
             console.log('insuredobj ', insuredobj)
-            if (insuredobj !== undefined) this.currentItem.LEGAL_NAME = insuredobj.LEGAL_NAME
+            if (insuredobj !== undefined) this.appService.currentItem.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
           // setup insured
           let oid
           let insuredobj
           let insured = this.appService.insuredList
-          if ((this.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+          if ((this.appService.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
             oid = insured.findIndex(x => x.INSURED_ID === this.currentItem.INSURED_ID)
             insuredobj = this.appService.insuredList[oid]//10]
-            if (insuredobj !== undefined) this.currentItem.LEGAL_NAME = insuredobj.LEGAL_NAME
+            if (insuredobj !== undefined) this.appService.currentItem.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
           // end setup insured
 
@@ -194,23 +194,23 @@ export class DataForm {
   }
 
   comparedata() {
-    console.log('ADJUSTER_NAME', this.currentItem.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER_NAME)
-    console.log('ADJUSTER_ID', this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID)
-    console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
-    console.log('ASSIGNMENT_TYPE_DESC', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
-    console.log('CARRIER_FILE_NO', this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO)
-    console.log('CLAIMANT_ID', this.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME)
-    console.log('CLAIM_TYPE', this.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE)
-    console.log('DATE_OF_LOSS', this.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS)
-    console.log('LossDescription', this.currentItem.LossDescription === this.appService.originalrec.LossDescription)
-    console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
-    console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
-    console.log('STATUS', this.currentItem.STATUS === this.appService.originalrec.STATUS)
-    console.log('insured', this.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME)
-    console.log('primaryAdjuster', this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster)
-    console.log('insco', this.currentItem.insco.NAME, this.appService.originalrec.insco.NAME, this.currentItem.insco.NAME === this.appService.originalrec.insco.NAME)
-    console.log('inscontact', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
-    console.log('claimant.LAST_NAME', this.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME)
+    console.log('ADJUSTER_NAME', this.appService.currentItem.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER_NAME)
+    console.log('ADJUSTER_ID', this.appService.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID)
+    console.log('ASSIGNMENT_TYPE', this.appService.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
+    console.log('ASSIGNMENT_TYPE_DESC', this.appService.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
+    console.log('CARRIER_FILE_NO', this.appService.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO)
+    console.log('CLAIMANT_ID', this.appService.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME)
+    console.log('CLAIM_TYPE', this.appService.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE)
+    console.log('DATE_OF_LOSS', this.appService.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS)
+    console.log('LossDescription', this.appService.currentItem.LossDescription === this.appService.originalrec.LossDescription)
+    console.log('ASSIGNMENT_TYPE', this.appService.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
+    console.log('ASSIGNMENT_TYPE', this.appService.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
+    console.log('STATUS', this.appService.currentItem.STATUS === this.appService.originalrec.STATUS)
+    console.log('insured', this.appService.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME)
+    console.log('primaryAdjuster', this.appService.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster)
+    console.log('insco', this.appService.currentItem.insco.NAME, this.appService.originalrec.insco.NAME, this.currentItem.insco.NAME === this.appService.originalrec.insco.NAME)
+    console.log('inscontact', this.appService.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
+    console.log('claimant.LAST_NAME', this.appService.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME)
 
     /// console.log('claimant', this.currentItem.claimant === this.appService.originalrec.claimant)
     //console.log('diaries', this.currentItem.diaries.length === this.appService.originalrec.diaries.length)
@@ -230,35 +230,35 @@ export class DataForm {
       // this.currentItem.ADJUSTER.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER.ADJUSTER_NAME
       // && this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID
       // && this.currentItem.ADJUSTER_RATE === this.appService.originalrec.ADJUSTER_RATE
-      this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE
-      && this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC
+      this.appService.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE
+      && this.appService.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC
       // && this.currentItem.ASSIST_ID === this.appService.originalrec.ADJUSTER
       // && this.currentItem.ASSIST_RATE === this.appService.originalrec.ADJUSTER
       // && this.currentItem.ASSIST_RATE === this.appService.originalrec.ADJUSTER
-      && this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO
-      && this.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME
+      && this.appService.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO
+      && this.appService.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME
       /// && this.currentItem.CLAIM_ID === this.appService.originalrec.ADJUSTER
       /// && this.currentItem.CLAIM_NO === this.appService.originalrec.ADJUSTER
-      && this.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE
+      && this.appService.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE
       /// && this.currentItem.CLOSED_AMT === this.appService.originalrec.ADJUSTER
       /// && this.currentItem.COMMENTS === this.appService.originalrec.ADJUSTER
       /// && this.currentItem.DATE_INSTITUTED === this.appService.originalrec.ADJUSTER
-      && this.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS
+      && this.appService.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS
       /// && this.currentItem.DEFAULT_FEE === this.appService.originalrec.ADJUSTER
       /// && this.currentItem.DEFENSE_ATTY === this.appService.originalrec.ADJUSTER
       /// DESCRIPTION
-      && this.currentItem.LossDescription === this.appService.originalrec.LossDescription
+      && this.appService.currentItem.LossDescription === this.appService.originalrec.LossDescription
       /// && this.currentItem.FORMAL_INSTITUTED === this.appService.originalrec.ADJUSTER
       /// && this.currentItem.INSURANCE_ADJUSTER_ID === this.appService.originalrec.INSURANCE_ADJUSTER_ID
       /// && this.currentItem.INSURANCE_COMPANY_ID === this.appService.originalrec.INSURANCE_COMPANY_ID
-      && this.currentItem.STATUS === this.appService.originalrec.STATUS
-      && this.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME
-      && this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster
-      && this.currentItem.insco.NAME === this.appService.originalrec.insco.NAME
-      && this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
+      && this.appService.currentItem.STATUS === this.appService.originalrec.STATUS
+      && this.appService.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME
+      && this.appService.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster
+      && this.appService.currentItem.insco.NAME === this.appService.originalrec.insco.NAME
+      && this.appService.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST
 
       /// && this.currentItem.adjusters.length === this.appService.originalrec.adjusters.length
-      && this.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME
+      && this.appService.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME
       // && this.currentItem.diaries.length === this.appService.originalrec.diaries.length
       //  && this.currentItem.docs.length === this.appService.originalrec.docs.length
 
@@ -316,7 +316,7 @@ export class DataForm {
   showModal(fieldname) {
 
     // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION) currentClaim
-    console.log('fieldname' + fieldname, this.currentItem.LossDescription)//DESCRIPTION)
+    console.log('fieldname' + fieldname, this.appService.currentItem.LossDescription)//DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
       //INSURED_ID currentItem.insured.LEGAL_NAME
       if (fieldname === 'insco') {
@@ -328,18 +328,18 @@ export class DataForm {
           let item = insco[aid];
           this.inscoAdjusters = item.contacts
           this.inscoAddresses = item.addresses
-          this.currentItem.insco = this.appService.currentItem.insco
+        //  this.appService.currentItem.insco = this.appService.currentItem.insco
         }
       }
 
       if (fieldname === 'INSURED_ID') {
 
-        this.currentItem.insured = this.appService.currentItem.insured
+      //  this.currentItem.insured = this.appService.currentItem.insured
       }
 
       if (fieldname === 'LossDescription') {
 
-        this.currentItem.LossDescription = this.appService.currentItem.LossDescription
+       // this.currentItem.LossDescription = this.appService.currentItem.LossDescription
       }
 
       console.log(response.output);
@@ -430,10 +430,10 @@ export class DataForm {
 
       return confirm('You must add a primary adjuster');
     }
-    if (JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)) {
+    if (JSON.stringify(this.appService.currentItem) !== JSON.stringify(this.appService.originalrec)) {
 
       if (this.recordId === 'create') {
-        this.api.addclaim(this.currentItem).then((jsonRes) => {
+        this.api.addclaim(this.appService.currentItem).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
           //let tab = this.appService.tabs.find(f => f.isSelected);
           //this.closeTab(tab);
@@ -446,7 +446,7 @@ export class DataForm {
           // if (option === 1) this.close()
         });
       } else {
-        this.api.saveclaim(this.currentItem).then((jsonRes) => {
+        this.api.saveclaim(this.appService.currentItem).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
 
           //  this.router.navigate(rt2);
@@ -462,7 +462,7 @@ export class DataForm {
 
           } else {
             // this.appService.originalrec = this.currentItem
-             this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+             this.appService.originalrec = JSON.parse(JSON.stringify(this.appService.currentItem))// inv[0]));
 
           }
         });
@@ -506,9 +506,9 @@ export class DataForm {
   // }
   canDeactivate() {
     return new Promise((resolve, reject) => {
-      if (this.currentItem &&
-        this.currentItem.isDirty &&
-        this.currentItem.isDirty()) {
+      if (this.appService.currentItem &&
+        this.appService.currentItem.isDirty &&
+        this.appService.currentItem.isDirty()) {
         // Now, we need to query the user... result => makes it a closure
         this.appService.asyncHandleDirty().then(result => {
           if (!result.wasCancelled) {
@@ -546,11 +546,11 @@ export class DataForm {
   }
   //    async tryCloseTab(item, tab, route) {
   requestclose() {
-    const resetFunc = () => { this.appService.originalrec = this.currentItem; };
+    const resetFunc = () => { this.appService.originalrec = this.appService.currentItem; };
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    this.appService.tryCloseTab(this.currentItem, tab, rt2);
+    this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
     // if (cand) {
     //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
     //   //  this.close()

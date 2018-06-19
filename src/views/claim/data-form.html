@@ -34,7 +34,7 @@ window.onclose = closedWin;
 										<strong> CLAIM_NO</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input type="text" id="CLAIM_NO" class="form-control input-sm" value.bind="currentItem.CLAIM_NO">
+										<input type="text" id="CLAIM_NO" class="form-control input-sm" value.bind="appService.currentItem.CLAIM_NO">
 									</div>
 
 									<div class="Rtable-cell-30 Rtable-cell--green">
@@ -42,27 +42,27 @@ window.onclose = closedWin;
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
 
-										<input click.delegate="showModal('INSURED_ID')" type="text" id="INSURED_ID" class="form-control input-sm" value.bind="currentItem.insured.LEGAL_NAME">
+										<input click.delegate="showModal('INSURED_ID')" type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentItem.insured.LEGAL_NAME">
 
 									</div>
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> Claimant Last</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input type="text" id="LAST_NAME" class="form-control input-sm" value.bind="currentItem.claimant.LAST_NAME">
+										<input type="text" id="LAST_NAME" class="form-control input-sm" value.bind="appService.currentItem.claimant.LAST_NAME">
 									</div>
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> Claimant First</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input type="text" id="FIRST_NAME" class="form-control input-sm" value.bind="currentItem.claimant.FIRST_NAME">
+										<input type="text" id="FIRST_NAME" class="form-control input-sm" value.bind="appService.currentItem.claimant.FIRST_NAME">
 									</div>
 
 									<div class="Rtable-cell-30 Rtable-cell--green">
 										<strong> DATE OF LOSS </strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input type="date" id="DATE_OF_LOSS" class="form-control input-sm" value.bind="currentItem.DATE_OF_LOSS">
+										<input type="date" id="DATE_OF_LOSS" class="form-control input-sm" value.bind="appService.currentItem.DATE_OF_LOSS">
 									</div>
 
 
@@ -71,7 +71,7 @@ window.onclose = closedWin;
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										${currentItem.primaryAdjuster}
-										<!-- <select id="adjuster" class="form-control input-sm" value.bind="currentItem.ADJUSTER_ID"> 
+										<!-- <select id="adjuster" class="form-control input-sm" value.bind="appService.currentItem.ADJUSTER_ID"> 
                       <option model.bind="null">Choose...${currentItem.ADJUSTER_ID}</option> 
                       <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
                         ${opt.ADJUSTER_NAME}  
@@ -83,8 +83,8 @@ window.onclose = closedWin;
 										<strong> MAS Rep</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<select id="adjuster" class="form-control input-sm" value.bind="currentItem.ACCOUNT_REP_ID"> 
-                      <option model.bind="null">Choose...${currentItem.ACCOUNT_REP_ID}</option> 
+										<select id="adjuster" class="form-control input-sm" value.bind="appService.currentItem.ACCOUNT_REP_ID"> 
+                      <option model.bind="null">Choose...${appService.currentItem.ACCOUNT_REP_ID}</option> 
                       <option repeat.for="opt of appService.MasrepList" model.bind="opt.ACCOUNT_REP_ID">
                         ${opt.REP_LAST}  
                       </option> 
@@ -95,7 +95,7 @@ window.onclose = closedWin;
 										<strong> Accident Location</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<input type="text" id="LOCATION_ID" class="form-control input-sm" value.bind="currentItem.LOCATION_ID">
+										<input type="text" id="LOCATION_ID" class="form-control input-sm" value.bind="appService.currentItem.LOCATION_ID">
 									</div>
 
 
@@ -113,7 +113,7 @@ window.onclose = closedWin;
 										<strong> CLAIM_TYPE</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										<select id="CLAIM_TYPE" class="form-control input-sm" value.bind="currentItem.CLAIM_TYPE"> 
+										<select id="CLAIM_TYPE" class="form-control input-sm" value.bind="appService.currentItem.CLAIM_TYPE"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of appService.claimtypeList" model.bind="opt.CLAIM_TYPE_ID">
                         ${opt.CLAIM_TYPE_DESC} 
@@ -127,7 +127,7 @@ window.onclose = closedWin;
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										<input ref="lossdesc4" type="text" id="LossDescription" dblclick.delegate="showModal('LossDescription')" class="form-control input-sm"
-										 value.bind="currentItem.LossDescription">
+										 value.bind="appService.currentItem.LossDescription">
 									</div>
 
 
@@ -135,8 +135,8 @@ window.onclose = closedWin;
 										<strong> INSURANCE COMPANY&gt;</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<input click.delegate="showModal('insco')" type="text" id="INSURANCE" class="form-control input-sm" value.bind="currentItem.insco.NAME">
-										<!-- <input type="text" id="INSURED_ID" class="form-control input-sm" value.bind="currentItem.insured.LEGAL_NAME"> -->
+										<input click.delegate="showModal('insco')" type="text" id="INSURANCE" class="form-control input-sm" value.bind="appService.currentItem.insco.NAME">
+										<!-- <input type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentItem.insured.LEGAL_NAME"> -->
 
 									</div>
 
@@ -146,8 +146,8 @@ window.onclose = closedWin;
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
 										<span> 
-                    ${currentItem.insco.ADDRESS}/${currentItem.INSURANCE_CONTACT_ID}/inscontact:
-                    ${currentItem.inscontact.LAST_NAME} 
+                    ${appService.currentItem.insco.ADDRESS}/${appService.currentItem.INSURANCE_CONTACT_ID}/inscontact:
+                    ${vcurrentItem.inscontact.LAST_NAME} 
 									</span>
 									</div>
 
@@ -157,7 +157,7 @@ window.onclose = closedWin;
 										<strong> CARRIER_FILE_NO</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<input type="text" id="CARRIER_FILE_NO" class="form-control input-sm" value.bind="currentItem.CARRIER_FILE_NO">
+										<input type="text" id="CARRIER_FILE_NO" class="form-control input-sm" value.bind="appService.currentItem.CARRIER_FILE_NO">
 									</div>
 
 
@@ -167,7 +167,7 @@ window.onclose = closedWin;
 										<strong> Ins Carrier Adjuster2</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<select class="form-control input-sm" value.bind="currentItem.inscontact" matcher.bind="inscontactMatcher"> 
+										<select class="form-control input-sm" value.bind="appService.currentItem.inscontact" matcher.bind="inscontactMatcher"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="inscontact of inscoAdjusters" model.bind="inscontact">
                        ${inscontact.NAME_LAST},  ${inscontact.NAME_FIRST}  
@@ -192,13 +192,13 @@ window.onclose = closedWin;
 										<strong> ASSIGNMENT TYPE</strong>
 									</div>
 									<div class="Rtable-cell-70  Rtable-cell--highlight">
-										<input type="text" id="ASSIGNMENT_TYPE" class="form-control input-sm" value.bind="currentItem.ASSIGNMENT_TYPE">
+										<input type="text" id="ASSIGNMENT_TYPE" class="form-control input-sm" value.bind="appService.currentItem.ASSIGNMENT_TYPE">
 									</div> -->
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> Status</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<select id="STATUS" class="form-control input-sm" value.bind="currentItem.STATUS"> 
+										<select id="STATUS" class="form-control input-sm" value.bind="appService.currentItem.STATUS"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of appService.statusList" model.bind="opt.value">
                         ${opt.name} 
@@ -211,14 +211,14 @@ window.onclose = closedWin;
 										<strong> DIARY </strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<input type="date" id="REPORTED" class="form-control input-sm" value.bind="currentItem.REPORTED">
+										<input type="date" id="REPORTED" class="form-control input-sm" value.bind="appService.currentItem.REPORTED">
 									</div>
 
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> CLOSED </strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<input type="date" id="CLOSED" class="form-control input-sm" value.bind="currentItem.CLOSED">
+										<input type="date" id="CLOSED" class="form-control input-sm" value.bind="appService.currentItem.CLOSED">
 									</div>
 
 
@@ -227,13 +227,13 @@ window.onclose = closedWin;
 										<strong> ReOpened Date </strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<input type="date" id="EDITED" class="form-control input-sm" value.bind="currentItem.EDITED">
+										<input type="date" id="EDITED" class="form-control input-sm" value.bind="appService.currentItem.EDITED">
 									</div>
 									<div class="Rtable-cell-30 Rtable-cell--highlight">
 										<strong> RECEIVED </strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
-										<input type="date" id="RECEIVED" class="form-control input-sm" value.bind="currentItem.RECEIVED">
+										<input type="date" id="RECEIVED" class="form-control input-sm" value.bind="appService.currentItem.RECEIVED">
 									</div>
 								</div>
 								<!-- flex row none -->
@@ -285,7 +285,7 @@ window.onclose = closedWin;
 
 <!-- <div class="form-group flex-column-1 margin-left">
 										<label for="state">INSURED_ID</label>
-										<select id="INSURED_ID" class="form-control input-sm" value.bind="currentItem.INSURED_ID | number">  
+										<select id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentItem.INSURED_ID | number">  
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of appService.insuredList" model.bind="opt.INSURED_ID">
                       ${opt.LEGAL_NAME} 
@@ -300,7 +300,7 @@ window.onclose = closedWin;
 
 <!-- <div class="form-group flex-column-1 margin-left-10">
 										<label for="firstName">Ins Carrier Adjuster</label>
-										<select id="STATUS" class="form-control input-sm" value.bind="currentItem.INSURANCE_CONTACT_ID"> 
+										<select id="STATUS" class="form-control input-sm" value.bind="appService.currentItem.INSURANCE_CONTACT_ID"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of appService.InsurancecompanycontactList" model.bind="opt.INSURANCE_ADJUSTER_ID">
                         ${opt.name} 
@@ -321,11 +321,11 @@ window.onclose = closedWin;
 									</div> -->
 
 <!-- adjusters        typeahead="items.bind:appService.adjusterList" type="text" name="adjuster" -->
-<!-- input.delegate="currentItem.ADJUSTER_ID = findAdjusterListOption($event.target.value)"> -->
+<!-- input.delegate="appService.currentItem.ADJUSTER_ID = findAdjusterListOption($event.target.value)"> -->
 
 <!-- <div class="form-group flex-column-1  margin-left-10">
 										<label for="state2">Adjuster A</label>
-										<input id="adjuster2" type="text" list.bind="adjusterList & setAttribute" value.bind="currentItem.ADJUSTER_ID">
+										<input id="adjuster2" type="text" list.bind="adjusterList & setAttribute" value.bind="appService.currentItem.ADJUSTER_ID">
 										<datalist id="adjusterList">
 											<option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">${opt.ADJUSTER_NAME}</option>
 										</datalist>
@@ -354,12 +354,12 @@ window.onclose = closedWin;
 <!-- <div class="form-group flex-column-1 ">
 
 										<label for="firstName">Ins ADDRESS</label>
-										<input type="text" id="firstName" class="form-control input-sm" value.bind="currentItem.insco.ADDRESS">
+										<input type="text" id="firstName" class="form-control input-sm" value.bind="appService.currentItem.insco.ADDRESS">
 									</div>
 								 -->
 <!-- <div class="form-group flex-column-1  margin-left-10 ">
 										<label for="state">INSURANCE_COMPANY_ID</label>
-										<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="currentItem.INSURANCE_COMPANY_ID"> 
+										<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="appService.currentItem.INSURANCE_COMPANY_ID"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of appService.InsurancecompanyList" model.bind="opt.INSURANCE_COMPANY_ID">
                         ${opt.NAME} 
