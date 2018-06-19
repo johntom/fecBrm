@@ -5,7 +5,7 @@ export function configure(aurelia) {
     .developmentLogging()
     .feature('src/resources')
     .plugin('aurelia-dialog')
-   
+     .plugin('aurelia-kendoui-bridge')
     // .plugin(PLATFORM.moduleName('aurelia-portal-attribute'))
     .plugin('aurelia-bootstrap', config => {
       config.options.accordionCloseOthers = true;
