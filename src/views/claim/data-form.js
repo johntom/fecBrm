@@ -159,7 +159,7 @@ export class DataForm {
             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
             this.inscontactMatcher = this.inscoAdjusters[bid]
             let a = this.inscoAdjusters
-            let b = this.currentItem.inscontact
+            let b = this.appService.currentItem.inscontact
             this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
             console.log('inscontactMatcher ', this.inscontactMatcher)
           }
@@ -179,7 +179,7 @@ export class DataForm {
           let insured = this.appService.insuredList
           if ((this.appService.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
           } else {
-            oid = insured.findIndex(x => x.INSURED_ID === this.currentItem.INSURED_ID)
+            oid = insured.findIndex(x => x.INSURED_ID === this.appService.currentItem.INSURED_ID)
             insuredobj = this.appService.insuredList[oid]//10]
             if (insuredobj !== undefined) this.appService.currentItem.LEGAL_NAME = insuredobj.LEGAL_NAME
           }
