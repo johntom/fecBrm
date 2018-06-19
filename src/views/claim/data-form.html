@@ -59,7 +59,7 @@ window.onclose = closedWin;
 									</div>
 
 									<div class="Rtable-cell-30 Rtable-cell--green">
-										<strong> DATE OF LOSS </strong>
+										<strong> DATE OF ASSIGNMENT </strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										<input type="date" id="DATE_OF_LOSS" class="form-control input-sm" value.bind="appService.currentItem.DATE_OF_LOSS">
@@ -70,7 +70,7 @@ window.onclose = closedWin;
 										<strong> Adjuster</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
-										${currentItem.primaryAdjuster}
+										${appService.currentItem.primaryAdjuster}
 										<!-- <select id="adjuster" class="form-control input-sm" value.bind="appService.currentItem.ADJUSTER_ID"> 
                       <option model.bind="null">Choose...${currentItem.ADJUSTER_ID}</option> 
                       <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
@@ -123,7 +123,7 @@ window.onclose = closedWin;
 
 
 									<div class="Rtable-cell-30 Rtable-cell--green">
-										<strong> LossDescription</strong>
+										<strong> Assign Instruction&gt;&gt;</strong>
 									</div>
 									<div class="Rtable-cell-70 Rtable-cell--green">
 										<input ref="lossdesc4" type="text" id="LossDescription" dblclick.delegate="showModal('LossDescription')" class="form-control input-sm"
@@ -147,7 +147,7 @@ window.onclose = closedWin;
 									<div class="Rtable-cell-70 Rtable-cell--highlight">
 										<span> 
                     ${appService.currentItem.insco.ADDRESS}/${appService.currentItem.INSURANCE_CONTACT_ID}/inscontact:
-                    ${vcurrentItem.inscontact.LAST_NAME} 
+                    ${appService.currentItem.inscontact.LAST_NAME} 
 									</span>
 									</div>
 

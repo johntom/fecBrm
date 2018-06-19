@@ -77,6 +77,7 @@ export class DataForm {
         this.appService.currentItem.id = 'create'
         this.appService.testrec = {}
         this.appService.originalrec = {}
+          this.appService.currentItem.STATUS=1
         this.appService.currentItem.insured = {}
         this.appService.currentItem.claimant = {}
         this.appService.currentItem.insco = {}
@@ -444,6 +445,7 @@ export class DataForm {
         this.appService.currentItem.id = 'create'
         this.appService.testrec = {}
         this.appService.originalrec = {}
+         this.appService.currentItem.STATUS=1
         this.appService.currentItem.insured = {}
         this.appService.currentItem.claimant = {}
         this.appService.currentItem.insco = {}

@@ -1,6 +1,25 @@
 git hub repo
-ALWAYS TEST https://jif.bergenrisk.com/api/v1/adjuster
 to see changes must commit
+ALWAYS TEST https://jif.bergenrisk.com/api/v1/adjuster
+
+6-19-18
+keybd or mouse on entry tab
+Add a new insured on fly
+x Add >> to loss desc change name to AssignInstuction
+Add Carrier Adjuster on fly 
+popup insco add city/state (see docs as might have to change)
+x always open status on new
+What happens if you change Insco
+Option to email or print claim (aka assignment sheet all header info) usually to bob nardi
+x Adjuster not asigned to header
+x open pdf not displaying becase of ssl (https://adjusters.markadjustment.com/docs/01-03188/01-03188%20Assignment.pdf)
+http://adjusters.markadjustment.com/docs/01-03220/01-03200%20fc%20cornerstone-1.pdf
+
+daily ctrl A (ALT+A) to add new entry (shrt cut to + Add Daily) (email is option)
+Export If we have issues
+Add Daily Place new on top
+Freeze adjuster per daily batch (only claims for that adjuster shd display)
+Delete does not work
 
 5/10/18
 to do
