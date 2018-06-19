@@ -96,8 +96,10 @@ export class Prompt {
         }
         if (mid === -1) mid = 0
         let insurcoobj = inscompanies[mid];
-        this.NAME = insurcoobj
-        this.dinsco.value = this.NAME
+        // this.NAME = insurcoobj
+        // this.dinsco.value = this.NAME
+          this.FullName = insurcoobj
+        this.dinsco.value = this.FullName
       }
     }
     if (this.fieldname === 'INSURED_ID') {
@@ -152,12 +154,12 @@ export class Prompt {
       // let NAME = `${this.NAME.NAME}`
       // let id = `${this.NAME._id}`
       // let addr = `${this.NAME.ADDRESS}`
-  let orgid = `${this.FullName.INSURANCE_COMPANY_ID}`
+      let orgid = `${this.FullName.INSURANCE_COMPANY_ID}`
       let NAME = `${this.FullName.NAME}`
       let id = `${this.FullName._id}`
       let addr = `${this.FullName.ADDRESS}`
-let city = `${this.FullName.CITY}`
-let state = `${this.FullName.STATE}`
+      let city = `${this.FullName.CITY}`
+      let state = `${this.FullName.STATE}`
 
       this.currentItem.INSURANCE_COMPANY_ID = orgid // keep for legacy until converted
       // this.currentItem.LEGAL_NAME = LEGAL_NAME
@@ -165,7 +167,7 @@ let state = `${this.FullName.STATE}`
       this.currentItem.insco.NAME = NAME
       this.currentItem.insco.INSURANCE_COMPANY_ID = orgid
       this.currentItem.insco.id = id
-      this.currentItem.insco.ADDRESS = addr +' '+city +' '+state
+      this.currentItem.insco.ADDRESS = addr + ' ' + city + ' ' + state
 
 
       this.appService.currentItem.insco = this.currentItem.insco
