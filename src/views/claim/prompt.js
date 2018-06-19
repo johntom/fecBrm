@@ -148,10 +148,16 @@ export class Prompt {
 
     }
     if (this.fieldname === 'insco') {
-      let orgid = `${this.NAME.INSURANCE_COMPANY_ID}`
-      let NAME = `${this.NAME.NAME}`
-      let id = `${this.NAME._id}`
-      let addr = `${this.NAME.ADDRESS}`
+      // let orgid = `${this.NAME.INSURANCE_COMPANY_ID}`
+      // let NAME = `${this.NAME.NAME}`
+      // let id = `${this.NAME._id}`
+      // let addr = `${this.NAME.ADDRESS}`
+  let orgid = `${this.FullName.INSURANCE_COMPANY_ID}`
+      let NAME = `${this.FullName.NAME}`
+      let id = `${this.FullName._id}`
+      let addr = `${this.FullName.ADDRESS}`
+let city = `${this.FullName.CITY}`
+let state = `${this.FullName.STATE}`
 
       this.currentItem.INSURANCE_COMPANY_ID = orgid // keep for legacy until converted
       // this.currentItem.LEGAL_NAME = LEGAL_NAME
@@ -159,7 +165,7 @@ export class Prompt {
       this.currentItem.insco.NAME = NAME
       this.currentItem.insco.INSURANCE_COMPANY_ID = orgid
       this.currentItem.insco.id = id
-      this.currentItem.insco.ADDRESS = addr
+      this.currentItem.insco.ADDRESS = addr +' '+city +' '+state
 
 
       this.appService.currentItem.insco = this.currentItem.insco

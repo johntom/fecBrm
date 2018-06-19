@@ -16,6 +16,9 @@ x open pdf not displaying becase of ssl (https://adjusters.markadjustment.com/do
 http://adjusters.markadjustment.com/docs/01-03220/01-03200%20fc%20cornerstone-1.pdf
 
 daily ctrl A (ALT+A) to add new entry (shrt cut to + Add Daily) (email is option)
+https://ilikekillnerds.com/2016/01/working-with-keypress-events-in-aurelia/
+http://blog.philiphendry.me.uk/2016/02/07/binding-key-presses-using-mousetrap-in-aurelia
+
 Export If we have issues
 Add Daily Place new on top
 Freeze adjuster per daily batch (only claims for that adjuster shd display)

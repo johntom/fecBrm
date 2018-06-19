@@ -110,6 +110,13 @@ export class Home {
           this.appService.expenseList[i].DESCRIPTION = this.appService.expenseList[i].SORT_NO + ' ' + this.appService.expenseList[i].DESCRIPTION
         }
 
+ for (i = 0; i < this.appService.InsurancecompanyList.length; i++) {
+          this.appService.InsurancecompanyList[i].FullName = this.appService.InsurancecompanyList[i].NAME + ' ' + this.appService.InsurancecompanyList[i].ADDRESS
+       + ' ' + this.appService.InsurancecompanyList[i].CITY+ ' ' + this.appService.InsurancecompanyList[i].STATE
+        }
+
+
+
 
         //bad   this.currentItem = this.items.find(f => f.id == params.id);
       }).catch(error => {
