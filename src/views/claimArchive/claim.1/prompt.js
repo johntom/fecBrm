@@ -169,7 +169,7 @@ export class Prompt {
       this.currentItem.insured.LEGAL_NAME = LEGAL_NAME
       this.currentItem.insured.INSURED_ID = orgid
       this.currentItem.insured.id = id
-      this.appService.currentItem.insured=this.currentItem.insured
+      this.appService.currentItem.insured = this.currentItem.insured
     }
 
     if (this.fieldname === 'ADJUSTER_ID') {
