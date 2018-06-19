@@ -74,7 +74,7 @@ export class DataForm {
         // this.appService.currentClaim.notes = []
         // this.appService.currentClaim.adjusters = []
         this.appService.currentItem = {}
-        this.appService.currentItem.id='create'
+        this.appService.currentItem.id = 'create'
         this.appService.testrec = {}
         this.appService.originalrec = {}
         this.appService.currentItem.insured = {}
@@ -136,7 +136,7 @@ export class DataForm {
             let aid = claim[0].adjusters.findIndex(x => x.TYPE === "Primary")
             this.currentItem.primaryAdjuster = claim[0].adjusters[aid].ADJUSTER_NAME;
             // 6-19
-            this.appService.originalrec.primaryAdjuster=this.currentItem.primaryAdjuster
+            this.appService.originalrec.primaryAdjuster = this.currentItem.primaryAdjuster
           }
           let insco = this.appService.InsurancecompanyList
           // let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1
@@ -198,14 +198,12 @@ export class DataForm {
     console.log('CARRIER_FILE_NO', this.currentItem.CARRIER_FILE_NO === this.appService.originalrec.CARRIER_FILE_NO)
     console.log('CLAIMANT_ID', this.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME)
     console.log('CLAIM_TYPE', this.currentItem.CLAIM_TYPE === this.appService.originalrec.CLAIM_TYPE)
-
     console.log('DATE_OF_LOSS', this.currentItem.DATE_OF_LOSS === this.appService.originalrec.DATE_OF_LOSS)
     console.log('LossDescription', this.currentItem.LossDescription === this.appService.originalrec.LossDescription)
     console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE)
     console.log('ASSIGNMENT_TYPE', this.currentItem.ASSIGNMENT_TYPE_DESC === this.appService.originalrec.ASSIGNMENT_TYPE_DESC)
     console.log('STATUS', this.currentItem.STATUS === this.appService.originalrec.STATUS)
     console.log('insured', this.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME)
-
     console.log('primaryAdjuster', this.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster)
     console.log('insco', this.currentItem.insco.NAME, this.appService.originalrec.insco.NAME, this.currentItem.insco.NAME === this.appService.originalrec.insco.NAME)
     console.log('inscontact', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
@@ -214,8 +212,6 @@ export class DataForm {
     /// console.log('claimant', this.currentItem.claimant === this.appService.originalrec.claimant)
     //console.log('diaries', this.currentItem.diaries.length === this.appService.originalrec.diaries.length)
     //console.log('docs',this.currentItem.docs.length, this.appService.originalrec.docs.length,this.currentItem.docs.length === this.appService.originalrec.docs.length)
-
-
     // console.log('2', this.currentItem.insco.INSURANCE_COMPANY_ID === this.appService.originalrec.insco.INSURANCE_COMPANY_ID)
     //   console.log('3', this.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
     // console.log('4', this.currentItem.INSURED_ID === this.appService.originalrec.INSURED_ID)
@@ -228,7 +224,7 @@ export class DataForm {
 
 
       // this.currentItem.ADJUSTER === this.appService.originalrec.ADJUSTER
-     // this.currentItem.ADJUSTER.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER.ADJUSTER_NAME
+      // this.currentItem.ADJUSTER.ADJUSTER_NAME === this.appService.originalrec.ADJUSTER.ADJUSTER_NAME
       // && this.currentItem.ADJUSTER_ID === this.appService.originalrec.ADJUSTER_ID
       // && this.currentItem.ADJUSTER_RATE === this.appService.originalrec.ADJUSTER_RATE
       this.currentItem.ASSIGNMENT_TYPE === this.appService.originalrec.ASSIGNMENT_TYPE
@@ -426,8 +422,8 @@ export class DataForm {
     if (pcount > 1) {
 
       return confirm('There can only be one primary adjuster');
-    } 
-     if (pcount ===0) {
+    }
+    if (pcount === 0) {
 
       return confirm('You must add a primary adjuster');
     }
@@ -436,15 +432,15 @@ export class DataForm {
       if (this.recordId === 'create') {
         this.api.addclaim(this.currentItem).then((jsonRes) => {
           console.log('jsonRes ', jsonRes);
-          let tab = this.appService.tabs.find(f => f.isSelected);
-
-          this.closeTab(tab);
-          // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-          // console.log('this.tabname ', this.tabname)
-          if(this.appService.currentItem.id==='create') this.appService.currentItem.id=''
+          //let tab = this.appService.tabs.find(f => f.isSelected);
+          //this.closeTab(tab);
+          if (this.appService.currentItem.id === 'create') this.appService.currentItem.id = ''
           window.alert("Save successful!");
-          this.skippromt = true
-          if (option === 1) this.close()
+//          this.appService.originalrec = this.currentItem
+            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+
+          // this.skippromt = true
+          // if (option === 1) this.close()
         });
       } else {
         this.api.saveclaim(this.currentItem).then((jsonRes) => {
@@ -462,9 +458,9 @@ export class DataForm {
             this.requestclose()
 
           } else {
-            //    this.appService.originalrec = this.appService.currentClaim//JSON.parse(JSON.stringify(claim[0]));
-            //  this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem));
-            this.appService.originalrec = this.currentItem
+            // this.appService.originalrec = this.currentItem
+             this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+
           }
         });
       }
