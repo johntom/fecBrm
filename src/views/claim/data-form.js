@@ -98,7 +98,10 @@ export class DataForm {
           // this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
           this.appService.currentItem = claim[0];
-          this.currentItem = claim[0]
+          //this.currentItem = claim[0]
+
+           this.currentItem = this.appService.currentItem
+
           this.currentItem.xdesc = claim[0].LossDescription//DESCRIPTION
 
           console.log('claim[0] ', this.currentItem.LossDescription, claim[0]);
@@ -437,7 +440,7 @@ export class DataForm {
           if (this.appService.currentItem.id === 'create') this.appService.currentItem.id = ''
           window.alert("Save successful!");
 //          this.appService.originalrec = this.currentItem
-            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+         //   this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
 
           // this.skippromt = true
           // if (option === 1) this.close()
