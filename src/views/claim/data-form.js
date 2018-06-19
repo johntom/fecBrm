@@ -437,8 +437,15 @@ export class DataForm {
           console.log('jsonRes ', jsonRes);
           //let tab = this.appService.tabs.find(f => f.isSelected);
           //this.closeTab(tab);
-          if (this.appService.currentItem.id === 'create') this.appService.currentItem.id = ''
+          if (this.appService.currentItem.id === 'create') {
+          this.appService.currentItem.id = ''
           window.alert("Save successful!");
+         let tab = this.appService.tabs.find(f => f.isSelected);
+    let rt2 = '#/claim/' + this.tabname 
+   // this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
+      this.appService.closeTab(this.appService.currentItem, tab)//, rt2);
+  
+          }
 //          this.appService.originalrec = this.currentItem
          //   this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
 
