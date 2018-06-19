@@ -2,7 +2,7 @@
 	<ux-dialog>
 		<ux-dialog-header class="modal-header modal-header-success">
 			<div class="alert alert-danger">
-				<h4> ${fieldname}</h4>
+				<h4>Search on ${fieldname}</h4>
 			</div>
 		</ux-dialog-header>
 		<ux-dialog-body>
@@ -92,64 +92,3 @@
 	</ux-dialog>
 </template>
 
-
-<!-- <button click.trigger="controller.cancel()">Cancel</button>
-      <button click.trigger="controller.ok(answer)">Ok</button> -->
-
-<!-- <template>
-	<ux-dialog>
-		<ux-dialog-header class="modal-header modal-header-success">
-			<div class="alert alert-danger">
-				<h1> ${fieldname}</h1>
-			</div>
-		</ux-dialog-header>
-		<ux-dialog-body>
-			<div show.bind="fieldname==='DESCRIPTION'">
-				<textarea rows="8" cols="100" id="Notes" class="form-control input-sm" value.bind="currentItem.DESCRIPTION"></textarea>
-			</div>
-			<div show.bind="fieldname==='Comment'">
-				<textarea rows="8" cols="100" id="Notes" class="form-control input-sm" value.bind="currentItem.Comment"></textarea>
-			</div>
-			<div show.bind="fieldname==='Inscribed'">
-				<textarea rows="8" cols="100" id="Inscribed" class="form-control input-sm" value.bind="currentItem.Inscribed"></textarea>
-			</div>
-
-
-			<div show.bind="fieldname==='OwnerID'">
-				<div class="form-group flex-column-1">
-					<h2> ${doc} </h2>
-
-
-					<aubs-typeahead ref='dorg' data.bind="appService.orgsList" value.bind="OrgName" debounce.bind="350" placeholder="OwnerID"
-					 open-on-focus.bind="true" key="OrgName" results-limit.bind="12" select-single-result.bind="true">
-					</aubs-typeahead>
-				</div>
-
-
-			</div>
-			</div>
-		
-
-			<div show.bind="fieldname==='SoldTo'">
-				<h2> ${doc} </h2>
-
-				<div class="form-group flex-column-1">
-					<aubs-typeahead ref='dorg' data.bind="appService.orgsList" value.bind="OrgName" debounce.bind="350" placeholder="SoldTo"
-					 open-on-focus.bind="true" key="OrgName" results-limit.bind="12" select-single-result.bind="true">
-					</aubs-typeahead>
-				</div>
-			</div>
-
-
-
-			<hr>
-		</ux-dialog-body>
-
-		<ux-dialog-footer>
-
-			<button click.trigger="controller.cancel()">Cancel and Close </button>
-			<button click.trigger="save()">Save and Close</button>
-
-		</ux-dialog-footer>
-	</ux-dialog>
-</template> -->
