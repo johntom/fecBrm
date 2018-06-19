@@ -1,0 +1,46 @@
+<template>
+	<require from="./docs.css"></require>
+	<!-- <section class="customer-orders au-animate"> -->
+	<section class="docs full-height flex-column-1 overflow-y-auto ignore">
+		<h3>Payments</h3>
+		<table class="table-condensed table">
+			<thead class="table-header-blue" data-sort="items.bind: files; cols: ['FILE_NAME','FILE_EXT']">
+					<tr>
+            <th class="header">Period</th>
+						
+						<th class="header">Open Pdf</th>
+						<th class="header">Download Pdf</th>
+					
+					</tr>
+			
+			</thead>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</tfoot>
+			<tbody>
+      <!-- <a size='100' class="form-control  input-sm" target="_blank" href="http://adjusters.markadjustment.com/api/v1/payments/${doc}">
+			http://jif.bergenrisk.com:8081/api/v1/payments?filename=		 -->
+			<tr repeat.for="doc of files" >
+        	<td>${doc.period} </td>
+						<td>
+              	<a size='100' class="form-control  input-sm" target="_blank" 
+                href="https://jif.bergenrisk.com:8081/api/v1/payments?filename=${doc.file}">
+								${doc.file}
+							</a>
+						</td>
+            	<td>
+              	<a size='100' class="form-control  input-sm" target="_blank" 
+                href="https://jif.bergenrisk.com:8081/api/v1/downloadpayments?filename=${doc.file}">
+								${doc.file}
+							</a>
+						</td>
+					
+					</tr>
+			</tbody>
+		</table>
+
+	</section>
+</template>

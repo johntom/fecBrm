@@ -1,0 +1,11 @@
+<template>
+  <require from="filter"></require>
+  <require from="highlight"></require>
+  <ul show.bind="show" class="list-group">
+    <li class="list-group-item" 
+        innerhtml.bind="item | highlight:searchTerm" 
+        repeat.for="item of items | filter:searchTerm"
+        click.delegate="itemSelected(item)">
+    </li>
+  </ul>
+</template>
