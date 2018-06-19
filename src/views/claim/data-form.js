@@ -439,13 +439,27 @@ export class DataForm {
           //this.closeTab(tab);
           if (this.appService.currentItem.id === 'create') {
           this.appService.currentItem.id = ''
-          window.alert("Save successful!");
-         let tab = this.appService.tabs.find(f => f.isSelected);
-    let rt2 = '#/claim/home' //+ this.tabname 
-   //  tab.isSelected = false;
-   // this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
-      this.appService.closeTab(this.appService.currentItem, tab)//, rt2);
-   this.router.navigate(rt2);
+          window.alert("Save successful, form reset!");
+        this.appService.currentItem = {}
+        this.appService.currentItem.id = 'create'
+        this.appService.testrec = {}
+        this.appService.originalrec = {}
+        this.appService.currentItem.insured = {}
+        this.appService.currentItem.claimant = {}
+        this.appService.currentItem.insco = {}
+        this.appService.currentItem.insaddress = {}
+        this.appService.currentItem.inscontact = {}
+        this.appService.currentItem.diaries = []
+        this.appService.currentItem.notes = []
+        this.appService.currentItem.adjusters = []
+
+ 
+          //        let tab = this.appService.tabs.find(f => f.isSelected);
+          //   let rt2 = '#/claim/home' //+ this.tabname 
+          //  //  tab.isSelected = false;
+          //  // this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
+          //     this.appService.closeTab(this.appService.currentItem, tab)//, rt2);
+          //  this.router.navigate(rt2);
      
           }
 //          this.appService.originalrec = this.currentItem
