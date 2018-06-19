@@ -98,7 +98,7 @@ export class Prompt {
         let insurcoobj = inscompanies[mid];
         // this.NAME = insurcoobj
         // this.dinsco.value = this.NAME
-          this.FullName = insurcoobj
+        this.FullName = insurcoobj
         this.dinsco.value = this.FullName
       }
     }
@@ -169,6 +169,8 @@ export class Prompt {
       this.currentItem.insco.id = id
       this.currentItem.insco.ADDRESS = addr //+ ' ' + city + ' ' + state
 
+      this.currentItem.insco.CITY = city //+ ' ' + city + ' ' + state
+      this.currentItem.insco.STATE = state //+ ' ' + city + ' ' + state
 
       this.appService.currentItem.insco = this.currentItem.insco
     }
