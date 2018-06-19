@@ -425,6 +425,10 @@ export class DataForm {
     if (pcount > 1) {
 
       return confirm('There can only be one primary adjuster');
+    } 
+     if (pcount ===0) {
+
+      return confirm('You must add a primary adjuster');
     }
     if (JSON.stringify(this.currentItem) !== JSON.stringify(this.appService.originalrec)) {
 

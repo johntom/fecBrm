@@ -33,9 +33,9 @@ export class ApplicationService {
 
 
   tryCloseTab(item, tab, route) {
-    alert('try')
-   console.log('1 2 3', this.currentView )//,this.currentView.isDirty , this.currentView.isDirty())
-   
+  //  alert('try')
+   //console.log('1 2 3', this.currentView )//,this.currentView.isDirty , this.currentView.isDirty())
+   //this.originalrec==={} in create
     if (this.currentView!==undefined && this.originalrec!=={} && this.currentView && this.currentView.isDirty && this.currentView.isDirty()) {
       this.asyncHandleDirty().then(result => {
         if (!result.wasCancelled) {
