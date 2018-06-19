@@ -326,6 +326,7 @@ export class DataForm {
           let item = insco[aid];
           this.inscoAdjusters = item.contacts
           this.inscoAddresses = item.addresses
+          this.currentItem.insco = this.appService.currentItem.insco
         }
       }
 

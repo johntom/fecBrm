@@ -1,27 +1,24 @@
 <template>
-  <section class="au-animate">
-    <div class="section-header flex-row-none">
-      ${heading}
-    </div>
-  <div class="section-content flex-row-1">
-    Main content here..mas.v0618m
-   
-     <!-- <img src="https://5924b98cbd966f546312882f.blob.core.windows.net/fecBrm/src/images/MAimage.jpg" class="logo"> -->
- <img src="https://5924b98cbd966f546312882f.blob.core.windows.net/sample-layout-brm/src/images/MAimage.jpg" class="logo">
+	<section class="au-animate">
+		<div class="section-header flex-row-none">
+			${heading}
+		</div>
+		<div class="section-content flex-row-1">
+			Main content here..mas.v0618O
 
-  </div>  
+			<!-- <img src="https://5924b98cbd966f546312882f.blob.core.windows.net/fecBrm/src/images/MAimage.jpg" class="logo"> -->
+			<img src="https://5924b98cbd966f546312882f.blob.core.windows.net/sample-layout-brm/src/images/MAimage.jpg" class="logo">
 
- <template class="combobox">
-    <div class="input-ct">
-      <input ref="input" value.bind="filterText" />
-    <div>
-    <ul portal class="list-group items-list">
-      <li repeat.for="item of appService.stateList | filter: filterText" class="list-group-item">${item.name}</li>
-    </ul>
-  </template>
+		</div>
 
-  </section>
+		<template class="combobox">
+			<div class="input-ct">
+				<input ref="input" value.bind="filterText" />
+				<div>
+					<ul portal class="list-group items-list">
+						<li repeat.for="item of appService.stateList | filter: filterText" class="list-group-item">${item.name}</li>
+					</ul>
+		</template>
+
+	</section>
 </template>
-
-
-
