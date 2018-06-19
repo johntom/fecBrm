@@ -46,6 +46,19 @@ export class Claim {
     console.log('name-tag unbind');
   }
   performSearch() {
+    if(this.search.adjuster===null && this.search.claimant===undefined &&
+     this.search.claimantFirst===undefined &&
+    this.search.claimno===undefined &&
+    this.search.dol===undefined &&
+    this.search.insco===undefined &&
+    this.search.inscoadjuster===undefined &&
+    this.search.insured===undefined &&
+    this.search.lossdesc===undefined &&
+    this.search.receiveddate===undefined &&
+    this.search.stopdate===undefined) {
+ this.search.claimno='noitems'
+    }
+
     if (this.search) {
       console.log('this.search',this.search)
       let qs = this.utilService.generateQueryString(this.search);
