@@ -74,6 +74,7 @@ export class DataForm {
         // this.appService.currentClaim.notes = []
         // this.appService.currentClaim.adjusters = []
         this.appService.currentItem = {}
+        this.appService.currentItem.id='create'
         this.appService.testrec = {}
         this.appService.originalrec = {}
         this.appService.currentItem.insured = {}
@@ -440,7 +441,7 @@ export class DataForm {
           this.closeTab(tab);
           // let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
           // console.log('this.tabname ', this.tabname)
-
+          if(this.appService.currentItem.id==='create') this.appService.currentItem.id=''
           window.alert("Save successful!");
           this.skippromt = true
           if (option === 1) this.close()
