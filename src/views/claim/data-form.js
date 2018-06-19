@@ -208,7 +208,7 @@ export class DataForm {
     console.log('STATUS', this.appService.currentItem.STATUS === this.appService.originalrec.STATUS)
     console.log('insured', this.appService.currentItem.insured.LEGAL_NAME === this.appService.originalrec.insured.LEGAL_NAME)
     console.log('primaryAdjuster', this.appService.currentItem.primaryAdjuster === this.appService.originalrec.primaryAdjuster)
-    console.log('insco', this.appService.currentItem.insco.NAME, this.appService.originalrec.insco.NAME, this.currentItem.insco.NAME === this.appService.originalrec.insco.NAME)
+    console.log('insco', this.appService.currentItem.insco.NAME, this.appService.originalrec.insco.NAME, this.appService.currentItem.insco.NAME === this.appService.originalrec.insco.NAME)
     console.log('inscontact', this.appService.currentItem.inscontact.NAME_LAST === this.appService.originalrec.inscontact.NAME_LAST)
     console.log('claimant.LAST_NAME', this.appService.currentItem.claimant.LAST_NAME === this.appService.originalrec.claimant.LAST_NAME)
 
