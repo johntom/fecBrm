@@ -96,7 +96,7 @@ export class DataForm {
           let claim = jsonRes.data
           // this.appService.currentClaim = {}
           this.appService.currentClaim = claim[0];
-          this.appService.currentItem= claim[0];
+          this.appService.currentItem = claim[0];
           this.currentItem = claim[0]
           this.currentItem.xdesc = claim[0].LossDescription//DESCRIPTION
 
@@ -115,10 +115,10 @@ export class DataForm {
             // return this.currentItem.LossDescription!==this.appService.originalrec.LossDescription
           };
           this.currentItem.reset = () => {
-         //   this.appService.originalrec = this.currentItem;
-           // check for null
-             this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
-         
+            //   this.appService.originalrec = this.currentItem;
+            // check for null
+            this.appService.originalrec = JSON.parse(JSON.stringify(this.currentItem))// inv[0]));
+
           }
           // 6-13  
           this.appService.currentView = this.currentItem; // must set on every view
@@ -316,7 +316,7 @@ export class DataForm {
     // alert('fieldname' + fieldname, this.appService.currentClaim.DESCRIPTION) currentClaim
     console.log('fieldname' + fieldname, this.currentItem.LossDescription)//DESCRIPTION)
     this.dialogService.open({ viewModel: Prompt, model: fieldname, lock: false }).whenClosed(response => {
-//INSURED_ID currentItem.insured.LEGAL_NAME
+      //INSURED_ID currentItem.insured.LEGAL_NAME
       if (fieldname === 'insco') {
         ///let serviceinsco = this.appService.currentClaim.INSURANCE_COMPANY_ID * 1 // or insco.IN...
         let serviceinsco = this.appService.currentItem.insco.INSURANCE_COMPANY_ID * 1 // or insco.IN...
@@ -329,12 +329,15 @@ export class DataForm {
         }
       }
 
- if (fieldname === 'INSURED_ID') {
-  
-      this.currentItem.insured = this.appService.currentItem.insured
-    }
-   
+      if (fieldname === 'INSURED_ID') {
 
+        this.currentItem.insured = this.appService.currentItem.insured
+      }
+
+ if (fieldname === 'LossDescription') {
+
+        this.currentItem.LossDescription = this.appService.currentItem.LossDescription
+      }
 
       console.log(response.output);
     });

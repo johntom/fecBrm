@@ -144,7 +144,8 @@ export class Prompt {
     //       this.dinsured.value = this.LEGAL_NAME
     // let orgid = `${this.LEGAL_NAME._id}`
     if (this.fieldname === 'LossDescription') {
-
+    this.appService.currentItem.LossDescription=this.currentItem.LossDescription
+  
     }
     if (this.fieldname === 'insco') {
       let orgid = `${this.NAME.INSURANCE_COMPANY_ID}`
@@ -157,6 +158,7 @@ export class Prompt {
       this.currentItem.insco.NAME = NAME
       this.currentItem.insco.INSURANCE_COMPANY_ID = orgid
       this.currentItem.insco.id = id
+      this.appService.currentItem.insco=this.currentItem.insco
     }
 
     if (this.fieldname === 'INSURED_ID') {
@@ -169,7 +171,7 @@ export class Prompt {
       this.currentItem.insured.LEGAL_NAME = LEGAL_NAME
       this.currentItem.insured.INSURED_ID = orgid
       this.currentItem.insured.id = id
-      alert('aa '+this.currentItem.insured)
+      // alert('aa '+this.currentItem.insured)
       this.appService.currentItem.insured=this.currentItem.insured
     }
 
@@ -178,6 +180,7 @@ export class Prompt {
       let ADJUSTER_NAME = `${this.ADJUSTER_NAME.ADJUSTER_NAME}`
       this.appService.currentSearchadj.ADJUSTER_ID = ADJUSTER_ID
       this.appService.currentSearchadj.ADJUSTER_NAME = ADJUSTER_NAME
+
     }
 
     this.controller.cancel(modal) //this.controller.cancel()
