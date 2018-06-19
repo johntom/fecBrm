@@ -21,8 +21,8 @@ export class Prompt {
     controller.settings.lock = false;
 
   }
- searchdocChanged(value) {
-   //console.log('v ',value)
+  searchdocChanged(value) {
+    //console.log('v ',value)
     this.showdocs = this.currentItem.docs.filter((item) => {
       if (item['FILE_NAME'].toLowerCase().search(value.toLowerCase()) != -1) return true
     });
@@ -144,13 +144,14 @@ export class Prompt {
     //       this.dinsured.value = this.LEGAL_NAME
     // let orgid = `${this.LEGAL_NAME._id}`
     if (this.fieldname === 'LossDescription') {
-    this.appService.currentItem.LossDescription=this.currentItem.LossDescription
-  
+      this.appService.currentItem.LossDescription = this.currentItem.LossDescription
+
     }
     if (this.fieldname === 'insco') {
       let orgid = `${this.NAME.INSURANCE_COMPANY_ID}`
       let NAME = `${this.NAME.NAME}`
       let id = `${this.NAME._id}`
+      let addr = `${this.NAME.ADDRESS}`
 
       this.currentItem.INSURANCE_COMPANY_ID = orgid // keep for legacy until converted
       // this.currentItem.LEGAL_NAME = LEGAL_NAME
@@ -158,7 +159,10 @@ export class Prompt {
       this.currentItem.insco.NAME = NAME
       this.currentItem.insco.INSURANCE_COMPANY_ID = orgid
       this.currentItem.insco.id = id
-      this.appService.currentItem.insco=this.currentItem.insco
+      this.currentItem.ADDRESS = addr
+
+
+      this.appService.currentItem.insco = this.currentItem.insco
     }
 
     if (this.fieldname === 'INSURED_ID') {
@@ -172,7 +176,7 @@ export class Prompt {
       this.currentItem.insured.INSURED_ID = orgid
       this.currentItem.insured.id = id
       // alert('aa '+this.currentItem.insured)
-      this.appService.currentItem.insured=this.currentItem.insured
+      this.appService.currentItem.insured = this.currentItem.insured
     }
 
     if (this.fieldname === 'ADJUSTER_ID') {
