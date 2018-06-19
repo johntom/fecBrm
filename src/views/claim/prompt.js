@@ -167,7 +167,7 @@ export class Prompt {
       this.currentItem.insco.NAME = NAME
       this.currentItem.insco.INSURANCE_COMPANY_ID = orgid
       this.currentItem.insco.id = id
-      this.currentItem.insco.ADDRESS = addr + ' ' + city + ' ' + state
+      this.currentItem.insco.ADDRESS = addr //+ ' ' + city + ' ' + state
 
 
       this.appService.currentItem.insco = this.currentItem.insco
