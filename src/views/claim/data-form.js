@@ -534,7 +534,7 @@ export class DataForm {
       // if (this.appService.currentItem &&
       //   this.appService.currentItem.isDirty &&
       //   this.appService.currentItem.isDirty()) {
-
+console.log('canDeactivate ')
  if (this.appService.currentView!==undefined  && this.appService.originalrec!=={} &&
   this.appService.currentItem.id !== 'create' && 
   this.appService.currentView && this.appService.currentView.isDirty &&
@@ -580,15 +580,14 @@ export class DataForm {
   }
   //    async tryCloseTab(item, tab, route) {
   requestclose() {
-  
+    alert ('in requestclose')
+
     const resetFunc = () => { this.appService.originalrec = this.appService.currentItem; };
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
-
-     let index = this.appService.tabs.findIndex(f => f.isSelected)
-  
+    let index = this.appService.tabs.findIndex(f => f.isSelected)
     let rt2 = '#/claim/' + this.tabname 
-   
+
     // claim' Search?'cant use when search has a number 
     // this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
 
