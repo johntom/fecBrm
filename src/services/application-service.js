@@ -54,6 +54,7 @@ export class ApplicationService {
   }
    closeTab(tab, item) {
     //console.log('1 2',tab,item)
+    
     if (item && item.reset) {
       item.reset();
     }
