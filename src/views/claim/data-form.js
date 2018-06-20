@@ -580,20 +580,24 @@ export class DataForm {
   }
   //    async tryCloseTab(item, tab, route) {
   requestclose() {
-   
+  
     const resetFunc = () => { this.appService.originalrec = this.appService.currentItem; };
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
-    let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
+
+     let index = this.appService.tabs.findIndex(f => f.isSelected)
+  
+    let rt2 = '#/claim/' + this.tabname 
+   
+    // claim' Search?'cant use when search has a number 
     // this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
+
     let newIndex = (index > 0) ? index - 1 : 0;
     let newTab = this.appService.tabs[newIndex];
     this.appService.tryCloseTab(this.appService.currentView, tab, newTab.href);
    
-   // this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
-    
+    // this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);  
     //// this.appService.closeTab(tab, item) ;
-
     // if (cand) {
     //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
     //   //  this.close()
