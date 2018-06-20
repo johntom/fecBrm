@@ -583,8 +583,9 @@ export class DataForm {
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-//    this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
-    this.appService.closeTab(tab, item) ;
+    this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
+    
+    //// this.appService.closeTab(tab, item) ;
 
     // if (cand) {
     //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
