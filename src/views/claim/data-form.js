@@ -535,11 +535,12 @@ export class DataForm {
       //   this.appService.currentItem.isDirty &&
       //   this.appService.currentItem.isDirty()) {
 
- if (this.appService.currentView!==undefined && this.appService.originalrec!=={} && 
- this.appService.currentView && this.appService.currentView.isDirty &&
+ if (this.appService.currentView!==undefined  && this.appService.originalrec!=={} &&
+  this.appService.currentItem.id !== 'create' && 
+  this.appService.currentView && this.appService.currentView.isDirty &&
   this.appService.currentView.isDirty()) {
   
-
+      
 
 
         // Now, we need to query the user... result => makes it a closure
