@@ -531,9 +531,17 @@ export class DataForm {
   // }
   canDeactivate() {
     return new Promise((resolve, reject) => {
-      if (this.appService.currentItem &&
-        this.appService.currentItem.isDirty &&
-        this.appService.currentItem.isDirty()) {
+      // if (this.appService.currentItem &&
+      //   this.appService.currentItem.isDirty &&
+      //   this.appService.currentItem.isDirty()) {
+
+ if (this.appService.currentView!==undefined && this.appService.originalrec!=={} && 
+ this.appService.currentView && this.appService.currentView.isDirty &&
+  this.appService.currentView.isDirty()) {
+  
+
+
+
         // Now, we need to query the user... result => makes it a closure
         this.appService.asyncHandleDirty().then(result => {
           if (!result.wasCancelled) {
@@ -575,7 +583,9 @@ export class DataForm {
     let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
     let rt2 = '#/claim/' + this.tabname ///claim'//Search?'cant use when search has a number 
-    this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
+//    this.appService.tryCloseTab(this.appService.currentItem, tab, rt2);
+    this.appService.closeTab(tab, item) ;
+
     // if (cand) {
     //   this.appService.tryCloseTab(this.appService.currentClaim, tab, rt2, resetFunc);
     //   //  this.close()
