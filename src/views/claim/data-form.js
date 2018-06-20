@@ -580,10 +580,10 @@ console.log('canDeactivate ')
   }
   //    async tryCloseTab(item, tab, route) {
   requestclose() {
-    alert ('in requestclose')
+   // alert ('in requestclose')
 
     const resetFunc = () => { this.appService.originalrec = this.appService.currentItem; };
-    let cand = this.canDeactivate()
+   // let cand = this.canDeactivate()
     let tab = this.appService.tabs.find(f => f.isSelected);
     let index = this.appService.tabs.findIndex(f => f.isSelected)
     let rt2 = '#/claim/' + this.tabname 
