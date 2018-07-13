@@ -7,9 +7,8 @@ export class ApiService {
   constructor(http) {
     this.http = http;
     this.upmess = ''
-    //this.baseweb = 'http://localhost:8080/api/';
-    // this.baseweb = 'https://jif.bergenrisk.com:8081/api/';
-    this.baseweb = 'https://jif.bergenrisk.com/api/';
+    this.baseweb = 'https://gtztest.com/api/'
+    // this.baseweb = 'https://jif.bergenrisk.com/api/';
   }
   getUserJwt(username, pass) {
     var token = {};
