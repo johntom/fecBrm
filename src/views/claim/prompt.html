@@ -73,15 +73,18 @@
 				<div class="form-group flex-column-1">
 					<h3> ${doc} </h3>
   
-  
-  
-  <!-- <aubs-typeahead data.bind="fruits" value.bind="fruit" custom-entry.bind="true" placeholder="Enter your fruit"
+  <div class="row">
+          <div class="col-xs-6">
+            <aubs-typeahead data.bind="fruits" value.bind="fruit" custom-entry.bind="true" 
+            placeholder="Enter your fruit"
                             open-on-focus.bind="true" debounce.bind="0"></aubs-typeahead>
           </div>
           <div class="col-xs-6">
             <label>Selected Fruit:  </label> ${fruit}
-          </div> -->
-
+          </div>
+        </div>
+  
+  
 					<aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" 
            debounce.bind="350" placeholder="INSURANCE CO"
            custom-entry.bind="true"

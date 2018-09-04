@@ -218,6 +218,7 @@ import { ApiService } from '../../utils/servicesApi';
 export class Prompt {
   static inject = [DialogController, ApplicationService, MyDataService, DialogService, ApiService];
 
+fruits = ['Apple', 'Orange', 'Grapes', 'Pineaple', 'Peach', 'Bananas'];
 
   constructor(controller, appService, dataService, dialogService, api) {
     this.controller = controller;
