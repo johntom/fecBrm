@@ -278,32 +278,32 @@ export class Prompt {
     if (this.fieldname === 'insco') {
       // this.currentnewItem.insaddress = item
       // let insaddresses = this.appService.inscoAddresses
-      if (this.currentItem.insco !== undefined) {
-        let inscompanies = this.appService.InsurancecompanyList
-        let oid = this.currentItem.insco.id
-        let iid = this.currentItem.insco.INSURANCE_COMPANY_ID
-        let mid = 0
-        //   "INSURANCE_COMPANY_ID" : NumberInt(87), 
-        // "NAME"
-        // if (this.currentItem.insco.INSURED_ID !== undefined) {
-        if (this.currentItem.insco !== undefined) {
-          // mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === this.currentItem.insco.INSURANCE_COMPANY_ID * 1)
-          mid = inscompanies.findIndex(x => x._id === oid)
-          //   mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === iid * 1)
+      // if (this.currentItem.insco !== undefined) {
+      //   let inscompanies = this.appService.InsurancecompanyList
+      //   let oid = this.currentItem.insco.id
+      //   let iid = this.currentItem.insco.INSURANCE_COMPANY_ID
+      //   let mid = 0
+      //   //   "INSURANCE_COMPANY_ID" : NumberInt(87), 
+      //   // "NAME"
+      //   // if (this.currentItem.insco.INSURED_ID !== undefined) {
+      //   if (this.currentItem.insco !== undefined) {
+      //     // mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === this.currentItem.insco.INSURANCE_COMPANY_ID * 1)
+      //     mid = inscompanies.findIndex(x => x._id === oid)
+      //     //   mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === iid * 1)
 
-        } else {
-          if (this.currentItem.INSURANCE_COMPANY_ID !== undefined) {
-            mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === this.currentItem.INSURANCE_COMPANY_ID * 1)
+      //   } else {
+      //     if (this.currentItem.INSURANCE_COMPANY_ID !== undefined) {
+      //       mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === this.currentItem.INSURANCE_COMPANY_ID * 1)
 
-          }
-        }
-        if (mid === -1) mid = 0
-        let insurcoobj = inscompanies[mid];
-        // this.NAME = insurcoobj
-        // this.dinsco.value = this.NAME
-        this.FullName = insurcoobj
-        this.dinsco.value = this.FullName
-      }
+      //     }
+      //   }
+      //   if (mid === -1) mid = 0
+      //   let insurcoobj = inscompanies[mid];
+      //   // this.NAME = insurcoobj
+      //   // this.dinsco.value = this.NAME
+      //   this.FullName = insurcoobj
+      //   this.dinsco.value = this.FullName
+      // }
     }
     if (this.fieldname === 'INSURED_ID') {
       // if (this.currentItem.insured.INSURED_ID !== undefined) {
