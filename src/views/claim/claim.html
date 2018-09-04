@@ -100,7 +100,7 @@
 
 	<section class="full-height flex-column-1 au-animate ignore">
 		<div class="flex-row-none section-header">
-			${heading} 102
+			${heading} 100.22
 		</div>
 
 		<div class="flex-row-1 ignore">
@@ -113,10 +113,78 @@
 						</div>
 
 
+						<div class="form-group flex-column-1 margin-left-10">
+							<aubs-typeahead ref='dow' data.bind="appService.stateList" value.bind="name" debounce.bind="350" placeholder="States" open-on-focus.bind="true"
+							 key="name" results-limit.bind="10" select-single-result.bind="true">
+							</aubs-typeahead>
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							Selected State: ${name.value}
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<button class="btn btn-default" click.delegate="name = null" disabled.bind="!name">Clear State</button>
+						</div>
+					</div>
+
+
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+
+							<label for="adjuster">Adjuster</label>
+							<select id="searchInvCode" class="form-control input-sm" value.bind="search.adjuster"> 
+                      <option model.bind="null">Choose...</option> 
+                      <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
+                        ${opt.ADJUSTER_NAME} 
+                      </option> 
+                    </select>
+						</div>
+					</div>
+
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<input id="searchartistl" type="text" class="form-control" placeholder="Search for inv claimant last..." value.bind="search.claimant">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+
+							<input id="searchartist2" type="text" class="form-control" placeholder="Search for claimant first..." value.bind="search.claimantFirst">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+
+							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insured..." value.bind="search.insured">
+						</div>
+					</div>
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+
+							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insurance company..." value.bind="search.insco">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<input id="inscoadjuster" type="text" class="form-control" placeholder="Search for ins co adjuster last name..." value.bind="search.inscoadjuster">
+						</div>
+
+						<div class="form-group flex-column-1 margin-left-10">
+							<input id="searchlossdesc" type="text" class="form-control" placeholder="Search for Loss desc..." value.bind="search.lossdesc">
+						</div>
+					</div>
+
+
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<label for="dol">Date Of Loss</label>
+							<input id="searchdol" type="date" class="form-control" placeholder="Search for Date of Loss..." value.bind="search.dol">
+
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<label for="searchdrcvdatel">(Received Start Date GT=</label>
+							<input id="searchdrcvdatel" type="date" class="form-control" placeholder="Search for Received Date Start GT=..." value.bind="search.receiveddate">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<label for="lastName">Stop Date LT=)</label>
+							<input id="searchdrcvdate2" type="date" class="form-control" placeholder="Search for Date Stop LT=.." value.bind="search.stopdate">
+						</div>
 
 					</div>
-			
-
+					<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>
 				</form>
 
 			</div>
