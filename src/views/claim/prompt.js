@@ -258,218 +258,89 @@ export class Prompt {
 
   }
  
-  // created(SearchResults,prompt){
-  // if (this.fieldname === 'selectedids') {
-  //       // we dont send a name of the list
-  //       // let meds = this.appService.savedlists 
-  //       // if ((this.currentItem.SoldTo === undefined) || (this.currentItem.orgsList === null)) {
-  //       // } else {
-  //       //   let mid = meds.findIndex(x => x._id === this.currentItem.OwnerID)
-  //       //   let orgobj = this.appService.orgsList[mid]//10]
-  //       //   // console.log('orgobj', orgobj)
-  //       //   this.OrgName = orgobj
-  //       //   this.dsaved.value = this.OrgName
-  //       // }
 
-
-  //       // let meds = this.appService.savedlists
-  //       // let orgobj = this.appService.savedlists[0]
-  //       // this.appService.selectedids = orgobj.InventoryCodes
-  //       //this.myMultiSelect.kWidget.dataSource.add(this.appService.selectedids);
-  //       let ss = this.appService.selectedids
-  //        this.myMultiSelect.kWidget.setDataSource(ss);
-
-  //     }
-  // }
  
   attached() {
-    // set typahead value for state MUST BE IN ATTACHED
+       // set typahead value for state MUST BE IN ATTACHED
     // this.name = {
     //   name: 'New York',
     //   value: 'NY'
     // }
     // this.dow.value = this.name
-// this.appService.currentsavedlist
-    this.doc = `type any characters of the ${this.fieldname} to select.`
-    if (this.fieldname === 'SoldTo') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.SoldTo === undefined) || (this.currentItem.SoldTo === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.SoldTo)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dorg.value = this.OrgName
+
+    this.doc = `type any characters to select ${this.fieldname}`
+
+    if (this.fieldname === 'docs') {
+      this.currentItem = this.appService.currentItem//currentClaim
+
+    }
+
+    if (this.fieldname === 'insco') {
+      // this.currentnewItem.insaddress = item
+      // let insaddresses = this.appService.inscoAddresses
+      if (this.currentItem.insco !== undefined) {
+        let inscompanies = this.appService.InsurancecompanyList
+        let oid = this.currentItem.insco.id
+        let iid = this.currentItem.insco.INSURANCE_COMPANY_ID
+        let mid = 0
+        //   "INSURANCE_COMPANY_ID" : NumberInt(87), 
+        // "NAME"
+        // if (this.currentItem.insco.INSURED_ID !== undefined) {
+        if (this.currentItem.insco !== undefined) {
+          // mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === this.currentItem.insco.INSURANCE_COMPANY_ID * 1)
+          mid = inscompanies.findIndex(x => x._id === oid)
+          //   mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === iid * 1)
+
+        } else {
+          if (this.currentItem.INSURANCE_COMPANY_ID !== undefined) {
+            mid = inscompanies.findIndex(x => x.INSURANCE_COMPANY_ID === this.currentItem.INSURANCE_COMPANY_ID * 1)
+
+          }
+        }
+        if (mid === -1) mid = 0
+        let insurcoobj = inscompanies[mid];
+        // this.NAME = insurcoobj
+        // this.dinsco.value = this.NAME
+        this.FullName = insurcoobj
+        this.dinsco.value = this.FullName
+      }
+    }
+    if (this.fieldname === 'INSURED_ID') {
+      // if (this.currentItem.insured.INSURED_ID !== undefined) {
+      if (this.currentItem.insured !== undefined) {
+        let oid = this.currentItem.insured.id
+        let inslist = this.appService.insuredList
+        //currentItem
+        // if ((this.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
+        let mid
+        if ((this.currentItem.insured.INSURED_ID === undefined) || (inslist === null)) {
+          mid = inslist.findIndex(x => x.INSURED_ID === this.currentItem.INSURED_ID * 1)//45)
+
+        } else {
+          // let mid = ins.findIndex(x => x._id === this.currentItem.INSURED_ID)
+          console.log('in ', oid)
+          mid = inslist.findIndex(x => x.id === oid)// id = objectidx.INSURED_ID ===INSURED_ID*1)//45)
+
+        }
+        let insuredobj = inslist[mid]
+        this.LEGAL_NAME = insuredobj
+        this.dinsured.value = this.LEGAL_NAME
       }
     }
 
 
-
-    if (this.fieldname === 'LoanTo') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.LoanTo === undefined) || (this.currentItem.LoanTo === null)) {
+    if (this.fieldname === 'ADJUSTER_ID') {
+      let meds = this.appService.adjusterList
+      if ((this.appService.currentSearchadj === undefined) || (this.appService.currentSearchadj === null)) {
       } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.LoanTo)
-        let orgobj = this.appService.orgsList[mid]//10]
-        this.OrgName = orgobj
-        this.dloanto.value = this.OrgName
+        // let mid = meds.findIndex(x => x._id === this.currentSearchadj)
+        // let orgobj = this.appService.orgsList[mid]
+
+        // this.OrgName = orgobj
+        // this.dadjuster_id.value = this.OrgName
       }
-    }
-
-
-    if (this.fieldname === 'ConsignedFromID') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.ConsignedFromID === undefined) || (this.currentItem.ConsignedFromID === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.ConsignedFromID)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dconsignedfromid.value = this.OrgName
-      }
-    }
-
-    if (this.fieldname === 'InsuredBy') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.InsuredBy === undefined) || (this.currentItem.InsuredBy === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.InsuredBy)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dinsuredby.value = this.OrgName
-      }
-    }
-
-
-
-    if (this.fieldname === 'ConsignedTo') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.ConsignedTo === undefined) || (this.currentItem.ConsignedTo === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.ConsignedTo)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dconsignedto.value = this.OrgName
-      }
-    }
-
-    if (this.fieldname === 'PurchasedFrom') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.PurchasedFrom === undefined) || (this.currentItem.PurchasedFrom === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.PurchasedFrom)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dpurchasedfrom.value = this.OrgName
-      }
-    }
-
-
-    if (this.fieldname === 'ConsignmentShippingID') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.ConsignmentShippingID === undefined) || (this.currentItem.ConsignmentShippingID === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.ConsignmentShippingID)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.donsignmentshippingid.value = this.OrgName
-      }
-    }
-
-
-    if (this.fieldname === 'OwnerID') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.OwnerID === undefined) || (this.currentItem.OwnerID === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.OwnerID)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dorg.value = this.OrgName
-      }
-    }
-    if (this.fieldname === 'SoldToID') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.SoldToID === undefined) || (this.currentItem.SoldToID === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.SoldToID)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dsoldtoid.value = this.OrgName
-      }
-    }
-    if (this.fieldname === 'ConservedBy') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.ConservedBy === undefined) || (this.currentItem.ConservedBy === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.ConservedBy)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dconservedby.value = this.OrgName
-      }
-    }
-    if (this.fieldname === 'PhotographerID') {
-      let meds = this.appService.orgsList
-      if ((this.currentItem.PhotographerID === undefined) || (this.currentItem.PhotographerID === null)) {
-      } else {
-        let mid = meds.findIndex(x => x._id === this.currentItem.PhotographerID)
-        let orgobj = this.appService.orgsList[mid]//10]
-        // console.log('orgobj', orgobj)
-        this.OrgName = orgobj
-        this.dphotographerid.value = this.OrgName
-      }
-    }
-
-
-
-    //add DonatedBy
-    if (this.fieldname === 'SavedList') {
-      // we dont send a name of the list
-      // let meds = this.appService.savedlists 
-      // if ((this.currentItem.SoldTo === undefined) || (this.currentItem.orgsList === null)) {
-      // } else {
-      //   let mid = meds.findIndex(x => x._id === this.currentItem.OwnerID)
-      //   let orgobj = this.appService.orgsList[mid]//10]
-      //   // console.log('orgobj', orgobj)
-      //   this.OrgName = orgobj
-      //   this.dsaved.value = this.OrgName
-      // }
-    }
-
-
-
-    if (this.fieldname === 'selectedids') {
-      // this.appService.currentsavedlist
-    this.doc = this.appService.currentsavedlist+` has the following Inventory codes.`
-
-      // we dont send a name of the list
-      // let meds = this.appService.savedlists 
-      // if ((this.currentItem.SoldTo === undefined) || (this.currentItem.orgsList === null)) {
-      // } else {
-      //   let mid = meds.findIndex(x => x._id === this.currentItem.OwnerID)
-      //   let orgobj = this.appService.orgsList[mid]//10]
-      //   // console.log('orgobj', orgobj)
-      //   this.OrgName = orgobj
-      //   this.dsaved.value = this.OrgName
-      // }
-      // let meds = this.appService.savedlists
-      // let orgobj = this.appService.savedlists[0]
-      // this.appService.selectedids = orgobj.InventoryCodes
-      //this.myMultiSelect.kWidget.dataSource.add(this.appService.selectedids);
-      //  let ss = this.appService.selectedids
-      //   this.myMultiSelect.kWidget.setDataSource(ss);
-
-    }
-
+ }
   }
-
-
   //  alert(`${this.addlist} Exists in list already!`)
   addit() {
     // let meds = this.appService.savedlists
