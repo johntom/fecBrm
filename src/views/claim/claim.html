@@ -1,6 +1,6 @@
-<template>
-	<!-- <require from="./set-attribute"></require> -->
-	<!-- <require from="aurelia-kendoui-bridge/datepicker/datepicker"></require> -->
+
+	<!-- <form role="form"> -->
+<!-- <template>
 
 	<section class="full-height flex-column-1 au-animate ignore">
 		<div class="flex-row-none section-header">
@@ -8,8 +8,7 @@
 		</div>
 		<div class="flex-row-1 ignore">
 			<div class="flex-column-1 search-panel">
-				<!-- <form role="form"> -->
-
+			
 				<form>
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
@@ -93,137 +92,161 @@
 			</div>
 		</div>
 	</section>
-</template>
-
-<!-- <div class="flex-row-none"> -->
-
-<!-- <div class="form-group flex-column-1">
-      <h4>Show e-mails from:</h4>
-      <input id="datepicker" ak-datepicker="k-value.bind:'10/10/2011'" style="width: 100%" />
-
-      <h4 style="margin-top: 2em;">Add to archive mail from:</h4>
-      <input id="monthpicker" ak-datepicker="k-value.bind:'November 2011'; k-start.bind:'year'; k-depth.bind: 'year';k-format.bind:'MMMM yyyy';" style="width: 100%" />
-      </p>
-    </div> -->
-<!-- datalist  -->
-<!-- <div class="form-group">
-						<label for="adjuster">Adjuster--</label>
-						<input id="searchInvCode" type="text" list.bind="searchInvCode & setAttribute">
-						<datalist  id.bind="searchInvCode">
-							<option repeat.for="opt of appService.adjusterList">${opt.ADJUSTER_NAME}</option>
-						</datalist>
-					</div> -->
-<!-- <require from="../../utils/set-attribute"></require> -->
-
-<!-- <require from="./set-attribute"></require> -->
+</template> -->
+<!--  autocomplete="searchInput" -->
+<template>
+	<require from="aurelia-kendoui-bridge/multiselect/multiselect"></require>
+	<require from="aurelia-kendoui-bridge/button/button"></require>
 
 
-<!-- <template>
-	<require from="./set-attribute"></require>
 	<section class="full-height flex-column-1 au-animate ignore">
 		<div class="flex-row-none section-header">
-			${heading}
+			${heading} 102
 		</div>
-		<div class="flex-row-1 ignore">
-			<div class="flex-column-1 search-panel">
-				<form role="form" >
-
+	
+			<div class="flex-row-1 ignore">
+				<div class="flex-column-1 search-panel">
+					<form>
 					<div class="flex-row-none">
-
 						<div class="form-group flex-column-1">
-							<input id="searchInput" type="text" class="form-control" placeholder="Search for CLAIM_NO..ie.'01-03188'" autocomplete="searchInput"
+	
+							<input id="searchInput" type="text" class="form-control" 
+              paceholder="01-03188 Search for CLAIM_NO..ie.'01-03188'"
 							 value.bind="search.claimno">
 						</div>
-				
+
+
+
+					</div>
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<input id="searchartistl" type="text" class="form-control" placeholder="Search for inv artist last..." value.bind="search.artistl">
+						</div>
 						<div class="form-group flex-column-1 margin-left-10">
-							<aubs-typeahead ref='dow' data.bind="appService.stateList" value.bind="name" debounce.bind="350" placeholder="States" open-on-focus.bind="true"
-							 key="name" results-limit.bind="10" select-single-result.bind="true">
+							<input id="searchartistf" type="text" class="form-control" placeholder="Search for inv artist first..." value.bind="search.artistf">
+						</div>
+					</div>
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<input id="searchbin" type="text" class="form-control" placeholder="Search for bin ..." value.bind="search.bin">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<input id="searchInvYear" type="text" class="form-control" placeholder="Search for InvYear ..." value.bind="search.invyear">
+						</div>
+					</div>
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<!-- <input id="searchMediumSupport" type="text" class="form-control" placeholder="Search for MediumSupport ..." value.bind="search.mediumsupport"> -->
+
+							<aubs-typeahead ref='MediumSupport' data.bind="appService.codesListMediumSupport" value.bind="DescriptionMS" debounce.bind="350"
+							 placeholder="not avail -MediumSupport" open-on-focus.bind="true" key="Description" results-limit.bind="12" select-single-result.bind="true">
+							</aubs-typeahead>
+
+
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+
+							<!-- <input id="location" type="text" class="form-control" placeholder="not avail - Search for Current Location ..." value.bind="search.location"> -->
+							<aubs-typeahead ref='InventoryLocation' data.bind="appService.codesInventoryLocation" value.bind="DescriptionLoc" debounce.bind="350"
+							 placeholder="not avail -codesInventoryLocation" open-on-focus.bind="true" key="Description" results-limit.bind="12"
+							 select-single-result.bind="true">
+							</aubs-typeahead>
+
+
+						</div>
+					</div>
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<input id="ownershipstatus" type="text" class="form-control" placeholder="Search for Ownership Status ..." value.bind="search.ownershipstatus">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<input id="description" type="text" class="form-control" placeholder="Search for description ..." value.bind="search.description">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<input id="comment" type="text" class="form-control" placeholder="Search for comment ..." value.bind="search.comment">
+						</div>
+					</div>
+				
+					<div class="flex-row-none">
+						<div class="form-group flex-column-1">
+							<aubs-typeahead ref='keywords' data.bind="appService.codesGenre" value.bind="Description" debounce.bind="350" placeholder="search on 1 keyword"
+							 open-on-focus.bind="true" key="Description" results-limit.bind="12" select-single-result.bind="true">
 							</aubs-typeahead>
 						</div>
 						<div class="form-group flex-column-1 margin-left-10">
-							Selected State: ${name.value}
+							<aubs-typeahead ref='savedlist' data.bind="appService.savedlists" value.bind="name" debounce.bind="350" placeholder="search on one savedlist "
+							 open-on-focus.bind="true" key="name" results-limit.bind="12" select-single-result.bind="true">
+							</aubs-typeahead>
 						</div>
-						<div class="form-group flex-column-1 margin-left-10">
-							<button class="btn btn-default" click.delegate="name = null" disabled.bind="!name">Clear State</button>
-						</div>
-					</div>
-		
-					<div class="flex-row-none">
-						<div class="form-group flex-column-1">
 
-							<label for="adjuster">Adjuster</label>
-							<select id="searchInvCode" class="form-control input-sm" value.bind="search.adjuster"> 
-                      <option model.bind="null">Choose...</option> 
-                      <option repeat.for="opt of appService.adjusterList" model.bind="opt.ADJUSTER_ID">
-                        ${opt.ADJUSTER_NAME} 
+
+					</div>
+
+
+					<div class="form-group">
+						<label><input type="checkbox" checked.bind="search.andor">  Every keyord(checked) or any keyword(unchecked)</label>
+
+					</div>
+
+
+					<div class="form-group">
+						<ak-multiselect k-value.two-way="multikeywords">
+							<select multiple="multiple" k-height.bind="400" data-placeholder="Select mulitple keywords...">
+                       <option repeat.for="opt of appService.codesGenre" model.bind="opt.Description">
+                        ${opt.Description} 
                       </option> 
                     </select>
+						</ak-multiselect>
+
+					</div>
+
+					<div class="form-group">Sold - Selected : ${search.selectedSoldId}
+						<label repeat.for="sold of searchsold">
+              <input type="radio" name="group1"
+                    model.bind="sold.id" checked.bind="search.selectedSoldId">
+                 ${sold.name} &nbsp;
+            </label>
+					</div>
+
+					<div class="form-group">Search on Dates - Selected : ${search.selectedDateId}
+						<label repeat.for="dat of searchdates">
+            <input type="radio" name="group2"
+            model.bind="dat.id" checked.bind="search.selectedDateId">
+            ${dat.name} &nbsp;
+            </label>
+					</div>
+
+
+					<div class="flex-row-none">
+
+						<div class="form-group flex-column-1 margin-left-10">
+							<label for="searchdrcvdatel">(Start Date>=</label>
+							<input id="searchdrcvdatel" type="date" class="form-control" placeholder="Search for Date Start >=..." value.bind="search.startdate">
+						</div>
+						<div class="form-group flex-column-1 margin-left-10">
+							<label for="lastName">Stop Date<=)</label>
+							<input id="searchdrcvdate2" type="date" class="form-control" placeholder="Search for Date Stop <=.." value.bind="search.stopdate">
 						</div>
 					</div>
 
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
-							<input id="searchartistl" type="text" class="form-control" placeholder="Search for inv claimant last..." value.bind="search.claimant">
+
+							<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>
+						</div>
+
+						<div class="form-group flex-column-1 margin-left-10">
+							<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="addinventory()">Add Inventory</button>
 						</div>
 						<div class="form-group flex-column-1 margin-left-10">
-
-							<input id="searchartist2" type="text" class="form-control" placeholder="Search for claimant first..." value.bind="search.claimantFirst">
-						</div>
-          	<div class="form-group flex-column-1 margin-left-10">
-
-							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insured..." value.bind="search.insured">
-						</div>
-					</div>
-					<div class="flex-row-none">
-						<div class="form-group flex-column-1">
-
-							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insurance company..." value.bind="search.insco">
-						</div>
-           	<div class="form-group flex-column-1 margin-left-10">
-							<input id="insco" type="text" class="form-control" placeholder="Search for Loss desc..." value.bind="search.lossdesc">
-						</div>
-						<div class="form-group flex-column-1 margin-left-10">
-							<input id="inscoadjuster" type="text" class="form-control" placeholder="Search for ins co adjuster last name..." value.bind="search.inscoadjuster">
+							<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performClear()">Clear</button>
 						</div>
 					</div>
 
+					</form>
 
-					<div class="flex-row-none">
-						<div class="form-group flex-column-1">
-							<label for="dol">Date Of Loss</label>
-							<input id="searchdol" type="date" class="form-control" placeholder="Search for Date of Loss..." value.bind="search.dol">
-
-						</div>
-						<div class="form-group flex-column-1 margin-left-10">
-							<label for="searchdrcvdatel">(Received Start Date GT=</label>
-							<input id="searchdrcvdatel" type="date" class="form-control" placeholder="Search for Received Date Start GT=..." value.bind="search.receiveddate">
-						</div>
-						<div class="form-group flex-column-1 margin-left-10">
-							<label for="lastName">Stop Date LT=)</label>
-							<input id="searchdrcvdate2" type="date" class="form-control" placeholder="Search for Date Stop LT=.." value.bind="search.stopdate">
-						</div>
-
-
-
-
-
-					</div>
-					<button id="searchInputBtn" class="btn btn-primary" type="button" click.delegate="performSearch()">Search!</button>
-				</form>
+				</div>
 			</div>
 		</div>
 	</section>
-</template> -->
-
-
-<!-- datalist  -->
-<!-- <div class="form-group">
-						<label for="adjuster">Adjuster--</label>
-						<input id="searchInvCode" type="text" list.bind="searchInvCode & setAttribute">
-						<datalist  id.bind="searchInvCode">
-							<option repeat.for="opt of appService.adjusterList">${opt.ADJUSTER_NAME}</option>
-						</datalist>
-					</div> -->
-<!-- <require from="../../utils/set-attribute"></require> -->
-
-<!-- <require from="./set-attribute"></require> -->
+</template>
