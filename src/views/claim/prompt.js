@@ -210,7 +210,7 @@ import { ApplicationService } from '../../services/application-service';
 import { MyDataService } from "../../services/my-data-service";
 //
 import { DialogService } from 'aurelia-dialog';
-import { PromptServ } from '../../services/promptserv';
+// import { PromptServ } from '../../services/promptserv';
 import { ApiService } from '../../utils/servicesApi';
 
 
@@ -472,38 +472,38 @@ export class Prompt {
 
   //  alert(`${this.addlist} Exists in list already!`)
   addit() {
-    let meds = this.appService.savedlists
-    let mid = meds.findIndex(x => x.name === this.addlist)
-    if (mid !== -1) {
-      this.dialogService.open({ viewModel: PromptServ, model: `${this.addlist} Exists in list already!`, lock: false }).whenClosed(response => {
-        let orgobj = this.appService.savedlists[mid]
-        this.OrgName = orgobj
-        this.dsaved.value = this.name//this.addlist
-        this.appService.currentsavedlist = this.name
-      });
+    // let meds = this.appService.savedlists
+    // let mid = meds.findIndex(x => x.name === this.addlist)
+    // if (mid !== -1) {
+    //   this.dialogService.open({ viewModel: PromptServ, model: `${this.addlist} Exists in list already!`, lock: false }).whenClosed(response => {
+    //     let orgobj = this.appService.savedlists[mid]
+    //     this.OrgName = orgobj
+    //     this.dsaved.value = this.name//this.addlist
+    //     this.appService.currentsavedlist = this.name
+    //   });
 
-    } else {
-      // make api call
-      let sl = `${this.addlist}`
-      return this.api.createSavedlists(sl)
-        .then((jsonRes) => {
-          console.log('jsonRes ', jsonRes);
-          let check = jsonRes.data;
-          //  this.inv = inv[0]
-          if (check === 'success') {
-            this.dialogService.open({ viewModel: PromptServ, model: `${this.addlist} added to list!`, lock: false }).whenClosed(response => {
-              // jj 222
-              this.appService.currentsavedlist = sl
-              return Promise.all([
-                this.dataService.loadSavedlists(),
-              ]).then(values => {
-                this.appService.savedlists = values[0];
-              })
-            })
-            this.controller.cancel()
-          }
-        })
-    }
+    // } else {
+    //   // make api call
+    //   let sl = `${this.addlist}`
+    //   return this.api.createSavedlists(sl)
+    //     .then((jsonRes) => {
+    //       console.log('jsonRes ', jsonRes);
+    //       let check = jsonRes.data;
+    //       //  this.inv = inv[0]
+    //       if (check === 'success') {
+    //         this.dialogService.open({ viewModel: PromptServ, model: `${this.addlist} added to list!`, lock: false }).whenClosed(response => {
+    //           // jj 222
+    //           this.appService.currentsavedlist = sl
+    //           return Promise.all([
+    //             this.dataService.loadSavedlists(),
+    //           ]).then(values => {
+    //             this.appService.savedlists = values[0];
+    //           })
+    //         })
+    //         this.controller.cancel()
+    //       }
+    //     })
+    // }
 
   }
   save() {
