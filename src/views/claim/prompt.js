@@ -260,7 +260,7 @@ fruits = ['Apple', 'Orange', 'Grapes', 'Pineaple', 'Peach', 'Bananas'];
   }
  
 testfruit(){
-  alert(this.fruit)
+  alert(this.fruit+' this.fn' +this.FullName)
 }
  
   attached() {

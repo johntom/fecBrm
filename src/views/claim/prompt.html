@@ -84,9 +84,12 @@
           </div>
         </div>
   
-    <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" custom-entry.bind="true" 
+    <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" 
+    value.bind="FullName" custom-entry.bind="true" 
             placeholder="Enter your Insurance Co"
-                            open-on-focus.bind="true" debounce.bind="0"></aubs-typeahead>
+                            open-on-focus.bind="true" debounce.bind="0" key="FullName" 
+                            results-limit.bind="12" select-single-result.bind="true">
+                            </aubs-typeahead>
          
 					<!-- <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" 
            debounce.bind="350" placeholder="INSURANCE CO"
