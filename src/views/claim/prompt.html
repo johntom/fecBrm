@@ -75,7 +75,7 @@
   
   <div class="row">
           <div class="col-xs-6">
-            <aubs-typeahead data.bind="fruits" value.bind="fruit" custom-entry.bind="true" 
+            <aubs-typeahead  ref='frt' data.bind="fruits" value.bind="fruit" custom-entry.bind="true" 
             placeholder="Enter your fruit"
                             open-on-focus.bind="true" debounce.bind="0"></aubs-typeahead>
           </div>
@@ -84,12 +84,15 @@
           </div>
         </div>
   
-  
-					<aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" 
+    <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" custom-entry.bind="true" 
+            placeholder="Enter your Insurance Co"
+                            open-on-focus.bind="true" debounce.bind="0"></aubs-typeahead>
+         
+					<!-- <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" 
            debounce.bind="350" placeholder="INSURANCE CO"
            custom-entry.bind="true"
 					 open-on-focus.bind="true" key="FullName" results-limit.bind="12" select-single-result.bind="true">
-					</aubs-typeahead>
+					</aubs-typeahead> -->
            <label>Selected insco:  </label> ${FullName}
 				</div>
 			</div>
@@ -102,6 +105,7 @@
 		<ux-dialog-footer>
 			<button click.trigger="controller.cancel()">Cancel and Close </button>
 			<button click.trigger="save(modal)">Save and Close</button>
+      	<button click.trigger="testfruit()">test fruit</button>
 		</ux-dialog-footer>
 	</ux-dialog>
 </template>

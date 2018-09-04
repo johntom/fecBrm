@@ -259,7 +259,9 @@ fruits = ['Apple', 'Orange', 'Grapes', 'Pineaple', 'Peach', 'Bananas'];
 
   }
  
-
+testfruit(){
+  alert(this.fruit)
+}
  
   attached() {
        // set typahead value for state MUST BE IN ATTACHED
