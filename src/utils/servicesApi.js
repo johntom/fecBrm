@@ -8,7 +8,9 @@ export class ApiService {
     this.http = http;
     this.upmess = ''
     //this.baseweb = 'https://gtztest.com/api/'
-    this.baseweb = 'https://jif.bergenrisk.com/api/';
+    // this.baseweb = 'https://jif.bergenrisk.com/api/';
+     this.baseweb = 'https://masbackend.brmflow.com/api/';//cloudflare https://backend.brmflow.com/api/v1/inmate
+    
   }
   getUserJwt(username, pass) {
     var token = {};
