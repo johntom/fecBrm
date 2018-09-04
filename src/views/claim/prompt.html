@@ -28,12 +28,12 @@
 
 			<div show.bind="fieldname==='docs'">
 				<div class="form-group flex-column-1">
-					<h3> docs: ${doc} 	
-       <a slot="buttons-slot">  <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
-                            
-			 <!-- <i class="material-icons prefix">search</i> -->
-       </a>
-			</h3>
+					<h3> docs: ${doc}
+						<a slot="buttons-slot"> <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
+
+							<!-- <i class="material-icons prefix">search</i> -->
+						</a>
+					</h3>
 					<form>
 						<table class="table-condensed table">
 							<thead class="table-header-blue" data-sort="items.bind: showdocs; cols: ['FILE_NAME','FILE_EXT']">
@@ -72,46 +72,39 @@
 			<div show.bind="fieldname==='insco'">
 				<div class="form-group flex-column-1">
 					<h3> ${doc} </h3>
-  
-  <div class="row">
-          <div class="col-xs-6">
-            <aubs-typeahead  ref='frt' data.bind="appService.InsurancecompanyList" value.bind="fruit" 
-            custom-entry.bind="true" 
-            placeholder="Enter your fruit"
-                            open-on-focus.bind="true" debounce.bind="0"></aubs-typeahead>
-          </div>
-          <div class="col-xs-6">
-            <label>Selected Fruit:  </label> ${fruit}
-          </div>
-        </div>
-  
+
+					<div class="row">
+						<div class="col-xs-6">
+							<aubs-typeahead ref='frt' data.bind="fruits" value.bind="fruit" custom-entry.bind="true" placeholder="Enter your fruit"
+							 open-on-focus.bind="true" debounce.bind="0"></aubs-typeahead>
+						</div>
+						<div class="col-xs-6">
+							<label>Selected Fruit:  </label> ${fruit}
+						</div>
+					</div>
 
 
-<div class="row">
-          <div class="col-xs-6">
-            <aubs-typeahead data.bind="monthsOfTheYear" 
-            custom-entry.bind="true" 
-            value.bind="monthOfTheYear" placeholder="Months of the year"
-            open-on-focus.bind="true" on-select.call="monthSelected(item)"></aubs-typeahead>
-          </div>
-          <div class="col-xs-6">
-            <label>Selected Month:  </label> ${monthOfTheYear.name} - ${monthOfTheYear.short} - ${monthOfTheYear.number}
-          </div>
-</div>
 
-    <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" 
-    value.bind="FullName" custom-entry.bind="true" 
-            placeholder="Enter your Insurance Co"
-                            open-on-focus.bind="true" debounce.bind="0" key="FullName" 
-                            results-limit.bind="12" select-single-result.bind="true">
-                            </aubs-typeahead>
-         
+					<div class="row">
+						<div class="col-xs-6">
+							<aubs-typeahead data.bind="monthsOfTheYear" custom-entry.bind="true" value.bind="monthOfTheYear" placeholder="Months of the year"
+							 open-on-focus.bind="true" on-select.call="monthSelected(item)"></aubs-typeahead>
+						</div>
+						<div class="col-xs-6">
+							<label>Selected Month:  </label> ${monthOfTheYear.name} - ${monthOfTheYear.short} - ${monthOfTheYear.number}
+						</div>
+					</div>
+
+					<aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" custom-entry.bind="true" placeholder="Enter your Insurance Co"
+					 open-on-focus.bind="true" debounce.bind="0" key="FullName" results-limit.bind="12" select-single-result.bind="true">
+					</aubs-typeahead>
+
 					<!-- <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" value.bind="FullName" 
            debounce.bind="350" placeholder="INSURANCE CO"
            custom-entry.bind="true"
 					 open-on-focus.bind="true" key="FullName" results-limit.bind="12" select-single-result.bind="true">
 					</aubs-typeahead> -->
-           <label>Selected insco:  </label> ${FullName}
+					<label>Selected insco:  </label> ${FullName}
 				</div>
 			</div>
 
@@ -123,8 +116,7 @@
 		<ux-dialog-footer>
 			<button click.trigger="controller.cancel()">Cancel and Close </button>
 			<button click.trigger="save(modal)">Save and Close</button>
-      	<button click.trigger="testfruit()">test fruit</button>
+			<button click.trigger="testfruit()">test fruit</button>
 		</ux-dialog-footer>
 	</ux-dialog>
 </template>
-
