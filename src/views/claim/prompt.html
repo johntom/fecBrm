@@ -84,6 +84,18 @@
           </div>
         </div>
   
+
+
+<div class="row">
+          <div class="col-xs-6">
+            <aubs-typeahead data.bind="monthsOfTheYear" value.bind="monthOfTheYear" placeholder="Months of the year"
+                            open-on-focus.bind="true" on-select.call="monthSelected(item)"></aubs-typeahead>
+          </div>
+          <div class="col-xs-6">
+            <label>Selected Month:  </label> ${monthOfTheYear.name} - ${monthOfTheYear.short} - ${monthOfTheYear.number}
+          </div>
+</div>
+
     <aubs-typeahead ref='dinsco' data.bind="appService.InsurancecompanyList" 
     value.bind="FullName" custom-entry.bind="true" 
             placeholder="Enter your Insurance Co"
