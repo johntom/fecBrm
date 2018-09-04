@@ -158,10 +158,10 @@ export class DataForm {
             this.inscoAdjusters = item.contacts
             icd = this.appService.currentItem.inscontact.INSURANCE_CONTACT_ID
             bid = this.inscoAdjusters.findIndex(x => x.INSURANCE_CONTACT_ID === icd)
-            this.inscontactMatcher = this.inscoAdjusters[bid]
-            // let a = this.inscoAdjusters
-            // let b = this.appService.currentItem.inscontact
-            // this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
+           // this.inscontactMatcher = this.inscoAdjusters[bid]
+             let a = this.inscoAdjusters
+             let b = this.appService.currentItem.inscontact
+             this.inscontactMatcher = (a, b) => a.INSURANCE_CONTACT_ID === b.INSURANCE_CONTACT_ID;
           //  productMatcher = (a, b) => a.id === b.id;
 
             console.log('inscontactMatcher ', this.inscontactMatcher)
