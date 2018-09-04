@@ -1,5 +1,4 @@
-
-	<!-- <form role="form"> -->
+<!-- <form role="form"> -->
 <!-- <template>
 
 	<section class="full-height flex-column-1 au-animate ignore">
@@ -103,16 +102,14 @@
 		<div class="flex-row-none section-header">
 			${heading} 102
 		</div>
-	
-			<div class="flex-row-1 ignore">
-				<div class="flex-column-1 search-panel">
-					<form>
+
+		<div class="flex-row-1 ignore">
+			<div class="flex-column-1 search-panel">
+				<form>
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
-	
-							<input id="searchInput" type="text" class="form-control" 
-              paceholder="01-03188 Search for CLAIM_NO..ie.'01-03188'"
-							 value.bind="search.claimno">
+
+							<input id="searchInput" type="text" class="form-control" paceholder="01-03188 Search for CLAIM_NO..ie.'01-03188'" value.bind="search.claimno">
 						</div>
 
 
@@ -166,7 +163,7 @@
 							<input id="comment" type="text" class="form-control" placeholder="Search for comment ..." value.bind="search.comment">
 						</div>
 					</div>
-				
+
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
 							<aubs-typeahead ref='keywords' data.bind="appService.codesGenre" value.bind="Description" debounce.bind="350" placeholder="search on 1 keyword"
@@ -243,10 +240,10 @@
 						</div>
 					</div>
 
-					</form>
+				</form>
 
-				</div>
 			</div>
 		</div>
+		<!-- </div> -->
 	</section>
 </template>
