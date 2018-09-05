@@ -47,11 +47,11 @@ export class Arprep {
   }
   performSearch() {
     if (this.search) {
-      console.log('this.search', this.search)
+     
      let qs = this.utilService.generateQueryString(this.search);
       //let path = `Searcharprep${this.utilService.counter++}${qs}`;
         let path = `Searcharprep${qs}`;
-      
+       console.log('this.search path', this.search,path)
       // let path = `InvSearch${this.utilService.counter++}${qs}`;
       this.router.navigate(`#/arprep/${path}`);
 
