@@ -371,6 +371,9 @@ findAR(claimno){
     for (i = 0; i < rec.length; i++) {
       newrec = {}
       newrec.batchno = batchno;
+      newrec.CLAIM = rec[i].CLAIM;
+      newrec.WORK_DATE = rec[i].WORK_DATE;
+      	
       newrec.SERVICE = rec[i].SERVICE;
       newrec.EXPENSE = rec[i].EXPENSE;
       newrec.WORK_TIME = rec[i].WORK_TIME * 1;

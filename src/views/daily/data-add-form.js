@@ -232,8 +232,10 @@ export class DataAddForm {
                 // First, grab the current tabvb  this.currentItem.dailies
                 //  this.navigateToNewClaim();
                 // Finally, we close out this tab
-                let tab = this.appService.tabs.find(f => f.isSelected);
-                this.closeTab(tab);
+                //let tab = this.appService.tabs.find(f => f.isSelected);
+                //this.closeTab(tab);
+                // sep 2018 leave open and clear data
+                dailies=[]
               });
             });
 
