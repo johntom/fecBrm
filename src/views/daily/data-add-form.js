@@ -82,6 +82,18 @@ arguments)}}(b))};e.init();p.Mousetrap=e;"undefined"!==typeof module&&module.exp
 
       console.log(response.output);
     });
+
+
+    // "adjusters" : [
+    //     {
+    //         "ADJUSTER_NAME" : "Louis Phillips", 
+    //         "EMP_TYPE" : "p", 
+    //         "LIABILITY_RATE" : 30.0, 
+    //         "PROPERTY_RATE" : 30.0, 
+    //         "MILEAGE_RATE" : 0.41, 
+    //         "TYPE" : "Primary"
+    //     }
+    // ], 
   }
 
 
@@ -144,13 +156,30 @@ arguments)}}(b))};e.init();p.Mousetrap=e;"undefined"!==typeof module&&module.exp
   //    return confirm('Are you sure you want to leave this page?');
   // }
   saveitem(item) {
-    item.edit = !item.edit
-    console.log('saveDaily ', item);
+   
     this.currentAdjuster = item.ADJUSTER
     this.currentClaim = item.CLAIM
-    //this.flag = 1
+// check for adjuster
+/*"adjusters" : [
+        {
+            "ADJUSTER_NAME" : "Bob Guida", 
+            "EMP_TYPE" : "e", 
+            "LIABILITY_RATE" : 0.0, 
+            "PROPERTY_RATE" : 0.0, 
+            "MILEAGE_RATE" : 0.0, 
+            "TYPE" : "Primary"
+        }
+    ],  */
+let alladjsonclaim=item.adjusters
+   let mid = alladjsonclaim.findIndex(x => x.ADJUSTER_NAME === this.currentAdjuster.ADJUSTER_NAME)
+   if (mid !== -1) {
+ item.edit = !item.edit
+    console.log('saveDaily ', item);
 
+    //this.flag = 1
     this.openCount -= 1
+   }
+
 
   }
   close() {

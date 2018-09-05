@@ -1,6 +1,9 @@
 git hub repo
 to see changes must commit
 x=done
+
+Sep 2018
+Must add "adjusters" array to every claim
 6-19-18
 keybd or mouse on entry tab
 Add a new insured on fly
@@ -21,6 +24,7 @@ http://blog.philiphendry.me.uk/2016/02/07/binding-key-presses-using-mousetrap-in
 Export If we have issues
 x Add Daily Place new on top
 Freeze adjuster per daily batch (only claims for that adjuster shd display)
+Sep 2018 above means that you shd not accept a claim that does not have that adjuster in record
 x Delete does not work
 
 5/10/18

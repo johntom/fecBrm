@@ -8,7 +8,7 @@ import { MyDataService } from "../../services/my-data-service";
 
 export class Home {
   heading = "Welcome to the Home page!";
-  version = 100.40
+  version = 100.41
 
   constructor(appService, dataService) {
     //    if (appService.claimLookupDataLoaded) {
@@ -69,7 +69,7 @@ export class Home {
         this.appService.PayperiodList = values[12];
         this.appService.codesList = values[13];
 
-        
+
         // let i, item, ct
         //   this.appService.LookupDataLoaded = true;
         //   let codesInventoryLocation = []//1,
@@ -110,9 +110,9 @@ export class Home {
           this.appService.expenseList[i].DESCRIPTION = this.appService.expenseList[i].SORT_NO + ' ' + this.appService.expenseList[i].DESCRIPTION
         }
 
- for (i = 0; i < this.appService.InsurancecompanyList.length; i++) {
+        for (i = 0; i < this.appService.InsurancecompanyList.length; i++) {
           this.appService.InsurancecompanyList[i].FullName = this.appService.InsurancecompanyList[i].NAME + ' ' + this.appService.InsurancecompanyList[i].ADDRESS
-       + ' ' + this.appService.InsurancecompanyList[i].CITY+ ' ' + this.appService.InsurancecompanyList[i].STATE
+            + ' ' + this.appService.InsurancecompanyList[i].CITY + ' ' + this.appService.InsurancecompanyList[i].STATE
         }
 
 

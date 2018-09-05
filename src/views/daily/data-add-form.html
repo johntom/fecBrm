@@ -55,12 +55,7 @@
 			<tbody>
 				<tr repeat.for="daily of currentItem.dailies" with.bind="daily">
 
-
-
-					<!-- <td width="200px">
-						<span show.bind="!daily.edit">${CLAIM_NO}</span>
-						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="CLAIM_NO">
-					</td> -->
+          
 					<td width="125px">
 						<span show.bind="!daily.edit">${CLAIM.CLAIM_NO}</span>
 						<select show.bind="daily.edit" id="claim" class="form-control input-sm" value.two-way="CLAIM"> 
@@ -128,14 +123,7 @@
 						<span show.bind="!daily.edit">${WORK_DESCRIPTION}</span>
 						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="WORK_DESCRIPTION">						</td>
 					</td>
-					<td width="125px">
-						<span show.bind="!daily.edit">${ADJUSTER_NOTES}</span>
-						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="ADJUSTER_NOTES">						</td>
-					</td>
-
-
-
-					<td width="125px">
+          	<td width="125px">
 						<span show.bind="!daily.edit">${ADJUSTER.ADJUSTER_NAME}</span>
 						<select show.bind="daily.edit" id="adj" class="form-control input-sm" value.two-way="ADJUSTER"> 
               <option model.bind="null">Choose...</option> 
@@ -144,6 +132,14 @@
               </option> 
             </select>
 					</td>
+					<td width="125px">
+						<span show.bind="!daily.edit">${ADJUSTER_NOTES}</span>
+						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="text" value.bind="ADJUSTER_NOTES">						</td>
+					</td>
+
+
+
+				
 
 
 					<td width="225px">
