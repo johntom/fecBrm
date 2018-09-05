@@ -1,7 +1,6 @@
 git hub repo
 to see changes must commit
-ALWAYS TEST https://jif.bergenrisk.com/api/v1/adjuster
-
+x=done
 6-19-18
 keybd or mouse on entry tab
 Add a new insured on fly
@@ -20,9 +19,9 @@ https://ilikekillnerds.com/2016/01/working-with-keypress-events-in-aurelia/
 http://blog.philiphendry.me.uk/2016/02/07/binding-key-presses-using-mousetrap-in-aurelia
 
 Export If we have issues
-Add Daily Place new on top
+x Add Daily Place new on top
 Freeze adjuster per daily batch (only claims for that adjuster shd display)
-Delete does not work
+x Delete does not work
 
 5/10/18
 to do

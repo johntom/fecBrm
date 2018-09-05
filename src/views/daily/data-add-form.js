@@ -73,14 +73,21 @@ arguments)}}(b))};e.init();p.Mousetrap=e;"undefined"!==typeof module&&module.exp
     this.dialogService.open({ viewModel: Prompt, model: 'Delete or Cancel?', lock: false }).whenClosed(response => {
       if (!response.wasCancelled) {
         console.log('Delete')
-        let addresses = this.currentItem.addresses
-        addresses.splice(index, 1)// start, deleteCount)
+        let dailies = this.currentItem.dailies
+        dailies.splice(index, 1)// start, deleteCount)
       } else {
         console.log('cancel');
       }
+
+
       console.log(response.output);
     });
   }
+
+
+
+
+
   addDaily() {
     // ['CLAIM_NO','WORK_DATE',  'SERVICE_ID','WORK_TIME','MILEAGE','EXPENSE_TYPE_ID','EXPENSE','WORK_DESCRIPTION','ADJUSTER_NOTES','ADJUSTER_ID']">
     let dailies = this.currentItem.dailies

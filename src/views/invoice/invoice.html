@@ -9,7 +9,7 @@
 				<form role="form">
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
-							<input id="searchInput" type="text" class="form-control" placeholder="Search for CLAIM_NO..ie.'01-03188'" autocomplete="searchInput"
+							<input id="searchInvClaimno" type="text" class="form-control" placeholder="Search for CLAIM_NO..ie.'01-03188'" autocomplete="searchInput"
 							 value.bind="search.claimno">
 						</div>
 
@@ -32,11 +32,11 @@
 
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
-							<input id="searchartistl" type="text" class="form-control" placeholder="Search for inv claimant last..." value.bind="search.claimant">
+							<input id="searchInvClaimant" type="text" class="form-control" placeholder="Search for inv claimant last..." value.bind="search.claimant">
 						</div>
 						<div class="form-group flex-column-1 margin-left-10">
 
-							<input id="searchInvCode" type="text" class="form-control" placeholder="Search for insured..." value.bind="search.insured">
+							<input id="searchInvInsured" type="text" class="form-control" placeholder="Search for insured..." value.bind="search.insured">
 						</div>
 					</div>
 					<div class="flex-row-none">
@@ -47,7 +47,7 @@
 						</div> -->
 
 						<div class="form-group flex-column-1">
-							<input click.delegate="showModal('insco')" type="text" id="INSURANCE" class="form-control input-sm" value.bind="search.insco">
+							<input click.delegate="showModal('insco')" type="text" id="id="searchInsCo"" class="form-control input-sm" value.bind="search.insco">
 							<!-- <input type="text" id="INSURED_ID" class="form-control input-sm" value.bind="appService.currentClaim.insured.LEGAL_NAME"> -->
 
 						</div>
@@ -55,7 +55,7 @@
 							<strong> Ins Carrier Adjuster</strong>
 						</div>
 						<div class="form-group flex-column-1 margin-left-10">
-							<select id="INSURANCE_CONTACT_ID" class="form-control input-sm" value.bind="search.INSURANCE_CONTACT_ID" change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)"> 
+							<select id="searchInsCoContact" class="form-control input-sm" value.bind="search.INSURANCE_CONTACT_ID" change.delegate="selectChangedIA(currentnewItem.INSURANCE_CONTACT_ID)"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of inscoAdjusters" model.bind="opt.INSURANCE_CONTACT_ID">
                        ${opt.NAME_LAST},  ${opt.NAME_FIRST}  
@@ -73,7 +73,7 @@
 							<!-- <input click.delegate="showModal('OwnerID')" type="text" id="OwnerID" class="form-control input-sm" value.bind="currentItem.ownername"> -->
 
 
-							<select id="INSURANCE_COMPANY_ID" class="form-control input-sm" value.bind="search.INSURANCE_ADDRESS_ID" change.delegate="selectChangedIAddr(currentnewItem.INSURANCE_COMPANY_ID)"> 
+							<select id="searchInsCarrier" class="form-control input-sm" value.bind="search.INSURANCE_ADDRESS_ID" change.delegate="selectChangedIAddr(currentnewItem.INSURANCE_COMPANY_ID)"> 
                       <option model.bind="null">Choose...</option> 
                       <option repeat.for="opt of inscoAddresses" model.bind="opt.INSURANCE_COMPANY_ID">
                         ${opt.ADDRESS}   ${opt.CITY} ${opt.STATE}
@@ -87,7 +87,7 @@
 					</div>
 		<div class="flex-row-none">
 							<div class="form-group flex-column-1">
-								<input id="searchlossdesc" type="text" class="form-control" placeholder="Search for Loss desc..." value.bind="search.lossdesc">
+								<input id="searchInsLD" type="text" class="form-control" placeholder="Search for Loss desc..." value.bind="search.lossdesc">
 							</div>
 						</div>
 
@@ -95,16 +95,16 @@
 					<div class="flex-row-none">
 						<div class="form-group flex-column-1">
 							<label for="dol">Date Of Loss</label>
-							<input id="searchdol" type="date" class="form-control" placeholder="Search for Date of Loss..." value.bind="search.dol">
+							<input id="searchInsDOL" type="date" class="form-control" placeholder="Search for Date of Loss..." value.bind="search.dol">
 
 						</div>
 						<div class="form-group flex-column-1 margin-left-10">
 							<label for="searchdrcvdatel">(Received Start Date GT=</label>
-							<input id="searchdrcvdatel" type="date" class="form-control" placeholder="Search for Received Date Start GT=..." value.bind="search.receiveddate">
+							<input id="searchInsD1" type="date" class="form-control" placeholder="Search for Received Date Start GT=..." value.bind="search.receiveddate">
 						</div>
 						<div class="form-group flex-column-1 margin-left-10">
 							<label for="lastName">Stop Date LT=)</label>
-							<input id="searchdrcvdate2" type="date" class="form-control" placeholder="Search for Date Stop LT=.." value.bind="search.stopdate">
+							<input id="searchInsD2" type="date" class="form-control" placeholder="Search for Date Stop LT=.." value.bind="search.stopdate">
 						</div>
 
 					</div>
