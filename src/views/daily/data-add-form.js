@@ -189,7 +189,7 @@ export class DataAddForm {
        // allnames = allnames + ADJUSTER_NAME.ADJUSTER_NAME + ' '
       }
       console.log(allnames)
-      alert('You must select a claim that has this adjuster assigned to one of following adjusters ' + allnames)
+      //alert('You must select a claim that has this adjuster assigned to one of following adjusters ' + allnames)
 
        alert('You must select a claim that has this adjuster assigned to one of following adjusters ' +JSON.stringify(adjnames)
     }
