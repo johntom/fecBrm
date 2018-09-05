@@ -172,6 +172,7 @@ export class DataAddForm {
         ],  
         appService.claimList */
     let adjnames = []
+      let allnames 
     let alladjsonclaim = item.CLAIM.adjusters
     let mid = alladjsonclaim.findIndex(x => x.ADJUSTER_NAME === this.currentAdjuster.ADJUSTER_NAME)
     if (mid !== -1) {
@@ -182,11 +183,10 @@ export class DataAddForm {
       this.openCount -= 1
     } else {
       for (const ADJUSTER_NAME of alladjsonclaim) {
-             //   val = await someGenerator(item)
-               // console.log('after ADJUSTER_NAME', ADJUSTER_NAME)
-               adjnames.push(ADJUSTER_NAME+',')
+               adjnames.push({'ADJ':ADJUSTER_NAME})
+allnames+=ADJUSTER_NAME+' '
             }
-      alert('You must select a claim that has this adjuster assigned '+adjnames)
+      alert('You must select a claim that has this adjuster assigned to one of following '+adjnames)
     }
 
 
