@@ -36,7 +36,10 @@ export class SearchResults {
     schema: {
       model: {
         id: "_id", // Must assign id for update to work
-      }
+      },
+      status: {
+        type: 'boolean'
+      },
     },
     pageSize: 12,
   })
@@ -122,7 +125,7 @@ export class SearchResults {
     this.router.navigate(rt2);// `#/inventory/${path}`);
   }
 
- detailsInv(e) {
+  detailsInv(e) {
     let tab = this.appService.tabs.find(f => f.isSelected) // find current search tab
     // this.appService.currentSearch=tab//path
     let grid = this.grid;
@@ -135,7 +138,7 @@ export class SearchResults {
     this.router.navigate(rt2);// `#/inventory/${path}`);
   }
   detailsdata(e, type) {
-     let grid = this.grid;
+    let grid = this.grid;
     let targetRow = $(e.target).closest("tr")
     grid.select(targetRow)
     let selectedRow = grid.select()
@@ -159,7 +162,7 @@ export class SearchResults {
     //   rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + 'temp.pdf'
     // } else rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + '.pdf'
 
-   //sep 2018 this.baseweb = 'https://masbackend.brmflow.com/api/';//cloudflare https://backend.brmflow.com/api/v1/inmate
+    //sep 2018 this.baseweb = 'https://masbackend.brmflow.com/api/';//cloudflare https://backend.brmflow.com/api/v1/inmate
     if (dataItem.status === 0) {
       rt2 = `https://masbackend.brmflow.com/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + 'temp.pdf'
     } else rt2 = `https://masbackend.brmflow.com/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + '.pdf'
@@ -170,12 +173,12 @@ export class SearchResults {
   }
 
 
-   lookupstatus(container, options) {
-     let lookup
-     options.field===0 ? lookup='Temp' : lookup='Final'
-        container.text(lookup);
-        
-    }
+  lookupstatus(container, options) {
+    let lookup
+    options.field === 0 ? lookup = 'Temp' : lookup = 'Final'
+    container.text(lookup);
+
+  }
 
 
 }
