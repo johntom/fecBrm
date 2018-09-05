@@ -119,6 +119,7 @@ export class DataForm {
     tab.isSelected = false;
     this.appService.tabs.splice(index, 1);
   }
+}
 // gete(index){
 //   // "EXPENSE" : {
 //   //       "DESCRIPTION" : "201 Dictation", 
