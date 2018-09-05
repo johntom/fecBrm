@@ -183,12 +183,15 @@ export class DataAddForm {
       this.openCount -= 1
     } else {
       for (const ADJUSTER_NAME of alladjsonclaim) {
-        adjnames.push({ 'ADJ': ADJUSTER_NAME.ADJUSTER_NAME })
+        // adjnames.push({ 'ADJ': ADJUSTER_NAME.ADJUSTER_NAME })
+          adjnames.push(  ADJUSTER_NAME.ADJUSTER_NAME )
         allnames += ADJUSTER_NAME.ADJUSTER_NAME + ' / '
        // allnames = allnames + ADJUSTER_NAME.ADJUSTER_NAME + ' '
       }
       console.log(allnames)
       alert('You must select a claim that has this adjuster assigned to one of following adjusters ' + allnames)
+
+       alert('You must select a claim that has this adjuster assigned to one of following adjusters ' +JSON.stringify(adjnames)
     }
 
 
