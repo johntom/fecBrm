@@ -9,8 +9,8 @@ export class ApiService {
     this.upmess = ''
     //this.baseweb = 'https://gtztest.com/api/'
     // this.baseweb = 'https://jif.bergenrisk.com/api/';
-     this.baseweb = 'https://masbackend.brmflow.com/api/';//cloudflare https://backend.brmflow.com/api/v1/inmate
-    
+    this.baseweb = 'https://masbackend.brmflow.com/api/';//cloudflare https://backend.brmflow.com/api/v1/inmate
+
   }
   getUserJwt(username, pass) {
     var token = {};
@@ -37,21 +37,21 @@ export class ApiService {
       mode: 'cors'
     }).then((res) => res.json());
   }
- updatecode(row) { 
-       
-        let url = this.baseweb + `v1/code/update`
-        return this.http.fetch(url, {
-            method: 'put',
-            mode: 'cors',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                // , 'Authorization': 'JWT ' + token
-            },
-            body: JSON.stringify(row)
-        }).then((res) => res.json());
+  updatecode(row) {
 
-    }
+    let url = this.baseweb + `v1/code/update`
+    return this.http.fetch(url, {
+      method: 'put',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        // , 'Authorization': 'JWT ' + token
+      },
+      body: JSON.stringify(row)
+    }).then((res) => res.json());
+
+  }
 
 
 
@@ -259,10 +259,10 @@ export class ApiService {
       body: JSON.stringify(newmodel)
     }).then((res) => res.json());
   }
-findAR(claimno){
-  let url = this.baseweb + `v1/ar/${claimno}`
-    
-     return this.http.fetch(url, {
+  findAR(claimno) {
+    let url = this.baseweb + `v1/ar/${claimno}`
+
+    return this.http.fetch(url, {
       method: 'get',
       mode: 'cors'
     }).then((res) => res.json());
@@ -373,12 +373,14 @@ findAR(claimno){
       newrec.batchno = batchno;
       newrec.CLAIM = rec[i].CLAIM;
       newrec.WORK_DATE = rec[i].WORK_DATE;
-      	
-      newrec.SERVICE = rec[i].SERVICE;
-      newrec.EXPENSE = rec[i].EXPENSE;
+      
+      newrec.WORK_DESCRIPTION = rec[i].WORK_DESCRIPTION;
       newrec.WORK_TIME = rec[i].WORK_TIME * 1;
+      newrec.SERVICE = rec[i].SERVICE;
+      newrec.EXPENSE = rec[i].EXPENSE; //${DESCRIPTION.DESCRIPTION}
       newrec.EXPENSE_AMT = rec[i].EXPENSE_AMT * 1;
       newrec.MILEAGE = rec[i].MILEAGE * 1;
+
       newrec.WORK_TIME_BILLED = rec[i].WORK_TIME;
       newrec.WORK_TIME_PAID = rec[i].WORK_TIME;
       newrec.WORKTIME_BILLEDAPPROVED = rec[i].WORK_TIME;
@@ -387,6 +389,12 @@ findAR(claimno){
       newrec.EXPENSE_BILLEDAPPROVED = rec[i].EXPENSE_AMT;
       newrec.TRAVEL_APPROVED = rec[i].MILEAGE;
       newrec.TRAVEL_BILLEDAPPROVED = rec[i].MILEAGE;
+
+      newrec.ADJUSTER = rec[i].ADJUSTER;
+      newrec.ADJUSTER_NOTES = rec[i].ADJUSTER_NOTES;
+
+
+
       newrec.ADJUSTER_PAID = 0;
       newrec.ADJ_STATUS = 0;
       newrec.INV_STATUS = 0;

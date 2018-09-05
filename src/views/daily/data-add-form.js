@@ -235,7 +235,7 @@ export class DataAddForm {
                 //let tab = this.appService.tabs.find(f => f.isSelected);
                 //this.closeTab(tab);
                 // sep 2018 leave open and clear data
-                dailies=[]
+                this.currentItem.dailies=[]
               });
             });
 
