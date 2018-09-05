@@ -139,11 +139,12 @@ export class SearchResults {
         grid.select(targetRow);
         let selectedRow = grid.select();
         let dataItem = grid.dataItem(selectedRow);
-        //href="http://adjusters.markadjustment.com/docs/${currentItem.CLAIM_NO}/${doc.FILE_NAME}">				${FILE_NAME}
-      // let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/oneadjpdf/' + this.recordId + '/' + data + '.pdf'
+       ////href="http://adjusters.markadjustment.com/docs/${currentItem.CLAIM_NO}/${doc.FILE_NAME}">				${FILE_NAME}
+       //// let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/oneadjpdf/' + this.recordId + '/' + data + '.pdf'
      
-        let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/oneadjpdf/' +4 + '/' + dataItem.id + '.pdf'
-        //  alert('rt2 '+rt2)
+       // let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/oneadjpdf/' +4 + '/' + dataItem.id + '.pdf'
+        //cloudflare sep 2018 this.baseweb = 'https://masbackend.brmflow.com/api/';//cloudflare https://backend.brmflow.com/api/v1/inmate
+       let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' +4 + '/' + dataItem.id + '.pdf'
         window.open(rt2, '_blank');
     }
 

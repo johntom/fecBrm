@@ -156,15 +156,21 @@ export class SearchResults {
     grid.select(targetRow);
     let selectedRow = grid.select();
     let dataItem = grid.dataItem(selectedRow);
-    //href="http://adjusters.markadjustment.com/docs/${currentItem.CLAIM_NO}/${doc.FILE_NAME}">				${FILE_NAME}
     let rt2
 
     // href="http://jif.bergenrisk.com:8081/api/v1/downloadpayments?filename=${doc}">
 
     let pdft = (type === 0) ? 'onepdf' : 'downloadar'
+    // if (dataItem.status === 0) {
+    //   rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + 'temp.pdf'
+    // } else rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + '.pdf'
+
+   //sep 2018 this.baseweb = 'https://masbackend.brmflow.com/api/';//cloudflare https://backend.brmflow.com/api/v1/inmate
     if (dataItem.status === 0) {
-      rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + 'temp.pdf'
-    } else rt2 = `https://jif.bergenrisk.com:8081/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + '.pdf'
+      rt2 = `https://masbackend.brmflow.com/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + 'temp.pdf'
+    } else rt2 = `https://masbackend.brmflow.com/api/v1/${pdft}/` + dataItem.claim.CLAIM_NO + '/' + dataItem.id + '.pdf'
+
+
 
     window.open(rt2, '_blank');
   }
