@@ -7,7 +7,6 @@ import { DialogService } from 'aurelia-dialog';
 import { lodash } from 'lodash'
 import { inject } from 'aurelia-dependency-injection';
 @inject(Router, UtilService, ApplicationService, ApiService, DialogService)
-
 export class Invoice {
  // static inject = [Router, UtilService, ApplicationService, ApiService,DialogService];
 

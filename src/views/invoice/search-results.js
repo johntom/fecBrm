@@ -19,7 +19,13 @@ export class SearchResults {
   queryParams = '';
   items = [];
   origItems = [];
-
+  statusvals = [{
+                    "value": 0,
+                    "text": "Temp"
+                },{
+                    "value": 1,
+                    "text": "Final"
+                }]
   //  console.log(' inv SearchResults ');
   message = 'Hello Invoice 100!';
   datasource = new kendo.data.DataSource({
@@ -38,7 +44,7 @@ export class SearchResults {
         id: "_id", // Must assign id for update to work
       },
       status: {
-        type: 'boolean'
+        type: 'number'
       },
     },
     pageSize: 12,

@@ -35,10 +35,13 @@
 			</ak-col>
 
  
-<ak-col k-field="status" k-title="status 2" k-width="280" k-editor.bind="lookupstatus" 
+<!-- <ak-col k-field="status" k-title="status 2" k-width="280" k-editor.bind="lookupstatus" 
 k-filterable.bind="false"  k-groupable.bind="false" 
+></ak-col> -->
+<ak-col k-field="status" k-title="status 2" k-width="280" k-editor.bind="lookupstatus" 
+k-filterable.bind="false"  k-values="statusvals" k-groupable.bind="false" 
 ></ak-col>
-
+<!-- { field: "CategoryID", width: "200px", values: categories, title: "Category" }, -->
      	<ak-col k-field="id" k-filterable.bind="true" k-title="Edit Invoice Data (not implemented)" k-width.bind="180" 
       k-template="<button click.delegate='detailsdata($event,0)' 
       class='k-button'>#=id#</button>">
