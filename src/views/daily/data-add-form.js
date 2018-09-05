@@ -186,7 +186,7 @@ export class DataAddForm {
                adjnames.push({'ADJ':ADJUSTER_NAME})
 allnames+=ADJUSTER_NAME+' '
             }
-      alert('You must select a claim that has this adjuster assigned to one of following '+adjnames)
+      alert('You must select a claim that has this adjuster assigned to one of following '+allnames)
     }
 
 
