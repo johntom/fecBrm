@@ -14,28 +14,30 @@
 		<ak-grid class="flex-row-1 overflow-y-auto" id="grid" k-data-source.bind="datasource" k-widget.bind="grid" k-sortable.bind="{ mode: 'multiple',   allowUnsort: 'true'}"
 		 k-filterable.bind="{  mode: 'row' }" k-editable="inline" k-reorderable.bind="true" k-groupable.bind="true" k-resizable.bind="true"
 		 k-selectable="[row,multiple]" k-on-change.delegate="rowSelected($event.detail)" k-column-menu.bind="true" k-pageable.bind="true">
-	<ak-col k-field="claim.CLAIM_NO" k-filterable.bind="true" k-title="Edit ClaimNo"
+	
+  <ak-col k-field="claim.CLAIM_NO" k-filterable.bind="true" k-title="Edit ClaimNo"
    k-width.bind="180" k-template="<button click.delegate='detailsInv($event)' class='k-button'>#=claim.CLAIM_NO#</button>">
 			</ak-col>
-			<ak-col k-field="id" k-filterable.bind="true" k-title="Edit Data" k-width.bind="180" 
-      k-template="<button click.delegate='detailsdata($event,0)' 
-      class='k-button'>#=id#</button>">
-			</ak-col>
-   <ak-col k-field="id" k-filterable.bind="true" k-title="Open Pdf" 
+	
+  	
+   <!-- <ak-col k-field="id" k-filterable.bind="true" k-title="Open Pdf" 
         k-width.bind="280" k-template="<button click.delegate='detailspdf($event,0)' 
         class='k-button'>#=claim.CLAIM_NO#.pdf</button>">
+			</ak-col> -->
+ <ak-col k-field="claim.CLAIM_NO" k-filterable.bind="true" k-title="Open Pdf" 
+        k-width.bind="280" k-template="<button click.delegate='detailspdf($event,0)' class='k-button'>#=claim.CLAIM_NO#.pdf</button>">
 			</ak-col>
-
-
+<ak-col k-field="claim.CLAIM_NO" k-filterable.bind="true" k-title="Download Pdf" 
+        k-width.bind="280" k-template="<button click.delegate='detailspdf($event,1)' class='k-button'>#=claim.CLAIM_NO#.pdf</button>">
+			</ak-col>
 
 		<ak-col k-field="status" k-filterable.bind="true" k-title="Status" k-width.bind="280"  >
 			</ak-col>
-       <ak-col k-field="claim.CLAIM_NO" k-filterable.bind="true" k-title="Open Pdf" 
-        k-width.bind="280" k-template="<button click.delegate='detailspdf($event,0)' class='k-button'>#=claim.CLAIM_NO#.pdf</button>">
+     	<ak-col k-field="id" k-filterable.bind="true" k-title="Edit Invoice Data (not implemented)" k-width.bind="180" 
+      k-template="<button click.delegate='detailsdata($event,0)' 
+      class='k-button'>#=id#</button>">
 			</ak-col>
-     <ak-col k-field="claim.CLAIM_NO" k-filterable.bind="true" k-title="Download Pdf" 
-        k-width.bind="280" k-template="<button click.delegate='detailspdf($event,1)' class='k-button'>#=claim.CLAIM_NO#.pdf</button>">
-			</ak-col>
+     
       	<!--	<ak-col k-field="claimant.LAST_NAME" k-filterable.bind="true" k-title="Clmt Last" k-width.bind="280"  >
 			</ak-col>
 
