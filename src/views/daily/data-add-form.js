@@ -169,8 +169,9 @@ arguments)}}(b))};e.init();p.Mousetrap=e;"undefined"!==typeof module&&module.exp
             "MILEAGE_RATE" : 0.0, 
             "TYPE" : "Primary"
         }
-    ],  */
-let alladjsonclaim=item.adjusters
+    ],  
+    appService.claimList */
+let alladjsonclaim=item.CLAIM.adjusters
    let mid = alladjsonclaim.findIndex(x => x.ADJUSTER_NAME === this.currentAdjuster.ADJUSTER_NAME)
    if (mid !== -1) {
  item.edit = !item.edit
