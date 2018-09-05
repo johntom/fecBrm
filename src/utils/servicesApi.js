@@ -103,8 +103,9 @@ export class ApiService {
   }
 
   adjusterprep() {
-    var url = this.baseweb + 'v1/adjusterprep/'
-    console.log('url ', url)
+    var url = this.baseweb + 'v1/adjusterprep/'     
+
+    console.log('adjusterprepAggreagate url ', url)
     return this.http.fetch(url, {
       method: 'get',
       mode: 'cors'
@@ -116,7 +117,7 @@ export class ApiService {
   adjusterprepone(adjuster) {
     // var url = this.baseweb + 'v1/adjusterprepone/' + adjuster
     var url = this.baseweb + 'v1/adjusterprep/' + adjuster
-    console.log('url ', url)
+    console.log('adjusterprepone url ', url)
     return this.http.fetch(url, {
       method: 'get',
       mode: 'cors'
