@@ -32,19 +32,13 @@ export class SearchResults {
             options.success(ar);
           });
       },
-
-
-
-
     },
     schema: {
       model: {
         id: "_id", // Must assign id for update to work
-
       }
     },
     pageSize: 12,
-
   })
 
 
@@ -174,6 +168,14 @@ export class SearchResults {
 
     window.open(rt2, '_blank');
   }
+
+
+   lookupstatus(container, options) {
+     let lookup
+     options.field===0 ? lookup='Temp' : lookup='Final'
+        container.text(lookup);
+        
+    }
 
 
 }
