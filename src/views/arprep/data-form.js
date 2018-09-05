@@ -106,9 +106,9 @@ export class DataForm {
       let claimno = this.appService.currentDaily.CLAIM_NO
       this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
         console.log('jsonRes ', jsonRes);
-        //  let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
-        let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
-
+        ////  let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+        //let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
+        let rt2 = 'https://masbackend.brmflow.com/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
         // alert('rt2 ' + rt2)
         window.open(rt2, '_blank');

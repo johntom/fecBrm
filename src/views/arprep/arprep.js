@@ -55,10 +55,6 @@ export class Arprep {
       // let path = `InvSearch${this.utilService.counter++}${qs}`;
       this.router.navigate(`#/arprep/${path}`);
 
-
-
-
-
     }
   }
   // addDaily() {
