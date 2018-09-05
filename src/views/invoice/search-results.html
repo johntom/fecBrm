@@ -31,13 +31,7 @@
         k-width.bind="280" k-template="<button click.delegate='detailspdf($event,1)' class='k-button'>#=claim.CLAIM_NO#.pdf</button>">
 			</ak-col>
 
-		<ak-col k-field="status" k-filterable.bind="true" k-title="Status" k-width.bind="280"  >
-			</ak-col>
 
- 
-<!-- <ak-col k-field="status" k-title="status 2" k-width="280" k-editor.bind="lookupstatus" 
-k-filterable.bind="false"  k-groupable.bind="false" 
-></ak-col> -->
 
 <ak-col k-field="status" k-title="status lu" k-width="280" 
  k-values.bind="statusvals" k-groupable.bind="false" 
