@@ -92,7 +92,9 @@ export class DataForm {
     // let currentAdjuster = 'jrt'
     let status = 0
     // let status = 1
-    this.api.saveDailyAdjuster(this.dailies, status, this.appService.currentadjuster, this.appService.currentpayperiod).then((jsonRes) => {
+    //appService.currentAdjuster.ADJUSTER_NAME} perdiod: ${appService.currentpayperiod}
+    if (this.appService.currentpayperiod===undefined) this.appService.currentpayperiod='0901'
+    this.api.saveDailyAdjuster(this.dailies, status, this.appService.currentadjuster.ADJUSTER_ID, this.appService.currentpayperiod).then((jsonRes) => {
       console.log('jsonRes ', jsonRes);
     });
     let tab = this.appService.tabs.find(f => f.isSelected);

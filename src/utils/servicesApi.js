@@ -322,8 +322,8 @@ export class ApiService {
         rec.adjno=adjno
         rec.ADJ_STATUS = status;
         rec.AR_ID = 0;
-        // rec.Payperiod=currentpayperiod
-        // rec[i].STATUS = 0;
+        //// rec.Payperiod=currentpayperiod
+        //// rec[i].STATUS = 0;
         detail.push(rec)
       }
     }
