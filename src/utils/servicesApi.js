@@ -317,7 +317,7 @@ export class ApiService {
         rec.SERVICE = dailies[i].SERVICE.DESCRIPTION
         rec.EXPENSE = dailies[i].EXPENSE.DESCRIPTION
         rec.Claim = dailies[i].CLAIM
-        rec.Aduster = dailies[i].ADJUSTER
+        rec.Adjuster = dailies[i].ADJUSTER
         rec.payperiod = currentpayperiod 
         rec.adjno=adjno
         rec.ADJ_STATUS = status;
