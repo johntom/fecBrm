@@ -78,6 +78,7 @@ export class DataForm {
       console.log('jsonRes ', jsonRes);
 
       this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
+        this.dailies=[]
         console.log('jsonRes ', jsonRes);
       });
     });

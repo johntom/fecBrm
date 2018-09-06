@@ -85,51 +85,21 @@ saveCreate() {
     let status = 1
     let claimno = this.appService.currentDaily.CLAIM_NO
     //  this.api.saveDailyforar(this.dailies, status).then((jsonRes) => {
-    this.api.saveDaily(this.dailies, status).then((jsonRes) => {
-
-      console.log('jsonRes ', jsonRes);
-
-      this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
+   
+  if (this.appService.currentpayperiod===undefined) this.appService.currentpayperiod='2018'
+    this.api.saveDailyAdjuster(this.dailies, status, this.appService.currentAdjuster.ADJUSTER_ID, this.appService.currentpayperiod).then((jsonRes) => {
+    
         console.log('jsonRes ', jsonRes);
+         this.dailies=[]
       });
-    });
-    // let rt2a = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
-    let rt2a = 'https://masbackend.brmflow.com/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
-
-    console.log('rt2a ' + rt2a + ' jsonRes ' + jsonRes)
-    // alert('rt2 ' + rt2)
-    window.open(rt2a, '_blank');
-
-// sep comment next 4
-    // let tab = this.appService.tabs.find(f => f.isSelected);
-    // this.closeTab(tab);
-    // let rt2 = '#/arprep/Searchadjusterprep?'
-    // this.router.navigate(rt2);
-  }
-
-  //let template = req.param('template')
-
-  //  let filepath = 'E:/Docs/Images/pdf'
-  saveCreateTemp() {
-    // this is temp
-    let status = 0
-    this.api.saveDaily(this.dailies, status).then((jsonRes) => {
-      console.log('jsonRes ', jsonRes);
-
-      let claimno = this.appService.currentDaily.CLAIM_NO
-      this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
-        console.log('jsonRes ', jsonRes);
-        ////  let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
-        //let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
-        let rt2 = 'https://masbackend.brmflow.com/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
+   
+        let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + this.appService.currentpayperiod+ '.pdf'
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
         // alert('rt2 ' + rt2)
         window.open(rt2, '_blank');
-      });
-    });
-
   }
 
+ 
 /////////
   saveCreateTemp() {
     // find claim and adjuster as there should only be one for 
