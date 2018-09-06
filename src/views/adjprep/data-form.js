@@ -83,8 +83,6 @@ export class DataForm {
 saveCreate() {
     // this is final
     let status = 1
-    let claimno = this.appService.currentDaily.CLAIM_NO
-    //  this.api.saveDailyforar(this.dailies, status).then((jsonRes) => {
    
   if (this.appService.currentpayperiod===undefined) this.appService.currentpayperiod='2018'
     this.api.saveDailyAdjuster(this.dailies, status, this.appService.currentAdjuster.ADJUSTER_ID, this.appService.currentpayperiod).then((jsonRes) => {
