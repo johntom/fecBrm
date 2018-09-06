@@ -89,12 +89,13 @@ saveCreate() {
     
         console.log('jsonRes ', jsonRes);
          this.dailies=[]
-      });
+     
    
         let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + this.appService.currentpayperiod+ '.pdf'
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
         // alert('rt2 ' + rt2)
         window.open(rt2, '_blank');
+         });
   }
 
  

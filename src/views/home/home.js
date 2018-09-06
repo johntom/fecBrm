@@ -8,7 +8,7 @@ import { MyDataService } from "../../services/my-data-service";
 
 export class Home {
   heading = "Welcome to the Home page!";
-  version = 100.63
+  version = 100.64
 
   constructor(appService, dataService) {
     //    if (appService.claimLookupDataLoaded) {
