@@ -147,8 +147,8 @@ saveCreate() {
     if (this.appService.currentpayperiod===undefined) this.appService.currentpayperiod='2018'
     //${appService.currentAdjuster.ADJUSTER_NAME}'
     this.api.saveDailyAdjuster(this.dailies, status, this.appService.currentAdjuster.ADJUSTER_ID, this.appService.currentpayperiod).then((jsonRes) => {
-      console.log('jsonRes ', jsonRes);
-         let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + jsonRes.data + '.pdf'
+      console.log('jsonRes mongoid:', jsonRes.data );
+         let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + this.appService.currentpayperiod+ '.pdf'
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
         // alert('rt2 ' + rt2)
         window.open(rt2, '_blank');
