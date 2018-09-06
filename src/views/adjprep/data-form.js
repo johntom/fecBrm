@@ -31,10 +31,7 @@ export class DataForm {
     if (params.id) {
       this.recordId = params.id;
       if (this.recordId === 'create') {
-
       } else {
-
-
         console.log('this.recordId ', this.recordId);
         return this.api.adjusterprepone(this.recordId).then((jsonRes) => {
           console.log('jsonRes ', jsonRes.data);
@@ -44,7 +41,6 @@ export class DataForm {
       }
     }
     // see below
-
   }
 
 
