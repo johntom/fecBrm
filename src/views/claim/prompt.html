@@ -15,6 +15,46 @@
 					<aubs-typeahead ref='dinsured' data.bind="appService.insuredList" value.bind="LEGAL_NAME" debounce.bind="350" placeholder="INSURED_ID"
 					 open-on-focus.bind="true" key="LEGAL_NAME" results-limit.bind="12" select-single-result.bind="true">
 					</aubs-typeahead>
+
+	<a slot="buttons-slot">
+          <input id="icon_prefix" type="text" value.bind="searchdoc & debounce" class="validate">
+                            
+			 <i class="material-icons search">search</i>
+       </a>
+
+					<table class="table-condensed table">
+						<thead class="table-header-blue" data-sort="items.bind: appService.insuredList; cols: ['LEGAL_NAME','CITY',
+     'STATE']">
+							<tr>
+								<th class="header">LEGAL_NAME </th> 
+								<th class="header">CITY </th>
+								<th class="header">STATE </th>
+								<th class="header">Cmd </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr repeat.for="insured of appService.insuredList" with.bind="insured">
+								<td width="125px">
+									<span>${LEGAL_NAME}</span>
+								</td>
+								<td width="125px">
+									<span>${CITY}</span>
+								</td>
+
+								<td width="95px">
+									<span>${STATE}</span>
+								</td>
+								<td width="225px">
+									<button class="btn btn-primary" click.delegate="saveitem(insured)"> Select</button>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+
+
 				</div>
 			</div>
 			<div show.bind="fieldname==='ADJUSTER_ID'">
@@ -75,8 +115,8 @@
 
 					<div class="row">
 						<div class="col-xs-6">
-							<aubs-typeahead ref='frt' data.bind="fruits" value.bind="fruit" custom-entry.bind="true" placeholder="Enter your fruit"
-							 open-on-focus.bind="true" debounce.bind="0"></aubs-typeahead>
+							<aubs-typeahead ref='frt' data.bind="fruits" value.bind="fruit" custom-entry.bind="true" placeholder="Enter your fruit" open-on-focus.bind="true"
+							 debounce.bind="0"></aubs-typeahead>
 						</div>
 						<div class="col-xs-6">
 							<label>Selected Fruit:  </label> ${fruit}

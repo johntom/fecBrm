@@ -216,22 +216,24 @@ import { ApiService } from '../../utils/servicesApi';
 
 
 export class Prompt {
+  @bindable searchdoc
   static inject = [DialogController, ApplicationService, MyDataService, DialogService, ApiService];
-
-fruits = ['Apple', 'Orange', 'Grapes', 'Pineaple', 'Peach', 'Bananas'];
-monthsOfTheYear = [
-    {name: 'January', short: 'Jan', number: 1},
-    {name: 'February', short: 'Feb', number: 2},
-    {name: 'March', short: 'Mar', number: 3},
-    {name: 'April', short: 'Apr', number: 4},
-    {name: 'May', short: 'May', number: 5},
-    {name: 'June', short: 'Jun', number: 6},
-    {name: 'July', short: 'Jul', number: 7},
-    {name: 'August', short: 'Aug', number: 8},
-    {name: 'September', short: 'Sep', number: 9},
-    {name: 'October', short: 'Oct', number: 10},
-    {name: 'November', short: 'Nov', number: 11},
-    {name: 'December', short: 'Dec', number: 12}
+ metainmates = ['LEGAL_NAME', 'CITY', 'STATE']
+  
+  fruits = ['Apple', 'Orange', 'Grapes', 'Pineaple', 'Peach', 'Bananas'];
+  monthsOfTheYear = [
+    { name: 'January', short: 'Jan', number: 1 },
+    { name: 'February', short: 'Feb', number: 2 },
+    { name: 'March', short: 'Mar', number: 3 },
+    { name: 'April', short: 'Apr', number: 4 },
+    { name: 'May', short: 'May', number: 5 },
+    { name: 'June', short: 'Jun', number: 6 },
+    { name: 'July', short: 'Jul', number: 7 },
+    { name: 'August', short: 'Aug', number: 8 },
+    { name: 'September', short: 'Sep', number: 9 },
+    { name: 'October', short: 'Oct', number: 10 },
+    { name: 'November', short: 'Nov', number: 11 },
+    { name: 'December', short: 'Dec', number: 12 }
   ];
   constructor(controller, appService, dataService, dialogService, api) {
     this.controller = controller;
@@ -248,7 +250,20 @@ monthsOfTheYear = [
     this.api = api
   }
 
+  searchdocChanged(value) {
+    //this.appService.insuredList
+    if (value === "") { this.insuredList = this.allinsuredList } else
 
+      this.insuredList = this.insuredList.filter((item) => {
+        for (let i in this.metainmates) {
+          let md = this.metainmates[i]
+          if (item.inmate[md] !== undefined) {
+            if ((item.inmate[md]).toLowerCase().search(value.toLowerCase()) != -1) return true
+          }
+        }
+      });
+    return
+  }
   getStates(filter, limit) {
     let filterlc = filter.toLowerCase()
     let states
@@ -271,11 +286,11 @@ monthsOfTheYear = [
     this.fieldname = fieldname;
 
   }
- 
-testfruit(){
-  alert(this.fruit+' this.fn' +this.FullName)
-}
-   monthSelected(item) {
+
+  testfruit() {
+    alert(this.fruit + ' this.fn' + this.FullName)
+  }
+  monthSelected(item) {
     if (item) {
       console.log('Month Selected: ' + item.short);
     } else {
@@ -283,7 +298,7 @@ testfruit(){
     }
   }
   attached() {
-       // set typahead value for state MUST BE IN ATTACHED
+    // set typahead value for state MUST BE IN ATTACHED
     // this.name = {
     //   name: 'New York',
     //   value: 'NY'
@@ -299,7 +314,7 @@ testfruit(){
 
     if (this.fieldname === 'insco') {
       // this.currentnewItem.insaddress = item
-       let insaddresses = this.appService.inscoAddresses
+      let insaddresses = this.appService.inscoAddresses
       if (this.currentItem.insco !== undefined) {
         let inscompanies = this.appService.InsurancecompanyList
         let oid = this.currentItem.insco.id
@@ -332,6 +347,7 @@ testfruit(){
       if (this.currentItem.insured !== undefined) {
         let oid = this.currentItem.insured.id
         let inslist = this.appService.insuredList
+         this.allinsuredList = inslist
         //currentItem
         // if ((this.currentItem.INSURED_ID === undefined) || (this.appService.insuredList === null)) {
         let mid
@@ -345,6 +361,7 @@ testfruit(){
 
         }
         let insuredobj = inslist[mid]
+        this.insuredList =insuredobj// for table
         this.LEGAL_NAME = insuredobj
         this.dinsured.value = this.LEGAL_NAME
       }
@@ -361,7 +378,7 @@ testfruit(){
         // this.OrgName = orgobj
         // this.dadjuster_id.value = this.OrgName
       }
- }
+    }
   }
   //  alert(`${this.addlist} Exists in list already!`)
   addit() {
@@ -464,14 +481,14 @@ testfruit(){
       this.currentItem.PurchasedFrom = orgid
       this.currentItem.purchasedfromname = orgname
     }
-  
-   if (this.fieldname === 'LoanTo') {
+
+    if (this.fieldname === 'LoanTo') {
       let orgid = `${this.OrgName._id}`
       let orgname = `${this.OrgName.OrgName}`
       this.currentItem.LoanTo = orgid
       this.currentItem.loantoname = orgname
     }
-   if (this.fieldname === 'PhotographerID') {
+    if (this.fieldname === 'PhotographerID') {
       let orgid = `${this.OrgName._id}`
       let orgname = `${this.OrgName.OrgName}`
       this.currentItem.PhotographerID = orgid
