@@ -212,7 +212,7 @@ import { MyDataService } from "../../services/my-data-service";
 import { DialogService } from 'aurelia-dialog';
 // import { PromptServ } from '../../services/promptserv';
 import { ApiService } from '../../utils/servicesApi';
-
+import { bindable } from 'aurelia-framework';
 
 
 export class Prompt {
