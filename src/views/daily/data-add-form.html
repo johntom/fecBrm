@@ -59,34 +59,27 @@
           
 					<td width="125px">
 						<span show.bind="!daily.edit">${CLAIM.CLAIM_NO}</span>
-						<select show.bind="daily.edit" id="claim" class="form-control input-sm" value.two-way="CLAIM"> 
+						<!-- <select show.bind="daily.edit" id="claim" class="form-control input-sm" value.two-way="CLAIM"> 
               <option model.bind="null">Choose...</option> 
               <option repeat.for="opt of appService.claimList" model.bind="opt">
                ${opt.CLAIM_NO}
               </option> 
-            </select>
+            </select> -->
+            	<aubs-typeahead ref='claim' data.bind="appService.claimList" value.bind="opt" debounce.bind="350" placeholder="claims"
+						 open-on-focus.bind="true" key="CLAIM_NO" results-limit.bind="20" select-single-result.bind="true">
+						</aubs-typeahead>
 					</td>
 					<td width="200px">
 						<span show.bind="!daily.edit">${WORK_DATE}</span>
 						<input show.bind="daily.edit" class="form-control input-sm" disabled.bind="!daily.edit" type="date" value.bind="WORK_DATE">
 					</td>
 
-					<!-- <td width="125px">
-						<span show.bind="!daily.edit">${SERVICE.DESCRIPTION}</span>
-						<select show.bind="daily.edit" id="service" class="form-control input-sm" value.two-way="SERVICE" change.delegate="selectChanged(daily, SERVICE)"> 
-              <option model.bind="null">Choose...</option> 
-              <option repeat.for="opt of appService.serviceList" model.bind="opt">
-               ${opt.SORT_NO} &nbsp;  ${opt.DESCRIPTION} 
-              </option> 
-            </select>
-					</td> -->
-
-					<!-- works also ${DESCRIPTION.DESCRIPTION} -->
+	
 
 					<td width="125px">
 						<span show.bind="!daily.edit">${DESCRIPTION.DESCRIPTION}  </span>
 						<aubs-typeahead ref='keyword' data.bind="appService.serviceList" value.bind="SERVICE" debounce.bind="350" placeholder="service"
-						 open-on-focus.bind="true" key="DESCRIPTION" results-limit.bind="10" select-single-result.bind="true">
+						 open-on-focus.bind="true" key="DESCRIPTION" results-limit.bind="20" select-single-result.bind="true">
 						</aubs-typeahead>
 					</td>
 
@@ -112,7 +105,7 @@
           	<td width="125px">
 						<span show.bind="!daily.edit">${DESCRIPTION.DESCRIPTION}  </span>
 						<aubs-typeahead ref='expense' data.bind="appService.expenseList" value.bind="EXPENSE" debounce.bind="350" placeholder="expense"
-						 open-on-focus.bind="true" key="DESCRIPTION" results-limit.bind="10" select-single-result.bind="true">
+						 open-on-focus.bind="true" key="DESCRIPTION" results-limit.bind="20" select-single-result.bind="true">
 						</aubs-typeahead>
 					</td>
 
