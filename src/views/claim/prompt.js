@@ -361,7 +361,8 @@ export class Prompt {
 
         }
         let insuredobj = inslist[mid]
-        this.insuredList =insuredobj// for table
+        this.insuredList = this.allinsuredList// insuredobj// for table
+        this.searchdocChanged(insuredobj.LEGAL_NAME)
         this.LEGAL_NAME = insuredobj
         this.dinsured.value = this.LEGAL_NAME
       }
