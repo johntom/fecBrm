@@ -318,7 +318,8 @@ export class ApiService {
         rec.EXPENSE = dailies[i].EXPENSE.DESCRIPTION
         rec.Claim = dailies[i].CLAIM
         rec.Aduster = dailies[i].ADJUSTER
-
+        rec.payperiod = currentpayperiod 
+        rec.adjno=adjno
         rec.ADJ_STATUS = status;
         rec.AR_ID = 0;
         // rec.Payperiod=currentpayperiod
