@@ -255,12 +255,13 @@ export class Prompt {
     if (value === "") { this.insuredList = this.allinsuredList } else
 
       this.insuredList = this.insuredList.filter((item) => {
-        for (let i in this.metainmates) {
-          let md = this.metainmates[i]
-          if (item.insured[md] !== undefined) {
-            if ((item.insured[md]).toLowerCase().search(value.toLowerCase()) != -1) return true
-          }
-        }
+        // for (let i in this.metainmates) {
+        //   let md = this.metainmates[i]
+        //   if (item.insured[md] !== undefined) {
+        //     if ((item.insured[md]).toLowerCase().search(value.toLowerCase()) != -1) return true
+        //   }
+        // }
+        if (item.LEGAL_NAME.toLowerCase().search(value.toLowerCase()) != -1) return true
       });
     return
   }
