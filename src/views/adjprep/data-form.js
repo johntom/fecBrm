@@ -79,7 +79,58 @@ export class DataForm {
     this.router.navigate(rt2);
 
   }
+///////////////
+saveCreate() {
+    // this is final
+    let status = 1
+    let claimno = this.appService.currentDaily.CLAIM_NO
+    //  this.api.saveDailyforar(this.dailies, status).then((jsonRes) => {
+    this.api.saveDaily(this.dailies, status).then((jsonRes) => {
 
+      console.log('jsonRes ', jsonRes);
+
+      this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
+        console.log('jsonRes ', jsonRes);
+      });
+    });
+    // let rt2a = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+    let rt2a = 'https://masbackend.brmflow.com/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+
+    console.log('rt2a ' + rt2a + ' jsonRes ' + jsonRes)
+    // alert('rt2 ' + rt2)
+    window.open(rt2a, '_blank');
+
+// sep comment next 4
+    // let tab = this.appService.tabs.find(f => f.isSelected);
+    // this.closeTab(tab);
+    // let rt2 = '#/arprep/Searchadjusterprep?'
+    // this.router.navigate(rt2);
+  }
+
+  //let template = req.param('template')
+
+  //  let filepath = 'E:/Docs/Images/pdf'
+  saveCreateTemp() {
+    // this is temp
+    let status = 0
+    this.api.saveDaily(this.dailies, status).then((jsonRes) => {
+      console.log('jsonRes ', jsonRes);
+
+      let claimno = this.appService.currentDaily.CLAIM_NO
+      this.api.createAR(this.dailies, this.appService.currentDaily, status).then((jsonRes) => {
+        console.log('jsonRes ', jsonRes);
+        ////  let rt2 = 'http://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + '.pdf'
+        //let rt2 = 'https://jif.bergenrisk.com:8081/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
+        let rt2 = 'https://masbackend.brmflow.com/api/v1/onepdf/' + claimno + '/' + jsonRes.data + 'temp.pdf'
+        console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
+        // alert('rt2 ' + rt2)
+        window.open(rt2, '_blank');
+      });
+    });
+
+  }
+
+/////////
   saveCreateTemp() {
     // find claim and adjuster as there should only be one for 
     //   let aid = insco.findIndex(x => x.INSURANCE_COMPANY_ID === serviceinsco)
@@ -97,6 +148,10 @@ export class DataForm {
     //${appService.currentAdjuster.ADJUSTER_NAME}'
     this.api.saveDailyAdjuster(this.dailies, status, this.appService.currentAdjuster.ADJUSTER_ID, this.appService.currentpayperiod).then((jsonRes) => {
       console.log('jsonRes ', jsonRes);
+         let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + jsonRes.data + '.pdf'
+        console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
+        // alert('rt2 ' + rt2)
+        window.open(rt2, '_blank');
     });
     let tab = this.appService.tabs.find(f => f.isSelected);
     this.closeTab(tab);
@@ -105,6 +160,13 @@ export class DataForm {
     // let rt2 = '#/adjprep/Searchadjprep?'
     // this.router.navigate(rt2);
   }
+
+
+
+
+
+
+
 
   toggleAll() {
     //alert(`Welcome, ${this.fullName}!`);  
