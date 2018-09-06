@@ -257,8 +257,8 @@ export class Prompt {
       this.insuredList = this.insuredList.filter((item) => {
         for (let i in this.metainmates) {
           let md = this.metainmates[i]
-          if (item.inmate[md] !== undefined) {
-            if ((item.inmate[md]).toLowerCase().search(value.toLowerCase()) != -1) return true
+          if (item.insured[md] !== undefined) {
+            if ((item.insured[md]).toLowerCase().search(value.toLowerCase()) != -1) return true
           }
         }
       });
