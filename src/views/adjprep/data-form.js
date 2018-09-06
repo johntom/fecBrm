@@ -91,10 +91,15 @@ saveCreate() {
          this.dailies=[]
      
    
-        let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + this.appService.currentpayperiod+ '.pdf'
+        let rt2 = 'https://masbackend.brmflow.com/api/v1/getoneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + this.appService.currentpayperiod+ '.pdf'
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
+         window.open(rt2, '_blank');
         // alert('rt2 ' + rt2)
-        window.open(rt2, '_blank');
+    //     setTimeout(()=>{
+    //   //  $(this.element).selectpicker("refresh");
+    //     window.open(rt2, '_blank');
+    // },300)
+      
          });
   }
 
@@ -117,7 +122,7 @@ saveCreate() {
     //${appService.currentAdjuster.ADJUSTER_NAME}'
     this.api.saveDailyAdjuster(this.dailies, status, this.appService.currentAdjuster.ADJUSTER_ID, this.appService.currentpayperiod).then((jsonRes) => {
       console.log('jsonRes mongoid:', jsonRes.data );
-         let rt2 = 'https://masbackend.brmflow.com/api/v1/oneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + this.appService.currentpayperiod+ '.pdf'
+         let rt2 = 'https://masbackend.brmflow.com/api/v1/getoneadjpdf/' + this.appService.currentAdjuster.ADJUSTER_ID + '/' + this.appService.currentpayperiod+ '.pdf'
         console.log('rt2 ' + rt2 + ' jsonRes ' + jsonRes)
         // alert('rt2 ' + rt2)
         window.open(rt2, '_blank');
