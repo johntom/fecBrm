@@ -65,7 +65,7 @@
                ${opt.CLAIM_NO}
               </option> 
             </select> -->
-            	<aubs-typeahead ref='claim' data.bind="appService.claimList" value.bind="opt" debounce.bind="350" placeholder="claims"
+            	<aubs-typeahead ref='claim' data.bind="appService.claimList" value.bind="CLAIM" debounce.bind="350" placeholder="claims"
 						 open-on-focus.bind="true" key="CLAIM_NO" results-limit.bind="20" select-single-result.bind="true">
 						</aubs-typeahead>
 					</td>
