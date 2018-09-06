@@ -59,15 +59,15 @@
           
 					<td width="125px">
 						<span show.bind="!daily.edit">${CLAIM.CLAIM_NO}</span>
-						<!-- <select show.bind="daily.edit" id="claim" class="form-control input-sm" value.two-way="CLAIM"> 
+						<select show.bind="daily.edit" id="claim" class="form-control input-sm" value.two-way="CLAIM"> 
               <option model.bind="null">Choose...</option> 
               <option repeat.for="opt of appService.claimList" model.bind="opt">
                ${opt.CLAIM_NO}
               </option> 
-            </select> -->
-            	<aubs-typeahead ref='claim' data.bind="appService.claimList" value.bind="CLAIM" debounce.bind="350" placeholder="claims"
+            </select>
+            	<!-- <aubs-typeahead ref='claim' data.bind="appService.claimList" value.bind="CLAIM" debounce.bind="350" placeholder="claims"
 						 open-on-focus.bind="true" key="CLAIM_NO" results-limit.bind="20" select-single-result.bind="true">
-						</aubs-typeahead>
+						</aubs-typeahead> -->
 					</td>
 					<td width="200px">
 						<span show.bind="!daily.edit">${WORK_DATE}</span>
